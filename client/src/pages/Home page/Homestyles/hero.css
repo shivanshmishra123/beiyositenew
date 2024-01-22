@@ -1,0 +1,57 @@
+.main{
+  min-height: 37rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+.main h1{
+  font-size: 6rem;
+  text-align: center;
+  font-weight: 500;
+}
+.main p{
+  font-size: 2rem;
+  padding-top: 3rem;
+}
+.explore{
+  height: 10vh;
+  width: 20vh;
+  border-radius: 100px;
+  outline: none;
+  background-color: black;
+  color: white;
+  font-size: 2.5vh;
+  margin-top: 6vh;
+  font-family: 'Gilda Display', serif;
+  transition: 0.6s ease-in-out;
+}
+.explore:hover{
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.explore a{
+  color: white;
+  font-weight: bold;
+}
+.parabreakk{
+  display: none;
+}
+
+@media (max-width: 412px){ 
+  .main h1{
+    font-size: 2rem;
+    margin-top: 6rem;
+  }
+  .main p{
+    margin-left: 0.8rem;
+  }
+  .main{
+    min-height: 40rem;
+  }
+  .parabreakk{
+    display: block;
+  }
+}

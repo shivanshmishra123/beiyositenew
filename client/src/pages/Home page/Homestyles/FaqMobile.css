@@ -1,0 +1,21 @@
+     .faqmobile{
+    margin: 1rem;
+    padding: 1rem;
+    margin-bottom: 0;
+   }
+   .questionsdivmobile{
+    gap: 1rem;
+   }
+   .questionsdivmobile button{
+    width: 100%;
+   }
+   .answerdivsmobile{
+    width: 100%;
+    height: 0rem;
+    overflow: hidden;
+    border: 0;
+    margin: 0;
+   }
+   .questionsmobile{
+    height: 100%;
+   }

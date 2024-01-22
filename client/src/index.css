@@ -1,0 +1,36 @@
+
+
+
+*{
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  list-style: none;
+  font-weight: 500;
+}
+body{
+  background-color: #e9f8fc;
+  
+}
+.scroll-animation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  animation: fadeInUp 2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+      transform: translate(-50%, 100%);
+      opacity: 0;
+  }
+  to {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+  }
+}

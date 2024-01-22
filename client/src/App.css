@@ -1,0 +1,31 @@
+.whatsapp{
+    position: fixed;
+    bottom: 7%;
+    right: 5%;
+    z-index: 999;
+    height :45px;
+    width: 41px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    align-items: center;
+   transition: 1s all ease;
+  }
+  .whatsapp img{
+    height: 40px;
+    width: 40px;
+  }
+  .whatsapp h3{
+    color: black;
+    white-space: nowrap;
+  }
+  .whatsapp:hover{
+    width: 164px;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 15px;
+  }
+.footerrandom{
+  width: 100px;
+  height: 100px;
+}

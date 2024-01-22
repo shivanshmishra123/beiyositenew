@@ -1,0 +1,94 @@
+.faq{
+    min-height: 35rem;
+    margin: 3rem;
+    border-radius: 10px;
+    padding: 2rem 3rem;
+   display: flex;
+   padding-top: 4rem;
+   justify-content: space-between;
+   /* display: none; */
+   position: relative;
+   border-radius: 1.375rem;
+    background: rgba(255, 255, 255, 0.76);
+    box-shadow: 0px 4px 9.9px 0px rgba(0, 0, 0, 0.25);  
+    opacity: 76%;
+}
+.questions h1{
+    font-size: 2.5rem;
+}
+
+.answers{
+    width: 40rem;
+}
+.answers h1{
+    font-size: 2.5rem;
+}
+.answerdivs{
+    width: 40rem;
+    height: 70%;
+    margin-top: 2rem;
+    border-radius: 10px;
+    position: relative;
+    border-radius: 1.75rem;
+    border: 1px solid #000;
+background: #004B61;
+
+}
+.answerdivs p{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+}
+.questionsdiv{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 70%;
+}
+.questionsdiv button{
+    border: 1px solid black;
+    border-radius: 10px;
+    height: auto;
+    width: 40rem;
+    padding: 1rem;
+    text-align: left;
+    /* background-color: transparent; */
+}
+.questionsdiv button:hover{
+    cursor: pointer;
+}
+#two{
+    background-color: black;
+    color: white;
+}
+.randomfooter{
+    height: 1000px;
+    width: 1000px;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(12, 175, 255, 0.44) 3.65%, rgba(12, 175, 255, 0.00) 89.17%);
+}
+.faqmain{
+    position: relative;
+
+}
+.randomfooterelem{
+    position: absolute;
+    bottom: -10%;
+    height: 600px;
+    width: 100%;
+    z-index: -99;
+}
+@media (max-width: 412px){ 
+    .randomfooterelem{
+        height: 100%;
+        bottom: -10%;
+    }
+    .faq{
+        display: none;
+    }
+  }

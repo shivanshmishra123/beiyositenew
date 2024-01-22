@@ -1,0 +1,52 @@
+.moving-text{
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow: hidden;
+    /* margin-top: 10vh; */
+  }
+  .con{
+      display: inline-block;
+      white-space: nowrap;
+      animation-name: move;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-duration: 8s;
+      animation-direction:normal;
+  }
+  .moving-text h1{
+      font-size: 7rem;
+      display: inline-block;
+      /* background-color: blue; */
+      font-weight: 500;
+  }
+  .moving-text::-webkit-scrollbar{
+      display: none;
+  }
+  .gola{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #73caf5;
+      display: inline-block;
+      margin: 1vw 2vw;
+  }
+  @keyframes move {
+      from{
+          transform: translateX(0);
+      }
+      to{
+          transform: translateX(-100%);
+      }
+  }
+  @media (max-width: 412px){ 
+    .moving-text h1{
+        font-size: 3.5rem;
+        display: inline-block;
+        /* background-color: blue; */
+        font-weight: 500;
+    }
+    .gola{
+        width: 30px;
+        height: 30px;
+    }
+  }
