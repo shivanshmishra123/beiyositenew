@@ -7,6 +7,7 @@ import Faq from './Home page/Faq';
 import Navbar from './Home page/Nav';
 import Hero from './Home page/Hero';
 import Scrolltext from './Home page/Scrolltext';
+import FaqMobile from './Home page/FaqMobile';
 function Homepage() {
   return (
     <>
@@ -17,6 +18,7 @@ function Homepage() {
       <Feature/>
       <Testimonial/> 
       <Faq/>
+      <FaqMobile/>
      </div>
     </>
   )

@@ -65,13 +65,13 @@ background: #004B61;
     background-color: black;
     color: white;
 }
-.randomfooter{
+/* .randomfooter{
     height: 1000px;
     width: 1000px;
     position: absolute;
     bottom: 0;
     background: linear-gradient(180deg, rgba(12, 175, 255, 0.44) 3.65%, rgba(12, 175, 255, 0.00) 89.17%);
-}
+} */
 .faqmain{
     position: relative;
 
@@ -83,7 +83,7 @@ background: #004B61;
     width: 100%;
     z-index: -99;
 }
-@media (max-width: 412px){ 
+@media (max-width: 1200px){ 
     .randomfooterelem{
         height: 100%;
         bottom: -10%;

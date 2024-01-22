@@ -91,7 +91,7 @@
       
         list-style: none;
     }
-    @media (max-width: 412px){ 
+    @media (max-width: 1200px){ 
         .nav ul{
           display: none;
         }

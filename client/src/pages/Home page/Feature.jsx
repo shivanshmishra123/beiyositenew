@@ -13,15 +13,15 @@ const Feature = () => {
   
   return (
      <>
-     <div className="feature" data-aos="fade-up"   data-aos-duration="3000"  >
-      <h1 className='featuretitle' data-aos="fade-up"   data-aos-duration="3000" >OUR SERVICES</h1>
+     <div className="feature" data-aos="fade-up"   data-aos-duration="2000"  >
+      <h1 className='featuretitle' >OUR SERVICES</h1>
       <div className="featuresection">
-        <div className="taglinefeature">
+      <div className="taglinefeature">
       <h1 className='taglinetext1'>
       YOU     NEED
         </h1>
         <h1 className='taglinetext1'>
-     THESE BUT
+      THESE BUT
         </h1>
         <h1 className='taglinetext1'>
       NO

@@ -17,7 +17,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0px 4px 22.2px rgba(0, 0, 0, 0.25);
+    /* text-shadow: 0px 4px 22.2px rgba(0, 0, 0, 0.25); */
     font-weight: 700;
 }
 .featuresection{
@@ -98,7 +98,7 @@ line-height: normal;
     bottom: -1.5em;
     right: -1.5rem;
 }
-@media (max-width: 412px){ 
+@media (max-width: 1200px){ 
 .featuresection{
     flex-direction: column;
     align-items: start;

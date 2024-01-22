@@ -38,7 +38,7 @@
           transform: translateX(-100%);
       }
   }
-  @media (max-width: 412px){ 
+  @media (max-width: 1200px){ 
     .moving-text h1{
         font-size: 3.5rem;
         display: inline-block;
