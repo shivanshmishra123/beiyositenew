@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@radix-ui/themes": "^2.0.3",
+    "@react-spring/web": "^9.7.3",
     "aos": "^3.0.0-beta.6",
     "framer-motion": "^10.18.0",
+    "gsap": "^3.12.5",
     "locomotive-scroll": "^4.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
