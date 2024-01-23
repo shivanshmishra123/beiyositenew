@@ -48,7 +48,8 @@ const RaceComponent = () => {
       <div className="racesWrapper">
         <div ref={racesRef} className="races">
     <div className="componets">
-        <h1>Introducing <br /> Commune</h1>
+        <h1>Introducing <br /> Commune <br /> 👉</h1>
+
         <div className="componentfirst">
           <p>Take part in <br />
         any Conversation <br />
