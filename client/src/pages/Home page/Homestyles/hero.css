@@ -1,80 +1,57 @@
-.main {
+.main{
   min-height: 37rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
 }
-.main h1 {
+.main h1{
   font-size: 6rem;
   text-align: center;
   font-weight: 500;
 }
-.main p {
+.main p{
   font-size: 2rem;
   padding-top: 3rem;
 }
-.explore {
-  height: 8vh;
+.explore{
+  height: 10vh;
   width: 20vh;
   border-radius: 100px;
   outline: none;
-  background-color: transparent;
-  color: black;
+  background-color: black;
+  color: white;
   font-size: 2.5vh;
   margin-top: 6vh;
-  font-family: "Gilda Display", serif;
-  /* transition: 0.6s ease-in-out; */
-  transition: all ease 0.4s;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
+  font-family: 'Gilda Display', serif;
+  transition: 0.6s ease-in-out;
 }
-
-.explore::after {
-  content: "";
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  /* background-color: #f2d55f; */
-  background-color:  #f2d55f;
-    left: 0;
-    bottom: -100%;
-    border-radius: 50%;
-    transition: all ease 0.4s;
-    z-index: -1;
-}
-.explore:hover::after{
-  bottom: 0;
-  border-radius: 0;
-}
-
-/* .explore:hover{
+.explore:hover{
   background-color: white;
   color: black;
   cursor: pointer;
-} */
+}
 
-.explore a {
+.explore a{
   color: white;
   font-weight: bold;
 }
-.parabreakk {
+.parabreakk{
   display: none;
 }
 
-@media (max-width: 1200px) {
-  .main h1 {
+@media (max-width: 412px){ 
+  .main h1{
     font-size: 2rem;
     margin-top: 6rem;
   }
-  .main p {
+  .main p{
     margin-left: 0.8rem;
   }
-  .main {
+  .main{
     min-height: 40rem;
   }
-  .parabreakk {
+  .parabreakk{
     display: block;
   }
 }

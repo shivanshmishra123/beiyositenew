@@ -1,0 +1,98 @@
+.races {
+	width:fit-content;
+	display:flex;
+	flex-wrap:nowrap;
+    overflow: hidden;
+}
+.racesWrapper{
+    overflow: hidden;
+    margin: 10rem 0rem;
+}
+.races .componets {
+	font-family: 'Staatliches', cursive;
+	height:  100vh;
+	flex-shrink:0;
+	/* background-color: red; */
+	margin:0;	
+    width: 100vw;
+    padding: 6rem;
+    display: flex;
+align-items: center;
+}
+.componets:nth-child(1){
+
+    justify-content: space-between;
+
+}
+.componets:nth-child(2){
+    justify-content: center;
+    width: 60vw;
+}
+.componets:nth-child(3){
+    justify-content: center;
+    width: 70vw;
+}
+ .componentfirst{
+    height: 43rem;
+    width: 50rem;
+    border-radius: 3.5625rem;
+    background: rgba(255, 131, 52, 0.11);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+padding: 2rem;
+padding-right: 0;
+}
+.componentfirst img{
+    height: 35rem;
+    width: 35rem;
+}
+.componentsecond img{
+    height: 35rem;
+    width: 35rem;
+}
+.componentthird img{
+    height: 35rem;
+    width: 35rem;
+}
+.componentfirst p{
+    font-size: 1.7rem;
+    width: 20rem;
+}
+.componentsecond p{
+    font-size: 1.7rem;
+    width: 20rem;
+}
+.componentthird p{
+    font-size: 1.7rem;
+    width: 20rem;
+}
+.componets:nth-child(1) h1{
+    font-size: 5rem;
+    text-align: center;
+}
+
+.componentsecond {
+   
+    height: 43rem;
+    width: 50rem;
+    border-radius: 3.5625rem;
+    background: rgba(217, 165, 174, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+padding: 2rem;
+padding-right: 0;
+}
+ .componentthird {
+    border-radius: 3.5625rem;
+    background: rgba(0, 191, 255, 0.11);
+    height: 43rem;
+    width: 50rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2rem;
+    padding-right: 0;
+}

@@ -23,7 +23,7 @@ function App() {
     <a  href="https://wa.me/918305523140">
    <div className="whatsapp">
       <img src="/images/whatsapp.svg" alt="" />
-      <h3>Chat with us</h3>
+      <h3> Chat with us</h3>
     </div>
    </a>
   <Router>

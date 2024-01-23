@@ -3,27 +3,34 @@
     bottom: 7%;
     right: 5%;
     z-index: 999;
-    height :45px;
-    width: 41px;
+    height :55px;
+    width: 55px;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
     align-items: center;
    transition: 1s all ease;
+   background-color:  #00a6a6;
+   color: white;
+   border-radius: 50%;
+  gap: 1px;
+   padding-left: 3px;
   }
   .whatsapp img{
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
   }
   .whatsapp h3{
-    color: black;
     white-space: nowrap;
+    color: white;
+    text-shadow: 0px 4px 22.2px rgba(0, 0, 0, 0.25);
   }
   .whatsapp:hover{
-    width: 164px;
+    width: 174px;
     padding: 5px;
-    background-color: #ffffff;
+    background-color: #00a6a6;
     border-radius: 15px;
+  
   }
 .footerrandom{
   width: 100px;
