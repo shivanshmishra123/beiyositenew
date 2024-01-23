@@ -7,21 +7,21 @@ import Faq from './Home page/Faq';
 import Navbar from './Home page/Nav';
 import Hero from './Home page/Hero';
 import Scrolltext from './Home page/Scrolltext';
+import FaqMobile from './Home page/FaqMobile';
 import Mainfeature from './Home page/Mainfeature';
-
-
 
 function Homepage() {
   return (
     <>
+
      <div className="homepage">
       <Hero/>
       <Scrolltext/>
       <Feature/>
       <Mainfeature/>
-      <Testimonial/>
+      <Testimonial/> 
       <Faq/>
-
+      <FaqMobile/>
      </div>
     </>
   )
