@@ -7,10 +7,11 @@
     /* background-color: red; */
     padding: 2rem 4rem;
     gap: 2rem;
+    /* justify-content: space-between; */
     justify-content: space-between;
     align-items: center;
-
 }
+
 .footercompoents:nth-child(1) p {
     width: 20rem;
 }
@@ -43,10 +44,81 @@ font-weight: 400;
 line-height: 2rem;
 
 }
+.socialmediadiv{
+    display: flex;
+    gap: 1rem;
+}
+.footercontent{
+    display:flex;
+    padding-top: 3.7rem;
+    justify-content: space-between;
+    width: 60%;
+}
+.contact{
+    font-size: 1.3rem;
+}
 .randomfooterelem{
     position: absolute;
     bottom: 0;
     height: 1000px;
     width: 100%;
     z-index: -99;
+  }
+  .ContactUsDiv ul{
+    flex-wrap: nowrap;
+  }
+  @media (max-width: 412px){ 
+    .footer{
+        flex-direction: column;
+        padding: 2rem 1rem;
+        padding-bottom: 6rem;
+        gap: 0;
+        align-items: start;
+        background: linear-gradient(206deg, #00BFFF 11.17%, rgba(12, 175, 255, 0.00) 83.68%);
+    }
+    .footercompoents:nth-child(1){
+    position: relative;
+        
+    }
+    .footercontent{
+        width: 100%;
+        gap: 0rem;
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+    .footercompoents:nth-child(1) p{
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 70%;
+    }
+    .footercompoents:nth-child(1)  img{
+        height: 10rem;
+        width: 10rem;  
+    }
+    .contact{
+        font-size: 2rem;
+    }
+    .ContactUsDiv{
+        margin-top: 3rem;
+        /* background: linear-gradient(206deg, #00BFFF 11.17%, rgba(12, 175, 255, 0.00) 83.68%); */
+    }
+    .ContactUsDiv ul{
+        display: flex;
+        justify-content: space-between;
+    }
+    .footercompoents ul li{
+white-space: nowrap;
+    }
+ .socilamedia{
+    font-size: 1.3rem;
+ }
+ .randomfooterelem{
+
+    height: 1200px;
+
+  }
+  .footercompoents{
+    margin: 0;
+  }
   }
