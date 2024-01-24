@@ -1,6 +1,6 @@
 .faq{
     min-height: 35rem;
-    margin: 3rem;
+    padding: 3rem;
     border-radius: 10px;
     padding: 2rem 3rem;
    display: flex;
@@ -75,13 +75,6 @@ background: #004B61;
 .faqmain{
     position: relative;
 
-}
-.randomfooterelem{
-    position: absolute;
-    bottom: -10%;
-    height: 600px;
-    width: 100%;
-    z-index: -99;
 }
 @media (max-width: 412px){ 
     .randomfooterelem{

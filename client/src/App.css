@@ -16,6 +16,9 @@
   gap: 1px;
    padding-left: 3px;
   }
+  .main{
+    position: relative;
+  }
   .whatsapp img{
     height: 50px;
     width: 50px;
@@ -32,7 +35,4 @@
     border-radius: 15px;
   
   }
-.footerrandom{
-  width: 100px;
-  height: 100px;
-}
+
