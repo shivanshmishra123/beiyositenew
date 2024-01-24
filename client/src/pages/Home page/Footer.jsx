@@ -37,7 +37,7 @@ const Footer = () => {
   </div>
   
 </div>
-<img src="images\Ellipse 6.png" alt="" className="randomfooterelem" />
+
 </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import "./Homestyles/mainFeatureMobile.css"
-const MainFeatureMobile = () => {
+import "./Homestyles/CommuneMobile.css"
+const CommuneMobile = () => {
   return (
     <div>
       {/* Your races wrapper element */}
@@ -41,4 +41,4 @@ with Our Community</p>
   )
 }
 
-export default MainFeatureMobile
+export default CommuneMobile

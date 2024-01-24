@@ -94,10 +94,9 @@ padding-right: 0;
     padding-right: 0;
 }
 @media (max-width: 412px){ 
-.racesWrapper
-        {
-        display: none;
-        /* flex-direction: column; */
-    }
-      }
+    .racesWrapper
+            {
+            display: none;
+        }
+          }
     

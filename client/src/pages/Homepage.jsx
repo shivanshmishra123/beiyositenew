@@ -9,6 +9,8 @@ import Hero from './Home page/Hero';
 import Scrolltext from './Home page/Scrolltext';
 import FaqMobile from './Home page/FaqMobile';
 import Mainfeature from './Home page/Mainfeature';
+import CommuneMobile from './Home page/CommuneMobile';
+
 
 
 function Homepage() {
@@ -20,7 +22,7 @@ function Homepage() {
       <Scrolltext/>
       <Feature/>
       <Mainfeature/>
-    <Mainfeature/>
+    <CommuneMobile/>
       <Testimonial/> 
       <Faq/>
       <FaqMobile/>
