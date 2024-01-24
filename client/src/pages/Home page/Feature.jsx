@@ -34,35 +34,35 @@ const Feature = () => {
     <div className="featureblock" data-aos="zoom-in-up" data-aos-duration="2000">
     <div className="featurecontent">
     <h1>WIFI</h1>
-    <img  src="/images/wifi.png" alt="" />
+    <img  src="/images/wifi.svg" alt="" />
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium dicta fuga ipsam dolore quae assumenda aliquam. Omnis accusantium saepe eos velit nam expedita itaque, rerum quod nostrum sed distinctio facere.</p>
+    <p>Experience unlimited high-speed Wi-Fi with Beiyo, setting a new standard in connectivity. Stay connected without any data-limit</p>
         <img className='rndomelem' src="/images/randomelem.svg" alt="" />
         </div>
         <div className="featureblock" data-aos="zoom-in-up"data-aos-duration="2000" >
         <div className="featurecontent">
-    <h1>WIFI</h1>
-    <img src="/images/wifi.png" alt="" />
+    <h1>Cleaning Service</h1>
+    <img src="/images/cleaning.svg" alt="" />
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium dicta fuga ipsam dolore quae assumenda aliquam. Omnis accusantium saepe eos velit nam expedita itaque, rerum quod nostrum sed distinctio facere.</p>
+    <p>You better focus on your Groove, while our team of experts ensures every corner of your room is dust-free</p>
     <img  className='rndomelem' src="/images/randomelem.svg" alt="" />
         </div>
     </div>
     <div className="featuredisplay1">
     <div className="featureblock" data-aos="zoom-in-up" data-aos-duration="2000" >
     <div className="featurecontent">
-    <h1>WIFI</h1>
-    <img src="/images/wifi.png" alt="" />
+    <h1>Purified Water</h1>
+    <img src="/images/water.svg" alt="" />
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium dicta fuga ipsam dolore quae assumenda aliquam. Omnis accusantium saepe eos velit nam expedita itaque, rerum quod nostrum sed distinctio facere.</p>
+    <p>Jaundice the surprise guest from poor water quality. No worries, our R.O. keeps you hydrated.</p>
     <img  className='rndomelem' src="/images/randomelem.svg" alt="" />
         </div>
         <div className="featureblock" data-aos="zoom-in-up" data-aos-duration="2000" >
         <div className="featurecontent">
-       <h1>WIFI</h1>
-       <img src="/images/wifi.png" alt="" />
+       <h1>Washing Machine</h1>
+       <img src="\images\washing machine.svg" alt="" />
      </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium dicta fuga ipsam dolore quae assumenda aliquam. Omnis accusantium saepe eos velit nam expedita itaque, rerum quod nostrum sed distinctio facere.</p>
+    <p>Ditch laundry hassle, We provide washing machine to keep your clothes fresh, making you the guy who turns head of every girl.</p>
     <img  className='rndomelem' src="/images/randomelem.svg" alt="" /> 
         </div>
     </div>

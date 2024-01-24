@@ -54,33 +54,33 @@ const Testimonial = () => {
       <SwiperSlide>
         <div className="testimonialsection">
           <img src="/images/firstprofile.svg" alt="" />
-          <h6>Daksh <br /> Baxi</h6>
+          <h6>Harsh <br /> Jain</h6>
           <p>
-          Impressed by the cleanliness, spacious rooms, and excellent facilities. Reliable water, great Wi-Fi—a student's haven. Friendly staff. Highly recommend!</p>
+          Living here in beiyo is a game-changer! Great community, awesome facilities, and the staff rocks. Feels like family away from home. Highly recommend!</p>
          
         </div>
         </SwiperSlide>
       <SwiperSlide>
         <div className="testimonialsection">
         <img src="/images/firstprofile.svg" alt="" />
-        <h6>Daksh <br /> Baxi</h6>
+        <h6>Deepak <br /> Sharma</h6>
           <p>
-          Impressed by the cleanliness, spacious rooms, and excellent facilities. Reliable water, great Wi-Fi—a student's haven. Friendly staff. Highly recommend!</p>
+          This type of living is a gem! From the welcoming community to the fantastic facilities, it's been an amazing student living experience.</p>
      
         </div>
        </SwiperSlide>
       <SwiperSlide>
         <div className="testimonialsection">
         <img src="/images/firstprofile.svg" alt="" />
-        <h6>Daksh <br /> Baxi</h6>
-          <p>Impressed by the cleanliness, spacious rooms, and excellent facilities. Reliable water, great Wi-Fi—a student's haven. Friendly staff. Highly recommend!</p>
+        <h6>Mukul <br /> Gupta</h6>
+          <p>Couldn't have asked for a better  experience! Living here has genuinely enriched my 'student life' – it's more than four walls around you; it's a home away from home.</p>
     
         </div>
         </SwiperSlide>
       <SwiperSlide>
         <div className="testimonialsection">
         <img src="/images/firstprofile.svg" alt="" />
-        <h6>Daksh <br /> Baxi</h6>
+        <h6>Ashutosh <br /> Tignath</h6>
           <p>Impressed by the cleanliness, spacious rooms, and excellent facilities. Reliable water, great Wi-Fi—a student's haven. Friendly staff. Highly recommend!</p>
        
         </div>
@@ -88,16 +88,16 @@ const Testimonial = () => {
     <SwiperSlide> 
       <div className="testimonialsection">
       <img src="/images/firstprofile.svg" alt="" />
-      <h6>Daksh <br /> Baxi</h6>
-        <p>Impressed by the cleanliness, spacious rooms, and excellent facilities. Reliable water, great Wi-Fi—a student's haven. Friendly staff. Highly recommend!</p>
+      <h6>Shivam <br /> Gupta</h6>
+        <p>I'm thoroughly impressed with the cleanliness and hygiene of this hostel. The facilities are top notch, and the staff is warm and accommodating. Spaciousrooms, reliable water supply,excellent Wi-Fi—truly a student's haven!</p>
       </div>
       </SwiperSlide>
     <SwiperSlide>
       <div className="testimonialsection">
 
       <img src="/images/firstprofile.svg" alt="" />
-      <h6>Daksh <br /> Baxi</h6>
-        <p>Impressed by the cleanliness, spacious rooms, and excellent facilities. Reliable water, great Wi-Fi—a student's haven. Friendly staff. Highly recommend!</p>
+      <h6>Devansh <br /> Porwal</h6>
+        <p>The reliable water supply, excellent Wi-Fi, and attentive staff contribute to a positive living experience for students. Highly recommended!</p>
        
       </div>
      </SwiperSlide>

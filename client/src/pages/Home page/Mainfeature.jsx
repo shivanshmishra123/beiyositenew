@@ -52,7 +52,7 @@ const RaceComponent = () => {
 
         <div className="componentfirst">
           <p>Take part in <br />
-        any Conversation <br />
+        any <span className='Conversation'>Conversation</span> <br />
       that interests you, <br />
         with Our Community</p>
             <img src="/images/firstmobile.svg" alt="" />
@@ -60,19 +60,18 @@ const RaceComponent = () => {
     </div>
     <div className="componets">
     <div className="componentsecond">
-          <p>Take part in <br />
-any Conversation <br />
-that interests you, <br />
-with Our Community</p>
+          <p><span className="anonymous">Don’t Wanna<br />
+          Show your Identity <br />
+          so its totally </span><br /> 
+          Anonymous</p>
             <img src="/images/secondMobile.svg" alt="" />
         </div>
     </div>
     <div className="componets">
     <div className="componentthird">
-          <p>Take part in <br />
-any Conversation <br />
-that interests you, <br />
-with Our Community</p>
+          <p> <span className="oneToOne">One-to-One </span>mentors<br />
+          with regular <br />
+          Informative Sessions</p>
             <img src="/images/thirdMobile.svg" alt="" />
         </div>
     </div>
