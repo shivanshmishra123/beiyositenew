@@ -20,9 +20,7 @@
 align-items: center;
 }
 .componets:nth-child(1){
-
     justify-content: space-between;
-
 }
 .componets:nth-child(2){
     justify-content: center;
@@ -73,7 +71,6 @@ padding-right: 0;
 }
 
 .componentsecond {
-   
     height: 43rem;
     width: 50rem;
     border-radius: 3.5625rem;
@@ -97,8 +94,10 @@ padding-right: 0;
     padding-right: 0;
 }
 @media (max-width: 412px){ 
-    .racesWrapper{
+.racesWrapper
+        {
         display: none;
+        /* flex-direction: column; */
     }
       }
     

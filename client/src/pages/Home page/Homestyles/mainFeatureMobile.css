@@ -1,0 +1,71 @@
+.racesWrapperMobile{
+    margin: 3rem 1rem;
+    display: none;
+}
+.racesMobile{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.racesMobile h1{
+    margin: 2rem 0rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2.3rem;
+}
+.racesMobile .componetsMobile .componentMobilefirst{
+    min-height: 43rem;
+    border-radius: 3.5625rem;
+    background: rgba(255, 131, 52, 0.11);    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0rem;
+}
+.racesMobile .componetsMobile .componentMobilesecond{
+    min-height: 43rem;
+    border-radius: 3.5625rem;
+    background: rgba(217, 165, 174, 0.16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0rem;
+}
+.racesMobile .componetsMobile .componentMobilethird{
+    border-radius: 3.5625rem;
+    border-radius: 3.5625rem;
+    background: rgba(0, 191, 255, 0.11);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0rem;
+}
+.racesMobile .componetsMobile .componentMobilethird p{
+    text-align: center;
+    margin: 0 3rem;
+    font-size: 1.2rem;
+}
+.racesMobile .componetsMobile .componentMobilefirst p{
+    text-align: center;
+    margin: 0 3rem;
+    font-size: 1.2rem;
+}
+
+.racesMobile .componetsMobile .componentMobilesecond p{
+    text-align: center;
+    margin: 0 3rem;
+    font-size: 1.2rem;
+}
+@media (max-width: 412px){ 
+    .racesWrapperMobile
+            {
+            display: block;
+            /* flex-direction: column; */
+        }
+          }

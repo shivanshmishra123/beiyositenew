@@ -1,10 +1,6 @@
 import React from 'react'
 import './Homestyles/feature.css'
 
-import { Scrollbar, Pagination ,FreeMode } from 'swiper/modules';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/scrollbar';
