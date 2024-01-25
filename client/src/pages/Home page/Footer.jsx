@@ -13,16 +13,16 @@ const Footer = () => {
  <div className="footercontent">
  <div className="footercompoents">
     <ul>
-      <li>About us</li>
-      <li>Our Team</li>
-      <li>Partner with us</li>
+    <a href="/about"><li>About us</li></a>
+      <a href=""><li>Our Team</li></a>
+      <a href=""><li>Partner with us</li></a>
     </ul>
   </div>
   <div className="footercompoents">
   <ul>
-      <li>Privacy Policy</li>
-      <li>T&C</li>
-      <li>Cookie Policy</li>
+      <a href=""><li>Privacy Policy</li></a>
+      <a href=""><li>T&C</li></a>
+      <a href=""><li>Cookie Policy</li></a>
     </ul>
   </div>
   <div className="ContactUsDiv">
@@ -32,10 +32,9 @@ const Footer = () => {
       <p className='mail'>Mail:- beiyo.work@gmail.com</p>
      </div>
      <div className="socialmediadiv">
-     <p className='socilamediaMobile' ><img src="/images/Linkedin.svg" alt="" /></p>
-      <p className='socilamediaMobile' ><img src="/images/Instagram.svg" alt="" /></p>
-      <p className='socilamediaMobile'><img src="/images/Twitter.svg" alt="" /></p>
-   
+     <a href="https://in.linkedin.com/company/beiyo" target="_blank"><p className='socilamediaMobile' ><img src="/images/Linkedin.svg" alt="" /></p></a>
+     <a href="https://www.instagram.com/beiyo.in/" target="_blank"><p className='socilamediaMobile' ><img src="/images/Instagram.svg" alt="" /></p></a>
+     <a href="https://www.threads.net/@beiyo.in/" target="_blank"><p className='socilamediaMobile' ><img src="/images/Twitter.svg" alt="" /></p></a>
      </div>
    
    
