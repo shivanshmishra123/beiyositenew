@@ -47,6 +47,7 @@ line-height: 2rem;
 .socialmediadiv{
     display: flex;
     gap: 1rem;
+    padding-top: 1rem;
 }
 .footercontent{
     display:flex;
@@ -64,8 +65,10 @@ line-height: 2rem;
     width: 100%;
     z-index: -99;
   }
+  
   .ContactUsDiv ul{
     flex-wrap: nowrap;
+    
   }
   @media (max-width: 412px){ 
     .footer{
