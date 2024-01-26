@@ -1,0 +1,61 @@
+.hostelMainpage{
+    margin-top: 2rem;
+    padding: 1rem 6.3rem;
+    padding-right: 13rem;
+}
+.Hostelheading{
+    color: #008993FC;
+    letter-spacing: 0.3rem;
+}
+.mainHead{
+    color: #000;
+font-size: 2.375rem;
+font-weight: 600;
+}
+.hostels{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+.single-hostel{
+    height: 18rem;
+    border-radius: 3.125rem;
+    background: #FFF;
+    box-shadow: 0px 4px 31px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    padding-right: 2rem;
+}
+.hostelimage{
+    height: 18rem;
+}
+.hostelContentdiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+}
+.namediv h1{
+     color: #101720;
+    font-size: 2.125rem;
+    font-weight: 500;
+}
+.address{
+    display: flex;
+    justify-content: space-between;
+}
+.address p{
+    color: #000;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+
+}
+.address a{
+    color: rgba(0, 137, 147, 0.99);
+    font-size: 0.5rem;
+    font-weight: 400;
+}
+.pricediv{
+    display: flex;
+    justify-content: space-between;
+}
