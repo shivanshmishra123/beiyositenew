@@ -1,10 +1,12 @@
 const {  mongoose } = require("mongoose");
-
+const { config } = require('dotenv');
 const Hostel = require("./models/Hostel");
-
+config();
 const connectDB = async ()=>{
     try{
-        await mongoose.connect(process.env.MONGODB_URI,{
+        const uri = process.env.MONGODB_URI;
+        console.log('MongoDB URI:', uri);
+        await mongoose.connect(uri,{
             useNewUrlParser: true,
       useUnifiedTopology: true,
         })

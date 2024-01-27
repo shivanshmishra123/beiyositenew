@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './HostelStyles/hostelmain.css'
+import Testimonial from './Home page/Testimonial';
 const Hostel = () => {
     const [hostels, setHostels] = useState([]);
   
@@ -12,7 +13,6 @@ const Hostel = () => {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
-    
           const data = await response.json();
           setHostels(data);
         } catch (error) {
@@ -56,6 +56,7 @@ const Hostel = () => {
           </div>
       ))}
       </div>
+      <Testimonial/>
     </div>
   )
 }
