@@ -4,9 +4,8 @@ const Hostel = require("./models/Hostel");
 config();
 const connectDB = async ()=>{
     try{
-        const uri = process.env.MONGODB_URI;
-        console.log('MongoDB URI:', uri);
-        await mongoose.connect(uri,{
+    
+        await mongoose.connect("mongodb+srv://beiyotech:Uogzx9novOOek52s@cluster0.gxdcwng.mongodb.net/?retryWrites=true&w=majority",{
             useNewUrlParser: true,
       useUnifiedTopology: true,
         })
