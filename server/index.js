@@ -8,8 +8,9 @@ const app = express();
 config();
 app.use(cors());
 connectDB();
+const BASEURI = process.env.BASEURI;
 const PORT = process.env.PORT || 5000;
-app.get('/api/hostel',async (req,res)=>{
+app.get(BASE_URI,async (req,res)=>{
     try {
         const hostel = await Hostel.find();
         res.status(200).json(hostel);
