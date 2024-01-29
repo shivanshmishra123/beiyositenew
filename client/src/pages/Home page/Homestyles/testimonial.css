@@ -100,6 +100,7 @@ line-height: normal;
   }
   .swiper{
     border-radius: 1.3125rem;
+    
   }
   .swiper .swiper-slide {
     box-shadow: none;
@@ -120,5 +121,16 @@ line-height: normal;
   }
   .testimonialsection{
     margin-bottom: 0;
+    width: 100%;
+  }
+  .testimonialsection h6{
+    font-size: 2rem;
+    
+  }
+  .testimonialsection img{
+    margin-left: 1rem;
+  }
+  .testimonialsection p{
+    margin-left: 1rem;
   }
 }

@@ -74,6 +74,7 @@ padding-right: 0;
 .Conversation{
     color: #4F0CA5;
     font-weight: 650;
+    padding-right: 5px;
 }
 .anonymous{
     color: #8F0017;

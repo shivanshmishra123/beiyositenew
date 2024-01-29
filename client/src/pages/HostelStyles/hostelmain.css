@@ -7,6 +7,10 @@
     color: #008993FC;
     letter-spacing: 0.3rem;
 }
+.Hostelheading a{
+    color: #008993FC;
+    letter-spacing: 0.3rem;
+}
 .mainHead{
     color: #000;
 font-size: 2.375rem;
@@ -187,7 +191,7 @@ font-weight: 500;
         left: 9rem;
     }
 
-    .pricediv button{
+    .pricediv a button{
         width: 21rem;
     }
     }

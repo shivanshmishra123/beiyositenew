@@ -24,7 +24,9 @@ const Hostel = () => {
     }, []);
   return (
     <div className='hostelMainpage' >
-      <p className='Hostelheading'>Beiyo/Hostel</p>
+      <p className='Hostelheading'>
+        <a href="/">Beiyo</a>/Hostel
+      </p>
       <h1 className="mainHead">
       Explore Our PG/Hostels in Indore
       </h1>
@@ -52,9 +54,11 @@ const Hostel = () => {
          {/* <button className="requestCallBAckForm">
             View Details
             </button> */}
-            <button className="requestCallBAckForm">
+           <a href="https://forms.gle/vLeURBFpqA9ZQgEcA">
+           <button className="requestCallBAckForm">
             Request a callBack
             </button>
+           </a>
          </div>
           </div>
           </div>
