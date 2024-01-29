@@ -35,23 +35,35 @@ const Hostel = () => {
           <div className="namediv">
            <h1>{hostel.name}</h1>
           <div className="address">
-           <p>{hostel.location}</p>
+           <div style={{display:"flex"}}> <img src="images\location_Marker.svg" alt="" />
+           <p>{hostel.location}</p></div>
           <a href={hostel.locationLink}>View Directions on Map</a>
           </div>
           </div>
           <div className="pricediv">
-          <p>
-            Starting from <br /> {hostel.price}/mo*
+         <div>
+         <p>
+            Starting from  
           </p>
+          <p className='price'><img src="images\rupee.svg" alt="" />{hostel.price}/mo*</p>
+         </div>
          <div className="buttonhosteldiv">
-         <button className="requestCallBAckForm">
+         {/* <button className="requestCallBAckForm">
             View Details
-            </button>
+            </button> */}
             <button className="requestCallBAckForm">
             Request a callBack
             </button>
          </div>
           </div>
+          </div>
+          <div className="double">
+            <img src="images/double.svg" alt="" />
+            <p>Double</p>
+          </div>
+          <div className="triple">
+            <img src="images/triple.svg" alt="" />
+            <p>Triple</p>
           </div>
           </div>
       ))}
