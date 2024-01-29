@@ -68,7 +68,7 @@ const Hostel = () => {
           </div>
       ))}
       </div>
-      <Testimonial/>
+      
     </div>
   )
 }
