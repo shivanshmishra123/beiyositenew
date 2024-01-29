@@ -8,7 +8,7 @@ const Hostel = () => {
       // Fetch hostels from the database
       const fetchHostels = async () => {
         try {
-          const response = await fetch('http://localhost:5000/api/hostel');
+          const response = await fetch('https://adksh-backend.onrender.com/api/hostel');
           
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
