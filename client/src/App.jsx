@@ -20,7 +20,7 @@ function App() {
   return (
     <div id='main'>
     <Navbar/>
-    <a  href="https://wa.me/918305523140">
+    <a  href="https://wa.me/918305523140" target="_blank">
    <div className="whatsapp">
       <img src="/images/whatsapp.svg" alt="" />
       <h3> Chat with us</h3>
