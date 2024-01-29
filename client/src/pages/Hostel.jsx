@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './HostelStyles/hostelmain.css'
 import Testimonial from './Home page/Testimonial';
+import Form from '../components/Form';
 const Hostel = () => {
     const [hostels, setHostels] = useState([]);
   
@@ -30,7 +31,7 @@ const Hostel = () => {
       <div className="hostels">
       {hostels.map((hostel)=>(
         <div key={hostel.id} className="single-hostel" >
-          <img src="images/Hostel image/hostel1.svg" alt="" className='hostelimage'/>
+          <img src="images\Hostel image\hostel2.png" alt="" className='hostelimage'/>
           <div className="hostelContentdiv">
           <div className="namediv">
            <h1>{hostel.name}</h1>
@@ -68,7 +69,6 @@ const Hostel = () => {
           </div>
       ))}
       </div>
-      
     </div>
   )
 }
