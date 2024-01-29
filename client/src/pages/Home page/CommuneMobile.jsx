@@ -11,7 +11,7 @@ const CommuneMobile = () => {
 
         <div data-aos="zoom-in-up" data-aos-duration="1000" className="componentMobilefirst">
           <p>Take part in 
-        any Conversation 
+        any <span className='Conversation'>Conversation</span>
       that interests you, 
         with Our Community</p>
             <img src="/images/firstmobile.svg" alt="" />
@@ -19,19 +19,18 @@ const CommuneMobile = () => {
     </div>
     <div className="componetsMobile">
     <div data-aos="zoom-in-up" data-aos-duration="1000" className="componentMobilesecond">
-          <p>Take part in 
-        any Conversation 
-        that interests you,
-        with Our Community</p>
+    <p><span className="anonymous">Don’t Wanna
+          Show your Identity 
+          so its totally </span>
+          Anonymous</p>
             <img src="/images/secondMobile.svg" alt="" />
         </div>
     </div>
     <div className="componetsMobile">
     <div data-aos="zoom-in-up" data-aos-duration="1000" className="componentMobilethird">
-          <p>Take part in 
-any Conversation
-that interests you,
-with Our Community</p>
+    <p> <span className="oneToOne">One-to-One </span>mentors
+          with regular 
+          Informative Sessions</p>
             <img src="/images/thirdMobile.svg" alt="" />
         </div>
     </div>

@@ -25,15 +25,15 @@ function Navbar() {
            <a href="/"> <img className='logo' src="images\beiyo_logo2.svg" alt="" /></a>
                 <ul>
                 <a href="/hostel"><li><p>Hostels</p></li></a>
-                <a href="/list_form.pdf" download="list-form.pdf"><li><p>List</p></li></a>
+                <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List</p></li></a>
                 <a href="/about"><li><p>About us</p></li></a>
                 </ul>
-               <p className='menu'onClick={toggleMobileMenu} > M Menu</p>
+               <p className='menu'onClick={toggleMobileMenu} > Menu</p>
   </div>
   <div className="mobilenav">
                 <ul>
                 <a href="/hostel"><li><p>Hostels</p></li></a>
-                <a href="/list_form.pdf" download="list-form.pdf"><li><p>List</p></li></a>
+                <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List</p></li></a>
                 <a href="/about"><li><p>About us</p></li></a>
                 </ul>
   </div>

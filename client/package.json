@@ -13,6 +13,7 @@
     "@radix-ui/themes": "^2.0.3",
     "@react-spring/web": "^9.7.3",
     "aos": "^3.0.0-beta.6",
+    "axios": "^1.6.7",
     "framer-motion": "^10.18.0",
     "gsap": "^3.12.5",
     "locomotive-scroll": "^4.1.4",

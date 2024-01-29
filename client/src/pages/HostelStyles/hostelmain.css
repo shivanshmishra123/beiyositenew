@@ -7,6 +7,10 @@
     color: #008993FC;
     letter-spacing: 0.3rem;
 }
+.Hostelheading a{
+    color: #008993FC;
+    letter-spacing: 0.3rem;
+}
 .mainHead{
     color: #000;
 font-size: 2.375rem;
@@ -19,27 +23,69 @@ font-weight: 600;
     gap: 2rem;
 }
 .single-hostel{
-    height: 18rem;
+    height: 17rem;
     border-radius: 3.125rem;
     background: #FFF;
     box-shadow: 0px 4px 31px -12px rgba(0, 0, 0, 0.25);
     display: flex;
     padding-right: 2rem;
-    
+    position: relative;  
+}
+.single-hostel:hover{
+ box-shadow: 0px 4px 31px -4px rgba(0, 0, 0, 0.25);
+}
+.double{
+    border-radius: 1.25rem;
+    background: rgba(217, 217, 217, 0.45);
+    width: 7rem;
+    height: 2.25rem;
+    position: absolute;
+    z-index: 111;
+    top: 1rem;
+    right: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.double img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.triple{
+    border-radius: 1.25rem;
+    background: rgba(217, 217, 217, 0.45);
+    width: 7rem;
+    height: 2.25rem;
+    position: absolute;
+    z-index: 111;
+    top: 1rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.triple img{
+    width: 1.5rem;
+    height: 1.5rem;
 }
 .hostelimage{
-    height: 18rem;
+    height: 17rem;
+    border-radius: 3.125rem 0rem 0rem 3.125rem;
+    width: 23rem;
 }
 .hostelContentdiv{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 70%;
+    margin-left: 1rem;
+   margin-top: 1rem;
 }
 .namediv h1{
      color: #101720;
     font-size: 2.125rem;
     font-weight: 500;
+    margin-bottom: 1rem;
 }
 .address{
     display: flex;
@@ -47,17 +93,106 @@ font-weight: 600;
 }
 .address p{
     color: #000;
-font-size: 1rem;
+font-size: 1.3rem;
 font-style: normal;
 font-weight: 400;
-
+}
+.address img{
+    height: 1.5rem;
+    width: 1.5rem;
 }
 .address a{
     color: rgba(0, 137, 147, 0.99);
-    font-size: 0.5rem;
+    font-size: 1rem;
     font-weight: 400;
+    color: rgba(0, 137, 147, 0.99);
+    font-family: Inter;
+    font-size: 1.rem;
 }
 .pricediv{
     display: flex;
     justify-content: space-between;
 }
+.pricediv img{
+    width: 1rem;
+    height: 1rem;
+}
+.price{
+    color: #000;
+
+font-size: 1.25rem;
+font-weight: 500;
+}
+.requestCallBAckForm{
+    border-radius: 0.6875rem;
+    background: rgba(139, 223, 255, 0.90);
+    width: 15rem;
+    height: 3rem;
+    color: #002C39;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+@media (max-width: 412px){ 
+    .hostelMainpage{
+        margin-top: 2rem;
+        padding: 0rem 0rem;
+        padding-right: 0rem;
+        padding-left: 1rem;
+    }
+    .single-hostel{
+        min-height: 40rem;
+        border-radius: 3.125rem;
+        background: #FFF;
+        box-shadow: 0px 4px 31px -12px rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        padding-right: 2rem;
+        position: relative;  
+        margin: 1rem;
+        margin-left: 0rem;
+        }
+    .address p{
+        font-size: 1rem;
+        padding: 0;
+        margin: 0;
+    }
+    .address{
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .hostelimage{
+        height: 17rem;
+        width:  22.6rem;
+        border-radius: 3.125rem 3.125rem 0rem 0rem;
+    }
+    .hostelContentdiv{
+        padding: 0;
+        margin: 0;
+        margin-left: 1rem;
+        width: 100%;
+    }
+    .namediv h1{
+        margin-top: 1rem;
+    }
+    .pricediv{
+        flex-direction: column;
+        gap: 5rem;
+    }
+    .double{
+        top: 30rem;
+        left: 1rem;
+    }
+    .triple{
+        top: 30rem;
+        left: 9rem;
+    }
+
+    .pricediv a button{
+        width: 21rem;
+    }
+    }
+    

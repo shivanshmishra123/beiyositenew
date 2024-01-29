@@ -5,7 +5,7 @@
 .racesMobile{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
 }
 .racesMobile h1{
     margin: 2rem 0rem;
@@ -14,7 +14,7 @@
     font-size: 2.3rem;
 }
 .racesMobile .componetsMobile .componentMobilefirst{
-    min-height: 43rem;
+    min-height: 20rem;
     border-radius: 3.5625rem;
     background: rgba(255, 131, 52, 0.11);    
     display: flex;
@@ -24,8 +24,18 @@
     gap: 2rem;
     padding: 2rem 0rem;
 }
+.componentMobilefirst img{
+    height: 20rem;
+}
+.componentMobilesecond img{
+    height: 20rem;
+}
+.componentMobilethird img{
+    height: 20rem;
+}
+
 .racesMobile .componetsMobile .componentMobilesecond{
-    min-height: 43rem;
+    min-height: 20rem;
     border-radius: 3.5625rem;
     background: rgba(217, 165, 174, 0.16);
     display: flex;
@@ -45,7 +55,9 @@
     flex-direction: column;
     gap: 2rem;
     padding: 2rem 0rem;
+    min-height: 20rem;
 }
+
 .racesMobile .componetsMobile .componentMobilethird p{
     text-align: center;
     margin: 0 3rem;
