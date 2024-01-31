@@ -41,7 +41,7 @@ export default FaqMobile;
 
 function click1() {
   document.querySelector("#oneMobile p").innerHTML =
-    "Bluelearn is a community where you can learn skills, network with smart people, and find work. Download the bluelearn app to find all these opportunities.";
+    "BEIYO stands as the ultimate answer to all your accommodation needs during your journey, offering an unparalleled co-living experience at the most budget-friendly prices.";
   document
     .querySelector("#oneMobile")
     .setAttribute(
@@ -76,8 +76,8 @@ function click1() {
     );
 }
 function click2() {
-    document.querySelector("#twoMobile p").innerHTML =
-      "Bluelearn is a community where you can learn skills, network with smart people, and find work. Download the bluelearn app to find all these opportunities.";
+    document.querySelector("#twoMobile p").innerHTML = 
+      "BEIYO collaborates with hostel and PG owners to elevate their facilities from grade 3 ratings to grade 1 standards. We take charge of comprehensive property management, ensuring tenants an unforgettable and seamless experience.";
     document
       .querySelector("#twoMobile")
       .setAttribute(
@@ -114,7 +114,7 @@ function click2() {
 
   function click3() {
     document.querySelector("#threeMobile p").innerHTML =
-      "Bluelearn is a community where you can learn skills, network with smart people, and find work. Download the bluelearn app to find all these opportunities.";
+      ".";
     document
       .querySelector("#threeMobile")
       .setAttribute(
@@ -151,7 +151,7 @@ function click2() {
 
   function click4() {
     document.querySelector("#fourMobile p").innerHTML =
-      "Bluelearn is a community where you can learn skills, network with smart people, and find work. Download the bluelearn app to find all these opportunities.";
+      ".";
     document
       .querySelector("#fourMobile")
       .setAttribute(
@@ -188,7 +188,7 @@ function click2() {
 
   function click5() {
     document.querySelector("#fiveMobile p").innerHTML =
-      "Bluelearn is a community where you can learn skills, network with smart people, and find work. Download the bluelearn app to find all these opportunities.";
+      "Recommend BEIYO to your friends and receive a 10% commission on the first month's rental cost for each successful referral.";
     document
       .querySelector("#fiveMobile")
       .setAttribute(
