@@ -54,7 +54,8 @@ const Feature = () => {
     <h1>Purified Water</h1>
     <img src="/images/water.svg" alt="" />
     </div>
-    <p>Jaundice the surprise guest from poor water quality. No worries, our R.O. keeps you hydrated.</p>
+    <p>Our R.O. keeps you hydrated, No worries for Jaundice the surprise guest from poor water quality.</p>
+    
     <img  className='rndomelem' src="/images/randomelem.svg" alt="" />
         </div>
         <div className="featureblock" data-aos="zoom-in-up" data-aos-duration="2000" >

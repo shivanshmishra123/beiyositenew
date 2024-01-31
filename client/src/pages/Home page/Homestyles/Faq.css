@@ -40,7 +40,7 @@ background: #004B61;
     top: 10%;
     left: 5%;
     font-size: 1rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: white;
 }
 .questionsdiv{
