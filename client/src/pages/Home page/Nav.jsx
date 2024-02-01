@@ -7,7 +7,7 @@ function Navbar() {
     const x = document.querySelector('.mobilenav');
     const y = document.querySelector('.homepage');
     if (x.style.height === '0px' || x.style.height === '') {
-      x.style.height = '24rem';
+      x.style.height = '22rem';
       y.setAttribute('style', ' zIndex:  0 ;  opacity:  0.3 ; pointerEvents: none; transition: opacity 0.3s ease-in-out')
       y.addEventListener("click",function(){
         x.style.height = '0px';
@@ -28,7 +28,7 @@ function Navbar() {
                 <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List</p></li></a>
                 <a href="/about"><li><p>About us</p></li></a>
                 </ul>
-               <p className='menu'onClick={toggleMobileMenu} > Menu</p>
+           <img className='menubtn' src="images\menuicon.svg" alt="" onClick={toggleMobileMenu} />
   </div>
   <div className="mobilenav">
                 <ul>

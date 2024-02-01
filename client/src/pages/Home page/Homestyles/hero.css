@@ -3,7 +3,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
+  padding-top: 10rem;  
+ 
 }
 .main h1{
   font-size: 6rem;
@@ -60,19 +62,58 @@
 .parabreakk{
   display: none;
 }
+.lineBreakHero{
+  display: none;
+}
+.imagediv{
+  display: none;
+}
 
 @media (max-width: 412px){ 
   .main h1{
-    font-size: 2rem;
-    margin-top: 6rem;
+    font-size: 3rem;
+    /* margin-top: 6rem; */
+    text-align: left;
+    margin-left: 5vw;
+    /* line-height: 3.2rem; */
+    margin-top: 8rem;
   }
+  .lineBreakHero{
+    display: block;
+  }
+  .explore{
+    position: absolute;
+    bottom: 4rem;
+    left: 7.5rem;
+    border: 0.5px solid #000;
+background: #FFF;
+  }
+  .imagediv{
+    display: block;
+    width: 100vw;
+    height: 20rem;
+    background-image: url(images/heroSectionimg.svg);
+
+    }
   .main p{
     margin-left: 0.8rem;
+    display: none;
   }
   .main{
     min-height: 40rem;
+    padding-top: 0;
+    background: linear-gradient(180deg, #73CAF5 0%, rgba(255, 255, 255, 0.00) 100%);
+    position: relative;
+    gap: 2rem;
+  }
+  .perfect{
+    font-weight: 800;
   }
   .parabreakk{
     display: block;
+  }
+  .menubtn {
+    display: block;
+    height: 2.8rem;
   }
 }

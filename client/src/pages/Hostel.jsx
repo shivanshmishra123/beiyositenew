@@ -4,11 +4,13 @@ import Testimonial from './Home page/Testimonial';
 import Form from '../components/Form';
 const Hostel = () => {
     const [hostels, setHostels] = useState([]);
+    const [loading,setLoading] = useState(false);
   
     useEffect(() => {
       // Fetch hostels from the database
       const fetchHostels = async () => {
         try {
+          setLoading(true);
           const response = await fetch('https://adksh-backend.onrender.com/api/hostel');
           
           if (!response.ok) {
@@ -18,6 +20,9 @@ const Hostel = () => {
           setHostels(data);
         } catch (error) {
           console.error('Error fetching hostels:', error.message);
+        }
+        finally{
+          setLoading(false)
         }
       };
       fetchHostels();
@@ -30,7 +35,12 @@ const Hostel = () => {
       <h1 className="mainHead">
       Explore Our PG/Hostels in Indore
       </h1>
-      <div className="hostels">
+      {loading?(
+        <div className="laodingscreen">
+          Hostel are Loading
+        </div>
+      ):(
+        <div className="hostels">
       {hostels.map((hostel)=>(
         <div key={hostel.id} className="single-hostel" >
           <img src="images\Hostel image\hostel2.png" alt="" className='hostelimage'/>
@@ -72,7 +82,9 @@ const Hostel = () => {
           </div>
           </div>
       ))}
-      </div>
+      </div> 
+      )}
+  
     </div>
   )
 }
