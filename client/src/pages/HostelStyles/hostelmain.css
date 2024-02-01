@@ -1,12 +1,29 @@
 .hostelMainpage{
-    margin-top: 2rem;
+   position: relative;
     padding: 1rem 6.3rem;
+    padding-top: 8rem;
     padding-right: 13rem;
 }
 .Hostelheading{
     color: #008993FC;
     letter-spacing: 0.3rem;
 }
+.laodingscreen{
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* loader */
+.laodingscreen h1{
+    font-size: 3rem;
+    font-weight: 600;
+}
+.laodingscreen p{
+    font-size: 2rem;
+}
+
 .Hostelheading a{
     color: #008993FC;
     letter-spacing: 0.3rem;
@@ -136,11 +153,18 @@ font-weight: 500;
     border: none;
 }
 @media (max-width: 412px){ 
+    .laodingscreen h1{
+        font-size: 2rem;
+    }
+    .laodingscreen p{
+        font-size: 1rem;
+    }
     .hostelMainpage{
-        margin-top: 2rem;
+       
         padding: 0rem 0rem;
         padding-right: 0rem;
         padding-left: 1rem;
+        padding-top: 8rem;
     }
     .single-hostel{
         min-height: 40rem;

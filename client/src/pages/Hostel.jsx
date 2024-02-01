@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './HostelStyles/hostelmain.css'
-import Testimonial from './Home page/Testimonial';
-import Form from '../components/Form';
 const Hostel = () => {
     const [hostels, setHostels] = useState([]);
     const [loading,setLoading] = useState(false);
@@ -12,10 +10,6 @@ const Hostel = () => {
         try {
           setLoading(true);
           const response = await fetch('https://adksh-backend.onrender.com/api/hostel');
-          
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
           const data = await response.json();
           setHostels(data);
         } catch (error) {
@@ -37,7 +31,8 @@ const Hostel = () => {
       </h1>
       {loading?(
         <div className="laodingscreen">
-          Hostel are Loading
+         <h1>Hostels are Loading...</h1>
+          <p>Thanks for Your Patience</p>
         </div>
       ):(
         <div className="hostels">
