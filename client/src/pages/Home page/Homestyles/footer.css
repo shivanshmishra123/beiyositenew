@@ -51,13 +51,21 @@ line-height: 2rem;
     padding-top: 1rem;
 }
 .footercontent{
+    /* padding-left: 20rem; */
     display:flex;
     padding-top: 3.7rem;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: 10rem ;
     width: 60%;
+}
+.contactmaildiv{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 .contact{
     font-size: 1.3rem;
+    
 }
 .randomfooterelem{
     position: absolute;

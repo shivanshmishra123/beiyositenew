@@ -25,7 +25,7 @@ function Navbar() {
            <a href="/"> <img className='logo' src="images\beiyo_logo2.svg" alt="" /></a>
                 <ul>
                 <a href="/hostel"><li><p>Hostels</p></li></a>
-                <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List</p></li></a>
+                <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List Your Property</p></li></a>
                 <a href="/about"><li><p>About us</p></li></a>
                 </ul>
            <img className='menubtn' src="images\menuicon.svg" alt="" onClick={toggleMobileMenu} />

@@ -32,16 +32,18 @@
     position: relative;
     border-radius: 1.75rem;
     border: 1px solid #000;
-background: #004B61;
-
+    background: #004B61;
 }
 .answerdivs p{
     position: absolute;
     top: 10%;
     left: 5%;
-    font-size: 1rem;
+    font-size: 1.1rem;
     /* font-weight: bold; */
     color: white;
+    padding-right: 2rem;
+    letter-spacing: 0.02rem;
+    line-height: 1.5rem;
 }
 .questionsdiv{
     margin-top: 2rem;
@@ -57,6 +59,7 @@ background: #004B61;
     width: 40rem;
     padding: 1rem;
     text-align: left;
+    font-size: 1rem;
     /* background-color: transparent; */
 }
 .questionsdiv button:hover{
