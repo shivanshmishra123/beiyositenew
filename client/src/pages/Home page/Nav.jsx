@@ -5,7 +5,7 @@ function Navbar() {
 
   const toggleMobileMenu = () => {
     const x = document.querySelector('.mobilenav');
-    const y = document.querySelector('.homepage');
+    const y = document.querySelector('#main');
     if (x.style.height === '0px' || x.style.height === '') {
       x.style.height = '22rem';
       y.setAttribute('style', ' zIndex:  0 ;  opacity:  0.3 ; pointerEvents: none; transition: opacity 0.3s ease-in-out')
