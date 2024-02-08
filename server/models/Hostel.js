@@ -5,9 +5,6 @@ const hostelSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    image:{
-        type:String,
-    },
     location:{
         type:String,
         required: true,
