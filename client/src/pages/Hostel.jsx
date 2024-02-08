@@ -23,7 +23,7 @@ const Hostel = () => {
       fetchHostels();
     }, []);
   return (
-    <div className='hostelMainpage' >
+    <div className='hostelMainpage page' >
       <p className='Hostelheading'>
         <a href="/">Beiyo</a>/Hostel
       </p>

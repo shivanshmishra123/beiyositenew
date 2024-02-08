@@ -17,7 +17,7 @@ function Homepage() {
   return (
     <>
 
-     <div className="homepage">
+     <div className="homepage page">
       <Hero/>
       <Scrolltext/>
       <Feature/>
