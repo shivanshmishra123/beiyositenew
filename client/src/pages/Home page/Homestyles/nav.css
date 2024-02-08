@@ -75,7 +75,7 @@
     }
     .mobilenav{
       min-height: 0rem;
-      background-color: #000000;
+      background-color: white;
       /* border-radius: 0 0 70px 70px; */
       position: absolute;
       z-index: 111;

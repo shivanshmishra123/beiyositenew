@@ -6,29 +6,31 @@ const FaqMobile = () => {
       <h1>FAQ</h1>
       <div className="questionsAnswers">
         <button className="questionMobile" onClick={click1}>
-          How does Beiyo work with PG and hostel owners?
+        What is Beiyo and why it's different from others?
         </button>
         <div className="answerMobile" id="oneMobile">
           <p></p>
         </div>
-        <button className="questionMobile" onClick={click2}>What makes Beiyo different?</button>
+        <button className="questionMobile" onClick={click2}>How does Beiyo contribute to a
+positive community environment?</button>
         <div className="answerMobile" id="twoMobile">
           <p></p>
         </div>
         <button className="questionMobile" onClick={click3}>
-          How does Beiyo contribute to a positive community atmosphere?
+        How can I get Beiyo's services for my hostel or PG?
         </button>
         <div className="answerMobile" id="threeMobile">
           <p></p>
         </div>
         <button className="questionMobile" onClick={click4}>
-          How can I get Beiyo's services for my hostel or PG?
+        How does Beiyo work with PG and
+hostel owners?
         </button>
         <div className="answerMobile" id="fourMobile">
           <p></p>
         </div>
         <button className="questionMobile" onClick={click5}>
-          How does Beiyo work with PG and hostel owners?
+        Refer and Earn
         </button>
         <div className="answerMobile" id="fiveMobile">
           <p></p>
@@ -114,7 +116,7 @@ function click2() {
 
   function click3() {
     document.querySelector("#threeMobile p").innerHTML =
-      ".";
+      "To avail Beiyo's services for your hostel or PG, you have multiple convenient options. You can easily reach out to us via phone call or email. Additionally, you can explore the 'List Your Website' option provided in the navigation bar of our website.";
     document
       .querySelector("#threeMobile")
       .setAttribute(
@@ -151,7 +153,7 @@ function click2() {
 
   function click4() {
     document.querySelector("#fourMobile p").innerHTML =
-      ".";
+      "We partner with PG and hostel owners to renovate rooms and enhance facilities, offering a modern and comfortable living experience.";
     document
       .querySelector("#fourMobile")
       .setAttribute(
