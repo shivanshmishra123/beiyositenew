@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './HostelStyles/hostelmain.css'
+
 const Hostel = () => {
     const [hostels, setHostels] = useState([]);
     const [loading,setLoading] = useState(false);
@@ -9,7 +10,7 @@ const Hostel = () => {
       const fetchHostels = async () => {
         try {
           setLoading(true);
-          const response = await fetch('https://adksh-backend.onrender.com/api/hostel');
+          const response = await fetch("https://adksh-backend.onrender.com/api/hostel");
           const data = await response.json();
           setHostels(data);
         } catch (error) {

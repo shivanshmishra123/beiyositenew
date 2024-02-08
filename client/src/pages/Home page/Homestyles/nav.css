@@ -8,7 +8,20 @@
   .mainnav{
     position: relative;
   }
-  
+  .scrollnav{
+    background-color: white;
+    backdrop-filter: blur(10px);
+  }
+  .header-hidden { 
+    transform: translateY(-100%); 
+    transition: transform 0.5s ease; 
+  } 
+   
+  /* Visible state */ 
+  .header-visible { 
+    transform: translateY(0); 
+    transition: transform 0.5s ease; 
+  } 
   .nav{
      position: fixed;
       display:flex;
