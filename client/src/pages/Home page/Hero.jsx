@@ -5,7 +5,7 @@ const Hero = () => {
     <div className="main" id='main'>
       <h1 data-aos="fade-up"   data-aos-duration="2000" >Offering You <br className="lineBreakHero" /> <span className='perfect'>Perfect</span> <br/>Accommodation Services </h1>
       <p data-aos="fade-right" data-aos-duration="2000" > Seamless Living, <br className='parabreakk' /> Elevated Learning: Your Student Accommodation of Choice!</p>
-     <div className="imagediv"></div>
+     <img className='image' src="images/heroSectionimg.svg" alt="" />
     <a href="/hostel"> <button className='explore' data-aos="zoom-in" data-aos-duration="2000">Explore</button> </a>
   </div>
   )
