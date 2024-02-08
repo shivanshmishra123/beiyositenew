@@ -117,7 +117,7 @@
        align-items: start;
        padding-top: 9vh;
        overflow: hidden;
-       transition: 0.3 ease-in-out;
+       transition: 0.3s ease-in-out;
        /* padding-bottom: 1.2rem; */
       /* padding-bottom: 5vh; */
         }
