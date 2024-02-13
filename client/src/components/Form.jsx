@@ -1,34 +1,41 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 function Form() {
   const [formData, setFormData] = useState({
     name: '',
-    mobile: '',
-    latestMessage: false,
+    phone: '',
     male: false,
     female: false,
+    whatsappInfo: false,
   });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = async  (e) => {
     e.preventDefault();
 
     // Simple client-side validation
-    if (!formData.name.trim() || !formData.mobile.trim()) {
-      alert('Name and Mobile fields are required');
-      return;
-    }
+    // if (!formData.name.trim() || !formData.mobile.trim()) {
+    //   alert('Name and Mobile fields are required');
+    //   return;
+    // }
 
     try {
-      await axios.post('http://localhost:5000/submit-form', formData);
+      // await axios.post('http://localhost:5000/api/formsubmit', formData);
+      // console.log('Form submitted successfully');
+    const response =  await fetch(`http://localhost:5000/api/formsubmit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      console.log(response)
       console.log('Form submitted successfully');
       alert('Form submitted');
+     
       // Optionally, you can reset the form here
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -42,11 +49,11 @@ function Form() {
         <form onSubmit={handleSubmit}>
           <div className="formdiv">
             <h3>Name:<span>*</span></h3>
-            <input className='name' type="text" name="name" onChange={handleChange} required />
+            <input className='name' type="text"   name="name" onChange={handleChange} required />
           </div>
           <div className="formdiv">
             <h3>Mobile:<span>*</span></h3>
-            <input type="number" name="mobile" onChange={handleChange} required />
+            <input type="String" name="phone" onChange={handleChange} required />
           </div>
           <div className="formdivChecked">
             <input className='checked' type="checkbox" name="male" onChange={handleChange} />

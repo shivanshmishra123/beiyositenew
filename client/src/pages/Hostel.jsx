@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './HostelStyles/hostelmain.css'
+import Form from '../components/Form';
 
 const Hostel = () => {
     const [hostels, setHostels] = useState([]);
@@ -78,6 +79,7 @@ const Hostel = () => {
           </div>
           </div>
       ))}
+      {/* <Form/> */}
       </div> 
       )}
   
