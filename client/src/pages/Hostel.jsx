@@ -17,7 +17,7 @@ const Hostel = () => {
         const fetchHostels = async () => {
             try {
                 setLoading(true);
-                const response = await fetch("https://adksh-backend.onrender.com/api/hostel");
+                const response = await fetch("https://beiyo-backend-tdk4.onrender.com/api/hostel");
                 const data = await response.json();
                 setHostels(data);
             } catch (error) {

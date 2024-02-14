@@ -22,7 +22,7 @@ const Form = ({hostelID}) => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/users', formData);
+      const res = await axios.post('https://beiyo-backend-tdk4.onrender.com/api/users', formData);
       console.log(res.data);
       setSuccess(true);
       // Optionally, you can redirect the user here
