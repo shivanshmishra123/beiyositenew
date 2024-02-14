@@ -1,6 +1,8 @@
 const {  mongoose } = require("mongoose");
 const { config } = require('dotenv');
 const Hostel = require("./models/Hostel");
+const { Form } = require("./models/Form");
+
 config();
 const connectDB = async ()=>{
     try{
@@ -17,4 +19,4 @@ const connectDB = async ()=>{
     process.exit(1);
     }
 }
-module.exports={  connectDB  ,Hostel }
+module.exports={  connectDB  ,Hostel, Form }
