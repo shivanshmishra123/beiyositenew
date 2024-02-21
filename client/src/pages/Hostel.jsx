@@ -1,4 +1,4 @@
-
+"use server";
 import React, { useState, useEffect } from 'react';
 import './HostelStyles/hostelmain.css';
 import Form from '../components/Form';
@@ -8,6 +8,8 @@ const Hostel = () => {
     const [loading, setLoading] = useState(false);
     const [showForm, setShowForm] = useState(false);
     const [hidebutton, setHidebutton] = useState(true);
+
+
   const handleRequestCallback= () => {
     setShowForm(true);
     setHidebutton(false);
@@ -17,7 +19,7 @@ const Hostel = () => {
         const fetchHostels = async () => {
             try {
                 setLoading(true);
-                const response = await fetch("https://beiyo-backend-tdk4.onrender.com/api/hostel");
+                const response = await fetch(`https://beiyo-backend-tdk4.onrender.com/api/hostel`);
                 const data = await response.json();
                 setHostels(data);
             } catch (error) {
@@ -31,7 +33,9 @@ const Hostel = () => {
     const handleFormClose = () => {
       setShowForm(false); // Hide the form when closed
       setSuccess(false); // Reset success state when form is closed
-    };
+        document.getElementById("hostel").setAttribute('style', 'height:100vh;')
+    
+    }
 
     return (
         <div className='hostelMainpage page' >
@@ -47,7 +51,7 @@ const Hostel = () => {
                     <p>Thanks for Your Patience</p>
                 </div>
             ) : (
-                <div className="hostels">
+                <div className="hostels" id='hostel'>
                     {hostels.map((hostel) => (
                         <div key={hostel.id} className="single-hostel" >
                             <img src="images\Hostel image\hostel2.png" alt="" className='hostelimage' />
@@ -67,22 +71,9 @@ const Hostel = () => {
                                         </p>
                                         <p className='price'><img src="images\rupee.svg" alt="" />{hostel.price}/mo*</p>
                                     </div>
-                                    <div className="buttonhosteldiv">
-                           {hidebutton &&(
-                               <button className="requestCallBAckForm" onClick={handleRequestCallback}>
-                               Request a callBack
-                              </button>
-                           )}        
-                        
-                           {showForm && (
-                            <div className='form'>
-                            <h2></h2>
+                                    <div className='form'>
                             <Form hostelID={hostel._id}  onClose={handleFormClose} />
                           </div>
-                           )}
-        
-                                         {/* Pass hostelId to the Form component */}
-                                    </div>
                                 </div>
                             </div>
                             <div className="double">

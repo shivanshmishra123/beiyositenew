@@ -33,18 +33,24 @@ const Form = ({hostelID}) => {
   };
 
   return (
-    <div>
-      <h2>Submit Form</h2>
+    <div className='form-div'>
       {success ? (
         <p>Form submitted successfully!</p>
       ) : (
         <form onSubmit={handleSubmit} className='requestcallbackform'>
-          <input type="text" name="name" value={name} onChange={handleChange} placeholder="Name" required /><br />
-          <input type="text" name="mobile" value={mobile} onChange={handleChange} placeholder="Mobile" required /><br />
-          <input type="radio" name="gender" value="male" onChange={handleChange} /> Male
-          <input type="radio" name="gender" value="female" onChange={handleChange} /> Female<br />
-          <input type="checkbox" name="whatsappInfo" checked={whatsappInfo} onChange={() => setFormData({ ...formData, whatsappInfo: !whatsappInfo })} /> WhatsApp Information<br />
-          <button type="submit" disabled={submitting}>Submit</button>
+         <div className="namephoneformdiv"> <p>Name</p>
+          <input className='namephoneinput' type="text" name="name" value={name} onChange={handleChange}  required /><br />
+          </div>
+           <div className="namephoneformdiv"> <p>Mobile</p>
+           <input className='namephoneinput' type="text" name="mobile" value={mobile} onChange={handleChange} placeholder="+91" required /><br />
+          </div>
+        <div className="genderdiv">
+           <div className="checkeddiv"><input type="radio" name="gender" value="male" onChange={handleChange} /><p>Male</p></div>
+           <div className="checkeddiv"><input type="radio" name="gender" value="female" onChange={handleChange} /> Female<br /></div>
+         </div>
+         <div className="checkeddivwhatsapp"><input type="checkbox" name="whatsappInfo" checked={whatsappInfo} onChange={() => setFormData({ ...formData, whatsappInfo: !whatsappInfo })} /> <p className="whatsappcheck">Wants Latest Rooms info through WhatsApp</p> </div>
+          
+          <button type="submit" className='submit' disabled={submitting}>Request a callBack</button>
         </form>
       )}
     </div>
