@@ -26,14 +26,14 @@ app.use((req, res, next) => {
 
 app.get("/api/hostel", async (req, res) => {
     try {
-        const cachedData = cache.get('hostelData');
-        if (cachedData) {
-            console.log('Data retrieved from cache');
-            return res.status(200).json(cachedData);
-        }
+       
+        // if (cachedData) {
+        //     console.log('Data retrieved from cache');
+        //     return res.status(200).json(cachedData);
+        // }
         const hostel = await Hostel.find();
-        cache.set('hostelData', hostel, 3600);
-        console.log('Data saved to cache');
+        // cache.set('hostelData', hostel, 3600);
+        // console.log('Data saved to cache');
         res.status(200).json(hostel);
     } catch (error) {
         console.error('Error fetching hostels:', error);
