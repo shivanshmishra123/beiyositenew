@@ -6,14 +6,14 @@ import Form from '../components/Form';
 const Hostel = () => {
     const [hostels, setHostels] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [showForm, setShowForm] = useState(false);
-    const [hidebutton, setHidebutton] = useState(true);
+//     const [showForm, setShowForm] = useState(false);
+//     const [hidebutton, setHidebutton] = useState(true);
 
 
-  const handleRequestCallback= () => {
-    setShowForm(true);
-    setHidebutton(false);
-  }
+//   const handleRequestCallback= () => {
+//     setShowForm(true);
+//     setHidebutton(false);
+//   }
     useEffect(() => {
         // Fetch hostels from the database
         const fetchHostels = async () => {

@@ -46,7 +46,7 @@ const Form = ({hostelID}) => {
           </div>
         <div className="genderdiv">
            <div className="checkeddiv"><input type="radio" name="gender" value="male" onChange={handleChange} /><p>Male</p></div>
-           <div className="checkeddiv"><input type="radio" name="gender" value="female" onChange={handleChange} /> Female<br /></div>
+           <div className="checkeddiv"><input type="radio" name="gender" value="female" onChange= {handleChange} /> Female<br /></div>
          </div>
          <div className="checkeddivwhatsapp"><input type="checkbox" name="whatsappInfo" checked={whatsappInfo} onChange={() => setFormData({ ...formData, whatsappInfo: !whatsappInfo })} /> <p className="whatsappcheck">Wants Latest Rooms info through WhatsApp</p> </div>
           
