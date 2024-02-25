@@ -4,10 +4,10 @@ const { config } = require('dotenv');
 const { connectDB } = require('./db');
 const { Hostel } = require('./models/Hostel');
 const { Form } = require('./models/Form')
-const NodeCache = require('node-cache');
 const bodyParser = require('body-parser');
 const app = express();
-const cache = new NodeCache();
+const fs = require('fs');
+const path = require('path');
 config();
 app.use(cors());
 connectDB();
@@ -25,20 +25,29 @@ app.use((req, res, next) => {
 });
 
 app.get("/api/hostel", async (req, res) => {
-    try {
-       
-        // if (cachedData) {
-        //     console.log('Data retrieved from cache');
-        //     return res.status(200).json(cachedData);
-        // }
-        const hostel = await Hostel.find();
-        // cache.set('hostelData', hostel, 3600);
-        // console.log('Data saved to cache');
-        res.status(200).json(hostel);
-    } catch (error) {
-        console.error('Error fetching hostels:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
+  try {
+      const hostels = await Hostel.find();
+      
+      // Fetch image data for each hostel
+      // const hostelsWithImages = await Promise.all(hostels.map(async hostel => {
+      //     let hostelWithImage = hostel.toJSON(); // Convert hostel document to JSON object
+          
+      //     if (hostel.image) {
+      //         // Convert the image buffer to a base64-encoded string
+      //         const imageBase64 = Buffer.from(hostel.image).toString('base64');
+              
+      //         // Assuming you want to include the image data as a base64-encoded string
+      //         hostelWithImage.imageData = imageBase64;
+      //     }
+          
+      //     return hostelWithImage;
+      // }));
+      
+      res.status(200).json(hostelsWithImages);
+  } catch (error) {
+      console.error('Error fetching hostels:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
   app.post('/api/users', async (req, res) => {

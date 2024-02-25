@@ -1,23 +1,26 @@
-const {  mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 const hostelSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: true,
     },
-    location:{
-        type:String,
+    location: {
+        type: String,
         required: true,
     },
-    locationLink:{
-        type:String,
-        require:true,
+    locationLink: {
+        type: String,
+        required: true,
     },
-    price:{
-        type:String,
-    }
-})
+    price: {
+        type: String,
+    },
+    // image: {
+    //     type: Buffer, // Store image data as binary
+    // }
+});
 
 const Hostel = mongoose.model('Hostel', hostelSchema);
 
-module.exports={Hostel}
+module.exports = { Hostel };
