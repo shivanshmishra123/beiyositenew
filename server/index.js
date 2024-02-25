@@ -43,7 +43,7 @@ app.get("/api/hostel", async (req, res) => {
       //     return hostelWithImage;
       // }));
       
-      res.status(200).json(hostelsWithImages);
+      res.status(200).json(hostels);
   } catch (error) {
       console.error('Error fetching hostels:', error);
       res.status(500).json({ error: 'Internal Server Error' });
