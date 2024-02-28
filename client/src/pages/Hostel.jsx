@@ -22,6 +22,7 @@ const Hostel = () => {
                 const response = await fetch(`https://beiyo-backend-tdk4.onrender.com/api/hostel`);
                 const data = await response.json();
                 setHostels(data);
+                console.log(data);
             } catch (error) {
                 console.error('Error fetching hostels:', error.message);
             } finally {

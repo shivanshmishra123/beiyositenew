@@ -13,7 +13,7 @@ const Footer = () => {
  <div className="footercontent">
  <div className="footercompoents">
     <ul>
-    <a href="/about"><li>Our Story</li></a>
+    <a className='link' href="/about"><li>Our Story</li></a>
       
       <a href=""><li>Partner with us</li></a>
     </ul>
