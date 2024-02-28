@@ -49,6 +49,19 @@ app.get("/api/hostel", async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+    app.get("/api/hostel/:id",async(req,res)=>{
+   try{
+    const hostel = await Hostel.findById(req.params.id);
+      
+    if(!hostel){
+      alert("no hostel are available");
+    }
+    res.json(hostel);
+   }catch(error){
+    console.error('Error fetching ', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+   }
+    })
 
   app.post('/api/users', async (req, res) => {
     try {
