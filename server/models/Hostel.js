@@ -16,9 +16,9 @@ const hostelSchema = new mongoose.Schema({
     price: {
         type: String,
     },
-    // image: {
-    //     type: Buffer, // Store image data as binary
-    // }
+    image: {
+        type: String, // Store image data as binary
+    }
 });
 
 const Hostel = mongoose.model('Hostel', hostelSchema);
