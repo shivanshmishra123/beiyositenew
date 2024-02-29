@@ -1,13 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const { config } = require('dotenv');
-const { connectDB } = require('./db');
+const { connectDB, OwnerForm } = require('./db');
 const { Hostel } = require('./models/Hostel');
 const { Form } = require('./models/Form')
 const bodyParser = require('body-parser');
 const app = express();
-const fs = require('fs');
-const path = require('path');
 config();
 app.use(cors());
 connectDB();
@@ -27,29 +25,14 @@ app.use((req, res, next) => {
 app.get("/api/hostel", async (req, res) => {
   try {
       const hostels = await Hostel.find();
-      
-      // Fetch image data for each hostel
-      // const hostelsWithImages = await Promise.all(hostels.map(async hostel => {
-      //     let hostelWithImage = hostel.toJSON(); // Convert hostel document to JSON object
-          
-      //     if (hostel.image) {
-      //         // Convert the image buffer to a base64-encoded string
-      //         const imageBase64 = Buffer.from(hostel.image).toString('base64');
-              
-      //         // Assuming you want to include the image data as a base64-encoded string
-      //         hostelWithImage.imageData = imageBase64;
-      //     }
-          
-      //     return hostelWithImage;
-      // }));
-      
       res.status(200).json(hostels);
   } catch (error) {
       console.error('Error fetching hostels:', error);
       res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-    app.get("/api/hostel/:id",async(req,res)=>{
+   
+app.get("/api/hostel/:id",async(req,res)=>{
    try{
     const hostel = await Hostel.findById(req.params.id);
       
@@ -63,7 +46,7 @@ app.get("/api/hostel", async (req, res) => {
    }
     })
 
-  app.post('/api/users', async (req, res) => {
+app.post('/api/users', async (req, res) => {
     try {
         const newForm = new Form({
         name: req.body.name,
@@ -80,7 +63,18 @@ app.get("/api/hostel", async (req, res) => {
       res.status(500).json({ error: 'Server error' });
     }
   });
-  
+  app.post('/api/owners',async(req,res)=>{
+    const newOwner = new OwnerForm({
+      name: req.body.name,
+      email: req.body.email,
+    Ownername: req.body.Ownername,
+    mobile:req.body.mobile,
+    address:req.body.address,
+    RoomsAvailable :req.body.RoomsAvailable
+    })
+    const saveOwnerForm = await newOwner.save();
+    res.json(saveOwnerForm);
+    })
   
   app.get('/api/formShown', async(req,res)=>{
     try {
