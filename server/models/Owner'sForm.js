@@ -27,7 +27,11 @@ const OwnerFormSchema = new mongoose.Schema({
     },
     
     
-})
+},
+{
+    timestamps:true
+}
+)
 
 const OwnerForm = mongoose.model('OwnerForm', OwnerFormSchema);
 
