@@ -24,7 +24,9 @@ const OwnerFormSchema = new mongoose.Schema({
     RoomsAvailable:{
         type:Number,
         required: true,
-    }
+    },
+    
+    
 })
 
 const OwnerForm = mongoose.model('OwnerForm', OwnerFormSchema);

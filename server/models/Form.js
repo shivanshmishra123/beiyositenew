@@ -19,8 +19,12 @@ const formSchema = new mongoose.Schema({
     hostel:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Hostel'
-    }
-})
+    },  
+},
+{
+    timestamps:true
+}
+)
 
 const Form = mongoose.model('Form', formSchema);
 
