@@ -12,14 +12,14 @@
     width: 50%;
 }
 .contentabout h1{
-    margin-top: 6rem ;
+    margin-top: 7rem ;
     margin-left :1.5rem;
     font-size: 2.8rem;
 }
 .contentabout p{
     margin-left :1.5rem;;
     font-size: 1rem;
-    color: grey;
+    color: rgb(0, 0, 0);
 }
 .aboutlistdiv{
     height: 4rem;
@@ -54,6 +54,10 @@
         flex-wrap: wrap-reverse;
             
     }
+    .contentabout{
+        width: 100%;
+        gap: 1rem;
+    }
     .imageabout{
         height: 20rem;
         margin-left: 2rem;
@@ -62,9 +66,13 @@
     }
     .contentabout h1{
         margin-top: 0rem ;
-        margin-left :2rem;
+        margin-left :1rem;
         font-size: 2.8rem;
-        margin-right: 2rem;
-        
+        margin-right: 1rem;
+    }
+    .contentabout p{
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 2rem;
     }
   }
