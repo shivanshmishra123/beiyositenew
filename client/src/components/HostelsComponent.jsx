@@ -62,7 +62,7 @@ const HostelsComponent = () => {
                                 <p className='price'><img src="/images/rupee.svg" alt="" />{hostel.price}/mo*</p>
                             </div>
                             
-                            <button  className='response' > <Link to={`/hostel/${hostel._id}`}> View Details </Link></button>
+                            <Link to={`/hostel/${hostel._id}`}>    <button  className='response' >  View Details </button> </Link>
                   
                         </div>
                     </div>
