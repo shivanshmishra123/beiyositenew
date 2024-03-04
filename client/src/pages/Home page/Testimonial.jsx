@@ -32,7 +32,7 @@ const Testimonial = () => {
       spaceBetween={10}
       slidesPerView = {1}
       loop={true}
-    autoplay={{
+     autoplay={{
         delay: 2000,
         disableOnInteraction: false,
       }}

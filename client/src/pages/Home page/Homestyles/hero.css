@@ -7,9 +7,10 @@
   padding-top: 10rem;  
 }
 .main h1{
-  font-size: 6rem;
+  font-size: 14vh;
   text-align: center;
   font-weight: 500;
+  /* white-space: nowrap; */
 }
 .main p{
   font-size: 2rem;

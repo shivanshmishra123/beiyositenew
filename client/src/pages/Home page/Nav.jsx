@@ -30,14 +30,14 @@ function Navbar() {
 
   <div className="nav" id='header'>
           <div className="mainlist">
-          <a href="/"> <img className='logo' src="images\beiyo_logo2.svg" alt="" /></a>
+          <a href="/"> <img className='logo' src="/images/beiyo_logo2.svg" alt="" /></a>
              <div className="pclist">
              <ul className='pcnavlist'>
                 <a href="/hostel"><li><p>Hostels</p></li></a>
                 <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List Your Property</p></li></a>
                 <a href="/about"><li><p>About us</p></li></a>
                 </ul>
-           <img className='menubtn' src="images\menuicon.svg" alt="" onClick={toggleMobileMenu} />
+           <img className='menubtn' src="/images\menuicon.svg" alt="" onClick={toggleMobileMenu} />
           </div>
              </div>
                 <ul className='mobilenavlist'>
