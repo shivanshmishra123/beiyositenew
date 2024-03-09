@@ -64,7 +64,7 @@ const HostelsComponent = ({notincludID}) => {
                                 <p className='price'><img src="/images/rupee.svg" alt="" />{hostel.price}/mo*</p>
                             </div>
                             
-                            <a href={`/hostel/${hostel._id}`}>    <button  className='response' >  View Details </button> </a>
+                            <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
                   
                         </div>
                     </div>
