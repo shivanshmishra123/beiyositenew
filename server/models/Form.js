@@ -17,9 +17,8 @@ const formSchema = new mongoose.Schema({
         default:false
     },
     hostel:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Hostel'
-    },  
+        type: String,   
+    }, 
 },
 {
     timestamps:true
