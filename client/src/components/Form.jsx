@@ -51,6 +51,8 @@ const Form = ({hostelID}) => {
          <div className="checkeddivwhatsapp"><input type="checkbox" name="whatsappInfo" checked={whatsappInfo} onChange={() => setFormData({ ...formData, whatsappInfo: !whatsappInfo })} /> <p className="whatsappcheck">Wants Latest Rooms info through WhatsApp</p> </div>
           
           <button type="submit" className='submit' disabled={submitting}>Request a callBack</button>
+          <p style={{textAlign:'center'}}>OR</p>
+          <button type="submit" id='whatsappsubmit' className='submit' disabled={submitting}><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button>
         </form>
       )}
     </div>

@@ -6,7 +6,7 @@
 }
 .Hostelheading{
     color: #008993FC;
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.1rem;
 }
 .laodingscreen{
     height: 30rem;
@@ -26,7 +26,7 @@
 
 .Hostelheading a{
     color: #008993FC;
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.1rem;
 }
 .mainHead{
     color: #000;
@@ -40,13 +40,14 @@ font-weight: 600;
     gap: 2rem;
 }
 .single-hostel{
-    height: 21rem;
+    height: 17rem;
     border-radius: 3.125rem;
     background: #FFF;
     box-shadow: 0px 4px 31px -12px rgba(0, 0, 0, 0.25);
     display: flex;
     /* padding-right: 3rem; */
     position: relative;  
+    
 }
 .single-hostel:hover{
  box-shadow: 0px 4px 31px -4px rgba(0, 0, 0, 0.25);
@@ -86,7 +87,7 @@ font-weight: 600;
     height: 1.5rem;
 }
 .hostelimage{
-    height: 21rem;
+    height: 17rem;
     border-radius: 3.125rem 0rem 0rem 3.125rem;
     width: 23rem;
 }
@@ -141,7 +142,7 @@ font-weight: 400;
 .price{
     color: #000;
 
-font-size: 1rem;
+font-size: 1.5rem;
 font-weight: 500;
 }
 .price img{
@@ -161,7 +162,7 @@ font-weight: 500;
     border: none;
 } */
 .form{
-    height: 13rem;
+    height: 21rem;
     width: 21rem;
     border-radius: 1.625rem;
     background: #FFF;
@@ -177,11 +178,11 @@ font-weight: 500;
     border-radius: 0.6875rem;
     background: #5ED2FF;
     color: #FFF;
-font-size: 1rem;
-font-style: normal;
-border: none;
-margin-right: 2rem;
-outline: none;
+    font-size: 1rem;
+    font-style: normal;
+    border: none;
+    margin-right: 2rem;
+    outline: none;
 }
 @media (max-width: 412px){ 
   .pricediv{
@@ -206,8 +207,9 @@ outline: none;
         padding-top: 8rem;
     }
     .single-hostel{
-        min-height: 49rem;
+        min-height: 38rem;
         border-radius: 3.125rem;
+       width: 22.6rem;
         background: #FFF;
         box-shadow: 0px 4px 31px -12px rgba(0, 0, 0, 0.25);
         display: flex;

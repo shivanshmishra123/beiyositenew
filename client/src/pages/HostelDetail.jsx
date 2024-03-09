@@ -35,7 +35,7 @@ const HostelDetail = () => {
   return (
     <div className='hosteldetailmain'>
              <p className='Hostelheading'>
-                <a href="/">Beiyo</a> <a href="/hostel">/Hostels</a>
+                <a href="/">Beiyo</a> <a href="/hostel">/Hostels </a>
                 /{hostel&&hostel.name} 
             </p>
             <div className="singlehosteldetail">
@@ -50,7 +50,10 @@ const HostelDetail = () => {
              <div className="sharediv">
               {/* <img src="/images/share.png" alt="" /> */}
               <a href={`https://api.whatsapp.com/send?text=https://beiyo.in/hostel/${hostel&&hostel._id}`} target='_blank'>
-              <WhatsappIcon size={40} round={true}/>
+              <div className='whatsappSharediv'>
+              <img src="/images/whatsapp1.svg" alt="" />
+              <p>Share</p>
+              </div>
               </a>
              <a href={hostel&&hostel.locationLink}>View Directions on Map</a>
              </div>
@@ -78,54 +81,69 @@ const HostelDetail = () => {
                  <img src={hostel&&hostel.image} alt="" />
                  </SwiperSlide>
               </Swiper>
-             
              </div>
           <div className="priceandformdiv">
-      <div className="priceshosteldetail">
-                <div className="pricehosteldiv">   
-                <div className="doublehosteldetails">
-                                <img src="/images/double.svg" alt="" />
-                                <p>Double</p>
-                            </div>
-                            <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.price}/mon</p>
-                            </div>
-                            <div className="pricehosteldiv">   
-                            <div className="triplehosteldetails">
-                                <img src="/images/triple.svg" alt="" />
-                                <p>Triple</p>
-                            </div>
-                            <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.price}/mon</p>
-                            </div>   
-          </div>
           <div className='form'><Form hostelID={hostel&&hostel._id} /></div>
       </div>
           </div>
-          <h1 className='serviceshosteldetail'>Services</h1>
+          <div className='content3hosteldetail'>
+
+         <div className="service">
+         <div className="pricedetail">
+        <div className="occupancyandprice">
+        <div className="occupancy">
+                        <img src="/images/bed.svg" alt="" />
+                        <p>Double</p>
+                    </div>
+                    <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.price}/mo*</p>
+        </div>
+              <div className="occupancyandprice">
+              <div className="occupancy">
+              <img src="/images/bed.svg" alt="" />
+                        <p>Triple</p>
+                    </div>
+                    <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.price}/mo*</p>
+              </div>     
+         </div>
+         <h1 className='serviceshosteldetail'>Services</h1>
       <div className="content3div">   
-        <div className="servicesdetails">RO WATER</div>
-        <div className="servicesdetails">RO WATER</div>
-        <div className="servicesdetails">RO WATER</div>
-        <div className="servicesdetails">RO WATER</div>
-        <div className="servicesdetails">RO WATER</div>
-        <div className="servicesdetails">RO WATER</div>
-        <div className="servicesdetails">RO WATER</div>
-        <div className="servicesdetails">RO WATER</div>
-        <div className="servicesdetails">RO WATER</div>
+        <div className="servicesdetails">
+              <img src="/images/wifi-hostel.svg" alt="" />
+          High-Speed WI-FI</div>
+        <div className="servicesdetails">
+          <img src="/images/furnish.svg " alt="" />
+          Furnished</div>
+        <div className="servicesdetails">
+        <img src="/images/camera.svg " alt="" />
+          Camera Security</div>
+       
+        <div className="servicesdetails">
+          <img src="/images/washing-machinedetail.svg" alt="" />
+          Washing Machine</div>
+        <div className="servicesdetails">
+        <img src="/images/purifiedwater.svg" alt="" />
+          Purified Water</div>
+        <div className="servicesdetails">
+        <img src="/images/broomdetail.svg" alt="" />
+          Professional Housekeeping</div>
       </div>
+         </div>
+         <div className="map">MAP</div>
+          </div>
+    
       <div className="content4div">
                 <h1>Details of {hostel&&hostel.name}</h1>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, saepe necessitatibus, unde sunt, officiis laudantium repellat alias autem debitis est velit voluptas eius illo quos ducimus tempore voluptatibus eum quo.
                 Harum nesciunt autem earum, repellat minus repellendus! Delectus dolores porro voluptatum veniam. Voluptate, magnam ipsum excepturi suscipit architecto quisquam adipisci harum placeat sint dignissimos corporis! Natus fuga quisquam aperiam aut?
                 Amet, totam quis sapiente voluptates qui natus expedita vitae deleniti sit consequuntur officiis nobis ipsum laboriosam esse accusamus ipsa architecto doloribus, cum provident eligendi commodi beatae! Incidunt adipisci inventore consectetur!
                 Magni a sint, vitae ea odio cumque eligendi maxime expedita iusto necessitatibus, vero tempore impedit. Numquam et quis quia eius doloremque earum, nostrum consequuntur, enim asperiores ab consequatur! Veritatis, modi?
-                Aperiam maiores adipisci amet consequatur voluptatem, quaerat hic esse reprehenderit reiciendis voluptatibus, cumque est nihil totam id similique consectetur earum ea praesentium enim accusantium minima velit placeat perspiciatis dignissimos. Error.
-                Ab, ducimus, vel vitae natus ipsum facilis ratione esse eligendi labore, perferendis aspernatur architecto nam dolore ad! Facilis, repellat non vel dicta ea adipisci atque molestiae? Porro tempora voluptatem consectetur.
-                Nisi, recusandae aspernatur. Accusantium officia maiores alias distinctio, at sunt quas velit animi expedita rem magni! Omnis ex veritatis cum sapiente quas, voluptatem iusto debitis facere nostrum quo sequi voluptate?
-                Eveniet nihil delectus optio voluptate! Minus est ipsa tenetur aspernatur, optio, quos ea fugit velit officia deleniti dicta error nulla harum, sint nobis? Illum natus accusantium molestiae, deleniti soluta distinctio!</p>
+                </p>
               </div>
     </div>
            <h1 style={{marginTop:"2rem"}}>Other Hostels</h1>
-           <HostelsComponent/>
+           <HostelsComponent
+           notincludID={hostel&&hostel._id}
+           />
             </div>
     
   )

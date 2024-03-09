@@ -1,8 +1,9 @@
 import React from 'react'
 import Form from './Form';
+
 import { Link } from 'react-router-dom';
 import  { useState, useEffect } from 'react';
-const HostelsComponent = () => {
+const HostelsComponent = ({notincludID}) => {
     const [hostels, setHostels] = useState([]);
     const [loading, setLoading] = useState(false);
 //     const [showForm, setShowForm] = useState(false);
@@ -41,8 +42,9 @@ const HostelsComponent = () => {
     ) : (
         <div className="hostels" id='hostel'>
             {hostels.map((hostel) => (
-                
-                <div key={hostel.id} className="single-hostel" >
+                  hostel._id !== notincludID ?(
+                     <a href={`/hostel/${hostel._id}`}>
+                                    <div key={hostel.id} className="single-hostel" >
                     
                     <img src={hostel.image} alt="" className='hostelimage' />
                     <div className="hostelContentdiv">
@@ -62,11 +64,11 @@ const HostelsComponent = () => {
                                 <p className='price'><img src="/images/rupee.svg" alt="" />{hostel.price}/mo*</p>
                             </div>
                             
-                            <Link to={`/hostel/${hostel._id}`}>    <button  className='response' >  View Details </button> </Link>
+                            <a href={`/hostel/${hostel._id}`}>    <button  className='response' >  View Details </button> </a>
                   
                         </div>
                     </div>
-                    <div className="double">
+                    <div className="double" >
                         <img src="/images/double.svg" alt="" />
                         <p>Double</p>
                     </div>
@@ -76,7 +78,8 @@ const HostelsComponent = () => {
                     </div>
               
                 </div>
-              
+                </a>
+                 ):null  
             ))}
         </div>
     )}

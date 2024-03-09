@@ -11,7 +11,7 @@ const Hostel = () => {
     return (
         <div className='hostelMainpage page' >
             <p className='Hostelheading'>
-                <a href="/">Beiyo</a>/Hostels
+                <a href="/">Beiyo</a>/Hostels 
             </p>
             <h1 className="mainHead">
                 Explore Our PG/Hostels in Indore
