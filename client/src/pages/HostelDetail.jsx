@@ -83,7 +83,11 @@ const HostelDetail = () => {
               </Swiper>
              </div>
           <div className="priceandformdiv">
-          <div className='form'><Form hostelID={hostel&&hostel._id} /></div>
+          <div className='form'>
+            <Form 
+            hostelID={hostel&&hostel._id} 
+          hostelName= {hostel&&hostel.name} 
+          /></div>
       </div>
           </div>
           <div className='content3hosteldetail'>

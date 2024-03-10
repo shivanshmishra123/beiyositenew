@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './componentsStyling/form.css'
-const Form = ({hostelID}) => {
+const Form = ( {hostelName}) => {
+// {hostelID}
+const hostelname = hostelName
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
     gender: '',
     whatsappInfo: false,
-    hostel: hostelID,
+    hostel: hostelname,
   });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -34,10 +36,12 @@ const Form = ({hostelID}) => {
 
   return (
     <div className='form-div'>
+      
       {success ? (
         <p>Form submitted successfully!</p>
       ) : (
-        <form onSubmit={handleSubmit} className='requestcallbackform'>
+        <>
+          <form onSubmit={handleSubmit} className='requestcallbackform'>
          <div className="namephoneformdiv"> <p>Name</p>
           <input className='namephoneinput' type="text" name="name" value={name} onChange={handleChange}  required /><br />
           </div>
@@ -52,11 +56,17 @@ const Form = ({hostelID}) => {
           
           <button type="submit" className='submit' disabled={submitting}>Request a callBack</button>
           <p style={{textAlign:'center'}}>OR</p>
-          <button type="submit" id='whatsappsubmit' className='submit' disabled={submitting}><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button>
+        
         </form>
+        <a href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostelName}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`}><button type="submit" id='whatsappsubmit' className='submit' ><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a>    
+        
+        </>
+      
+       
       )}
     </div>
-  );
+    )
+  ;
 };
 
 export default Form;
