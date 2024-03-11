@@ -50,33 +50,26 @@ const HostelsComponent = ({notincludID}) => {
                     <div className="hostelContentdiv">
                         <div className="namediv">
                             <h1>{hostel.name}</h1>
-                            <div className="address">
-                                <div style={{ display: "flex" }}> <img src="/images/location_Marker.svg" alt="" />
+                            <div style={{ display: "flex" }}> <img src="/images/location_Marker.svg" alt="" />
                                     <p>{hostel.location}</p></div>
-                                <a href={hostel.locationLink}>View Directions on Map</a>
                             </div>
-                        </div>
+                           
                         <div className="pricediv">
-                            <div>
-                                <p>
-                                    Starting from
-                                </p>
-                                <p className='price'><img src="/images/rupee.svg" alt="" />{hostel.price}/mo*</p>
-                            </div>
-                            
-                            <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
-                  
+                                <p className='price'>Starting from <br /><img src="/images/rupee.svg" alt="" /><span className=''>{hostel.price}</span>/mo*</p>
                         </div>
+           
                     </div>
+                    <div className="doubletriplediv">
                     <div className="double" >
-                        <img src="/images/double.svg" alt="" />
+                        <img src="/images/bed.svg" alt="" />
                         <p>Double</p>
                     </div>
                     <div className="triple">
-                        <img src="/images/triple.svg" alt="" />
+                        <img src="/images/bed.svg" alt="" />
                         <p>Triple</p>
                     </div>
-              
+                    <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
+                    </div>
                 </div>
                 </a>
                  ):null  
