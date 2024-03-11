@@ -87,6 +87,7 @@ const HostelDetail = () => {
             <Form hostelID={hostel&&hostel._id} />
          <a href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostel&&hostel.name}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`} style={{textAlign:"center"}}><button type="submit" id='whatsappsubmit' className='submit'><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a> 
           </div>
+       
       </div>
           </div>
           <div className='content3hosteldetail'>

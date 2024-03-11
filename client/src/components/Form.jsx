@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './componentsStyling/form.css'
-const Form = ({hostelID}) => {
+const Form = ( {hostelName}) => {
+// {hostelID}
+const hostelname = hostelName
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
     gender: '',
     whatsappInfo: false,
-    hostel: hostelID,
+    hostel: hostelname,
   });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -34,10 +36,12 @@ const Form = ({hostelID}) => {
 
   return (
     <div className='form-div'>
+      
       {success ? (
         <p>Form submitted successfully!</p>
       ) : (
-        <form onSubmit={handleSubmit} className='requestcallbackform'>
+        <>
+          <form onSubmit={handleSubmit} className='requestcallbackform'>
          <div className="namephoneformdiv"> <p>Name</p>
           <input className='namephoneinput' type="text" name="name" value={name} onChange={handleChange}  required /><br />
           </div>
@@ -53,9 +57,15 @@ const Form = ({hostelID}) => {
           <button type="submit" className='submit' disabled={submitting}>Request a callBack</button>
           <p style={{textAlign:'center'}}>OR</p>
         </form>
+      
+        
+        </>
+      
+       
       )}
     </div>
-  );
+    )
+  ;
 };
 
 export default Form;

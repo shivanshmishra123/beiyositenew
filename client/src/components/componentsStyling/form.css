@@ -72,8 +72,12 @@ height: 2rem;
     background: #5ED2FF;
     cursor: pointer;
     color: #FFF;
+
 font-size: 1rem;
 font-style: normal;
 border: none;
 outline: none;
+}
+#whatsappsubmit{
+    margin-left: 32px;
 }
