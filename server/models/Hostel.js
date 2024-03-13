@@ -18,6 +18,15 @@ const hostelSchema = new mongoose.Schema({
     },
     image: {
         type: String, // Store image data as binary
+    },
+    image2:{
+        type: String,
+    },
+    image3:{
+        type:   String,
+    },
+    image4:{
+        type:String
     }
 });
 
