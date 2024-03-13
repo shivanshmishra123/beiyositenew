@@ -55,7 +55,7 @@ const HostelDetail = () => {
               <p>Share</p>
               </div>
               </a>
-             <a href={hostel&&hostel.locationLink}>View Directions on Map</a>
+             <a className='hostelLInk' href={hostel&&hostel.locationLink}>View Directions on Map</a>
              </div>
              </div>
             

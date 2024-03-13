@@ -130,13 +130,46 @@ align-items: center;
     justify-content: center;
     height: 2.2rem;
 }
+.hostelLInk{
+    color: #76b3ba;
+}
 @media (max-width: 412px){ 
+    .content2hosteldetail{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        /* justify-content: center; */
+        width: 28rem;
+    }
+    .content4div{
+        padding: 0.5rem;
+    }
+    .content4div h1{
+        font-size: 1rem;
+    }
+    .content4div p{
+        width: 21rem;
+    }
     .hosteldetailmain{
       padding-right: 1rem;
       padding-left: 1rem;
     }
+
     .hostelcontentdetails{
-      
+     align-items: center;
+     margin: 0;
+     padding: 0;
+    }
+    .hosteldetailsname h1{
+        font-size: 1.5rem;
+    }
+    .hostelLInk{
+       text-align: right;
+       font-size: 0.8rem;
+    }
+    .hosteldetailsname img{
+        width: 0.7rem;
+        height: 0.7rem;
     }
     .priceandformdiv{
         margin-top: 2rem;
@@ -144,28 +177,32 @@ align-items: center;
     .form{
         display: none;
     }
+    .hosteldetailsname p{
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
         .singlehosteldetail{
             width: 22.6rem;
             flex-wrap: wrap;
-            padding: 2rem;
-            padding-left: 1rem;
+            padding: 0.3rem;
+            border-radius: 1.4375rem;
+            background: #FFF;
         }
         .imagehosteldetails img{
-            width: 22.6rem;
+            width: 23rem;
             padding: 0;
             margin: 0;
         }
         .imagehosteldetails{
             /* width: 22.6rem; */
             /* height: 17rem; */
-            width:  22.6rem;
+            width:  23rem;
             padding: 0;
             margin: 0;
-            padding-right: 1rem;
             border-radius: 3.125rem 3.125rem 0rem 0rem;
         }
         .content3div{
-            width: 22.6rem;
+            width: 22rem;
         }
         .pricehosteldiv{
             justify-content: start;
