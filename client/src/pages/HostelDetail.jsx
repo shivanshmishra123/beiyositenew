@@ -75,10 +75,13 @@ const HostelDetail = () => {
                  <img src={hostel&&hostel.image} alt="" />
                  </SwiperSlide>
                  <SwiperSlide>
-                 <img src={hostel&&hostel.image} alt="" />
+                 <img src={hostel&&hostel.image2} alt="" />
                  </SwiperSlide>
                  <SwiperSlide>
-                 <img src={hostel&&hostel.image} alt="" />
+                 <img src={hostel&&hostel.image3} alt="" />
+                 </SwiperSlide>
+                 <SwiperSlide>
+                 <img src={hostel&&hostel.image4} alt="" />
                  </SwiperSlide>
               </Swiper>
              </div>
