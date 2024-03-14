@@ -19,7 +19,7 @@ const HostelsComponent = ({notincludID}) => {
         const fetchHostels = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`https://beiyo-backend-tdk4.onrender.com/api/hostel`);
+                const response = await fetch(`https://beiyositenew-api-alpha.vercel.app/api/hostel`);
                 const data = await response.json();
                 setHostels(data);
                 console.log(data);

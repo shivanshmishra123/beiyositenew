@@ -21,7 +21,7 @@ const HostelDetail = () => {
    useEffect( ()=>{
     const fetchSingleHostel = async ()=>{
       try{
-        const URL = `https://beiyo-backend-tdk4.onrender.com/api/hostel/${id}`
+        const URL = `https://beiyositenew-api-alpha.vercel.app/api/hostel/${id}`
       const response = await fetch(URL);
       const data = await response.json();
       console.log(data);

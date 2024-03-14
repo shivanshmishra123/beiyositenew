@@ -24,7 +24,7 @@ const hostelname = hostelName
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await axios.post('https://beiyo-backend-tdk4.onrender.com/api/users', formData);
+      const res = await axios.post('https://beiyositenew-api-alpha.vercel.app/api/users', formData);
       console.log(res.data);
       setSuccess(true);
       // Optionally, you can redirect the user here
