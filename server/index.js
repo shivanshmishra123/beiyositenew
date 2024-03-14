@@ -7,7 +7,13 @@ const { Form } = require('./models/Form')
 const bodyParser = require('body-parser');
 const app = express();
 config();
-app.use(cors());
+app.use(cors(
+ { 
+  origin[""];
+  method["POST","GET"];
+  credentials: true
+}
+));
 connectDB();
 app.use(bodyParser.json());
 
@@ -34,8 +40,7 @@ app.get("/api/hostel", async (req, res) => {
    
 app.get("/api/hostel/:id",async(req,res)=>{
    try{
-    const hostel = await Hostel.findById(req.params.id);
-      
+    const hostel = await Hostel.findById(req.params.id);  
     if(!hostel){
       alert("no hostel are available");
     }
