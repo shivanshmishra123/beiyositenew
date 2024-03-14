@@ -7,13 +7,7 @@ const { Form } = require('./models/Form')
 const bodyParser = require('body-parser');
 const app = express();
 config();
-app.use(cors(
- { 
-  origin:["https://www.beiyo.in/"],
-  method:["POST","GET"],
-  credentials: true
-}
-));
+app.use(cors());
 connectDB();
 app.use(bodyParser.json());
 
