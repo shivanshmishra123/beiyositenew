@@ -9,7 +9,7 @@ const app = express();
 config();
 app.use(cors(
  { 
-  origin:["https://beiyositenew-api-final.vercel.app/"],
+  origin:["https://www.beiyo.in/"],
   method:["POST","GET"],
   credentials: true
 }
