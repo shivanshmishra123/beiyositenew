@@ -28,6 +28,9 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/", (req,res)=>{
+  res.json("Welcome to the Beiyo backend");
+});
 app.get("/api/hostel", async (req, res) => {
   try {
       const hostels = await Hostel.find();
