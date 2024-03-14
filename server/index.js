@@ -9,8 +9,8 @@ const app = express();
 config();
 app.use(cors(
  { 
-  origin[""];
-  method["POST","GET"];
+  origin:["https://beiyositenew-api-final.vercel.app/"],
+  method:["POST","GET"],
   credentials: true
 }
 ));
