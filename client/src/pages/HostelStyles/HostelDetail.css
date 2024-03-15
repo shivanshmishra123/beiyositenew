@@ -5,7 +5,7 @@
     padding-right: 13rem;
 }
 .singlehosteldetail{
-        min-height: 70rem;
+        min-height: 50rem;
         width: fit-content;
         border-radius: 3.125rem;
         background: #FFF;
@@ -79,6 +79,7 @@
     margin-top: 2rem;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 2rem;
 }
 .imagehosteldetails{
     height: 25rem;
