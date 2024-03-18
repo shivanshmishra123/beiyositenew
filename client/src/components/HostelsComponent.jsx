@@ -32,7 +32,6 @@ const HostelsComponent = ({notincludID}) => {
         fetchHostels();
     }, []);
   return (
-
     <>
         {loading ? (
         <div className="laodingscreen">

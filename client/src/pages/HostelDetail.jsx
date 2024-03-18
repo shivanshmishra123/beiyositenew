@@ -80,9 +80,6 @@ const HostelDetail = () => {
                  <SwiperSlide>
                  <img src={hostel&&hostel.image3} alt="" />
                  </SwiperSlide>
-                 <SwiperSlide>
-                 <img src={hostel&&hostel.image4} alt="" />
-                 </SwiperSlide>
               </Swiper>
              </div>
           <div className="priceandformdiv">
