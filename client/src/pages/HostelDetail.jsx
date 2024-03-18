@@ -48,7 +48,6 @@ const HostelDetail = () => {
               </div>
              </div>
              <div className="sharediv">
-              {/* <img src="/images/share.png" alt="" /> */}
               <a href={`https://api.whatsapp.com/send?text=https://beiyo.in/hostel/${hostel&&hostel._id}`} target='_blank'>
               <div className='whatsappSharediv'>
               <img src="/images/whatsapp1.svg" alt="" />
@@ -131,7 +130,7 @@ const HostelDetail = () => {
           Professional Housekeeping</div>
       </div>
          </div>
-         <div className="map">MAP</div>
+         {/* <div className="map">MAP</div> */}
           </div>
     
       {/* <div className="content4div">
@@ -142,6 +141,11 @@ const HostelDetail = () => {
                 Magni a sint, vitae ea odio cumque eligendi maxime expedita iusto necessitatibus, vero tempore impedit. Numquam et quis quia eius doloremque earum, nostrum consequuntur, enim asperiores ab consequatur! Veritatis, modi?
                 </p>
               </div> */}
+               <div className='mobileform'>
+            <Form hostelID={hostel&&hostel._id} />
+         <a target='blank' href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostel&&hostel.name}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`} style={{textAlign:"center"}}><button type="submit" id='whatsappsubmit' className='submit'><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a> 
+          </div> 
+
     </div>
            <h1 style={{marginTop:"2rem"}}>Other Hostels</h1>
            <HostelsComponent
