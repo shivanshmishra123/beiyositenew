@@ -143,7 +143,6 @@ const HostelDetail = () => {
             <div className="mobileformParent">
             <div className='mobileform'>
             <Form hostelName={hostel&&hostel.name} />
-        
           </div> 
             </div>
 
