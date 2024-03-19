@@ -58,8 +58,8 @@ app.post('/api/users', async (req, res) => {
         hostel: req.body.hostel
       });
   
-      const savedForm = await newForm.save();
-      res.json(savedForm);
+        const savedForm = await newForm.save();
+        res.json(savedForm);
     } catch (err) {
       console.log(err);
       res.status(500).json({ error: 'Server error' });

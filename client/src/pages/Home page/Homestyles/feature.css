@@ -61,11 +61,14 @@ line-height: normal;
     flex-direction: column;
     gap: 2rem;
     align-items: end;
+    
     margin-top: 2rem;   
 }
 .featuredisplay1{
     display: flex;
     gap: 2rem;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
 }
 .featureblock{
     width: 30rem;
@@ -75,6 +78,7 @@ line-height: normal;
     padding: 2rem;
     position: relative;
     box-shadow: 0px 4px 37.4px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
   }
   
 .featurecontent{
@@ -99,10 +103,18 @@ line-height: normal;
     right: -1.5rem;
 }
 @media (max-width: 412px){ 
+    .featuredisplay{
+        flex-direction: row;
+    }
+    .featuredisplay{
+        align-items: center;
+    }
 .featuresection{
-    flex-direction: column;
-    align-items: start;
-    
+
+    align-items: start;   
+}
+.featuredisplay{
+    padding: 0;
 }
 .featuretitle{
     white-space: nowrap;
@@ -115,14 +127,30 @@ line-height: normal;
     padding: 0.5rem;
     padding-top: 2rem;
     border-radius: 40px;
-
+    min-height: 30rem;
 }
 .taglinefeature{
     display: none;
 }
 .featureblock{
-    width: 20rem;
+    width: 10rem;
     margin: 0;
+    height: 10rem;
+    padding: 0.3rem;
+
+}
+.featureblock h1{
+    font-size: 1.5rem;
+}
+.featureblock img{
+    width: 50px;
+    height: 50px;
+}
+.featureblock p{
+    font-size: 0.5rem;
+    margin: 0;
+    left: 10%;
+    padding: 0;
 }
 .featuredisplay1{
 flex-direction: column;
@@ -136,7 +164,11 @@ margin: 0;
     padding: 0;
     margin: 0;
     padding-top: 1rem;
-    padding-left: 2rem;
+    padding-left: 1rem;
+}
+.rndomelem{
+    bottom: -6%;
+    right: -6%;
 }
 
   }

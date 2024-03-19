@@ -70,7 +70,7 @@ const HostelDetail = () => {
                 disableOnInteraction: false,
               }}
               >
-                 <SwiperSlide style={{width:"25rem"}}>
+                 <SwiperSlide >
                  <img src={hostel&&hostel.image} alt="" />
                  </SwiperSlide>
                  <SwiperSlide>
@@ -117,8 +117,7 @@ const HostelDetail = () => {
           Furnished</div>
         <div className="servicesdetails">
         <img src="/images/camera.svg " alt="" />
-          Camera Security</div>
-       
+          Camera Security</div>    
         <div className="servicesdetails">
           <img src="/images/washing-machinedetail.svg" alt="" />
           Washing Machine</div>
@@ -141,13 +140,15 @@ const HostelDetail = () => {
                 Magni a sint, vitae ea odio cumque eligendi maxime expedita iusto necessitatibus, vero tempore impedit. Numquam et quis quia eius doloremque earum, nostrum consequuntur, enim asperiores ab consequatur! Veritatis, modi?
                 </p>
               </div> */}
-               <div className='mobileform'>
-            <Form hostelID={hostel&&hostel._id} />
-         <a target='blank' href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostel&&hostel.name}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`} style={{textAlign:"center"}}><button type="submit" id='whatsappsubmit' className='submit'><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a> 
+            <div className="mobileformParent">
+            <div className='mobileform'>
+            <Form hostelName={hostel&&hostel.name} />
+        
           </div> 
+            </div>
 
     </div>
-           <h1 style={{marginTop:"2rem"}}>Other Hostels</h1>
+           <h1 style={{marginTop:"3rem"}}>Other Hostels</h1>
            <HostelsComponent
            notincludID={hostel&&hostel._id}
            />

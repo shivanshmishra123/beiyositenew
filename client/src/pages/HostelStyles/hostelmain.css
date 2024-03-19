@@ -200,6 +200,10 @@ font-weight: 500;
     margin: 0;
     gap: 0;
   }
+  .hostels{
+    gap: 0;
+    padding-top: 0.3rem;
+  }
  .doubletriplediv{
     display: flex;
     justify-content: space-between;
@@ -245,6 +249,7 @@ font-weight: 500;
         /* padding-right:  1rem; */
         position: relative;  
         margin: 1rem;
+        margin-top: 0;
         margin-left: 0rem;
 
         }

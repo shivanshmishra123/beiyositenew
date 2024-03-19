@@ -26,9 +26,9 @@ const Testimonial = () => {
        <p className='testimonialtitlepara' >From Our Residence</p>
         <div className="swipersection">
 
-        <Swiper className='swiper'
+        <Swiper className='swiper' style={{margin:"2rem"}}
       // install Swiper modules
-      modules={[ Scrollbar , Pagination ,FreeMode , EffectCards , Autoplay]}
+      modules={[ Scrollbar , Pagination ,FreeMode  , Autoplay]}
       spaceBetween={10}
       slidesPerView = {1}
       loop={true}
