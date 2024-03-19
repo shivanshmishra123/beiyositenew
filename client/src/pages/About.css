@@ -1,78 +1,117 @@
-.about{
-    display: flex;
-     
-    min-height: 40rem;
-    margin: 0 4rem;
-    /* width: 100%; */
-}
-.contentabout{  
+/* FONT FAMILY */
+
+  
+  /* VARIABLES */
+  
+  :root {
+    --Color-Yellow: #ffc700;
+    --Color-Aqua: #41c9e2;
+    --Color-black: #000000;
+    --Text-Shadow: 2px 1px 1px #000;
+    --Box-Shadow: #000000 0px 2px 5px -1px, #000000 0px 1px 3px -1px;
+  }
+  
+  @font-face {
+    font-family: Hansief;
+    src: url("../font/Hansief\ Rough.ttf") format('truetype');
+
+  }
+  
+  .AboutPage {
+    
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    width: 50%;
-}
-.contentabout h1{
-    margin-top: 7rem ;
-    margin-left :1.5rem;
-    font-size: 2.8rem;
-}
-.contentabout p{
-    margin-left :1.5rem;;
-    font-size: 1rem;
-    color: rgb(0, 0, 0);
-}
-.aboutlistdiv{
-    height: 4rem;
-    width: 100%;
+    padding-top: 7rem;
+  }
+  
+  /* HEDAING SECTION */
+  
+  .AboutPage > .Heading {
+    text-align: center;
+    /* margin-top: 1.8rem; */
+    font-family: sans-serif;
+    font-size: 4rem;
+    text-shadow: var(--Text-Shadow);
+  }
+  .Heading > h1 {
+    color: var(--Color-Yellow);
+  }
+  
+  /* TEXT IMAGE SECTION  */
+  
+  .AboutPage > .PageArticle {
+    margin: 4rem 0rem;
     display: flex;
-    justify-content: space-between;
-}
-.symbol{
-    height: 100px;
-    width: 100px;
-    background-color: purple;
-    border-radius: 50%;
-}
-.imageabout{
-    background-color: yellow;
-    height: 35rem;
-    width: 35rem;
-    margin-top: 8rem;
-    margin-left: 3rem;
-    border-radius: 15px;
-    background-image: url(/images/aboutus.png);
-    background-size: contain;
-}
-.imageabout img{
-    display: none;
-}
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+  }
+  
 
-@media (max-width: 412px){ 
-    .about{
-        margin: 0;
-        gap: 2rem;
-        flex-wrap: wrap-reverse;
-            
+   #TextContent {
+    background-color: var(--Color-Aqua);
+    padding: 3rem;
+  }
+  #TextContent p{
+    color: white;
+    font-family: Hansief;
+    font-size: 2.7rem;
+    color: white;
+    letter-spacing: 0.1rem;
+    border-radius: 0.5rem;
+    text-shadow: var(--Text-Shadow);
+  }
+  #Letter {
+  
+    color: white;
+    font-family: Hansief;
+    font-size: 4rem;
+    color: white;
+    letter-spacing: 0.1rem;
+    border-radius: 0.5rem;
+    text-shadow: var(--Text-Shadow);
+  }
+  
+  /* IMAGE SECTION */
+  
+  #ImageContent > .AboutImage {
+    max-width: 500px;
+    height: auto;
+    border-radius: 0.5rem;
+    filter: grayscale(100%);
+    transition: all 450ms linear;
+  }
+  
+  #ImageContent > .AboutImage:hover {
+    filter: grayscale(0%) brightness(90%);
+  }
+  
+  /* ABOUT TEXT SECTION */
+  
+  #AboutContent {
+    width: 80%;
+    margin: auto;
+    font-family: sans-serif;
+    text-align: justify;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  /* MEDIA QUERRY  */
+  @media only screen and (max-width: 768px) {
+    .AboutPage > .PageArticle {
+      margin: 4rem 0rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      justify-content: center;
+      align-items: center;
     }
-    .contentabout{
-        width: 100%;
-        gap: 1rem;
-    }
-    .imageabout{
-        height: 20rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
-        width: 20rem;
-    }
-    .contentabout h1{
-        margin-top: 0rem ;
-        margin-left :1rem;
-        font-size: 2.8rem;
-        margin-right: 1rem;
-    }
-    .contentabout p{
-        margin-left: 1rem;
-        margin-right: 1rem;
-        margin-bottom: 2rem;
+  
+    #TextContent {
+      font-size: 1.8rem;
+      padding: 2rem;
     }
   }
+  
