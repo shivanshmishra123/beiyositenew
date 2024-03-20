@@ -84,11 +84,24 @@
     }
   
     @media (max-width: 412px){ 
+      .header-visible { 
+        transform: translateY(0); 
+        transition: transform 1s ease; 
+      } 
+      .header-hidden { 
+        transform: translateY(-200%); 
+        transition: transform 1s ease; 
+      } 
       .pcnavlist{
         display: none;
       }
         .menu{
-          display: block;
+          display: block;  
+        }
+        .menubtn{
+          border: 1px solid black;
+          border-radius: 50%;
+          padding: 5px;
         }
         .logo{
           height:4rem;
@@ -99,37 +112,53 @@
         .mobilenavlist{
           display: block;
         }
+     .logo{
+      width: 128px;
+      height: 40px;
+      margin: 0;
+      padding: 0;
+     }
         .nav{
-          flex-direction: column;
-        margin: 0;
-        padding: 0;
-          width: 21rem;
-          margin-left: 2rem;
-       margin-top: 1.5rem;
-       /* height: 2rem; */
-       /* height: 100%; */
-       height: 5vh;
-      background-color: white;
-       padding: 0 1rem;
-       padding-top: 1rem;
-       border-radius: 0.75rem;
-       justify-content: center;
-       align-items: start;
-       padding-top: 9vh;
-       overflow: hidden;
-       transition: 0.7s ease-in-out;
-       /* padding-bottom: 1.2rem; */
-      /* padding-bottom: 5vh; */
+         width: 90%;
+         padding-top: 0.5rem;
+         display: flex;
+         flex-direction: column;
+         margin-top: 1.8rem;
+          align-items: start;
+          background-color: white;
+          justify-content: start;
+          height:  auto;
+          border-radius: 12px;
+          height: 3.5rem;
+          overflow: hidden;
+          transition: 0.7s ease-in-out;
+      
+          /* click hoen ke baddd kiya kiya chahiye */
+          /* margin: 0;   padding-top: 1.8rem; */
+           /* background: linear-gradient(180deg, #FFFFFF 51.78%, rgba(255, 255, 255, 0.51) 85.71%, rgba(255, 255, 255, 0) 100%);
+           border-radius: 0; width: 100%;   padding-left: 1.5rem;   padding-right: 1.5rem; */
+
+        }
+        .navmainhead{
+          display: flex;
+          justify-content: center;
+          /* height: 20rem; */
         }
         .mobilenavlist{
           display: flex;
           flex-direction: column;
-          /* gap: 2rem; */
+          gap: 2rem;
           padding-top: 1.2rem;
+          align-items: start;
+          justify-content:  space-between;
+          margin-bottom: 1rem;
+           /* click hoen ke baddd kiya kiya chahiye */
+           margin-top: 3rem;
+           gap: 2rem;
+           margin-bottom: 25rem;
         }
         .mobilenavlist li{
           font-size: 2rem;
-          
         }
         .mobilenavlist li p{
           text-decoration: underline;
