@@ -18,10 +18,11 @@
   }
   
   .AboutPage {
-    
+    /* align-items: center; */
     display: flex;
     flex-direction: column;
     padding-top: 7rem;
+    width: 100%;
   }
   
   /* HEDAING SECTION */
@@ -79,39 +80,48 @@
     max-width: 500px;
     height: auto;
     border-radius: 0.5rem;
-    filter: grayscale(100%);
-    transition: all 450ms linear;
+    /* filter: grayscale(100%); */
+    /* transition: all 450ms linear; */
   }
   
-  #ImageContent > .AboutImage:hover {
-    filter: grayscale(0%) brightness(90%);
-  }
+
   
   /* ABOUT TEXT SECTION */
   
   #AboutContent {
-    width: 80%;
+    width: 90%;
     margin: auto;
     font-family: sans-serif;
     text-align: justify;
     font-size: 1.1rem;
     font-weight: 500;
+    margin-bottom: 1rem;
   }
   
   /* MEDIA QUERRY  */
   @media only screen and (max-width: 768px) {
+
+    #ImageContent > .AboutImage{
+      width: 100%;
+      height: 300px;
+    }
     .AboutPage > .PageArticle {
-      margin: 4rem 0rem;
+      margin: 1rem 0rem;
       display: flex;
       flex-direction: column;
-      gap: 4rem;
+      gap: 2rem;
+      flex-wrap: wrap-reverse;
       justify-content: center;
       align-items: center;
     }
   
     #TextContent {
-      font-size: 1.8rem;
+      font-size: 1rem;
       padding: 2rem;
+      margin: 0 1rem;
+    }
+    .AboutPage > .Heading {
+      font-size: 2rem;
     }
   }
   
