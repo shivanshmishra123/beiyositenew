@@ -11,7 +11,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import Footer from './pages/Home page/Footer';
 import HostelDetail from './pages/HostelDetail';
-
+import Privacypolicy from './pages/Privacypolicy';
 AOS.init();
 
 
@@ -34,6 +34,7 @@ function App() {
           <Route path="/about" exact element={<About/>} />
           <Route path="/hostel" exact element={<Hostel/>} />
           <Route path="/hostel/:id" exact element={<HostelDetail/>} />
+          <Route path='/privacy-policy' exact element={<Privacypolicy/>}/>
          </Routes>
   </Router>
    <Footer/>

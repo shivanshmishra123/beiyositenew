@@ -16,6 +16,7 @@ const Footer = () => {
     <a className='link' href="/about"><li>Our Story</li></a>
       
       <a href=""><li>Partner with us</li></a>
+      <a href="/privacy-policy"><li>Privacy Policy</li></a>
     </ul>
   </div>
   {/* <div className="footercompoents">
