@@ -58,17 +58,31 @@ const HostelsComponent = ({notincludID}) => {
                         </div>
            
                     </div>
-                    <div className="doubletriplediv">
-                    <div className="double" >
-                        <img src="/images/bed.svg" alt="" />
-                        <p>Double</p>
-                    </div>
-                    <div className="triple">
-                        <img src="/images/bed.svg" alt="" />
-                        <p>Triple</p>
-                    </div>
-                    <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
-                    </div>
+                    {hostel.single===true?(
+                                            <div className="doubletriplediv">
+                                            <div className="double" >
+                                                <img src="/images/bed.svg" alt="" />
+                                                <p>Single</p>
+                                            </div>
+                                            <div className="triple">
+                                                <img src="/images/bed.svg" alt="" />
+                                                <p>Double</p>
+                                            </div>
+                                            <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
+                                            </div>
+                    ):(
+                        <div className="doubletriplediv">
+                        <div className="double" >
+                            <img src="/images/bed.svg" alt="" />
+                            <p>Double</p>
+                        </div>
+                        <div className="triple">
+                            <img src="/images/bed.svg" alt="" />
+                            <p>Triple</p>
+                        </div>
+                        <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
+                        </div>
+                    )}
                 </div>
                 </a>
                  ):null  
