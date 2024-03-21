@@ -63,8 +63,9 @@ const hostelname = hostelName
          <div className="checkeddivwhatsapp"><input type="checkbox" name="whatsappInfo" checked={whatsappInfo} onChange={() => setFormData({ ...formData, whatsappInfo: !whatsappInfo })} /> <p className="whatsappcheck">Wants Latest Rooms info through WhatsApp</p> </div>
           
           <button type="submit" className='submit' disabled={submitting}>Request a callBack</button>
-          <p style={{textAlign:'center'}}>OR</p>
+          
         </form>
+        <p style={{textAlign:"center"}}>OR</p>
          <a target='blank' href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostelname}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`} style={{textAlign:"center"}}><button type="submit" id='whatsappsubmit' className='submit'><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a> 
         </>
       
