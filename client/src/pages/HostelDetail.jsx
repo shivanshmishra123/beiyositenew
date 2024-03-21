@@ -90,22 +90,41 @@ const HostelDetail = () => {
           <div className='content3hosteldetail'>
 
          <div className="service">
-         <div className="pricedetail">
-        <div className="occupancyandprice">
-        <div className="occupancy">
-                        <img src="/images/bed.svg" alt="" />
-                        <p>Double</p>
-                    </div>
-                    <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.price}/mo*</p>
-        </div>
+          {hostel&&hostel.single === true ?(
+              <div className="pricedetail">
               <div className="occupancyandprice">
               <div className="occupancy">
-              <img src="/images/bed.svg" alt="" />
-                        <p>Triple</p>
-                    </div>
-                    <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.price}/mo*</p>
-              </div>     
-         </div>
+                              <img src="/images/bed.svg" alt="" />
+                              <p>Single</p>
+                          </div>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.singleprice}/mo*</p>
+              </div>
+                    <div className="occupancyandprice">
+                    <div className="occupancy">
+                    <img src="/images/bed.svg" alt="" />
+                              <p>Double</p>
+                          </div>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/mo*</p>
+                    </div>     
+               </div>
+          ):(
+            <div className="pricedetail">
+            <div className="occupancyandprice">
+            <div className="occupancy">
+                            <img src="/images/bed.svg" alt="" />
+                            <p>Double</p>
+                        </div>
+                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/mo*</p>
+            </div>
+                  <div className="occupancyandprice">
+                  <div className="occupancy">
+                  <img src="/images/bed.svg" alt="" />
+                            <p>Triple</p>
+                        </div>
+                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.tripleprice}/mo*</p>
+                  </div>     
+             </div>
+          )}
          <h1 className='serviceshosteldetail'>Services</h1>
       <div className="content3div">   
         <div className="servicesdetails">
