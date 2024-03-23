@@ -1,8 +1,10 @@
 import React from 'react'
-
+import OwnerForm from '../components/OwnerForm'
 const ListYourProperty = () => {
   return (
-    <div>ListYourProperty</div>
+    <div>
+      <OwnerForm/>
+    </div>
   )
 }
 

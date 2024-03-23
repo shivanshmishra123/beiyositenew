@@ -36,6 +36,9 @@ const Testimonial = () => {
         delay: 2000,
         disableOnInteraction: false,
       }}
+      // pagination={{
+      //   dynamicBullets: true,
+      // }}
       {...swiperOptions}
       grabCursor={true}
     

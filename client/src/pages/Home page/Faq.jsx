@@ -18,7 +18,7 @@ const Faq = () => {
         document.querySelector("#five").setAttribute(  "style", "color:black; background-color:transparent")
     }
     const click3 = () =>{
-        document.querySelector(".answerdivs p").innerHTML="To avail Beiyo's services for your hostel or PG, you have multiple convenient options. You can easily reach out to us via phone call or email. Additionally, you can explore the 'List Your Website' option provided in the navigation bar of our website. "
+        document.querySelector(".answerdivs p").innerHTML="To avail Beiyo's services for your hostel or PG, you have multiple convenient options. You can easily reach out to us via phone call or email. Additionally, you can explore the 'List Your Property' option provided in the navigation bar of our website. "
         document.querySelector("#three").setAttribute(  "style", "color:white; background-color:black")
         document.querySelector("#two").setAttribute(  "style", "color:black; background-color:transparent")
         document.querySelector("#one").setAttribute(  "style", "color:black; background-color:transparent")

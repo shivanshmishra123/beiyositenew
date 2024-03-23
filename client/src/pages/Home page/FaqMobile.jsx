@@ -116,7 +116,7 @@ function click2() {
 
   function click3() {
     document.querySelector("#threeMobile p").innerHTML =
-      "To avail Beiyo's services for your hostel or PG, you have multiple convenient options. You can easily reach out to us via phone call or email. Additionally, you can explore the 'List Your Website' option provided in the navigation bar of our website.";
+      "To avail Beiyo's services for your hostel or PG, you have multiple convenient options. You can easily reach out to us via phone call or email. Additionally, you can explore the 'List Your Property' option provided in the navigation bar of our website.";
     document
       .querySelector("#threeMobile")
       .setAttribute(

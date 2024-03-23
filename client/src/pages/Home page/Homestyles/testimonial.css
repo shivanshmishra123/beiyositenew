@@ -58,10 +58,11 @@ position: relative;
   height: 15px;
   text-align: center;
   font-size: 12px;
-  background-color: #ffffff;
+  background-color: #000000;
   opacity: 1;
   display: none;
 }
+
 .testimonialsection h6{
   position: absolute;
   color: #002C39;
@@ -93,6 +94,7 @@ line-height: normal;
     height: 10px;
     width: 10px;
     display: block;
+    display: flex;
   }
   .testimonialtitle{
     font-size: 3rem;

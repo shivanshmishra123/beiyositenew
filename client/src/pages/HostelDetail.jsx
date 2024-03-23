@@ -128,22 +128,22 @@ const HostelDetail = () => {
          <h1 className='serviceshosteldetail'>Services</h1>
       <div className="content3div">   
         <div className="servicesdetails">
-              <img src="/images/wifi-hostel.svg" alt="" />
+              {/* <img src="/images/wifi-hostel.svg" alt="" /> */}
           High-Speed WI-FI</div>
         <div className="servicesdetails">
-          <img src="/images/furnish.svg " alt="" />
+          {/* <img src="/images/furnish.svg " alt="" /> */}
           Furnished</div>
         <div className="servicesdetails">
-        <img src="/images/camera.svg " alt="" />
+        {/* <img src="/images/camera.svg " alt="" /> */}
           Camera Security</div>    
         <div className="servicesdetails">
-          <img src="/images/washing-machinedetail.svg" alt="" />
+          {/* <img src="/images/washing-machinedetail.svg" alt="" /> */}
           Washing Machine</div>
         <div className="servicesdetails">
-        <img src="/images/purifiedwater.svg" alt="" />
+        {/* <img src="/images/purifiedwater.svg" alt="" /> */}
           Purified Water</div>
         <div className="servicesdetails">
-        <img src="/images/broomdetail.svg" alt="" />
+        {/* <img src="/images/broomdetail.svg" alt="" /> */}
           Professional Housekeeping</div>
       </div>
          </div>

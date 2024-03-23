@@ -1,0 +1,56 @@
+.RegistrationForm {
+    background-color: beige;
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgb(19, 31, 99) 0px 1px 4px, rgb(21, 39, 78) 0px 0px 0px 3px;
+  }
+  
+  .RegistrationForm .Form .OwnerInformations {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 20px 0px;
+  }
+  
+  .OwnerInformations > .UserFeildInputs {
+    display: flex;
+    flex-direction: column;
+  }
+  .OwnerInformations > .UserFeildInputs > label {
+    padding: 5px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .OwnerInformations > .UserFeildInputs > input {
+    width: 400px;
+    height: 50px;
+    padding: 2px 15px;
+    outline: none;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    border-bottom: 2px solid black;
+    transition: all 450ms linear;
+  }
+  .OwnerInformations > .UserFeildInputs > input:focus,
+  input:valid {
+    border-color: rgb(241, 188, 74);
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .RegistrationForm {
+      max-width: 400px;
+    }
+    .OwnerInformations > .UserFeildInputs > input {
+      width: 300px;
+    }
+  }
+  
