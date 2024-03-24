@@ -1,6 +1,6 @@
 import React from 'react'
 import HostelsComponent from '../../components/HostelsComponent'
-import './Homestyles/OurHostel.css'
+// import './Homestyles/OurHostel.css'
 const OurHostel = () => {
   return (
     <div className='ourHosteldiv'>

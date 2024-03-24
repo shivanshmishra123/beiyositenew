@@ -36,3 +36,66 @@
   
   }
 
+/* other hostel.css */
+.ourHosteldiv{
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* margin: 2rem 0rem; */
+  margin-bottom: 3rem;
+  /* gap: 1rem; */
+  padding: 0rem 6.3rem;
+  padding-right: 13rem;
+  padding-right: 13rem;
+}
+.exploremore{
+  /* margin-top: 0.5rem; */
+  padding: 0.5rem 1rem;
+  background-color: #f2de82;
+  color: black;
+  font-weight: 600;
+  font-size: 1.5rem;
+     /* align-self: end; */
+     /* border: 1px solid black; */
+     border-radius: 100px;
+ }
+ .ourhostelsHeading{
+  margin: 0;
+  text-decoration: underline;
+  font-weight: 700;
+      color: rgb(67, 62, 62);
+ }
+.explorediv{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+ 
+@media (max-width: 1000px){
+  .ourHosteldiv{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0rem;
+      margin-bottom: 3rem;
+      gap: 1rem;
+      padding: 0;
+  }
+  .ourhostelsHeading{
+      font-weight: 700;
+      color: rgb(67, 62, 62);
+      text-decoration: underline;
+      /* margin-bottom: 1rem; */
+  }
+  .exploremore{
+   /* margin-top: 0.5rem; */
+   padding: 0.5rem 1rem;
+   background-color: #f2de82;
+   color: black;
+   font-weight: 600;
+   font-size: 1.5rem;
+      /* align-self: end; */
+      /* border: 1px solid black; */
+      border-radius: 100px;
+  }
+}
