@@ -3,12 +3,14 @@
   background: rgba(255, 255, 255, 0.76);
   /* box-shadow: 0px 4px 9.9px 0px rgba(0, 0, 0, 0.25); */
   /* width: 23.375rem; */
-  min-height: 34.75rem;
+  min-height: 3rem;
   /* margin: 1rem; */
   display: none;
   /* position: relative; */
   /* flex-shrink: 0; */
   opacity: 0.7;
+  margin: 0.5rem;
+  margin-bottom: 1rem;
 }
 .faqMobile h1 {
   text-align: center;
@@ -17,11 +19,13 @@
 .questionsAnswers {
   display: flex;
   flex-direction: column;
-  gap: 0rem;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
 }
 .questionMobile {
   height: 3rem;
-  margin: 1rem 1.5rem 0rem 1.5rem;
+  /* margin: 1rem 1.5rem 0rem 1.5rem; */
   font-size: 1rem;
   font-weight: 400;
   background-color: transparent;
@@ -30,11 +34,14 @@
   /* padding: 1rem 0rem 0rem 1rem ; */
   text-align: left;
   padding-left: 1rem;
+  width: 100%;
+
 }
+
 .answerMobile {
   /* width: 22.3125rem; */
   /* height: 12rem; */
-  margin: 0.5rem 1.5rem 0rem 1.5rem;
+  /* margin: 0.5rem 1.5rem 0rem 1.5rem; */
   flex-shrink: 0;
   border-radius: 1.1875rem;
   /* border: 1px solid #000; */
@@ -42,6 +49,7 @@
   /* padding: 1rem; */
   transition: all ease-in-out 0.5s;
   overflow: hidden;
+  width: 100%;
 }
 .answerMobile p {
   font-weight: 300;
@@ -55,7 +63,7 @@
 
   
 }
-@media(max-width: 1200px){
+@media(max-width: 1000px){
      .faqMobile{
           display: block;
      }

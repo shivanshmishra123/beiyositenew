@@ -36,7 +36,7 @@ font-weight: 600;
 .hostels{
     display: flex;
     flex-direction: column;
-    padding-top: 2rem;
+    padding-top: 1rem;
     gap: 2rem;
 }
 .single-hostel{
@@ -193,16 +193,19 @@ font-weight: 500;
 .originalprice{
     font-weight: 700;
 }
-@media (max-width: 412px){ 
+@media (max-width: 1000px){ 
   .pricediv{
     align-items: start;
     justify-content: start;
     margin: 0;
     gap: 0;
   }
+  .Hostelheading{
+    align-self: start;
+  }
   .hostels{
-    gap: 0;
-    padding-top: 0.3rem;
+    gap: 1rem;
+    padding-top: 0.4rem;
   }
  .doubletriplediv{
     display: flex;
@@ -234,9 +237,12 @@ font-weight: 500;
     }
     .hostelMainpage{
         padding: 0rem 0rem;
-        padding-right: 0rem;
+        padding-right: 1rem;
         padding-left: 1rem;
         padding-top: 8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .single-hostel{
         min-height: 25rem;
@@ -248,10 +254,9 @@ font-weight: 500;
         flex-direction: column;
         /* padding-right:  1rem; */
         position: relative;  
-        margin: 1rem;
+        /* margin: 1rem; */
         margin-top: 0;
         margin-left: 0rem;
-
         }
     .namediv p{
         font-size: 0.8rem;
@@ -310,5 +315,5 @@ font-weight: 500;
     .pricediv a button{
         width: 21rem;
     }
-    }
+ }
     

@@ -19,7 +19,7 @@ const Testimonial = () => {
     // Add other Swiper options as needed
   };
   return (
-    <div className='testimonial'data-aos="fade-up"   data-aos-duration="3000" >
+    <div className='testimonial'data-aos="fade-up"   data-aos-duration="2000" >
        <h1 className="testimonialtitle">
         TESTIMONIAL  
        </h1>

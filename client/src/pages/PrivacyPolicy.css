@@ -39,7 +39,7 @@
 .privacyhead{
     margin-bottom: 0.5rem;
 }
-@media (max-width: 412px){ 
+@media (max-width: 1000px){ 
     .privacyMain
             {
          width: 100%;

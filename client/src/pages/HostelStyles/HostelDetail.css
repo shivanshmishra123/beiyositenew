@@ -138,7 +138,7 @@ align-items: center;
 .mobileform{
     display: none;
 }
-@media (max-width: 412px){ 
+@media (max-width: 1000px){ 
     .mobileform{
         height: 21rem;
     width: 21rem;

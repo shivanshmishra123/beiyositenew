@@ -16,7 +16,8 @@ const Hostel = () => {
             <h1 className="mainHead">
                 Explore Our PG/Hostels in Indore
             </h1>
-           <HostelsComponent/>
+           <HostelsComponent
+           />
         </div>
     )
 }

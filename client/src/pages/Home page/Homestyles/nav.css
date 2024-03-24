@@ -83,7 +83,7 @@
       display: none;
     }
   
-    @media (max-width: 412px){ 
+    @media (max-width: 1000px){ 
       .header-visible { 
         transform: translateY(0); 
         transition: transform 1s ease; 

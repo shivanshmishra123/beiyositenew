@@ -12,8 +12,14 @@
     background: rgba(255, 255, 255, 0.76);
     box-shadow: 0px 4px 9.9px 0px rgba(0, 0, 0, 0.25);  
     opacity: 76%;
-    margin: 2rem;
+    margin: 2%;
+    width: 96%;
+    gap: 1rem;
 }
+.questions{
+    /* width: 50%; */
+    /* height: 100%; */
+    }
 .questions h1{
     font-size: 2.5rem;
 }
@@ -25,19 +31,22 @@
     font-size: 2.5rem;
 }
 .answerdivs{
-    width: 40rem;
-    height: 70%;
+    /* width: 40rem; */
+    height: auto;
     margin-top: 2rem;
+    padding-bottom: 29%;
     border-radius: 10px;
     position: relative;
     border-radius: 1.75rem;
     border: 1px solid #000;
     background: #004B61;
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    width: auto;
 }
 .answerdivs p{
-    position: absolute;
-    top: 10%;
-    left: 5%;
+    /* position: absolute; */
+    
     font-size: 1.1rem;
     /* font-weight: bold; */
     color: white;
@@ -49,15 +58,18 @@
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    /* gap: 1rem; */
     height: 70%;
 }
 .questionsdiv button{
     border: 1px solid black;
     border-radius: 10px;
     height: auto;
-    width: 40rem;
+    margin: 0.3rem 0rem;
+    width: auto;
     padding: 1rem;
+    padding-right: 4rem;
     text-align: left;
     font-size: 1rem;
     /* background-color: transparent; */
@@ -80,7 +92,7 @@
     position: relative;
 
 }
-@media (max-width: 412px){ 
+@media (max-width: 1000px){ 
     .randomfooterelem{
         height: 100%;
         bottom: -10%;

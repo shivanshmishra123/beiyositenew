@@ -1,17 +1,23 @@
 .racesWrapperMobile{
-    margin: 3rem 1rem;
+    /* margin: 3rem 1rem; */
     display: none;
+    width: auto;
 }
 .racesMobile{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    margin: 0.5rem;
 }
 .racesMobile h1{
-    margin: 2rem 0rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0rem;
+    /* margin-bottom: 1rem; */
+    margin-bottom: 0;
     text-align: center;
     font-size: 2.3rem;
+}
+.racesMobile .componetsMobile{
+    width: auto;
 }
 .racesMobile .componetsMobile .componentMobilefirst{
     min-height: 20rem;
@@ -74,7 +80,7 @@
     margin: 0 3rem;
     font-size: 1.2rem;
 }
-@media (max-width: 412px){ 
+@media (max-width: 1000px){ 
     .racesWrapperMobile
             {
             display: block;

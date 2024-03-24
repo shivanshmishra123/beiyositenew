@@ -3,7 +3,7 @@ import Form from './Form';
 
 import { Link } from 'react-router-dom';
 import  { useState, useEffect } from 'react';
-const HostelsComponent = ({notincludID}) => {
+const HostelsComponent = ({notincludID, noOfHostels}) => {
     const [hostels, setHostels] = useState([]);
     const [loading, setLoading] = useState(false);
 //     const [showForm, setShowForm] = useState(false);
@@ -21,7 +21,13 @@ const HostelsComponent = ({notincludID}) => {
                 setLoading(true);
                 const response = await fetch(`https://beiyositenew-api-alpha.vercel.app/api/hostel`);
                 const data = await response.json();
-                setHostels(data);
+                if(noOfHostels===null){
+                    setHostels(data);
+                }else{
+                    const firstThreeHostels = data.slice(0, noOfHostels);
+                    setHostels([...firstThreeHostels])
+                }
+                
                 console.log(data);
             } catch (error) {
                 console.error('Error fetching hostels:', error.message);

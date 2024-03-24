@@ -10,6 +10,7 @@ import Scrolltext from './Home page/Scrolltext';
 import FaqMobile from './Home page/FaqMobile';
 import Mainfeature from './Home page/Mainfeature';
 import CommuneMobile from './Home page/CommuneMobile';
+import OurHostel from './Home page/OurHostel';
 
 
 
@@ -23,6 +24,7 @@ function Homepage() {
       <Feature/>
       <Mainfeature/>
     <CommuneMobile/>
+    <OurHostel/>
       <Testimonial/> 
       <Faq/>
       <FaqMobile/>
