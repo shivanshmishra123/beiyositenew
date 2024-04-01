@@ -60,7 +60,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
                             </div>
                            
                         <div className="pricediv">
-                                <p className='price'>Starting from <br /><img src="/images/rupee.svg" alt="" /><span className=''>{hostel.price}</span>/mo*</p>
+                                <p className='price'>Starting from <br /><img src="/images/rupee.svg" alt="" /><span className=''>{hostel.price}</span>/month*</p>
                         </div>
            
                     </div>
