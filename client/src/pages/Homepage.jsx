@@ -22,9 +22,10 @@ function Homepage() {
       <Hero/>
       <Scrolltext/>
       <Feature/>
+      <OurHostel/>
       <Mainfeature/>
     <CommuneMobile/>
-    <OurHostel/>
+  
       <Testimonial/> 
       <Faq/>
       <FaqMobile/>

@@ -97,14 +97,14 @@ const HostelDetail = () => {
                               <img src="/images/bed.svg" alt="" />
                               <p>Single</p>
                           </div>
-                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.singleprice}/month*</p>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.singleprice}/month</p>
               </div>
                     <div className="occupancyandprice">
                     <div className="occupancy">
                     <img src="/images/bed.svg" alt="" />
                               <p>Double</p>
                           </div>
-                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/month*</p>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/month</p>
                     </div>     
                </div>
           ):(
@@ -114,14 +114,14 @@ const HostelDetail = () => {
                             <img src="/images/bed.svg" alt="" />
                             <p>Double</p>
                         </div>
-                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/mo*</p>
+                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/month</p>
             </div>
                   <div className="occupancyandprice">
                   <div className="occupancy">
                   <img src="/images/bed.svg" alt="" />
                             <p>Triple</p>
                         </div>
-                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.tripleprice}/mo*</p>
+                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.tripleprice}/month</p>
                   </div>     
              </div>
           )}

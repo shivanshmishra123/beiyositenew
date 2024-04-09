@@ -3,11 +3,13 @@
 	display:flex;
 	flex-wrap:nowrap;
     overflow: hidden;
+    
 }
 .racesWrapper{
     overflow: hidden;
     margin: 10rem 0rem;
     margin-bottom: 3rem;
+   
 }
 .races .componets {
 	font-family: 'Staatliches', cursive;
