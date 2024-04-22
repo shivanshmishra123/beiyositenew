@@ -10,18 +10,49 @@ const About = () => {
    </div>
    <div className="PageArticle">
        <div id="TextContent">
-           <p>IN oUR SEARCH</p>
+           <p>IN OUR SEARCH</p>
            <br/>
-           <p>WE CoULDN'T <span id="Letter">L</span>oCATE IT,</p>
+           <p>WE COULDN'T <span id="Letter">L</span>OCATE IT,</p>
            <br/>
-           <p>So WE <span id="Letter">C</span>RAFTED IT FoR <span id="Letter">YOU.</span></p>
+           <p>So WE <span id="Letter">C</span>RAFTED IT FOR <span id="Letter">YOU</span></p>
        </div>
        <div id="ImageContent">
            <img className="AboutImage" src="./images/aboutuspng.png" alt="Team Image"/>
        </div>
    </div>
    <div id="AboutContent">
-   Stuck in cramped hostels or confined PGs, the options were far from ideal. Hence, Beiyo Living was born – a haven crafted by those who've walked in your shoes,Stuck in cramped hostels or confined PGs, the options were far from ideal. Hence, Beiyo Living was born – a haven crafted by those who've walked in your shoes,Stuck in cramped hostels or confined PGs, the options were far from ideal. Hence, Beiyo Living was born – a haven crafted by those who've walked in your shoes,Stuck in cramped hostels or confined PGs, the options were far from ideal. Hence, Beiyo Living was born – a haven crafted by those who've walked in your shoes,Stuck in cramped hostels or confined PGs, the options were far from ideal. Hence, Beiyo Living was born – a haven crafted by those who've walked in your shoes,Stuck in cramped hostels or confined PGs, the options were far from ideal. Hence, Beiyo Living was born – a haven crafted by those who've walked in your shoes,Stuck in cramped hostels or confined PGs, the options were far from ideal. Hence, Beiyo Living was born – a haven crafted by those who've walked in your shoes,
+  <div className="subaboutcontent">
+    <div className="subparacontent">
+        <h1>Confined PGs?</h1>
+        <p>Feel trapped in limited housing options?</p>
+        <p>Beiyo offers a haven.</p>
+        <p>Crafted by those who understand.</p>
+        <p>Step into comfort, step into Beiyo Rooms.</p>
+    </div>
+    <div className="subparacontent" >
+        <h1>Escape to Beiyo !</h1>
+        <p>Bid farewell to cramped quarters.</p>
+        <p>Embrace spacious, welcoming spaces.</p>
+        <p>Created by fellow travelers.</p>
+        <p>Experience a new standard in accommodation.</p>
+    </div>
+  </div>
+  <div className="subaboutcontent">
+  <div className="subparacontent">
+    <h1>Beiyo: Your Sanctuary</h1>
+    <p>Feel trapped in limited housing options?</p>
+    <p>Beiyo Living offers a haven.</p>
+    <p>Crafted by those who understand.</p>
+    <p>Step into comfort, step into Beiyo Living.</p>
+  </div>
+    <div className="subparacontent"  >
+        <h1>Beiyo: Where Comfort Awaits</h1>
+        <p>Leave cramped hostels behind.</p>
+        <p>Discover a refuge in Beiyo Living.</p>
+        <p>Crafted by empathetic souls.</p>
+        <p>Your comfort is our priority.</p>
+    </div>
+  </div>
    </div>
 </div>
 </div>

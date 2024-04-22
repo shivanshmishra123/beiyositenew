@@ -1,13 +1,21 @@
 /* FONT FAMILY */
+@import url('https://fonts.googleapis.com/css2?family=Maiden+Orange&display=swap');
+.maiden-orange-regular {
+  font-family: "Maiden Orange", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
 
   
-  /* VARIABLES */
-  
   :root {
-    --Color-Yellow: #ffc700;
-    --Color-Aqua: #41c9e2;
+    --Color-Yellow: #F7D441;
+    --Color-Aqua: #80D6FF;
     --Color-black: #000000;
-    --Text-Shadow: 2px 1px 1px #000;
+    --Text-Shadow:  4px 2px 0px #00000040;
+    ;
     --Box-Shadow: #000000 0px 2px 5px -1px, #000000 0px 1px 3px -1px;
   }
   
@@ -31,8 +39,8 @@
     text-align: center;
     /* margin-top: 1.8rem; */
     font-family: sans-serif;
-    font-size: 4rem;
-    text-shadow: var(--Text-Shadow);
+    font-size: 2rem;
+    /* text-shadow: var(--Text-Shadow); */
   }
   .Heading > h1 {
     color: var(--Color-Yellow);
@@ -47,31 +55,38 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap-reverse;
+   
   }
   
 
    #TextContent {
     background-color: var(--Color-Aqua);
     padding: 3rem;
+    border-radius: 32px;
+    box-shadow: 0px 0px 11.8px 0px #88D7FD;
+    
   }
   #TextContent p{
     color: white;
-    font-family: Hansief;
+    font-family: "Maiden Orange", serif;
     font-size: 2.7rem;
     color: white;
     letter-spacing: 0.1rem;
     border-radius: 0.5rem;
     text-shadow: var(--Text-Shadow);
+
+    
   }
   #Letter {
   
     color: white;
-    font-family: Hansief;
+    font-family: "Maiden Orange", serif;
     font-size: 4rem;
     color: white;
     letter-spacing: 0.1rem;
     border-radius: 0.5rem;
     text-shadow: var(--Text-Shadow);
+ 
   }
   
   /* IMAGE SECTION */
@@ -89,15 +104,43 @@
   /* ABOUT TEXT SECTION */
   
   #AboutContent {
-    width: 90%;
-    margin: auto;
-    font-family: sans-serif;
-    text-align: justify;
-    font-size: 1.1rem;
+    width: 100%;
+    padding: 12rem;
+    padding-top: 0rem;
     font-weight: 500;
+    padding-bottom: 0rem;
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 30rem; */
+    gap: 2rem;
   }
   
+  .subaboutcontent{
+    flex:1;
+    padding: 1.5rem;
+    /* padding-right: 5rem; */
+    background-color: #74D2FF;
+    /* height: 7rem; */
+    border-radius: 32px;
+    opacity: 80%;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    gap: 25rem;
+  }
+  .subparacontent h1{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .subparacontent p{
+    font-size:  1rem;
+    font-weight: 400;
+    line-height: 1.3rem;
+  }
+
   /* MEDIA QUERRY  */
   @media only screen and (max-width: 1000px) {
 
@@ -122,6 +165,15 @@
     }
     .AboutPage > .Heading {
       font-size: 2rem;
+    }
+    #AboutContent {
+      padding: 1rem;
+      padding-top: 0rem;
+    }
+    .subaboutcontent{
+      flex-direction: column ;
+    gap: 2rem;
+
     }
   }
   

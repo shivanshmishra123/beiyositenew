@@ -97,14 +97,14 @@ const HostelDetail = () => {
                               <img src="/images/bed.svg" alt="" />
                               <p>Single</p>
                           </div>
-                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.singleprice}/month</p>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.singleprice}/bed</p>
               </div>
                     <div className="occupancyandprice">
                     <div className="occupancy">
                     <img src="/images/bed.svg" alt="" />
                               <p>Double</p>
                           </div>
-                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/month</p>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/bed</p>
                     </div>     
                </div>
           ):(
@@ -114,14 +114,14 @@ const HostelDetail = () => {
                             <img src="/images/bed.svg" alt="" />
                             <p>Double</p>
                         </div>
-                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/month</p>
+                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/bed</p>
             </div>
                   <div className="occupancyandprice">
                   <div className="occupancy">
                   <img src="/images/bed.svg" alt="" />
                             <p>Triple</p>
                         </div>
-                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.tripleprice}/month</p>
+                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.tripleprice}/bed</p>
                   </div>     
              </div>
           )}
@@ -144,8 +144,14 @@ const HostelDetail = () => {
           Purified Water</div>
         <div className="servicesdetails">
         {/* <img src="/images/broomdetail.svg" alt="" /> */}
-          Professional Housekeeping</div>
+          Professional Housekeeping
+          </div>
       </div>
+          <div className='newaddressblock'>
+            <h1>Address</h1>
+            <p><a href={hostel&&hostel.locationLink}>
+              <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.location}</p></a></p>
+          </div>
          </div>
          {/* <div className="map">MAP</div> */}
           </div>
