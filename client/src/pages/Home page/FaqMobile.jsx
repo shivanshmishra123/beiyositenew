@@ -79,7 +79,7 @@ function click1() {
 }
 function click2() {
     document.querySelector("#twoMobile p").innerHTML = 
-      "BEIYO collaborates with hostel and PG owners to elevate their facilities from grade 3 ratings to grade 1 standards. We take charge of comprehensive property management, ensuring tenants an unforgettable and seamless experience.";
+      "Beiyo promotes inclusivity, diversity, and collaboration, creating a safe and supportive space for individuals to connect and engage positively with one another, fostering a sense of community and unity.";
     document
       .querySelector("#twoMobile")
       .setAttribute(

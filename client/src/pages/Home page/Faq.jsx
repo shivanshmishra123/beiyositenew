@@ -10,7 +10,7 @@ const Faq = () => {
         document.querySelector("#five").setAttribute(  "style", "color:black; background-color:transparent")
     }
     const click2 = () => {
-        document.querySelector(".answerdivs p").innerHTML="BEIYO collaborates with hostel and PG owners to elevate their facilities from grade 3 ratings to grade 1 standards. We take charge of comprehensive property management, ensuring tenants an unforgettable and seamless experience."
+        document.querySelector(".answerdivs p").innerHTML="Beiyo promotes inclusivity, diversity, and collaboration, creating a safe and supportive space for individuals to connect and engage positively with one another, fostering a sense of community and unity."
         document.querySelector("#one").setAttribute(  "style", "color:black; background-color:transparent")
         document.querySelector("#two").setAttribute(  "style", "color:white; background-color:black") 
         document.querySelector("#three").setAttribute(  "style", "color:black; background-color:transparent")
@@ -63,7 +63,7 @@ hostel owners?</button>
         <h1>Answers</h1>
         <div className="answerdivs">
          <p>
-         BEIYO collaborates with hostel and PG owners to elevate their facilities from grade 3 ratings to grade 1 standards. We take charge of comprehensive property management, ensuring tenants an unforgettable and seamless experience.
+         Beiyo promotes inclusivity, diversity, and collaboration, creating a safe and supportive space for individuals to connect and engage positively with one another, fostering a sense of community and unity.
          </p>
         </div>
     </div>
