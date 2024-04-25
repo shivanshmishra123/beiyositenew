@@ -1,0 +1,30 @@
+.paraHomeofconduct{
+    gap: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+   background-color: white;
+   padding: 1rem;
+   border-radius: 30px ;
+}
+.paraHomeofconduct p{
+    font-weight: 400;   
+}
+.rulepage{
+    display:'flex';
+    padding:'5rem';
+    padding-top:'10rem';
+    flex-direction:'column';
+}
+
+@media(max-width: 1000px){
+.rulepage{
+    padding: 1rem;
+    padding-top: 8rem;
+}
+    .headingrule h1{
+        white-space: nowrap;
+    }
+
+}

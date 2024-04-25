@@ -19,6 +19,13 @@ const Footer = () => {
       <a href="/privacy-policy" className='link'><li>Privacy Policy</li></a>
     </ul>
   </div>
+  <div className="footercompoents">
+    <ul>
+      
+      <a href="/homeOfConduct" className='link'><li>Home Of Conduct</li></a>
+    
+    </ul>
+  </div>
   {/* <div className="footercompoents">
   <ul>
       <a href=""><li>Privacy Policy</li></a>
