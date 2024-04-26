@@ -11,6 +11,7 @@
     /* justify-content: space-between; */
     justify-content: space-between;
     align-items: center;
+    margin-top: 2rem;
 }
 
 .footercompoents:nth-child(1) p {
@@ -58,7 +59,7 @@ line-height: 2rem;
     display:flex;
     padding-top: 3.7rem;
     /* justify-content: space-between; */
-    gap: 6rem ;
+    gap: 6rem;
     width: 60%;
 }
 .contactmaildiv{
