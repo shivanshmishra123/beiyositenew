@@ -14,6 +14,8 @@ import HostelDetail from './pages/HostelDetail';
 import Privacypolicy from './pages/FooterComponents/Privacypolicy';
 import OwnerForm from './components/OwnerForm';
 import HomeOfConduct from './pages/FooterComponents/HomeOfConduct';
+import Achievement from './pages/FooterComponents/Achievement';
+
 AOS.init();
 
 
@@ -39,6 +41,7 @@ function App() {
           <Route path='/privacy-policy' exact element={<Privacypolicy/>}/>
           <Route path='/listyourproperty' exact element={<OwnerForm/>}/>
           <Route path='/homeOfConduct' exact element={<HomeOfConduct/>}/>
+          <Route path='/achievement' exact element={<Achievement/>}/>
          </Routes>
   </Router>
    <Footer/>

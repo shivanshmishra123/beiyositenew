@@ -22,8 +22,8 @@ const Footer = () => {
   <div className="footercompoents">
     <ul>
       
-      <a href="/homeOfConduct" className='link'><li>Home Of Conduct</li></a>
-    
+      <a href="/homeOfConduct" className='link'><li>Home Code Of Conduct</li></a>
+      <a href="/achievement" className='link'><li>Our Achievements</li></a>
     </ul>
   </div>
   {/* <div className="footercompoents">
