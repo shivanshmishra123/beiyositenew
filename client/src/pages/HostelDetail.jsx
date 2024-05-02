@@ -152,6 +152,18 @@ const HostelDetail = () => {
             <p><a href={hostel&&hostel.locationLink}>
               <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.location}</p></a></p>
           </div>
+          <div className="mobileformParent">
+            <div className='mobileform'>
+            <Form hostelName={hostel&&hostel.name} />
+          </div> 
+            </div>
+          <div className='nearByPlacesblock'>
+            <h1>Nearby Places</h1>
+            
+              <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby1}</p>
+              <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby2}</p>
+              <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby3}</p>
+          </div>
          </div>
          {/* <div className="map">MAP</div> */}
           </div>
@@ -164,11 +176,7 @@ const HostelDetail = () => {
                 Magni a sint, vitae ea odio cumque eligendi maxime expedita iusto necessitatibus, vero tempore impedit. Numquam et quis quia eius doloremque earum, nostrum consequuntur, enim asperiores ab consequatur! Veritatis, modi?
                 </p>
               </div> */}
-            <div className="mobileformParent">
-            <div className='mobileform'>
-            <Form hostelName={hostel&&hostel.name} />
-          </div> 
-            </div>
+     
 
     </div>
            <h1 style={{marginTop:"3rem"}}>Other Hostels</h1>
