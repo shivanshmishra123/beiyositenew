@@ -5,10 +5,6 @@ const OwnerFormSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    Ownername:{
-        type:String,
-        required:true,
-    },
     email:{
         type:String,
         required:true,
@@ -21,7 +17,7 @@ const OwnerFormSchema = new mongoose.Schema({
         type:String,
         required: true,
     },
-    RoomsAvailable:{
+    rooms:{
         type:Number,
         required: true,
     },

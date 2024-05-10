@@ -69,10 +69,10 @@ app.post('/api/users', async (req, res) => {
     const newOwner = new OwnerForm({
       name: req.body.name,
       email: req.body.email,
-    Ownername: req.body.Ownername,
+    // Ownername: req.body.Ownername,
     mobile:req.body.mobile,
     address:req.body.address,
-    RoomsAvailable :req.body.RoomsAvailable
+    rooms :req.body.rooms
     })
     const saveOwnerForm = await newOwner.save();
     res.json(saveOwnerForm);
