@@ -3,6 +3,7 @@
     height: auto;
     background-color: white;
     padding: 2rem;
+    /* padding-bottom: 0rem; */
     border-radius: 20px;
 }
 .privacyMain h2{
@@ -18,7 +19,7 @@
 .privacyMain p{
     font-weight: 400;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 }
 .privacyMain ul{
     padding-left: 2rem;

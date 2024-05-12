@@ -3,12 +3,14 @@
     align-items: center;
     flex-direction: column;
     padding: 5rem;
-    padding-top: 10rem;
+    padding-top: 8rem;
     gap: 1rem;
+    padding-bottom: 1rem;
 }
 .achievementPage h1{
     text-align: center;
     font-size: 3rem;
+    font-weight: 600;
 }
 .achivementMain{
     display: flex;
@@ -16,6 +18,7 @@
     align-items: center;
     gap: 2rem;
     justify-content: center;
+    align-items: center;
     width:auto;
     padding: 2rem;
     background-color: white;
@@ -36,32 +39,33 @@
 }
 .achivementMain1 img{
     height: 20.5rem;
-    width: 50rem;
+    width:  100%;
     /* border-radius: 0px 30px 30px 0px; */
 }
 .achivementMain1{
     border-radius: 0px 30px 30px 0px;
-    padding-right: 1px;
+    /* padding-right: 1px; */
+    width: 100%;
 }
 .achievementParadiv:nth-child(1){
-    width: 20rem;
+    width: 25rem;
     border-radius: 30px 0px 0px 30px;
 }
 .achievementParadiv:nth-child(2){
-    width: 70rem;
+    width: 100%;
     border-radius: 0px 30px 30px 0px;
 }
 
 
 .achivementMain2 img{
     height: 20rem;
-    width:  10%;
+    width:  15%;
 }
 
 .achievement3 p{
     font-weight: 600;
-    width: 64rem;
-    background-color: #F7D441;
+    width:  100%;
+    background-color: #fdf2c6;
     padding: 2rem;
     height: 20rem;
     border-radius: 30px 0px 0px 30px;
@@ -69,10 +73,10 @@
 }
 .achievement3 img{
     height: 20rem;
-    width: 10%;
+    width: 15%;
 }
 .achievementParadiv{
-    background-color: #F7D441;
+    background-color: #fdf2c6;
     padding: 2rem;
     height: 20rem;
     /* opacity: 30%; */
@@ -80,8 +84,59 @@ opacity: 90%;
 }
 
 .achievementParadiv:nth-child(2) p{
-
     width: 64rem;
-    background-color: #F7D441;
-
+    background-color: #fdf2c6;
 }
+@media(max-width: 1000px){
+    .achievementPage{
+        padding: 0;
+        padding-top: 8rem;
+    }
+    .achievementPage h1{
+        font-size: 2rem;
+    }
+    .achivementMain{
+        padding: 2rem 0rem;
+    }
+    .achivementMain1{
+        display: flex;
+        flex-wrap: wrap-reverse;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .achivementMain1 img{
+        padding: 2rem;
+        padding-bottom: 0;
+    }
+    .achievementParadiv:nth-child(1){
+       border: 0;
+       height: 100%;
+    }
+    .achivementMain2{
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .achivementMain2 img{
+        width: 10rem;
+    }
+    .achievementParadiv:nth-child(2){
+        height: 100%;
+    }
+    .achievement3{
+        display: flex;
+        flex-wrap: wrap-reverse;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .achievement3 img{
+        width: 10rem;
+    } 
+    .achievement3 p{
+        height: 100%;
+    }
+    }

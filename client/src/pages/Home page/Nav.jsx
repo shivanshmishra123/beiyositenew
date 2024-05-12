@@ -38,9 +38,10 @@ function Navbar() {
           <div className="pclist">
             <ul className='pcnavlist'>
               <a href="/hostel"><li><p>Hostels</p></li></a>
-              <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List Your Property</p></li></a>
+              {/* <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List Your Property</p></li></a> */}
+              <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a>
               {/* <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a> */}
-              <a href="/about"><li><p>About us</p></li></a>
+              {/* <a href="/about"><li><p>About us</p></li></a> */}
             </ul>
             <img className='menubtn' id='open' src="/images\menuicon.svg" alt="" onClick={toggleMobileMenu} />
             <img className='menubtn' id='close' src="/images\close.png" alt="" onClick={toggleMobileMenu} style={{display:"none"}} />
@@ -48,9 +49,10 @@ function Navbar() {
         </div>
         <ul className='mobilenavlist'>
           <a href="/hostel"><li><p>Hostels</p></li></a>
-          <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List Your Property</p></li></a>
+          <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a>
+          {/* <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List Your Property</p></li></a> */}
           {/* <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a> */}
-          <a href="/about"><li><p>About us</p></li></a>
+          {/* <a href="/about"><li><p>About us</p></li></a> */}
         </ul>
 
       </div>

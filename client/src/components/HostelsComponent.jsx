@@ -45,7 +45,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
             <p>Thanks for Your Patience</p>
         </div>
     ) : (
-        <div className="hostels" id='hostel'>
+        <div className="hostels" id='hostel' >
             {hostels.map((hostel) => (
                   hostel._id !== notincludID ?(
                      <a href={`/hostel/${hostel._id}`}>

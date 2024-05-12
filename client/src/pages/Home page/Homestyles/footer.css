@@ -3,7 +3,7 @@
     
 }
 .footer{
-    min-height: 30rem;
+    min-height: 28rem;
     display: flex;
     /* background-color: red; */
     padding: 2rem 4rem;
@@ -12,6 +12,8 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 2rem;
+    /* background: linear-gradient(180deg, #f5eac3 0%, rgba(255, 255, 255, 0.00) 100%); */
+    background-color: #f0eee4;
 }
 
 .footercompoents:nth-child(1) p {
@@ -87,10 +89,13 @@ line-height: 2rem;
     .footer{
         flex-direction: column;
         padding: 1rem 1rem;
-        padding-bottom: 6rem;
+        padding-bottom: 4rem;
         gap: 0;
         align-items: start;
-        background: linear-gradient(206deg, #00BFFF 11.17%, rgba(12, 175, 255, 0.00) 83.68%);
+        /* background: linear-gradient(206deg, #00BFFF 11.17%, rgba(12, 175, 255, 0.00) 83.68%); */
+        /* background: linear-gradient(180deg, #f5eac3 0%, rgba(255, 255, 255, 0.00) 100%); */
+        background-color: #f0eee4;
+        /* background: linear-gradient(180deg, #e2dfd6 0%, rgba(241, 236, 236, 0) 100%); */
     }
     .footercompoents:nth-child(1){
     position: relative;

@@ -1,16 +1,22 @@
 .RegistrationForm {
-    background-color: beige;
-    max-width: 600px;
+    /* background-color: beige; */
+    /* max-width: 600px; */
     width: 100%;
     padding: 30px;
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: rgb(19, 31, 99) 0px 1px 4px, rgb(21, 39, 78) 0px 0px 0px 3px;
+    box-shadow: 0px 2px 30.4px 0px rgba(0, 0, 0, 0.25);
+    border: 2px solid black;
+    position: relative;
   }
-  
+  .Form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .RegistrationForm .Form .OwnerInformations {
     width: 100%;
     display: flex;
@@ -23,14 +29,16 @@
   .OwnerInformations > .UserFeildInputs {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   .OwnerInformations > .UserFeildInputs > label {
     padding: 5px;
     font-size: 22px;
+    align-self: start;
     font-weight: 600;
   }
   .OwnerInformations > .UserFeildInputs > input {
-    width: 400px;
+    width: 100%;
     height: 50px;
     padding: 2px 15px;
     outline: none;
@@ -40,6 +48,20 @@
     border-bottom: 2px solid black;
     transition: all 450ms linear;
   }
+      .ownerButtonForm{   
+        width: 15rem;
+        height: 3rem;
+        flex-shrink: 0;
+        border-radius: 0.6875rem;
+        background: #ffc72c;
+        cursor: pointer;
+        color: #FFF;
+    font-size: 1rem;
+    font-style: normal;
+    border: none;
+    outline: none;
+    z-index: 100;
+      }
   .OwnerInformations > .UserFeildInputs > input:focus,
   input:valid {
     border-color: rgb(241, 188, 74);
@@ -48,9 +70,17 @@
   @media only screen and (max-width: 767px) {
     .RegistrationForm {
       max-width: 400px;
+      padding: 0;
+      margin-top: 2rem; 
+      /* position: relative; */
+
+    }
+    .Form{
+      padding: 0 0.5rem;
+      padding-bottom: 2rem;
     }
     .OwnerInformations > .UserFeildInputs > input {
-      width: 300px;
+      width: 100%;
     }
   }
   

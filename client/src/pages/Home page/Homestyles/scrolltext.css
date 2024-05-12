@@ -2,19 +2,20 @@
     white-space: nowrap;
     overflow-x: auto;
     overflow: hidden;
-    margin-top: 10vh;
+    margin-top: 6vh;
   }
   .con{
       display: inline-block;
       white-space: nowrap;
       animation-name: move;
+      /* align-items: center; */
       animation-timing-function: linear;
       animation-iteration-count: infinite;
       animation-duration: 8s;
       animation-direction:normal;
   }
   .moving-text h1{
-      font-size: 7rem;
+      font-size: 6rem;
       display: inline-block;
       /* background-color: blue; */
       font-weight: 500;
@@ -23,12 +24,14 @@
       display: none;
   }
   .gola{
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      background-color: #73caf5;
+      background-color: #ffc72cd3;
       display: inline-block;
-      margin: 1vw 2vw;
+      margin: 3vw 1.7vw;
+      margin-top: 0vw;
+      margin-bottom: 0.7vw;
   }
   @keyframes move {
       from{

@@ -1,10 +1,11 @@
 import React from 'react'
 import HostelsComponent from '../../components/HostelsComponent'
-// import './Homestyles/OurHostel.css'
+import './Homestyles/OurHostel.css'
 const OurHostel = () => {
   return (
-    <div className='ourHosteldiv'>
-        <h1 className='ourhostelsHeading'>Hostels</h1>
+    <div className='ourHosteldiv' data-aos="fade-up"
+    data-aos-duration="1000">
+        <h1 className='ourhostelsHeading'> Explore Our Hostels</h1>
         <HostelsComponent
         noOfHostels = "2"
         />

@@ -15,7 +15,7 @@ const CommuneMobile = () => {
       {/* Your races wrapper element */}
       <div className="racesWrapperMobile">
         <div  className="racesMobile">
-        <h1>Introducing  Commune  </h1>
+        <h1>Introducing <span style={{color:'#ffc72c'}}>Commune</span>   </h1>
    
        
         <Swiper

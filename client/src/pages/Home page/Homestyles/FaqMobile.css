@@ -45,7 +45,7 @@
   flex-shrink: 0;
   border-radius: 1.1875rem;
   /* border: 1px solid #000; */
-  background: #326f86;
+  background: #ffc72c;
   /* padding: 1rem; */
   transition: all ease-in-out 0.5s;
   overflow: hidden;
@@ -53,7 +53,7 @@
 }
 .answerMobile p {
   font-weight: 300;
-  color: #fff;
+  /* color: ; */
   width: 20rem;
   /* font-family: Inter; */
   font-size: 0.75rem;
