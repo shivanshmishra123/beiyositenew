@@ -1,13 +1,10 @@
-"use server";
+
 import React, { useState, useEffect } from 'react';
 import './HostelStyles/hostelmain.css';
 import HostelsComponent from '../components/HostelsComponent';
 
 
 const Hostel = () => {
-  
-
-
     return (
         <div className='hostelMainpage page' >
             <p className='Hostelheading'>
