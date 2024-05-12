@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import './HostelStyles/hostelmain.css';
 import HostelsComponent from '../components/HostelsComponent';
@@ -18,5 +17,4 @@ const Hostel = () => {
         </div>
     )
 }
-
 export default Hostel;
