@@ -1,6 +1,6 @@
 import React from 'react'
 import HostelsComponent from '../../components/HostelsComponent'
-import './Homestyles/ourhostel.css'
+import './ourhostel.css'
 const OurHostel = () => {
   return (
     <div className='ourHosteldiv' data-aos="fade-up"
