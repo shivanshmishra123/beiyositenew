@@ -15,7 +15,7 @@ const Footer = () => {
     <ul>
     <a className='link' href="/about"><li>Our Story</li></a>
       
-      <a href="" className='link'><li>Partner with us</li></a>
+      <a href="/listyourproperty" className='link'><li>Partner with us</li></a>
       <a href="/privacy-policy" className='link'><li>Privacy Policy</li></a>
     </ul>
   </div>
