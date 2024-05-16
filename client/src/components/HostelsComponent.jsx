@@ -3,6 +3,7 @@ import Form from './Form';
 
 import { Link } from 'react-router-dom';
 import  { useState, useEffect } from 'react';
+import axios from 'axios';
 const HostelsComponent = ({notincludID, noOfHostels}) => {
     const [hostels, setHostels] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -15,9 +16,15 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
 //     setHidebutton(false);
 //   }
     useEffect(() => {
+        // hostel updating beds
+        const updateBeds = async()=>{
+            await axios.patch(`https://beiyositenew-api-alpha.vercel.app/api/hostel`)
+        }
+
         // Fetch hostels from the database
         const fetchHostels = async () => {
             try {
+
                 setLoading(true);
                 const response = await fetch(`https://beiyositenew-api-alpha.vercel.app/api/hostel`);
                 const data = await response.json();
@@ -35,6 +42,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
                 setLoading(false);
             }
         };
+        updateBeds();
         fetchHostels();
     }, []);
   return (
@@ -53,16 +61,50 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
                     
                     <img src={hostel.image} alt="" className='hostelimage' />
                     <div className="hostelContentdiv">
+                        <div className='nameprice'>
                         <div className="namediv">
                             <h1>{hostel.name}</h1>
-                            <div style={{ display: "flex" }}> <img src="/images/location_Marker.svg" alt="" />
-                                    <p>{hostel.location}</p></div>
+                            <div style={{ display: "flex" }}> <img style={{opacity:'30%'}} src="/images/location_Marker.svg" alt="" />
+                                    <p style={{color:'grey'}}>{hostel.location}</p>
+                                    <p>Beds Remaining: </p>
+                                    </div>
+                                   
                             </div>
                            
                         <div className="pricediv">
                                 <p className='price'>Starting from <br /><img src="/images/rupee.svg" alt="" /><span className=''>{hostel.price}</span>/bed</p>
                         </div>
-           
+                        </div>
+                        <div className="ammentiesbeddiv">
+
+                        </div>
+                   
+                        <div className='underline'></div>
+                               {hostel.single===true?(
+                                            <div className="doubletripledivpc">
+                                            <div className="double" >
+                                                <img src="/images/bed.svg" alt="" />
+                                                <p>Single</p>
+                                            </div>
+                                            <div className="triple">
+                                                <img src="/images/bed.svg" alt="" />
+                                                <p>Double</p>
+                                            </div>
+                                            <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
+                                            </div>
+                    ):(
+                        <div className="doubletripledivpc">
+                        <div className="double" >
+                            <img src="/images/bed.svg" alt="" />
+                            <p>Double</p>
+                        </div>
+                        <div className="triple">
+                            <img src="/images/bed.svg" alt="" />
+                            <p>Triple</p>
+                        </div>
+                        <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
+                        </div>
+                    )}
                     </div>
                     {hostel.single===true?(
                                             <div className="doubletriplediv">

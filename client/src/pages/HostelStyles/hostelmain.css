@@ -60,13 +60,19 @@ font-weight: 600;
     height: 2.25rem;
     position: absolute;
     z-index: 111;
-    top: 1rem;
-    right: 10rem;
+    /* bottom: 1rem; */
+    /* left: 0rem; */
+    bottom:1rem;
+    left: 24rem;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-
+.nameprice{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .double img{
     width: 1.5rem;
     height: 1.5rem;
@@ -78,8 +84,10 @@ font-weight: 600;
     height: 2.25rem;
     position: absolute;
     z-index: 111;
-    top: 1rem;
-    right: 2rem;
+    /* bottom: 1rem;
+    left: 8rem; */
+    bottom:1rem;
+    left: 32rem;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -100,12 +108,13 @@ font-weight: 600;
     width: 70%;
     margin-left: 1rem;
    margin-top: 1rem;
+   /* position: relative; */
 }
 .namediv h1{
      color: #101720;
     font-size: 2rem;
     font-weight: 500;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 }
 .address{
     display: flex;
@@ -195,7 +204,13 @@ font-weight: 500;
 .originalprice{
     font-weight: 700;
 }
+.ammentiesbeddiv{
+    display: flex;
+}
 @media (max-width: 1000px){ 
+    .ammentiesbeddiv{
+        display: none;
+    }
   .pricediv{
     align-items: start;
     justify-content: start;
@@ -209,6 +224,9 @@ font-weight: 500;
     gap: 1rem;
     padding-top: 0.4rem;
   }
+  .doubletripledivpc{
+    display: none;
+  }
  .doubletriplediv{
     display: flex;
     justify-content: space-between;
@@ -219,6 +237,9 @@ font-weight: 500;
  }
  .doubletriplediv button{
     width: 7rem;
+ }
+ .hostelContentdiv{
+    /* position: unset; */
  }
   .namediv img{
     height: 1rem;
@@ -282,11 +303,13 @@ font-weight: 500;
       justify-content: space-between;
         width: 100%;
         align-items: center;
+        /* position: static; */
     }
     .namediv h1{
         margin-top: 1rem;
         font-size: 1.5rem;
         font-weight: 700;
+        margin-bottom: 1rem;
         line-height: 0.5rem;
     }
     .pricediv{
@@ -295,13 +318,13 @@ font-weight: 500;
     }
     .double{
     position: relative;
-    top: 0;
-    right: 0;
+    left: 0;
+    top: 0rem;
     }
     .triple{
     position: relative;
-    top: 0;
-    right: 0;
+    left: 0;
+    top: 0rem;
     }
     .price img{
         height: 0.7rem;

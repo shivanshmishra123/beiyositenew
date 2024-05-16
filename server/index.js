@@ -5,6 +5,8 @@ const { connectDB, OwnerForm } = require('./db');
 const { Hostel } = require('./models/Hostel');
 const { Form } = require('./models/Form')
 const bodyParser = require('body-parser');
+const { default: axios } = require('axios');
+
 const app = express();
 config();
 app.use(cors());
@@ -34,7 +36,7 @@ app.get("/api/hostel", async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-   
+ 
 app.get("/api/hostel/:id",async(req,res)=>{
    try{
     const hostel = await Hostel.findById(req.params.id);  
@@ -47,7 +49,33 @@ app.get("/api/hostel/:id",async(req,res)=>{
     res.status(500).json({ error: 'Internal Server Error' });
    }
     })
-
+    app.patch('/api/hostel', async (req, res) => {
+      try {
+        // Fetch local hostels
+        const hostels = await Hostel.find();
+    
+        // Fetch data from external API
+        const response = await axios.get('https://beiyo-admin.vercel.app/api/hostels');
+        const dHostels = response.data;
+    
+        // Update remaining beds for each local hostel
+        for (const hostel of hostels) {
+          // Find corresponding hostel data from external API
+          const dynamicHostel = dHostels.find(h => h.name === hostel.name);
+          
+          // If the dynamic hostel is found, update remaining beds
+          if (dynamicHostel) {
+            hostel.remainingBeds = dynamicHostel.totalRemainingBeds;
+            await hostel.save(); // Save the changes
+          }
+        }
+        res.json({ message: 'Hostel data updated successfully.' });
+      } catch (error) {
+        console.error('Error updating hostel data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+    });
+    
 app.post('/api/users', async (req, res) => {
     try {
         const newForm = new Form({

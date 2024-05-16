@@ -27,6 +27,9 @@ const hostelSchema = new mongoose.Schema({
     },
     image4:{
         type:String
+    },
+    remainingBeds:{
+        type:Number,
     }
 });
 

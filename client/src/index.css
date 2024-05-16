@@ -27,7 +27,13 @@ body{
   opacity: 0;
   animation: fadeInUp 2s ease-out forwards;
 }
-
+.underline{
+  width: 100%;
+  /* position: absolute; */
+  height: 0.2rem;
+  margin-bottom: 1rem;
+  background-color: grey;
+}
 @keyframes fadeInUp {
   from {
       transform: translate(-50%, 100%);
