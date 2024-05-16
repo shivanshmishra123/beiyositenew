@@ -49,7 +49,7 @@ app.get("/api/hostel/:id",async(req,res)=>{
     res.status(500).json({ error: 'Internal Server Error' });
    }
     })
-    app.patch('/api/hostel', async (req, res) => {
+    app.patch('/api/hostel/updatingrooms', async (req, res) => {
       try {
         // Fetch local hostels
         const hostels = await Hostel.find();
