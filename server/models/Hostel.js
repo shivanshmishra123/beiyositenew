@@ -28,9 +28,6 @@ const hostelSchema = new mongoose.Schema({
     image4:{
         type:String
     },
-    remainingBeds:{
-        type:Number,
-    }
 });
 
 const Hostel = mongoose.model('Hostel', hostelSchema);

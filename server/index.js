@@ -49,32 +49,32 @@ app.get("/api/hostel/:id",async(req,res)=>{
     res.status(500).json({ error: 'Internal Server Error' });
    }
     })
-    app.patch('/api/hostel/updatingrooms', async (req, res) => {
-      try {
-        // Fetch local hostels
-        const hostels = await Hostel.find();
+    // app.patch('/api/hostel/updatingrooms', async (req, res) => {
+    //   try {
+    //     // Fetch local hostels
+    //     const hostels = await Hostel.find();
     
-        // Fetch data from external API
-        const response = await axios.get('https://beiyo-admin.vercel.app/api/hostels');
-        const dHostels = response.data;
+    //     // Fetch data from external API
+    //     const response = await axios.get('https://beiyo-admin.vercel.app/api/hostels');
+    //     const dHostels = response.data;
     
-        // Update remaining beds for each local hostel
-        for (const hostel of hostels) {
-          // Find corresponding hostel data from external API
-          const dynamicHostel = dHostels.find(h => h.name === hostel.name);
+    //     // Update remaining beds for each local hostel
+    //     for (const hostel of hostels) {
+    //       // Find corresponding hostel data from external API
+    //       const dynamicHostel = dHostels.find(h => h.name === hostel.name);
           
-          // If the dynamic hostel is found, update remaining beds
-          if (dynamicHostel) {
-            hostel.remainingBeds = dynamicHostel.totalRemainingBeds;
-            await hostel.save(); // Save the changes
-          }
-        }
-        res.json({ message: 'Hostel data updated successfully.' });
-      } catch (error) {
-        console.error('Error updating hostel data:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-      }
-    });
+    //       // If the dynamic hostel is found, update remaining beds
+    //       if (dynamicHostel) {
+    //         hostel.remainingBeds = dynamicHostel.totalRemainingBeds;
+    //         await hostel.save(); // Save the changes
+    //       }
+    //     }
+    //     res.json({ message: 'Hostel data updated successfully.' });
+    //   } catch (error) {
+    //     console.error('Error updating hostel data:', error);
+    //     res.status(500).json({ message: error });
+    //   }
+    // });
     
 app.post('/api/users', async (req, res) => {
     try {

@@ -21,7 +21,7 @@ const HostelDetail = () => {
    useEffect( ()=>{
     const fetchSingleHostel = async ()=>{
       try{
-        const URL = `https://beiyositenew-api-alpha.vercel.app/api/hostel/${id}`
+        const URL = `https://beiyo-admin.vercel.app/api/hostels/${id}`
       const response = await fetch(URL);
       const data = await response.json();
       console.log(data);
@@ -97,7 +97,7 @@ const HostelDetail = () => {
                               <img src="/images/bed.svg" alt="" />
                               <p>Single</p>
                           </div>
-                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.singleprice}/bed</p>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.singlePrice}/bed</p>
               </div>
                     <div className="occupancyandprice">
                     <div className="occupancy">
