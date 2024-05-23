@@ -14,6 +14,7 @@ import "swiper/css/navigation";
 import Form from '../components/Form';
 import { useParams } from 'react-router-dom';
 import HostelsComponent from '../components/HostelsComponent';
+import VirtualTour from '../components/VirtualTour';
 
 const HostelDetail = () => {
    const {id} = useParams();
@@ -164,6 +165,7 @@ const HostelDetail = () => {
               <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby2}</p>
               <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby3}</p>
           </div>
+          {/* <VirtualTour/> */}
          </div>
          {/* <div className="map">MAP</div> */}
           </div>
