@@ -160,10 +160,12 @@ const HostelDetail = () => {
             </div>
           <div className='nearByPlacesblock'>
             <h1>Nearby Places</h1>
-            
-              <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby1}</p>
-              <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby2}</p>
-              <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby3}</p>
+            <div style={{display:'flex', alignItems:'center', gap:'1rem'}}> <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby1}</p><p style={{height:'1rem'}}>- 750m</p></div>
+            <div style={{display:'flex', alignItems:'center', gap:'1rem'}}> <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby2}</p><p style={{height:'1rem'}}>- 96m</p></div>
+            <div style={{display:'flex', alignItems:'center', gap:'1rem'}}> <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby3}</p><p style={{height:'1rem'}}>- 1.6Km</p></div>
+             
+              
+             
           </div>
           {/* <VirtualTour/> */}
          </div>
