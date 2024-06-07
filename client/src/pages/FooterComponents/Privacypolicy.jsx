@@ -39,7 +39,7 @@ We will not share your information with any third-party companies or organizatio
     <li>We do not collect or store any personal information about children under the age of 13.</li>
     <li>This Privacy Policy is intended to comply with the applicable privacy laws and regulations in India.</li>
 </ul>
-<p style={{"margin-top":"1rem"}}>By using our website, you agree to the terms of this Privacy Policy</p>
+<p style={{"marginTop":"1rem"}}>By using our website, you agree to the terms of this Privacy Policy</p>
     </div>
     </div>
   )

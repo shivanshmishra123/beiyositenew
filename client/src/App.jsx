@@ -2,13 +2,13 @@ import { useState } from 'react'
 import '@radix-ui/themes/styles.css';
 import './App.css'
 import 'swiper/css';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import About from './pages/About';
 import Hostel from './pages/Hostel';
 import Navbar from './pages/Home page/Nav';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; 
 import Footer from './pages/Home page/Footer';
 import HostelDetail from './pages/HostelDetail';
 import Privacypolicy from './pages/FooterComponents/Privacypolicy';
@@ -16,6 +16,7 @@ import OwnerForm from './components/OwnerForm';
 import HomeOfConduct from './pages/FooterComponents/HomeOfConduct';
 import Achievement from './pages/FooterComponents/Achievement';
 import ListYourProperty from './pages/ListYourProperty';
+import TermsandConditon from './pages/FooterComponents/TermsandConditon';
 
 AOS.init();
 
@@ -43,6 +44,7 @@ function App() {
           <Route path='/privacy-policy' exact element={<Privacypolicy/>}/>
           <Route path='/homeOfConduct' exact element={<HomeOfConduct/>}/>
           <Route path='/achievement' exact element={<Achievement/>}/>
+          <Route path='/termsandcondition' exact element={<TermsandConditon/>}/>
          </Routes>
   </Router>
    <Footer/>
