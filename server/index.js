@@ -6,7 +6,6 @@ const { Hostel } = require('./models/Hostel');
 const { Form } = require('./models/Form')
 const bodyParser = require('body-parser');
 const { default: axios } = require('axios');
-
 const app = express();
 config();
 app.use(cors());
@@ -27,54 +26,7 @@ app.use((req, res, next) => {
 app.get("/", (req,res)=>{
   res.json("Welcome to the Beiyo backend");
 });
-app.get("/api/hostel", async (req, res) => {
-  try {
-      const hostels = await Hostel.find();
-      res.status(200).json(hostels);
-  } catch (error) {
-      console.error('Error fetching hostels:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
- 
-app.get("/api/hostel/:id",async(req,res)=>{
-   try{
-    const hostel = await Hostel.findById(req.params.id);  
-    if(!hostel){
-      alert("no hostel are available");
-    }
-    res.json(hostel);
-   }catch(error){
-    console.error('Error fetching ', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-   }
-    })
-    // app.patch('/api/hostel/updatingrooms', async (req, res) => {
-    //   try {
-    //     // Fetch local hostels
-    //     const hostels = await Hostel.find();
-    
-    //     // Fetch data from external API
-    //     const response = await axios.get('https://beiyo-admin.vercel.app/api/hostels');
-    //     const dHostels = response.data;
-    
-    //     // Update remaining beds for each local hostel
-    //     for (const hostel of hostels) {
-    //       // Find corresponding hostel data from external API
-    //       const dynamicHostel = dHostels.find(h => h.name === hostel.name);
-          
-    //       // If the dynamic hostel is found, update remaining beds
-    //       if (dynamicHostel) {
-    //         hostel.remainingBeds = dynamicHostel.totalRemainingBeds;
-    //         await hostel.save(); // Save the changes
-    //       }
-    //     }
-    //     res.json({ message: 'Hostel data updated successfully.' });
-    //   } catch (error) {
-    //     console.error('Error updating hostel data:', error);
-    //     res.status(500).json({ message: error });
-    //   }
-    // });
+
     
 app.post('/api/users', async (req, res) => {
     try {
@@ -117,3 +69,43 @@ app.post('/api/users', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+// const express = require('express');
+// const cors = require('cors');
+// const { config } = require('dotenv');
+// const { connectDB } = require('./db');
+// const bodyParser = require('body-parser');
+
+// const app = express();
+// config();
+// app.use(cors());
+// connectDB();
+// app.use(bodyParser.json());
+
+// const PORT = process.env.PORT || 5000;
+
+// // Middleware for logging
+// app.use((req, res, next) => {
+//     const start = Date.now();
+//     res.on('finish', () => {
+//         const duration = Date.now() - start;
+//         console.log(`${req.method} ${req.originalUrl} - ${duration}ms`);
+//     });
+//     next();
+// });
+
+// // Root route
+// app.get("/", (req, res) => {
+//     res.json("Welcome to the Beiyo backend");
+// });
+
+// // Routes
+// app.use('/api/hostel', require('./routes/hostels'));
+// app.use('/api/formShown', require('./routes/forms'));
+// app.use('/api/owners', require('./routes/owners'));
+
+// app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+// });
