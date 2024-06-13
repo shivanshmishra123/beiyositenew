@@ -24,7 +24,7 @@ const Footer = () => {
       
       <a href="/homeOfConduct" className='link'><li>Home Code Of Conduct</li></a>
       <a href="/achievement" className='link'><li>Our Achievements</li></a>
-      {/* <a href="/termsandcondition" className='link'><li>Terms & Conditions</li></a> */}
+      <a href="/termsandcondition" className='link'><li>Terms & Conditions</li></a>
     </ul>
   </div>
   {/* <div className="footercompoents">
