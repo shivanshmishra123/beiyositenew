@@ -13,10 +13,10 @@ const Footer = () => {
  <div className="footercontent">
  <div className="footercompoents">
     <ul>
-    <a className='link' href="/about"><li>Our Story</li></a>
-      
+    <a className='link' href="/about"><li>Our Story</li></a>  
       <a href="/listyourproperty" className='link'><li>Partner with us</li></a>
       <a href="/privacy-policy" className='link'><li>Privacy Policy</li></a>
+      <a href="/refund-policy" className='link'><li>Refund Policy</li></a>
     </ul>
   </div>
   <div className="footercompoents">
@@ -25,6 +25,7 @@ const Footer = () => {
       <a href="/homeOfConduct" className='link'><li>Home Code Of Conduct</li></a>
       <a href="/achievement" className='link'><li>Our Achievements</li></a>
       <a href="/termsandcondition" className='link'><li>Terms & Conditions</li></a>
+      
     </ul>
   </div>
   {/* <div className="footercompoents">
