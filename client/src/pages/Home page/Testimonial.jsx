@@ -23,7 +23,7 @@ const Testimonial = () => {
        <h1 className="testimonialtitle">
         TESTIMONIAL  
        </h1>
-       <p className='testimonialtitlepara' >From Our Residence</p>
+       <p className='testimonialtitlepara' >From Our Residents</p>
         <div className="swipersection">
 
         <Swiper className='swiper' style={{margin:"2rem"}}
