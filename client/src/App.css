@@ -82,6 +82,7 @@
       padding: 0;
   }
   .ourhostelsHeading{
+    /* font-size: rem; */
       font-weight: 700;
       color: rgb(67, 62, 62);
       text-decoration: underline;

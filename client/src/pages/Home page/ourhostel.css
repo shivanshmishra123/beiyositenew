@@ -47,8 +47,14 @@
         gap: 1rem;
         padding: 0;
     }
+    .pcourhostelsheading{
+        display: none;
+    }
     .ourhostelsHeading{
         font-weight: 600;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
         color: rgb(67, 62, 62);
         /* text-decoration: underline; */
         /* margin-bottom: 1rem; */
