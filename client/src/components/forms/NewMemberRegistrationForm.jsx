@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+
+
 const ResidentRegistration = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -7,6 +9,8 @@ const ResidentRegistration = () => {
   const [roomNumber, setRoomNumber] = useState('');
   const [photo, setPhoto] = useState(null);
   const [aadharCard, setAadharCard] = useState(null);
+  const [hostel,setHostels] = useState(null);
+  const [rooms, setRooms] = useState([]);
 //   const [otp, setOtp] = useState('');
 //   const [otpSent, setOtpSent] = useState(false);
 
@@ -24,13 +28,31 @@ const ResidentRegistration = () => {
 //     }
 //   };
 
+useEffect(() => {
+  axios.get('https://beiyo-admin.vercel.app/api/rooms')
+    .then(response => {
+      setRooms(response.data);
+    })
+    .catch(error => {
+      console.error('Error fetching rooms:', error);
+    });
+
+  axios.get('https://beiyo-admin.vercel.app/api/hostels')
+    .then(response => {
+      setHostels(response.data);
+    })
+    .catch(error => {
+      console.error('Error fetching hostels:', error);
+    });
+}, []);
+
   const handleRegistration = async (e) => {
     e.preventDefault();
 
-    if (!otpSent) {
-      alert('Please verify your mobile number first.');
-      return;
-    }
+    // if (!otpSent) {
+    //   alert('Please verify your mobile number first.');
+    //   return;
+    // }
 
     const formData = new FormData();
     formData.append('name', name);
@@ -53,8 +75,28 @@ const ResidentRegistration = () => {
     }
   };
 
+  const handlePayment = async (e) => {
+    e.preventDefault();
+    // Assuming a fixed amount for registration; adjust as needed
+    const amount = 5000; // Amount in paise (INR 50)
+
+    const response = await fetch('/api/initiate-payment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      window.location.href = data.paymentUrl; // Redirect to PhonePe payment page
+    } else {
+      alert('Payment initiation failed');
+    }
+  };
+  
+
   return (
-    <form onSubmit={handleRegistration}>
+    <form onSubmit={handlePayment}>
       <input
         type="text"
         value={name}
