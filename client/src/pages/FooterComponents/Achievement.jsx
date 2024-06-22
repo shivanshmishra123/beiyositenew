@@ -3,7 +3,7 @@ import './Achievement.css'
 const Achievement = () => {
   return (
     <div  className='achievementPage'>
-        <h1><span className="highlighter" style={{color:'#F7D441'}}>Highlighting</span> our Achievement</h1>
+        <h1><span className="highlighter" style={{color:'#F7D441',fontWeight:'600'}}>Highlighting</span> our Achievement</h1>
         <div className="achivementMain">
         <div className='achivementMain1 subachievement'>
            <p className='achievementParadiv'>Breaking the Mold in Student Accommodation! ‘Introducing BEIYO, where students revolutionize hostel living. Acquiring and managing hostels, we offer modern, affordable spaces, seamlessly booked online. Join the accommodation evolution today!’</p>

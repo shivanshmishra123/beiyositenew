@@ -13,21 +13,29 @@ const Footer = () => {
  <div className="footercontent">
  <div className="footercompoents">
     <ul>
+      {/* <li style={{color:'#000',fontWeight:'500',fontSize: '1.3rem'}}>Know Us</li> */}
     <a className='link' href="/about"><li>Our Story</li></a>  
+      <a href="/achievement" className='link'><li>Our Achievements</li></a>
       <a href="/listyourproperty" className='link'><li>Partner with us</li></a>
-      <a href="/privacy-policy" className='link'><li>Privacy Policy</li></a>
-      <a href="/refund-policy" className='link'><li>Refund Policy</li></a>
+
     </ul>
   </div>
   <div className="footercompoents">
     <ul>
-      
-      <a href="/homeOfConduct" className='link'><li>Home Code Of Conduct</li></a>
-      <a href="/achievement" className='link'><li>Our Achievements</li></a>
-      <a href="/termsandcondition" className='link'><li>Terms & Conditions</li></a>
+
+    <a href="/homeOfConduct" className='link'><li>Home Code Of Conduct</li></a>
+    <a href="/termsandcondition" className='link'><li>Terms & Conditions</li></a>
+
+
       
     </ul>
   </div>
+  <div className="footercompoents">
+     <ul>
+     <a href="/privacy-policy" className='link'><li>Privacy Policy</li></a>
+       <a href="/refund-policy" className='link'><li>Refund Policy</li></a>
+     </ul>
+   </div>
   {/* <div className="footercompoents">
   <ul>
       <a href=""><li>Privacy Policy</li></a>
@@ -38,7 +46,7 @@ const Footer = () => {
   <div className="ContactUsDiv">
   <ul>
      <div className="contactmaildiv">
-     <li className='contact'>Contact Us</li>
+     <li className='contact'>Connect with Us</li>
       <p className='mail'>Mail:- beiyo.work@gmail.com</p>
       <p className='phone'>Phone:- +91 83055 23140</p>
      </div>

@@ -61,7 +61,7 @@
  }
  .ourhostelsHeading{
   margin: 0;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   font-weight: 700;
       color: rgb(67, 62, 62);
  }

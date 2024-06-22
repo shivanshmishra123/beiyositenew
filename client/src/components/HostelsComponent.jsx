@@ -48,7 +48,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
     <>
         {loading ? (
         <div className="laodingscreen">
-            <h1>Hostels are Loading...</h1>
+            <h1>Loading...</h1>
             <p>Thanks for Your Patience</p>
         </div>
     ) : (

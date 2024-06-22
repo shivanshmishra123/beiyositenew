@@ -5,7 +5,7 @@ const OurHostel = () => {
   return (
     <div className='ourHosteldiv' data-aos="fade-up"
     data-aos-duration="1000">
-        <h1 className='ourhostelsHeading'> Explore Our Hostels</h1>
+        <h1 className='ourhostelsHeading'> Ready to find your perfect accommodation? Explore our listings and book your stay today!</h1>
         <HostelsComponent
         noOfHostels = "2"
         />
