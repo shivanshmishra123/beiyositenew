@@ -34,7 +34,7 @@ const Payment = () => {
 
                 <button type="submit" disabled={submitting}>Intiate Payment</button>
             </form>
-        {initiate?(<div> <iframe href={url}/></div>):null}
+        {initiate?(<div> <iframe href={url}>Pay</iframe></div>):null}
 
         </div>
     );
