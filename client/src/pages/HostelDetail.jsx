@@ -25,6 +25,7 @@ const HostelDetail = () => {
         const URL = `https://beiyo-admin.vercel.app/api/hostels/${id}`
       const response = await fetch(URL);
       const data = await response.json();
+      document.title=`Book your Bed in ${data.name}`
       console.log(data);
       setHostel(data);
       }catch(error){

@@ -1,13 +1,10 @@
 import React from 'react'
 import './PrivacyPolicy.css'
-import { Helmet } from 'react-helmet';
 const Privacypolicy = () => {
+  document.title='Privacy Policy'
   return (
     <div className='privacywrapper'>
-         <Helmet>
-        <title>Privacy Policy</title>
-        <meta name="description" content="This is the privacy policy of our website"/>
-      </Helmet>
+      
         <h1 className='privacyhead'>Privacy Policy</h1>
         <div className='privacyMain'>
         <p>

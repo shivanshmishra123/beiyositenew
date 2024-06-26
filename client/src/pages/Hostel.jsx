@@ -4,6 +4,7 @@ import HostelsComponent from '../components/HostelsComponent';
 
 
 const Hostel = () => {
+    document.title='Explore our Hostels in Indore'
     return (
         <div className='hostelMainpage page' >
             <p className='Hostelheading'>

@@ -18,6 +18,7 @@ import Achievement from './pages/FooterComponents/Achievement';
 import ListYourProperty from './pages/ListYourProperty';
 import TermsandConditon from './pages/FooterComponents/TermsandConditon';
 import RefundPolicy from './pages/FooterComponents/RefundPolicy';
+import Payment from './components/payment/Payment';
 
 AOS.init();
 
@@ -47,6 +48,7 @@ function App() {
           <Route path='/achievement' exact element={<Achievement/>}/>
           <Route path='/termsandcondition' exact element={<TermsandConditon/>}/>
           <Route path='/refund-policy' exact element={<RefundPolicy/>}/>
+          <Route path='/payment' exact element={<Payment/>}/>
          </Routes>
   </Router>
    <Footer/>

@@ -1,12 +1,9 @@
 import React from "react";
-import { Helmet } from 'react-helmet';
+
 const TermsandConditon = () => {
+  document.title = 'Terms & Conditions'
   return (
     <div>
-      <Helmet>
-        <title>Terms and Conditon</title>
-        <meta name="description" content="this is the terms and condition and policy of site"/>
-      </Helmet>
 
       {" "}
       <div className="privacywrapper">
