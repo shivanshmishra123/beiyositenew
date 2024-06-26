@@ -16,6 +16,7 @@ const Payment = () => {
             const res = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate',  {amount:parseInt(amount)});
             setIntiate(true);
             setUrl(res.data.data.instrumentResponse.redirectInfo.url);
+            window.location.href=url
             // Optionally, you can redirect the user here
         } catch (err) {
             console.error(err);
@@ -34,7 +35,6 @@ const Payment = () => {
 
                 <button type="submit" disabled={submitting}>Intiate Payment</button>
             </form>
-        {initiate?(<div> <iframe href={url}>Pay</iframe></div>):null}
 
         </div>
     );
