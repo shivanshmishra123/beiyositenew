@@ -26,7 +26,7 @@ const OwnerForm = () => {
         e.preventDefault();
         setSubmitting(true);
         try {
-          const res = await axios.post('https://beiyo-admin.vercel.app/api/owners', formData);
+          const res = await axios.post('https://beiyositenew-api-alpha.vercel.app/api/owners', formData);
           console.log(res.data);
           setSuccess(true);
           // Optionally, you can redirect the user here
