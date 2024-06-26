@@ -16,6 +16,7 @@ const Payment = () => {
           console.error(err);
         }
         setSubmitting(false);
+      };
 
     const handleChange = (e) => {
         setAmount(e.target.value);
