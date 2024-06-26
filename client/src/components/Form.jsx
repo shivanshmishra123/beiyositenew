@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './componentsStyling/form.css'
+import Payment from './payment/Payment';
 const Form = ( {hostelName}) => {
 // {hostelID}
 const hostelname = hostelName
@@ -60,8 +61,9 @@ const hostelname = hostelName
         </form>
         <p style={{textAlign:"center"}}>OR</p>
          <a target='blank' href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostelname}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`} style={{textAlign:"center"}}><button type="submit" id='whatsappsubmit' className='submit'><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a> 
+         <Payment/>
         </>
-      
+     
        
       )}
     </div>
