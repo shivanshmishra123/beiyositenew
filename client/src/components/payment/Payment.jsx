@@ -12,7 +12,7 @@ const Payment = () => {
         setSubmitting(true);
         setIntiate(true);
         try {
-            const res = await axios.post('https://localhost:5000/api/pay/initiate', { amount: parseFloat(amount) });
+            const res = await axios.post('https://beiyositenew-api-alpha.vercel.app/api/pay/initiate', { amount: parseFloat(amount) });
             console.log(res.data);
             console.log(res.data.data.instrumentResponse.redirectInfo.url)
             setUrl(res.data.data.instrumentResponse.redirectInfo.url);
