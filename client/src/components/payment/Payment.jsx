@@ -12,7 +12,8 @@ const Payment = () => {
         setSubmitting(true);
         setIntiate(true);
         try {
-            const res = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate',  {amount:parseInt(amount)});
+            // https://beiyo-admin.vercel.app
+            const res = await axios.post('https://localhost:5000/api/pay/initiate',  {amount:parseInt(amount)});
             console.log(res.data);
             console.log(res.data.data.instrumentResponse.redirectInfo.url)
             // Optionally, you can redirect the user here
