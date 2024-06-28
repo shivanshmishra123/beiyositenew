@@ -9,7 +9,7 @@ const PaymentStatus = () => {
     const checkPaymentStatus = async () => {
       const transactionId = localStorage.getItem('transactionId');
       const studentData = JSON.parse(localStorage.getItem('studentData'));
-      consolele.log(studentData);
+      console.log(studentData);
       if (transactionId) {
         try {
           const response = await axios.get(`https://beiyo-admin.vercel.app/api/pay/status/${transactionId}`);
