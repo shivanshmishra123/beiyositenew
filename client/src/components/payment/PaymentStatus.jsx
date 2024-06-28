@@ -9,12 +9,13 @@ const PaymentStatus = () => {
     const checkPaymentStatus = async () => {
       const transactionId = localStorage.getItem('transactionId');
       const studentData = JSON.parse(localStorage.getItem('studentData'));
+      consolele.log(studentData);
       if (transactionId) {
         try {
           const response = await axios.get(`https://beiyo-admin.vercel.app/api/pay/status/${transactionId}`);
           if (response.data.success === true) {
             alert('Payment successful!');
-            await axios.post('https://localhost:5000/api/newResident', studentData); // Save student data
+            await axios.post('http://localhost:5000/api/newResident', studentData); // Save student data
             navigate('/thank-you'); // Redirect to a thank you page or desired location
           } else {
             alert('Payment failed or not completed.');
