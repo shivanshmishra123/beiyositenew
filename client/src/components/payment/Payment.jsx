@@ -76,7 +76,6 @@ const StudentForm = () => {
     try {
       const response = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate', {
         amount: 1, // Placeholder for the amount
-        studentData: formData // Send form data for later saving
       });
      
         const transactionId = response.data.merchantTransactionId;
