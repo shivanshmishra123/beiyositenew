@@ -78,7 +78,7 @@ const StudentForm = () => {
         amount: 1, // Placeholder for the amount
       });
      
-        const transactionId = response.data.merchantTransactionId;
+        const transactionId = response.data.data.merchantTransactionId;
         localStorage.setItem('transactionId', transactionId);
         localStorage.setItem('studentData', JSON.stringify(formData)); // Store form data
         window.location.href = response.data.data.instrumentResponse.redirectInfo.url; // Redirect to payment status check page
