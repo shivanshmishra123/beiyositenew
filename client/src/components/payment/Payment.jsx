@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Box, Button, TextField, Typography, Select, MenuItem, InputLabel, FormControl, CssBaseline, Grid } from '@mui/material';
-
+import dayjs from 'dayjs';
+import './payment.css'
 const StudentForm = () => {
   const [hostels, setHostels] = useState([]);
   const [rooms, setRooms] = useState([]);
+  const [amount,setPrice] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,7 +15,8 @@ const StudentForm = () => {
     parentsName: '',
     parentsMobileNo: '',
     hostel: '',
-    roomNumber: ''
+    roomNumber: '',
+    dateJoined: dayjs().format('YYYY-MM-DD')
   });
   const [errors, setErrors] = useState({});
 
@@ -96,12 +99,13 @@ const StudentForm = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, p: 3, backgroundColor: '#f5f5f5', minHeight: '100vh' }}>
+   <div className='paymentform'>
+     <Box sx={{ flexGrow: 1, p: 3, backgroundColor: '#', minHeight: '80vh', border:2,borderRadius:2}} >
       <CssBaseline />
       <Typography variant="h4" gutterBottom>
-        Student Registration Form
+        Resident Registration Form
       </Typography>
-      <form onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit} noValidate style={{width:'100%'}}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
@@ -180,7 +184,7 @@ const StudentForm = () => {
                 onChange={handleChange}
               >
                 {hostels.map(hostel => (
-                  <MenuItem key={hostel._id} value={hostel._id}>
+                  <MenuItem key={hostel._id} value={hostel.name}>
                     {hostel.name}
                   </MenuItem>
                 ))}
@@ -198,13 +202,24 @@ const StudentForm = () => {
                 disabled={!formData.hostel}
               >
                 {rooms.map(room => (
-                  <MenuItem key={room._id} value={room.roomNumber}>
+                  <MenuItem key={room._id} value={room.roomNumber} >
                     {room.roomNumber}
+                    {setPrice(room.price)}
                   </MenuItem>
                 ))}
               </Select>
               {errors.roomNumber && <Typography color="error">{errors.roomNumber}</Typography>}
             </FormControl>
+            <TextField
+          label="Date Joined"
+          name="dateJoined"
+          type="date"
+          value={formData.dateJoined}
+          onChange={handleChange}
+          fullWidth
+          margin="normal"
+          InputLabelProps={{ shrink: true }}
+        />
           </Grid>
           <Grid item xs={12}>
             <Button
@@ -220,6 +235,7 @@ const StudentForm = () => {
         </Grid>
       </form>
     </Box>
+   </div>
   );
 };
 

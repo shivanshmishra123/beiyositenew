@@ -1,0 +1,14 @@
+.paymentform{
+    display: flex;
+    justify-content: center;
+    padding: 7rem 30rem;
+    padding-bottom: 2rem;
+    align-items: center;
+    
+}
+@media (max-width: 1000px){
+    .paymentform{
+        padding: 7rem 2rem;
+        padding-bottom: 2rem;
+    }
+}
