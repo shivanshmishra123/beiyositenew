@@ -6,7 +6,8 @@ import './payment.css'
 const StudentForm = () => {
   const [hostels, setHostels] = useState([]);
   const [rooms, setRooms] = useState([]);
-  const [amount,setPrice] = useState(null);
+  const [price,setPrice] = useState(null);
+  // const [hostel,setHostel]= useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,21 +33,23 @@ const StudentForm = () => {
     fetchHostels();
   }, []);
 
-  useEffect(() => {
-    const fetchRooms = async () => {
-      if (formData.hostel) {
-        try {
-          const response = await axios.get('https://beiyo-admin.vercel.app/api/rooms');
-          const allRooms = response.data;
-          const filteredRooms = allRooms.filter(room => room.hostelId === formData.hostel);
-          setRooms(filteredRooms);
-        } catch (error) {
-          console.error('Error fetching rooms:', error);
-        }
-      }
-    };
-    fetchRooms();
-  }, [formData.hostel]);
+  // useEffect(() => {
+  //   const fetchRooms = async () => {
+  //     if (formData.hostel) {
+  //       try {
+  //         const response = await axios.get('https://beiyo-admin.vercel.app/api/rooms');
+          
+  //         const allRooms = response.data;
+  //         const filteredRooms = allRooms.filter(room => room.hostelId === hostel);
+  //         console.log(filteredRooms)
+  //         setRooms(filteredRooms);
+  //       } catch (error) {
+  //         console.error('Error fetching rooms:', error);
+  //       }
+  //     }
+  //   };
+  //   fetchRooms();
+  // }, [formData.hostel]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,6 +57,36 @@ const StudentForm = () => {
       ...prevState,
       [name]: value
     }));
+  };
+
+  const handleHostelChange = async (event) => {
+    const { value } = event.target;
+    setFormData({
+      ...formData,
+      hostel: value,
+      roomNumber: '', // Clear room number when hostel changes
+    });
+    const response = await axios.get('https://beiyo-admin.vercel.app/api/rooms');
+          
+          const allRooms = response.data;
+          const selectedHostel = hostels.find(hostel=>hostel.name===value)
+          const filteredRooms = allRooms.filter(room => room.hostelId === selectedHostel._id);
+          console.log(filteredRooms)
+          setRooms(filteredRooms);
+    // Fetch rooms for the selected hostel
+   
+  };
+
+  const handleRoomChange = (event) => {
+    const { value } = event.target;
+    setFormData({
+      ...formData,
+      roomNumber: value,
+    });
+
+    // Get the selected room's price
+    const selectedRoom = rooms.find(room => room.roomNumber === value);
+    setPrice(selectedRoom ? selectedRoom.price : 0); // Set the room price
   };
 
   const validateForm = () => {
@@ -78,7 +111,7 @@ const StudentForm = () => {
   const handlePayment = async () => {
     try {
       const response = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate', {
-        amount: 1, // Placeholder for the amount
+        amount: price, // Placeholder for the amount
       });
      
         const transactionId = response.data.data.merchantTransactionId;
@@ -181,11 +214,13 @@ const StudentForm = () => {
               <Select
                 name="hostel"
                 value={formData.hostel}
-                onChange={handleChange}
+                onChange={handleHostelChange}
+                
               >
                 {hostels.map(hostel => (
-                  <MenuItem key={hostel._id} value={hostel.name}>
+                  <MenuItem key={hostel._id} value={hostel.name} >
                     {hostel.name}
+                   
                   </MenuItem>
                 ))}
               </Select>
@@ -198,13 +233,13 @@ const StudentForm = () => {
               <Select
                 name="roomNumber"
                 value={formData.roomNumber}
-                onChange={handleChange}
+                onChange={handleRoomChange}
                 disabled={!formData.hostel}
               >
                 {rooms.map(room => (
                   <MenuItem key={room._id} value={room.roomNumber} >
                     {room.roomNumber}
-                    {setPrice(room.price)}
+                    {/* {setPrice(room.price)} */}
                   </MenuItem>
                 ))}
               </Select>
