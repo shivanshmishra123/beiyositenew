@@ -16,7 +16,7 @@ const PaymentStatus = () => {
           if (response.data.success === true) {
             alert('Payment successful!');
 
-            await axios.post('https://beiyo-admin.vercel.app/api/newResident', studentData); // Save student data
+            await axios.post('http://beiyo-admin.vercel.app/api/newResident', studentData); // Save student data
             navigate('/thank-you'); // Redirect to a thank you page or desired location
           } else {
             alert('Payment failed or not completed.');
