@@ -15,7 +15,7 @@ const Support = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post('https://beiyo-admin.vercel.app/api/raise-ticket', {
+      await axios.post('https://beiyo-admin.vercel.app/api/dashboard/raise-ticket', {
         helpTopic,
         description,
       }, {

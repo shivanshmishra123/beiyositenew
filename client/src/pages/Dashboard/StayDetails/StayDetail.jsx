@@ -10,7 +10,7 @@ const StayDetails = () => {
     const fetchStayDetails = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://beiyo-admin.vercel.app/api/stay-details/me', {
+        const response = await axios.get('https://beiyo-admin.vercel.app/api/dashboard/stay-details', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setDetails(response.data);
