@@ -1,0 +1,22 @@
+.dashboard{
+    padding-top: 5rem;
+}
+.dashboard {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .dashboard .MuiBox-root {
+    background-color: #f0f0f0;
+    border-right: 1px solid #ddd;
+  }
+  
+  .dashboard .MuiButton-root {
+    margin-bottom: 10px;
+  }
+  
+  .dashboard .MuiBox-root:last-child {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  

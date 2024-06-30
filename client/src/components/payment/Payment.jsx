@@ -17,7 +17,9 @@ const StudentForm = () => {
     parentsMobileNo: '',
     hostel: '',
     roomNumber: '',
-    dateJoined: dayjs().format('YYYY-MM-DD')
+    dateJoined: dayjs().format('YYYY-MM-DD'),
+     password: '',
+    confirmPassword: ''
   });
   const [errors, setErrors] = useState({});
 
@@ -111,7 +113,8 @@ const StudentForm = () => {
   const handlePayment = async () => {
     try {
       const response = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate', {
-        amount: price, // Placeholder for the amount
+        // amount: price, // Placeholder for the amount
+        amount:1
       });
      
         const transactionId = response.data.data.merchantTransactionId;
@@ -126,6 +129,10 @@ const StudentForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
     if (validateForm()) {
       handlePayment();
     }
@@ -255,6 +262,26 @@ const StudentForm = () => {
           margin="normal"
           InputLabelProps={{ shrink: true }}
         />
+         <TextField
+        label="Password"
+        name="password"
+        type="password"
+        value={formData.password}
+        onChange={handleChange}
+        required
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Confirm Password"
+        name="confirmPassword"
+        type="password"
+        value={formData.confirmPassword}
+        onChange={handleChange}
+        required
+        fullWidth
+        margin="normal"
+      />
           </Grid>
           <Grid item xs={12}>
             <Button

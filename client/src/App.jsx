@@ -20,6 +20,10 @@ import TermsandConditon from './pages/FooterComponents/TermsandConditon';
 import RefundPolicy from './pages/FooterComponents/RefundPolicy';
 import Payment from './components/payment/Payment';
 import PaymentStatus from './components/payment/PaymentStatus';
+import Dashboard from './pages/Dashboard/Dashboard';
+import { AuthProvider } from './context/AuthContext';
+import Login from './pages/auth/login';
+import ProtectedRoute from './pages/auth/protectedRoutes';
 
 AOS.init();
 
@@ -51,8 +55,24 @@ function App() {
           <Route path='/refund-policy' exact element={<RefundPolicy/>}/>
           <Route path='/payment' exact element={<Payment/>}/>
           <Route path='/paymentstatus' exact element={<PaymentStatus/>}/>
+          {/* <Route path='/dashboard' exact element={<Dashboard/>}/> */}
          </Routes>
   </Router>
+  <AuthProvider>
+  <Router>
+  <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard/*"
+            element={
+           
+                <Dashboard />
+          
+            }
+          />
+             </Routes>
+             </Router>
+          </AuthProvider>
    <Footer/>
     </div>
   )
