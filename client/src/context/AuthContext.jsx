@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem('token');
       if (token) {
         try {
-          const response = await axios.get('https://beiyo-admin.vercel.app/api/user', {
+          const response = await axios.get('https://beiyo-admin.vercel.app/api/newResident', {
             headers: { Authorization: `Bearer ${token}` }
           });
           setUser(response.data);
