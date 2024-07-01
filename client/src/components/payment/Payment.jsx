@@ -113,8 +113,8 @@ const StudentForm = () => {
   const handlePayment = async () => {
     try {
       const response = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate', {
-        // amount: price, // Placeholder for the amount
-        amount:1
+        amount: price, // Placeholder for the amount
+        // amount:1
       });
      
         const transactionId = response.data.data.merchantTransactionId;

@@ -21,8 +21,8 @@ const Dashboard = () => {
         <Box sx={{ width: 250, bgcolor: '#f0f0f0', p: 2 }}>
           <Box sx={{ mb: 4 }}>
             <Typography variant="h6">{user?.name}</Typography>
-            <Typography variant="body2">User ID: {user?.userId}</Typography>
             <Typography variant="body2">{user?.hostel}</Typography>
+            <Typography variant="body2">{user?.roomNumber}</Typography>
           </Box>
           <Button fullWidth onClick={() => handleTabChange('PaymentStatus')}>Payment</Button>
           <Button fullWidth onClick={() => handleTabChange('StayDetails')}>Stay details</Button>
