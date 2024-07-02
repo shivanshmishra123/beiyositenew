@@ -58,7 +58,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
                      <a href={`/hostel/${hostel._id}`}>
                                     <div key={hostel.id} className="single-hostel" >
                     
-                    <img loading='lazy' src={hostel.image} alt="" className='hostelimage' />
+                    <img  src={hostel.image} alt="" className='hostelimage' />
                     <div className="hostelContentdiv">
                         <div className='nameprice'>
                         <div className="namediv">
