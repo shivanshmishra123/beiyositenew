@@ -34,15 +34,14 @@ const StudentForm = () => {
     };
     fetchHostels();
   }, []);
-
+// additional charge logic
   const today = dayjs();
   const dayofMonth = today.date();
   let additionalCharge = 0;
 
-  if (dayofMonth > 2) {
+  if (dayofMonth > 7) {
     additionalCharge = (dayofMonth - 7) * 100;
   }
-
 
   // useEffect(() => {
   //   const fetchRooms = async () => {
@@ -118,11 +117,13 @@ const StudentForm = () => {
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
-
+    
   const handlePayment = async () => {
     try {
+      
+      let amountWithAditionalCharge = parseInt(price) + additionalCharge
       const response = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate', {
-        amount: price+additionalCharge, // Placeholder for the amount
+        amount: amountWithAditionalCharge, // Placeholder for the amount
         // amount:1
       });
      
