@@ -35,6 +35,15 @@ const StudentForm = () => {
     fetchHostels();
   }, []);
 
+  const today = dayjs();
+  const dayofMonth = today.date();
+  let additionalCharge = 0;
+
+  if (dayofMonth > 2) {
+    additionalCharge = (dayofMonth - 7) * 100;
+  }
+
+
   // useEffect(() => {
   //   const fetchRooms = async () => {
   //     if (formData.hostel) {
@@ -113,7 +122,7 @@ const StudentForm = () => {
   const handlePayment = async () => {
     try {
       const response = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate', {
-        amount: price, // Placeholder for the amount
+        amount: price+additionalCharge, // Placeholder for the amount
         // amount:1
       });
      
