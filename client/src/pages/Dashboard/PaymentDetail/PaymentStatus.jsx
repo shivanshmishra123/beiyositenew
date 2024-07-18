@@ -25,10 +25,13 @@ const PaymentStatus = () => {
   }, []);
   const handlePayment = async (id) => {
     const token = localStorage.getItem('token');
-    const response = await axios.get(`https://beiyo-admin.vercel.app/api/dashboard/payments/${id}`, {
+    console.log(id);
+    const response = await axios.get(`https://beiyo-admin.vercel.app/api/dashboard/payment/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
+    console.log(response.data);
     const amount = response.data.amount;
+    console.log(amount);
     const paymentResponse = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate', {
       amount: amount, // Placeholder for the amount
     });
