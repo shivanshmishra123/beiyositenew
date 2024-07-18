@@ -26,6 +26,7 @@ const PaymentStatus = () => {
               month:month
             })
             console.log(response);
+            navigate('/dashboard');
             }
             await axios.post('https://beiyo-admin.vercel.app/api/newResident', studentData); // Save student data
             navigate('/thank-you'); // Redirect to a thank you page or desired location
