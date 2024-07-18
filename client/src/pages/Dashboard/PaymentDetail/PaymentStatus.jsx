@@ -40,6 +40,7 @@ const PaymentStatus = () => {
     localStorage.setItem('transactionId', transactionId);
     localStorage.setItem('amount', amount);
     localStorage.setItem('month', response.data.month);
+    localStorage.setItem('userId', response.data.userId);
   }
 
   if (loading) return <CircularProgress />;

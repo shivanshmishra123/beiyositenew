@@ -1,17 +1,18 @@
 import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import AuthContext from '../../context/AuthContext';
+
 
 const PaymentStatus = () => {
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
+
   useEffect(() => {
     const checkPaymentStatus = async () => {
       const transactionId = localStorage.getItem('transactionId');
       const studentData = JSON.parse(localStorage.getItem('studentData'));
       const amount = localStorage.getItem('amount');
       const month = localStorage.getItem('month');
+      const userId = localStorage.getItem('userId');
       console.log(studentData);
       if (transactionId) {
         try {
@@ -21,7 +22,7 @@ const PaymentStatus = () => {
             alert('Payment successful!');
             if(!studentData){
       const response = await axios.post(`https://beiyo-admin.vercel.app/api/dashboard/paymentSave`,{
-              userId:user._id,
+              userId:userId,
               amount:amount,
               month:month
             })
