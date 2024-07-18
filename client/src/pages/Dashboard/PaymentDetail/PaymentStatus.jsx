@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Box, Typography, CircularProgress } from '@mui/material';
+import AuthContext from '../../../context/AuthContext';
 
 const PaymentStatus = () => {
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const { user} = useContext(AuthContext);
   useEffect(() => {
     const fetchPayments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://beiyo-admin.vercel.app/api/dashboard/payments', {
+        const response = await axios.get(`https://beiyo-admin.vercel.app/api/dashboard/payments/${user._id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setPayments(response.data);

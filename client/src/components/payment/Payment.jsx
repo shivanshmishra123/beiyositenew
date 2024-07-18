@@ -84,7 +84,7 @@ const StudentForm = () => {
           console.log(filteredRooms)
           setRooms(filteredRooms);
     // Fetch rooms for the selected hostel
-   
+
   };
 
   const handleRoomChange = (event) => {
@@ -93,7 +93,6 @@ const StudentForm = () => {
       ...formData,
       roomNumber: value,
     });
-
     // Get the selected room's price
     const selectedRoom = rooms.find(room => room.roomNumber === value);
     setPrice(selectedRoom ? selectedRoom.price : 0); // Set the room price

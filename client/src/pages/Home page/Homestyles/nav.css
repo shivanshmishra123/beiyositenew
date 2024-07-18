@@ -72,6 +72,7 @@
    .pcnavlist li p{
       position: relative;
       z-index: 9;
+      /* color: white; */
     }
    .pcnavlist li:hover p{
       color: rgb(0, 0, 0);
@@ -168,3 +169,4 @@
           backdrop-filter: blur(0px);
         }
       }
+      

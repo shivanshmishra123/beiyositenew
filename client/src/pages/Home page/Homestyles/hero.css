@@ -6,19 +6,31 @@
   gap: 0.2rem;
   align-items: center;
   padding-top: 10rem;
-  width: 100%;  
+  width: 100%; 
+    /* background-image: url(./images/heropage.jpg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5); /* Adding a semi-transparent overlay */
+  /* background-blend-mode: overlay; Blending the overlay with the background image */
+  /* background-position: center; */  
 }
+
+
+/* .perfect{
+  color: white;
+} */
 .main h1{
   font-size: 14vh;
   text-align: center;
   font-weight: 500;
   /* white-space: nowrap; */
+  /* color: white; */
 }
 .main p{
   font-size: 1.7rem;
   padding-top: 1.3rem;
   text-align: center;
   width: 100%;
+  /* color: white; */
 }
 .explore{
   height: 10vh;
@@ -34,6 +46,7 @@
   position: relative;
   overflow: hidden;
   transition: all ease 0.4s;
+  /* color: white;   */
 }
 .explore:hover{
   background-color: white;

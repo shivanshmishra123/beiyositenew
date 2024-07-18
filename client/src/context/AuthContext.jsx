@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-
+import { redirect, useNavigate } from 'react-router-dom';
+import { jwtDecode } from "jwt-decode";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -14,13 +14,21 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem('token');
       if (token) {
         try {
-          const response = await axios.get('https://beiyo-admin.vercel.app/api/newResident', {
+          const decodedToken = jwtDecode(token); // Decode the token
+          const userId = decodedToken.userId; // Extract the user ID from the token
+          console.log("Decoded User ID: ", userId);
+         
+          // const response = await axios.get(`http://localhost:5000/api/newResident`, 
+          const response = await axios.get(`https://beiyo-admin.vercel.app/api/newResident/${userId}`, 
+          {
             headers: { Authorization: `Bearer ${token}` }
           });
-          setUser(response.data);
+
+          setUser(response.data);  
+          // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         } catch (error) {
           console.error('Error fetching user:', error);
-          localStorage.removeItem('token');
+          // localStorage.removeItem('token');
         }
       }
       setLoading(false);
@@ -33,15 +41,18 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.post('https://beiyo-admin.vercel.app/api/login', { email, password });
       localStorage.setItem('token', response.data.token);
       setUser(response.data.user);
+      // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     } catch (error) {
       throw new Error('Login failed');
+      console.log(error)
     }
   };
 
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
-    navigate('/login');
+    redirect('/login');
+    delete axios.defaults.headers.common['Authorization'];
   };
 
   return (

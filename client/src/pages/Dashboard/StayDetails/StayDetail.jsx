@@ -1,27 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext,useEffect, useState } from 'react';
 import axios from 'axios';
 import { Box, Typography, CircularProgress } from '@mui/material';
+import AuthContext from '../../../context/AuthContext';
 
 const StayDetails = () => {
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchStayDetails = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get('https://beiyo-admin.vercel.app/api/dashboard/stay-details', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        setDetails(response.data);
-      } catch (error) {
-        console.error('Error fetching stay details:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchStayDetails();
-  }, []);
+  const { user} = useContext(AuthContext);
+  useEffect(()=>{
+    if(user){
+      setDetails(user);
+      setLoading(false);
+    }
+    
+    
+  },[user])
 
   if (loading) return <CircularProgress />;
 

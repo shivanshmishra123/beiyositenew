@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { useState } from 'react';
 import PaymentStatus from './PaymentDetail/PaymentStatus';
@@ -10,11 +10,13 @@ import './Dashboard.css';
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('PaymentStatus');
   const { user, logout } = useContext(AuthContext);
-
+  useEffect(() => {
+    console.log(user);  
+  }, [user])
   const handleTabChange = (tab) => {
+    // e.preventDefault();
     setActiveTab(tab);
   };
-
   return (
     <div className='dashboard'>
       <Box sx={{ display: 'flex', minHeight: '100vh' }}>
