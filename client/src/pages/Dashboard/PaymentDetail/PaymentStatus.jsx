@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Box, Typography, CircularProgress } from '@mui/material';
+import { Box, Typography, CircularProgress, Button } from '@mui/material';
 import AuthContext from '../../../context/AuthContext';
 
 const PaymentStatus = () => {
@@ -23,17 +23,33 @@ const PaymentStatus = () => {
     };
     fetchPayments();
   }, []);
+  const handlePayment = async (id) => {
+    const token = localStorage.getItem('token');
+    const response = await axios.get(`https://beiyo-admin.vercel.app/api/dashboard/payments/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    const amount = response.data.amount;
+    const paymentResponse = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate', {
+      amount: amount, // Placeholder for the amount
+    });
+    const transactionId = paymentResponse.data.data.merchantTransactionId;
+    window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
+    localStorage.setItem('transactionId', transactionId);
+    localStorage.setItem('amount', amount);
+    localStorage.setItem('month', response.data.month);
+  }
 
   if (loading) return <CircularProgress />;
 
   return (
-    <Box>
+    <Box sx={{overflow:'scroll',height:'100vh'}}>
       <Typography variant="h4" gutterBottom>Payment Status</Typography>
       {payments.map((payment) => (
         <Box key={payment._id} sx={{ mb: 2, p: 2, border: '1px solid #ccc' }}>
           <Typography variant="body1">Amount: {payment.amount}</Typography>
           <Typography variant="body2">Date: {new Date(payment.date).toLocaleDateString()}</Typography>
           <Typography variant="body2">Status: {payment.status}</Typography>
+          {payment.status==='due' && <Button onClick={()=>handlePayment(payment._id)}>Pay Now</Button>}
         </Box>
       ))}
     </Box>
