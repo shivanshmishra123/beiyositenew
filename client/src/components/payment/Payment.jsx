@@ -19,7 +19,8 @@ const StudentForm = () => {
     roomNumber: '',
     dateJoined: dayjs().format('YYYY-MM-DD'),
      password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    amount:price
   });
   const [errors, setErrors] = useState({});
 

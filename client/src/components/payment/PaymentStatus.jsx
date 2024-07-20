@@ -20,13 +20,15 @@ const PaymentStatus = () => {
          
           if (response.data.success === true) {
             alert('Payment successful!');
-      const response = await axios.post(`https://beiyo-admin.vercel.app/api/dashboard/paymentSave`,{
-              userId:userId,
-              amount:amount,
-              month:month
-            })
-            console.log(response);
-            navigate('/dashboard');
+         if(studentData===null){
+          const response = await axios.post(`https://beiyo-admin.vercel.app/api/dashboard/paymentSave`,{
+            userId:userId,
+            amount:amount,
+            month:month
+          })
+          console.log(response);
+          navigate('/dashboard');
+         }
             
            if(studentData){
             await axios.post('https://beiyo-admin.vercel.app/api/newResident', studentData); // Save student data
