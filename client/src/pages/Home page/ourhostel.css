@@ -92,8 +92,9 @@
     .exploremore{
      /* margin-top: 0.5rem; */
      margin-top: 0rem;
-     padding: 1.2rem 1rem;
-     padding: 0.5rem 1rem;
+    
+     padding: 0.8rem 0rem;
+     padding-right: 2.8rem;
      background-color: #ffc72cc9;
      /* box-shadow: 0px 2px 30.4px 0px rgba(0, 0, 0, 0.25); */
      font-weight: 500;
@@ -101,5 +102,7 @@
         /* align-self: end; */
         /* border: 1px solid black; */
         border-radius: 100px;
+        height: 8vh;
+        width: 30vh;
     }
 }
