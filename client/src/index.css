@@ -1,3 +1,6 @@
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
 
 /* beiyo logo yellow color -  #ffc72c */
 @font-face {
@@ -16,9 +19,7 @@
   list-style: none;
   font-weight: 500;
 }
-body{
-  background-color: #f4f8f6;
-}
+
 .scroll-animation {
   position: fixed;
   top: 50%;

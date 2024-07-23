@@ -26,7 +26,8 @@ const Login = () => {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ maxWidth: 400, mx: 'auto', mt: 10, p: 3, border: '1px solid #ccc', borderRadius: 4 }}>
+   <div className='min-h-screen flex items-center'>
+     <Box component="form" onSubmit={handleSubmit} sx={{ maxHeight:'100%', maxWidth: 400, mx: 'auto', mt: 10, p: 3, border: '1px solid #ccc', borderRadius: 4 }}>
       <Typography variant="h4" align="center" mb={2}>Login</Typography>
       {error && <Typography color="error" align="center" mb={2}>{error}</Typography>}
       <TextField
@@ -57,6 +58,7 @@ const Login = () => {
         {loading ? <CircularProgress size={24} /> : 'Login'}
       </Button>
     </Box>
+   </div>
   );
 };
 

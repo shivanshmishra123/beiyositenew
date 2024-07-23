@@ -89,6 +89,9 @@ line-height: normal;
     display: flex;
     justify-content: space-between;
 }
+.featurecontent h1{
+    font-size: 2rem;
+}
 .featurecontent img{
     width: 90px;
     height: 90px;

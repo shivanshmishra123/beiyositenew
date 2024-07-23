@@ -13,16 +13,45 @@
 }
 .exploremore{
     margin-top: 1rem;
-    padding: 1.2rem 1rem;
+    padding: 1rem 1.5rem;
+    padding-right: 1.7rem;
     background-color: #ffc72cc9;
       /* box-shadow: 0px 2px 30.4px 0px rgba(0, 0, 0, 0.25); */
     color: black;
+    width: 30vh;
+    text-align: center;
     font-weight: 500;
+    height: 10vh;
     font-size: 1.5rem;
        /* align-self: end; */
        border: 0.1px solid #3a3a3a;
        border-radius: 100px;
+       position: relative;
+       overflow: hidden;
    }
+   .exploremore:hover{
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
+  .exploremore::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -100%;
+    /* margin: 0; */
+      background-color: black;
+    left: 0;
+    z-index: -1;
+    border-radius: 50%;
+    transition: all ease 0.4s;
+  }
+  .exploremore:hover::after{
+    border-radius: 0;
+    bottom: 0;
+  }
+
    .ourhostelsHeading{
     margin: 0;
     padding-left: 1rem;
@@ -36,6 +65,7 @@
     justify-content: center;
     margin-top: 1rem;
 }
+
    
 @media (max-width: 1000px){
     .ourHosteldiv{

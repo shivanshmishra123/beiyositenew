@@ -5,6 +5,7 @@ import 'swiper/css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
+
 import Homepage from './pages/Homepage';
 import About from './pages/About';
 import Hostel from './pages/Hostel';
@@ -24,6 +25,10 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import { AuthProvider } from './context/AuthContext';
 import Login from './pages/auth/login';
 import ProtectedRoute from './pages/auth/protectedRoutes';
+import './index.css'
+import { AnimatedBeam } from './components/magicui/animated-beam';
+
+
 
 AOS.init();
 
@@ -54,7 +59,7 @@ function App() {
           <Route path='/termsandcondition' exact element={<TermsandConditon/>}/>
           <Route path='/refund-policy' exact element={<RefundPolicy/>}/>
           <Route path='/payment' exact element={<Payment/>}/>
-          <Route path='/paymentstatus' exact element={<PaymentStatus/>}/>
+          <Route path='/paymentstatus' exact element={<PaymentStatus/>}/> 
           {/* <Route path='/dashboard' exact element={<Dashboard/>}/> */}
          </Routes>
   </Router>
@@ -62,13 +67,14 @@ function App() {
   <Router>
   <Routes>
           <Route path="/login" element={<Login />} />
+          
+        
           <Route
             path="/dashboard/*"
             element={
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
-          
             }
           />
              </Routes>
