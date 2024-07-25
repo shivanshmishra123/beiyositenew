@@ -29,6 +29,7 @@ const Login = () => {
    <div className='min-h-screen flex items-center'>
      <Box component="form" onSubmit={handleSubmit} sx={{ maxHeight:'100%', maxWidth: 400, mx: 'auto', mt: 10, p: 3, border: '1px solid #ccc', borderRadius: 4 }}>
       <Typography variant="h4" align="center" mb={2}>Login</Typography>
+      <Typography variant="h6" align="center">Only for Beiyo Residents</Typography> 
       {error && <Typography color="error" align="center" mb={2}>{error}</Typography>}
       <TextField
         label="Email"

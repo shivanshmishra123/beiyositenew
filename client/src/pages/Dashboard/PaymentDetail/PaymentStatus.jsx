@@ -2,11 +2,20 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Box, Typography, CircularProgress, Button } from '@mui/material';
 import AuthContext from '../../../context/AuthContext';
-
+import {format} from 'date-fns'
+import '../Dashboard.css';
 const PaymentStatus = () => {
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user} = useContext(AuthContext);
+  const formatdate = (date) => {
+    const d = new Date(date);
+
+    // Custom format to include ordinal suffix
+    const formattedDate = format(d, "do MMMM yyyy");
+
+    return formattedDate;
+  };
   useEffect(() => {
     const fetchPayments = async () => {
       try {
@@ -44,17 +53,19 @@ const PaymentStatus = () => {
   if (loading) return <CircularProgress />;
 
   return (
-    <Box sx={{overflow:'scroll',height:'100vh'}}>
+    <div className='paymentDetails'>
       <Typography variant="h4" gutterBottom>Payment Status</Typography>
+      <Box className='paymentDetailstatusbox flex flex-col gap-2 ' >
       {payments.map((payment) => (
-        <Box key={payment._id} sx={{ mb: 2, p: 2, border: '1px solid #ccc' }}>
+        <Box key={payment._id} sx={{  p: 2, border: '1px solid #ccc'}} className='h-100'>
           <Typography variant="body1">Amount: {payment.amount}</Typography>
-          <Typography variant="body2">Date: {new Date(payment.date).toLocaleDateString()}</Typography>
+          <Typography variant="body2">Date: {formatdate(payment.date)}</Typography>
           <Typography variant="body2">Status: {payment.status}</Typography>
           {payment.status==='due' && <Button onClick={()=>handlePayment(payment._id)}>Pay Now</Button>}
         </Box>
       ))}
-    </Box>
+      </Box>
+    </div>
   );
 };
 

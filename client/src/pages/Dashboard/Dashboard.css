@@ -1,22 +1,67 @@
-.dashboard{
-    padding-top: 5rem;
-}
+
 .dashboard {
     display: flex;
     height: 100vh;
+    justify-content: center;
   }
   
   .dashboard .MuiBox-root {
-    background-color: #f0f0f0;
     border-right: 1px solid #ddd;
   }
   
-  .dashboard .MuiButton-root {
-    margin-bottom: 10px;
-  }
+
   
   .dashboard .MuiBox-root:last-child {
     flex-grow: 1;
+    padding: 1px;
+    padding-bottom: 0;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  #dashboardlogo{
+    display: none;
+  }
+  .paymentDetails{
+    padding-top: 0rem;
+  }
+  .paymentDetailstatusbox{
+    height: 82vh;
+    overflow-y: scroll;
+  }
+  .supportDashboard{
+    padding-top: 0rem;
+  }
+  .dashboardnav{
+    display: none;
+  }
+  .staydetailsDashboard{
+    padding-top: 0rem;
+  }
+  @media (max-width: 1000px){ 
+  .sidebar{
+    display: none;
+  }
+  .staydetailsDashboard{
+    padding-top: 5rem;
+  }
+  .supportDashboard{
+    padding-top: 5rem;
+  }
+  #dashboardlogo{
+    display: block;
+  }
+  #dashboardheader{
+    display: block;
+  }
+  .paymentDetails{
+    padding-top: 5rem;
+  }
+  .dashboardnav{
+    display: block;
+  }
+  .dashboard .MuiBox-root:last-child{
     padding: 20px;
   }
   
+  }

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./Homestyles/nav.css"
+import AuthContext from '@/context/AuthContext';
+
 
 function Navbar() {
-
+  const {user}=useContext(AuthContext);
   const toggleMobileMenu = () => {
     const x = document.querySelector('.nav');
     const y = document.querySelector('.page');
@@ -32,7 +34,7 @@ function Navbar() {
   return (
 
     <div className="navmainhead">
-      <div className="nav" id='header'>
+      <div className="nav" id='dashboardheader'>
         <div className="mainlist">
           <a href="/"> <img className='logo' src="/images/beiyo_logo2.svg" alt="" /></a>
           <div className="pclist">
@@ -40,6 +42,7 @@ function Navbar() {
               <a href="/hostel"><li><p>Hostels</p></li></a>
               {/* <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List Your Property</p></li></a> */}
               <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a>
+              {user?( <a href="/dashboard"><li><p>DashBoard</p></li></a>):( <a href="/login" ><li><p>Login</p></li></a>)}
               {/* <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a> */}
               {/* <a href="/about"><li><p>About us</p></li></a> */}
             </ul>
@@ -49,7 +52,11 @@ function Navbar() {
         </div>
         <ul className='mobilenavlist'>
           <a href="/hostel"><li><p>Hostels</p></li></a>
-          <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a>
+          {/* <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a> */}
+          {user?( <a href="/dashboard" ><li><p>DashBoard</p></li></a>):( <a href="/login"><li><p>Login</p></li></a>)}
+         
+
+          
           {/* <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List Your Property</p></li></a> */}
           {/* <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a> */}
           {/* <a href="/about"><li><p>About us</p></li></a> */}

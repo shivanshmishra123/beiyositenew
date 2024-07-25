@@ -24,7 +24,7 @@ function Homepage() {
       <Feature/>
       <OurHostel/>
       <Mainfeature/>
-    <CommuneMobile/>
+     <CommuneMobile/>
       <Testimonial/> 
       <Faq/>
       <FaqMobile/>

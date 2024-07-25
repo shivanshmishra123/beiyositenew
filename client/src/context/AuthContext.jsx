@@ -7,6 +7,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
   // const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,6 +26,7 @@ export const AuthProvider = ({ children }) => {
           });
 
           setUser(response.data);  
+          
           // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         } catch (error) {
           console.error('Error fetching user:', error);
@@ -56,8 +58,8 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ user, login, 
-    logout,
-     loading }}>
+    logout, loading
+     }}>
       {children}
     </AuthContext.Provider>
   );

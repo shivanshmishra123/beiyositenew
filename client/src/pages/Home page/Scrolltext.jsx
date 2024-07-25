@@ -4,30 +4,30 @@ const Scrolltext = () => {
   return (
     <div>
            <div className="movingComponnt">
-      <div class="moving-text">
-                <div class="con">
+      <div className="moving-text">
+                <div className="con">
                     <h1>EXPERIENCES</h1>
-                    <div class="gola"></div>
+                    <div className="gola"></div>
                     <h1>COLIVING</h1>
-                    <div class="gola"></div>
+                    <div className="gola"></div>
                     <h1>COMMUNE</h1>
-                    <div class="gola"></div>
+                    <div className="gola"></div>
                 </div>
-                <div class="con">
+                <div className="con">
                     <h1>EXPERIENCES</h1>
-                    <div class="gola"></div>
+                    <div className="gola"></div>
                     <h1>COLIVING</h1>
-                    <div class="gola"></div>
+                    <div className="gola"></div>
                     <h1>COMMUNE</h1>
-                    <div class="gola"></div>
+                    <div className="gola"></div>
                 </div>
-                <div class="con">
+                <div className="con">
                     <h1>EXPERIENCES</h1>
-                    <div class="gola"></div>
+                    <div className="gola"></div>
                     <h1>COLIVING</h1>
-                    <div class="gola"></div>
+                    <div className="gola"></div>
                     <h1>COMMUNE</h1>
-                    <div class="gola"></div>
+                    <div className="gola"></div>
                 </div>
             </div>
    </div>

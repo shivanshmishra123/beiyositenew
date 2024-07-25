@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Box, Typography, CircularProgress } from '@mui/material';
 import AuthContext from '../../../context/AuthContext';
 import {format} from 'date-fns'
-
+import '../Dashboard.css'
 const StayDetails = () => {
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -30,7 +30,8 @@ const StayDetails = () => {
   if (loading) return <CircularProgress />;
 
   return (
-    <Box>
+    <div  className='staydetailsDashboard'>
+       <Box>
       <Typography variant="h4" gutterBottom>Stay Details</Typography>
       {details ? (
         <Box sx={{ mb: 2, p: 2, border: '1px solid #ccc' }}>
@@ -44,6 +45,8 @@ const StayDetails = () => {
         <Typography variant="body1">No stay details available.</Typography>
       )}
     </Box>
+    </div>
+   
   );
 };
 
