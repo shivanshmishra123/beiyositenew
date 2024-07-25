@@ -9,7 +9,7 @@ const Support = () => {
   const [description, setDescription] = useState('');
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
-  const [tickets,setTickets] = useState(null);
+  const [ticketDetails,setTicketDetails]=useState([]);
   const [oldticket,setOldTicket] = useState(false);
   const { user} = useContext(AuthContext);
   const handleSubmit = async (e) => {
@@ -20,8 +20,8 @@ const Support = () => {
     try {
       await axios.post('https://beiyo-admin.vercel.app/api/dashboard/raise-ticket', {
         userId : user._id,
-        helpTopic,
-        description,
+        helpTopic:helpTopic,
+        description:description,
       });
       setSuccess('Ticket raised successfully!');
       setHelpTopic('');
@@ -30,14 +30,18 @@ const Support = () => {
       setError('Error raising ticket. Please try again.');
     }
   };
+
+
+  const handleGenerateTicket =()=>{
+    setOldTicket(false);
+  }
   const handleRaiseTicket = async ()=>{
    try {
-    console.log(user._id);
+    const id = user._id;
     setOldTicket(true);
-    const response = await axios.get(`https://beiyo-admin.vercel.app/api/dashboard/oldTickets/${user._id}`);
-      setTickets(response.data);
-      
-      console.log(tickets);
+    const response = await axios.get(`https://beiyo-admin.vercel.app/api/dashboard/oldTickets/${id}`);
+   setTicketDetails(response.data);
+      console.log(ticketDetails);
    } catch (error) {
     console.log(error)
    }  
@@ -79,15 +83,19 @@ const Support = () => {
     </div>
        
   ):(
-   <div>
-     <Typography variant="h4" gutterBottom>Old Tickets</Typography>
-     {tickets.map((ticket) => (
+   <div className='flex flex-col gap-2'>
+       <button className='h-full p-2 w-100 rounded-lg flex border-2 gap-1 border-black' onClick={handleGenerateTicket}>Generate a new Ticket</button>
+<div>
+<Typography variant="h4" gutterBottom>Old Tickets</Typography>
+{ticketDetails.map((ticket) => (
       <Box key={ticket._id} sx={{ mb: 2, p: 2, border: '1px solid #ccc' }}>
         <Typography variant="body1">Help Topic: {ticket.helpTopic}</Typography>
+        <Typography variant="body1">Description: {ticket.description}</Typography>
         <Typography variant="body2">Date: {new Date(ticket.createdAt).toLocaleDateString()}</Typography>
         <Typography variant="body2">Status: {ticket.status}</Typography>
       </Box>
     ))}
+</div>
    </div>
 
   )

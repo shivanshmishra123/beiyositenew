@@ -10,9 +10,6 @@ import './Dashboard.css';
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('PaymentStatus');
   const { user, logout } = useContext(AuthContext);
-  useEffect(() => {
-    console.log(user);  
-  }, [user])
   const handleTabChange = (tab) => {
     // e.preventDefault();
     setActiveTab(tab);

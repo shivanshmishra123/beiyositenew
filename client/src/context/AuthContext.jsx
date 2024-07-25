@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
         try {
           const decodedToken = jwtDecode(token); // Decode the token
           const userId = decodedToken.userId; // Extract the user ID from the token
-          console.log("Decoded User ID: ", userId);
+        
          
           // const response = await axios.get(`http://localhost:5000/api/newResident`, 
           const response = await axios.get(`https://beiyo-admin.vercel.app/api/newResident/${userId}`, 
@@ -44,7 +44,6 @@ export const AuthProvider = ({ children }) => {
       // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     } catch (error) {
       throw new Error('Login failed');
-      console.log(error)
     }
   };
 
