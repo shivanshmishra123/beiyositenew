@@ -43,7 +43,7 @@ const HostelDetail = () => {
             <div className="singlehosteldetail">
              <div className="hostelcontentdetails">
              <div className='hosteldetailsname'> 
-              <h1>{hostel&&hostel.name}</h1> 
+              <h1 className='text-3xl'>{hostel&&hostel.name}</h1> 
               <div style={{ display: "flex" }}> 
               <img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />
               <p>{hostel&&hostel.location}</p>

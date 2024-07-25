@@ -18,8 +18,8 @@ const Dashboard = () => {
     setActiveTab(tab);
   };
   return (
-    <div className='dashboard'>
-      <Box sx={{ display: 'flex', minHeight: '100vh',marginBottom:'20rem' }}>
+    <div className='dashboard h-fit'>
+      <Box sx={{ display: 'flex', }}>
         <Box sx={{ width: 250, bgcolor: '#f0f0f0', p: 2 }}>
           <Box sx={{ mb: 4 }}>
             <Typography variant="h6">{user?.name}</Typography>
