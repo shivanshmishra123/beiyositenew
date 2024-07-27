@@ -20,7 +20,7 @@ function Homepage() {
 
      <div className="homepage page">
       <Hero/>
-      <Scrolltext/>
+      {/* <Scrolltext/> */}
       <Feature/>
       <OurHostel/>
       <Mainfeature/>
