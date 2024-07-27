@@ -61,13 +61,13 @@ const Dashboard = () => {
         </ul>
       </div>
       <Box sx={{ display: 'flex' }} className='p-0'>
-        <Box sx={{ width: 250,  }} className='sidebar'>
+        <Box sx={{ width: 250,  }} className='sidebar flex flex-col'>
+        <a href="/"> <img className='mt-4 mb-2' src="/images/beiyo_logo2.svg" alt="" /></a>
           <Box sx={{ mb: 4 }}>
             <Typography variant="h6">{user?.name}</Typography>
-            <Typography variant="body2">{user?.hostel}</Typography>
-            <Typography variant="body2">{user?.roomNumber}</Typography>
+            <Typography variant="body2">{user?.hostel} {user?.roomNumber}</Typography>
           </Box>
-          <Button fullWidth onClick={() => handleTabChange('PaymentStatus')}>Payment</Button>
+          <Button fullWidth  onClick={() => handleTabChange('PaymentStatus')}>Payment</Button>
           <Button fullWidth onClick={() => handleTabChange('StayDetails')}>Stay details</Button>
           <Button fullWidth onClick={() => handleTabChange('Support')}>Support</Button>
           <Button fullWidth sx={{ mt: 4 }} color="error" onClick={logout}>Log out</Button>

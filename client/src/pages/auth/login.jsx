@@ -27,11 +27,15 @@ const Login = () => {
 
   return (
    <div className='min-h-screen flex items-center'>
-     <Box component="form" onSubmit={handleSubmit} sx={{ maxHeight:'100%', maxWidth: 400, mx: 'auto', mt: 10, p: 3, border: '1px solid #ccc', borderRadius: 4 }}>
-      <Typography variant="h4" align="center" mb={2}>Login</Typography>
+     <Box component="form" className='flex flex-col justify-center w-full items-center gap-4' onSubmit={handleSubmit} sx={{ maxHeight:'100%', maxWidth: 400, mx: 'auto', mt: 10, p: 3, border: '1px solid #ccc', borderRadius: 4 }}>
+     <a href="/"> <img className='' src="/images/beiyo_logo2.svg" alt="" /></a>
+      <div>
+      <Typography variant="h4" align="center" >Login</Typography>
       <Typography variant="h6" align="center">Only for Beiyo Residents</Typography> 
+      </div>
       {error && <Typography color="error" align="center" mb={2}>{error}</Typography>}
-      <TextField
+     <div className='flex flex-col gap-1 w-full'>
+     <TextField
         label="Email"
         type="email"
         value={email}
@@ -49,7 +53,7 @@ const Login = () => {
         sx={{ mb: 2 }}
         required
       />
-      <Button
+       <Button
         type="submit"
         variant="contained"
         color="primary"
@@ -58,6 +62,8 @@ const Login = () => {
       >
         {loading ? <CircularProgress size={24} /> : 'Login'}
       </Button>
+     </div>
+     
     </Box>
    </div>
   );
