@@ -61,7 +61,7 @@ const Dashboard = () => {
         </ul>
       </div>
       <Box sx={{ display: 'flex' }} className='p-0'>
-        <Box sx={{ width: 250,  }} className='sidebar flex flex-col'>
+        <Box  className='sidebar flex flex-col'>
         <a href="/"> <img className='mt-4 mb-2' src="/images/beiyo_logo2.svg" alt="" /></a>
           <Box sx={{ mb: 4 }}>
             <Typography variant="h6">{user?.name}</Typography>

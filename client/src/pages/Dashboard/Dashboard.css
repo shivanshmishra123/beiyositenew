@@ -38,9 +38,13 @@
   .staydetailsDashboard{
     padding-top: 0rem;
   }
+  .sidebar{
+    width: 250px;
+    overflow: hidden;
+  }
   @media (max-width: 1000px){ 
   .sidebar{
-    display: none;
+   width: 0px;
   }
   .staydetailsDashboard{
     padding-top: 5rem;
