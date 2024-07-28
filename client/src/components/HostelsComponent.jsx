@@ -4,6 +4,7 @@ import Form from './Form';
 import { Link } from 'react-router-dom';
 import  { useState, useEffect } from 'react';
 import axios from 'axios';
+import { CircularProgress } from '@mui/material';
 const HostelsComponent = ({notincludID, noOfHostels}) => {
     const [hostels, setHostels] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -48,8 +49,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
     <>
         {loading ? (
         <div className="laodingscreen">
-            <h1>Loading...</h1>
-            <p>Thanks for Your Patience</p>
+                <CircularProgress/>
         </div>
     ) : (
         <div className="hostels" id='hostel' >
