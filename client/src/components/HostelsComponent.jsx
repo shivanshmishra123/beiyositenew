@@ -49,7 +49,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
     <>
         {loading ? (
         <div className="laodingscreen">
-                <CircularProgress/>
+                <CircularProgress />
         </div>
     ) : (
         <div className="hostels" id='hostel' >
