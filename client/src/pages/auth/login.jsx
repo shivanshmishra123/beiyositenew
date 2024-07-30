@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Box, TextField, Button, Typography, CircularProgress } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import axios from 'axios';
 
@@ -53,6 +53,7 @@ const Login = () => {
         sx={{ mb: 2 }}
         required
       />
+       <Link to='/forget-password'>Forget Password</Link>
        <Button
         type="submit"
         variant="contained"
@@ -63,8 +64,8 @@ const Login = () => {
         {loading ? <CircularProgress size={24} /> : 'Login'}
       </Button>
      </div>
-     
     </Box>
+   
    </div>
   );
 };

@@ -29,6 +29,8 @@ import './index.css'
 
 import Footer from './pages/Home page/Footer';
 import Layout from './context/LayoutContext';
+import RequestOtp from './pages/auth/RequestOTPForm';
+import ResetPassword from './pages/auth/ResetPassword';
 
 AOS.init();
 
@@ -66,6 +68,8 @@ function App() {
   {/* <Router> */}
   <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/forget-password" element={<RequestOtp />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route
             path="/dashboard/*"
             element={
