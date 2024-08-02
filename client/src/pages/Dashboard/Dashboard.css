@@ -8,7 +8,9 @@
   .dashboard .MuiBox-root {
     border-right: 1px solid #ddd;
   }
-  
+  .main-content-dashboard{
+    margin-left: 250px;
+  }
 
   
   .dashboard .MuiBox-root:last-child {
@@ -45,6 +47,9 @@
   @media (max-width: 1000px){ 
   .sidebar{
    width: 0px;
+  }
+  .main-content-dashboard{
+    margin-left: 0px;
   }
   .staydetailsDashboard{
     padding-top: 5rem;

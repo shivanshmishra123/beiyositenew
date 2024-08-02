@@ -7,6 +7,7 @@ import Support from './Support/Support';
 import AuthContext from '../../context/AuthContext';
 import './Dashboard.css';
 import "../Home page/Homestyles/nav.css"
+import { cn } from '@/lib/utils';
 const Dashboard = () => {
   const toggleMobileMenu = () => {
     const x = document.querySelector('.nav');
@@ -45,7 +46,7 @@ const Dashboard = () => {
     toggleMobileMenu();
   }
   return (
-    <div className='dashboard min-h-screen'>
+    <div className='dashboard min-h-screen '>
        <div className="nav dashboardnav" id='header'>
         <div className="mainlist">
           <a href="/"> <img className='logo' id='dashboardlogo' src="/images/beiyo_logo2.svg" alt="" /></a>
@@ -60,24 +61,28 @@ const Dashboard = () => {
           <li className='dashboardNavigation' ><button  sx={{ mt: 4 }} color="error" onClick={logout}>Log out</button></li>
         </ul>
       </div>
-      <Box sx={{ display: 'flex' }} className='p-0'>
-        <Box  className='sidebar flex flex-col'>
-        <a href="/"> <img className='mt-4 mb-2' src="/images/beiyo_logo2.svg" alt="" /></a>
-          <Box sx={{ mb: 4 }}>
+      <div className='flex w-full py-2 pr-2 pl-1 relative'>
+        <div  className='sidebar flex flex-col gap-10 border-r-2 border-black fixed h-screen'>
+<div>
+<a href="/"> <img className='mt-4 mb-2' src="/images/beiyo_logo2.svg" alt="" /></a>
+          <div sx={{ mb: 4 }}>
             <Typography variant="h6">{user?.name}</Typography>
             <Typography variant="body2">{user?.hostel} {user?.roomNumber}</Typography>
-          </Box>
-          <Button fullWidth  onClick={() => handleTabChange('PaymentStatus')}>Payment</Button>
-          <Button fullWidth onClick={() => handleTabChange('StayDetails')}>Stay details</Button>
-          <Button fullWidth onClick={() => handleTabChange('Support')}>Support</Button>
-          <Button fullWidth sx={{ mt: 4 }} color="error" onClick={logout}>Log out</Button>
-        </Box>
-        <Box sx={{ flexGrow: 1, p: 3 }}>
+         </div>
+</div>
+        <div className='flex flex-col items-start'>
+          <button className={cn('text-xl border-y-2 border-black w-full text-left py-3' ,activeTab==='PaymentStatus'&&'bg-[#f7d442]')}  onClick={() => handleTabChange('PaymentStatus')}  >Payment</button>
+          <button className={cn('text-xl border-b-2 border-black w-full text-left py-3',activeTab==='StayDetails'&&'bg-[#f7d442]')} onClick={() => handleTabChange('StayDetails')}>Stay details</button>
+          <button className={cn('text-xl border-b-2 border-black w-full text-left py-3',activeTab==='Support'&&'bg-[#f7d442]')} onClick={() => handleTabChange('Support')}>Support</button>
+        </div>
+          <button  className='mt-[20rem] text-xl  text-red-700 flex items-center gap-2 justify-center mx-4 py-2 border-2 rounded-3xl' onClick={logout}><img src="/images/logout.png" alt="" />Log out</button>
+        </div>
+        <Box sx={{ flexGrow: 1, p: 3 }} className='main-content-dashboard'>
           {activeTab === 'PaymentStatus' && <PaymentStatus />}
           {activeTab === 'StayDetails' && <StayDetails />}
           {activeTab === 'Support' && <Support />}
         </Box>
-      </Box>
+      </div>
     </div>
   );
 };

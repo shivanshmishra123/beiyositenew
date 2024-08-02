@@ -86,7 +86,7 @@ const Support = () => {
           sx={{ mb: 2 }}
           required
         />
-        <Button type="submit" variant="contained" color="primary">Raise Ticket</Button>
+        <button type="submit" className='w-fit p-2 border-2 border-black bg-[#f7d442] rounded-full'>Raise Ticket</button>
       </Box>
     </div>
        

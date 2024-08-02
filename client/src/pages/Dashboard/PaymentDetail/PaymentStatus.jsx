@@ -102,7 +102,6 @@ const PaymentStatus = () => {
           headers: { Authorization: `Bearer ${token}` }
         });
         setPayments(response.data);
-        console.log(currentYear)
       } catch (error) {
         console.error('Error fetching payments:', error);
       } finally {
@@ -118,7 +117,6 @@ const PaymentStatus = () => {
       headers: { Authorization: `Bearer ${token}` }
     });
     const amount = response.data.amount;
-    console.log(amount);
     const paymentResponse = await axios.post('https://beiyo-admin.vercel.app/api/pay/initiate', {
       amount: amount,
     });
@@ -166,58 +164,66 @@ const PaymentStatus = () => {
   });
 
   return (
-    <div className='paymentDetails flex flex-col'>
+    <div className='paymentDetails flex flex-col gap-4'>
       <Typography variant="h4" gutterBottom>Payment Status</Typography>
 
     <div className='flex flex-col gap-4'>
             {/* Current Payments */}
-            <div className=' flex flex-col gap-2'>
-        <Typography variant="h6" gutterBottom>Current Payment</Typography>
+            <div className=' flex flex-col gap-2 border-2 p-2 border-black rounded-lg'>
+        <Typography variant="h6" gutterBottom>Current Month Payment</Typography>
         {currentPayments.map(payment => (
-          <Box key={payment._id} sx={{ p: 2, border: '1px solid #ccc' }} className='h-100'>
-            <Typography variant="body1">Amount: {payment.amount}</Typography>
+          <div key={payment._id}  className='h-fit p-2 flex justify-between items-center border-2 border-[#575756]'>
+          <div className='flex flex-col gap-[0.2rem]'>
+          <Typography variant="body1">Amount: {payment.amount}</Typography>
             <Typography variant="body2">Date: {formatDate(payment.date)}</Typography>
             <Typography variant="body2">Status: {payment.status}</Typography>
+          </div>
             {payment.status === 'due' && <Button onClick={() => handlePayment(payment._id)}>Pay Now</Button>}
-          </Box>
+          </div>
         ))}
       </div>
 
       {/* Future Payments */}
-      <div className=' flex flex-col gap-2 border-2 p-2 border-black rounded-lg'>
-        <Box className="flex items-center justify-between">
-          <Typography variant="h6" gutterBottom>Future Payments</Typography>
+      <div className=' flex flex-col gap-4 border-2 p-2 border-black rounded-lg'>
+        <div className="flex items-center justify-between ">
+          <Typography variant="h6" gutterBottom>Future Month Payments</Typography>
           <IconButton onClick={() => setExpandFuturePayments(!expandFuturePayments)}>
-            {expandFuturePayments ? <ChevronUpCircle /> : <ChevronDownCircle />}
+            {expandFuturePayments ? <ChevronUpCircle  /> : <ChevronDownCircle />}
           </IconButton>
-        </Box>
+        </div>
         <Collapse in={expandFuturePayments}>
-          {futurePayments.map(payment => (
-            <Box key={payment._id} sx={{ p: 2, border: '1px solid #ccc' }} className='h-100'>
-              <Typography variant="body1">Amount: {payment.amount}</Typography>
+         <div className='flex flex-col gap-2'>
+         {futurePayments.map(payment => (
+            <div key={payment._id}  className='h-fit p-2  flex justify-between items-center border-2 border-[#575756] rounded-lg'>
+             <div className='flex flex-col gap-[0.2rem]'>
+             <Typography variant="body1">Amount: {payment.amount}</Typography>
               <Typography variant="body2">Date: {formatDate(payment.date)}</Typography>
               <Typography variant="body2">Status: {payment.status}</Typography>
-              {payment.status === 'due' && <Button onClick={() => handlePayment(payment._id)}>Pay Now</Button>}
-            </Box>
+             </div>
+              {payment.status === 'due' && <button className='bg-[#f7d442] border-black border-2 rounded-full p-2' onClick={() => handlePayment(payment._id)}>Pay Now</button>}
+            </div>
           ))}
+         </div>
         </Collapse>
       </div>
 
       {/* Past Payments */}
       <div className='flex flex-col gap-2 border-2 p-2 border-black rounded-lg'>
-        <Box className="flex items-center justify-between">
-          <Typography variant="h6" gutterBottom>Past Payments</Typography>
+        <div className="flex items-center justify-between ">
+          <Typography variant="h6" gutterBottom>Past Month Payments</Typography>
           <IconButton onClick={() => setExpandPastPayments(!expandPastPayments)}>
             {expandPastPayments ?<ChevronUpCircle /> : <ChevronDownCircle />}
           </IconButton>
-        </Box>
+        </div>
         <Collapse in={expandPastPayments}>
           {pastPayments.map(payment => (
-            <Box key={payment._id} sx={{ p: 2, border: '1px solid #ccc' }} className='h-100'>
-              <Typography variant="body1">Amount: {payment.amount}</Typography>
+            <div key={payment._id} sx={{ p: 2, border: '1px solid #ccc' }} className='h-fit p-2 flex justify-between items-center border-2 border-[#575756]'>
+            <div className='flex flex-col gap-[0.2rem]'>
+            <Typography variant="body1">Amount: {payment.amount}</Typography>
               <Typography variant="body2">Date: {formatDate(payment.date)}</Typography>
               <Typography variant="body2">Status: {payment.status}</Typography>
-            </Box>
+            </div>
+            </div>
           ))}
         </Collapse>
       </div>
