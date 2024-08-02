@@ -21,7 +21,6 @@ const PaymentStatus = () => {
             alert('Payment successful!');
 
             // Save payment info if transaction ID is present
-            if (!studentData) {
               try {
                 const paymentSaveResponse = await axios.post(`https://beiyo-admin.vercel.app/api/dashboard/paymentSave`, {
                   userId: userId,
@@ -33,18 +32,18 @@ const PaymentStatus = () => {
               } catch (error) {
                 console.error('Error saving payment:', error);
               }
-            }
+            
 
             // Save student data if present
-            if (studentData) {
-              try {
-                const newResidentResponse = await axios.post('https://beiyo-admin.vercel.app/api/newResident', studentData);
-                console.log('New Resident Response:', newResidentResponse.data);
-                navigate('/thank-you');
-              } catch (error) {
-                console.error('Error saving new resident:', error);
-              }
-            }
+            // if (studentData) {
+            //   try {
+            //     const newResidentResponse = await axios.post('https://beiyo-admin.vercel.app/api/newResident', studentData);
+            //     console.log('New Resident Response:', newResidentResponse.data);
+            //     navigate('/thank-you');
+            //   } catch (error) {
+            //     console.error('Error saving new resident:', error);
+            //   }
+            // }
           } else {
             alert('Payment failed or not completed.');
             navigate('/retry-payment');
