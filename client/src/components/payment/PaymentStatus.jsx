@@ -19,24 +19,35 @@ const PaymentStatus = () => {
           const response = await axios.get(`https://beiyo-admin.vercel.app/api/pay/status/${transactionId}`);
           if (response.data.success === true) {
             alert('Payment successful!');
-         if(studentData===null){
-          const response = await axios.post(`https://beiyo-admin.vercel.app/api/dashboard/paymentSave`,{
-            userId:userId,
-            amount:amount,
-            month:month
-          })
-          console.log(response);
-          navigate('/dashboard');
-         }
-            
-           if(studentData){
-            console.log(studentData);
-            await axios.post('https://beiyo-admin.vercel.app/api/newResident', studentData); // Save student data
-            navigate('/thank-you');
-           } // Redirect to a thank you page or desired location
+
+            // Save payment info if transaction ID is present
+            if (!studentData) {
+              try {
+                const paymentSaveResponse = await axios.post(`https://beiyo-admin.vercel.app/api/dashboard/paymentSave`, {
+                  userId: userId,
+                  amount: amount,
+                  month: month,
+                });
+                console.log('Payment Save Response:', paymentSaveResponse.data);
+                navigate('/dashboard');
+              } catch (error) {
+                console.error('Error saving payment:', error);
+              }
+            }
+
+            // Save student data if present
+            if (studentData) {
+              try {
+                const newResidentResponse = await axios.post('https://beiyo-admin.vercel.app/api/newResident', studentData);
+                console.log('New Resident Response:', newResidentResponse.data);
+                navigate('/thank-you');
+              } catch (error) {
+                console.error('Error saving new resident:', error);
+              }
+            }
           } else {
             alert('Payment failed or not completed.');
-            navigate('/retry-payment'); // Redirect to a retry payment page or desired location
+            navigate('/retry-payment');
           }
         } catch (error) {
           console.error('Error checking payment status:', error);
