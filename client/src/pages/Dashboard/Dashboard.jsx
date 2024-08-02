@@ -54,11 +54,11 @@ const Dashboard = () => {
           <img className='menubtn' id='dashboardClose' src="/images\close.png" alt="" onClick={toggleMobileMenu} style={{display:"none"}} />
         </div>
 
-        <ul className='mobilenavlist'>
-          <li className='dashboardNavigation' > <button  onClick={() => changeTab('PaymentStatus')}>Payment</button></li>
-          <li className='dashboardNavigation' >  <button  onClick={() => changeTab('StayDetails')}>Stay details</button></li>
-          <li className='dashboardNavigation' > <button  onClick={() => changeTab('Support')}>Support</button></li>
-          <li className='dashboardNavigation' ><button  sx={{ mt: 4 }} color="error" onClick={logout}>Log out</button></li>
+        <ul className='mobilenavlist flex flex-col gap-4'>
+          <li className='dashboardNavigation' > <button className={cn(activeTab==='PaymentStatus'&&'text-[#f7d442]')} onClick={() => changeTab('PaymentStatus')}>Payment</button></li>
+          <li className='dashboardNavigation' >  <button className={cn(activeTab==='StayDetails'&&'text-[#f7d442]')}  onClick={() => changeTab('StayDetails')}>Stay details</button></li>
+          <li className='dashboardNavigation' > <button className={cn(activeTab==='Support'&&'text-[#f7d442]')} onClick={() => changeTab('Support')}>Support</button></li>
+          <li className='dashboardNavigation w-full flex justify-center ' ><button  className=' border-2 rounded-full px-10 border-black  mt-[22rem] text-2xl py-4 h-fit  text-red-700 flex items-center gap-2 justify-center'  onClick={logout}><img src="/images/logout.png" alt="" />Log out</button></li>
         </ul>
       </div>
       <div className='flex w-full py-2 pr-2 pl-1 relative'>

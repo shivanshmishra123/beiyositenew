@@ -79,7 +79,7 @@ import { Box, Typography, CircularProgress, Button, Collapse, IconButton } from 
 import AuthContext from '../../../context/AuthContext';
 import { format } from 'date-fns';
 import '../Dashboard.css';
-import { ChevronDownCircle, ChevronUpCircle, ExpandIcon } from 'lucide-react';
+import { ChevronDownCircle, ChevronUpCircle } from 'lucide-react';
 
 const PaymentStatus = () => {
   const [payments, setPayments] = useState([]);
