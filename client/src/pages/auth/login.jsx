@@ -1,8 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { Box, TextField, Button, Typography, CircularProgress } from '@mui/material';
+import { Box, TextField, Button, Typography, CircularProgress, Icon, InputAdornment, IconButton } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import axios from 'axios';
+import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -11,6 +12,11 @@ const Login = () => {
   const [error, setError] = useState('');
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [showPassword,setShowPassword] = useState(false);
+
+  const handleShowPassword =()=>{
+    setShowPassword(!showPassword);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,14 +51,27 @@ const Login = () => {
         required
       />
       <TextField
-        label="Password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        fullWidth
-        sx={{ mb: 2 }}
-        required
-      />
+      label="Password"
+      type={showPassword ? 'text' : 'password'}
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      fullWidth
+      sx={{ mb: 2 }}
+      required
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton
+              onClick={handleShowPassword}
+              edge="end"
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+            >
+              {showPassword?<EyeIcon/>:<EyeOffIcon/>}
+            </IconButton>
+          </InputAdornment>
+        ),
+      }}
+    />
        <Link to='/forget-password'>Forget Password</Link>
        <Button
         type="submit"
