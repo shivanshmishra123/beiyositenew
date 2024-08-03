@@ -178,7 +178,7 @@ const PaymentStatus = () => {
             <Typography variant="body2">Date: {formatDate(payment.date)}</Typography>
             <Typography variant="body2">Status: {payment.status}</Typography>
           </div>
-            {payment.status === 'due' && <Button onClick={() => handlePayment(payment._id)}>Pay Now</Button>}
+            {payment.status === 'due' && <button className='bg-[#f7d442] border-black border-2 rounded-full p-2' onClick={() => handlePayment(payment._id)}>Pay Now</button>}
           </div>
         ))}
       </div>
