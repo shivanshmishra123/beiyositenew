@@ -42,7 +42,7 @@ function Navbar() {
               <a href="/hostel"><li><p>Hostels</p></li></a>
               {/* <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List Your Property</p></li></a> */}
               <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a>
-              {/* {user?( <a href="/dashboard"><li><p>DashBoard</p></li></a>):( <a href="/login" ><li><p>Login</p></li></a>)} */}
+              {user?( <a href="/dashboard"><li><p>DashBoard</p></li></a>):( <a href="/login" ><li><p>Login</p></li></a>)}
               {/* <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a> */}
               {/* <a href="/about"><li><p>About us</p></li></a> */}
             </ul>
@@ -53,7 +53,7 @@ function Navbar() {
         <ul className='mobilenavlist'>
           <a href="/hostel"><li><p>Hostels</p></li></a>
           <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a>
-          {/* {user?( <a href="/dashboard" ><li><p>DashBoard</p></li></a>):( <a href="/login"><li><p>Login</p></li></a>)} */}
+          {user?( <a href="/dashboard" ><li><p>DashBoard</p></li></a>):( <a href="/login"><li><p>Login</p></li></a>)}
          
 
           
