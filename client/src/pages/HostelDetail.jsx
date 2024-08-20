@@ -44,7 +44,7 @@ const HostelDetail = () => {
              <div className="hostelcontentdetails">
              <div className='hosteldetailsname'> 
               <h1 className='text-3xl'>{hostel&&hostel.name}</h1> 
-              <div style={{ display: "flex" }}> 
+              <div className='flex items-center gap-[0.2rem]'> 
               <img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />
               <p>{hostel&&hostel.location}</p>
               </div>
@@ -151,7 +151,7 @@ const HostelDetail = () => {
           <div className='newaddressblock'>
             <h1>Address</h1>
             <p><a href={hostel&&hostel.locationLink}>
-              <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.location}</p></a></p>
+              <p className='flex items-center'><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.location}</p></a></p>
           </div>
           <div className="mobileformParent">
             <div className='mobileform'>
