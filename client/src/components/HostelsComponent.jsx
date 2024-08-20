@@ -92,58 +92,61 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
                       
                            <div className='underlinepc'></div>
                          
-                                  {hostel.single===true?(
-                                               <div className="doubletripledivpc">
-                                               <div className="double" >
-                                                   <img src="/images/bed.svg" alt="" />
-                                                   <p>Single</p>
-                                               </div>
-                                               <div className="triple">
-                                                   <img src="/images/bed.svg" alt="" />
-                                                   <p>Double</p>
-                                               </div>
-                                               <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
-                                               </div>
-                       ):(
+
+                  
                            <div className="doubletripledivpc">
-                           <div className="double" >
-                               <img src="/images/bed.svg" alt="" />
-                               <p>Double</p>
+                        <div className='bedcapacity'>
+                            {hostel.singlePrice&&(
+                                 <div className="double" >
+                                 <img src="/images/bed.svg" alt="" />
+                                 <p>Single</p>
+                             </div>
+                            )}
+                        {hostel.doublePrice&&(
+                            <div className="double" >
+                            <img src="/images/bed.svg" alt="" />
+                            <p>Double</p>
+                        </div>
+                        )}
+                {hostel.triplePrice&&(
+                            <div className="double" >
+                            <img src="/images/bed.svg" alt="" />
+                            <p>Triple</p>
+                        </div>
+                        )}
+                        </div>
+                           <a href={`/hostel /${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
                            </div>
-                           <div className="triple">
-                               <img src="/images/bed.svg" alt="" />
-                               <p>Triple</p>
-                           </div>
-                           <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
-                           </div>
-                       )}
+                      
                        </div>
                        {/* <div className='underlinem'></div> */}
-                       {hostel.single===true?(
-                                               <div className="doubletriplediv">
-                                               <div className="double" >
-                                                   <img src="/images/bed.svg" alt="" />
-                                                   <p>Single</p>
-                                               </div>
-                                               <div className="triple">
-                                                   <img src="/images/bed.svg" alt="" />
-                                                   <p>Double</p>
-                                               </div>
-                                               <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
-                                               </div>
-                       ):(
-                           <div className="doubletriplediv">
-                           <div className="double" >
-                               <img src="/images/bed.svg" alt="" />
-                               <p>Double</p>
+                    
+
+                       
+                           <div className="doubletriplediv items-center ">
+                        <div className='flex gap-1 '>
+                        {hostel.singlePrice&&(
+                                 <div className="double" >
+                                 <img src="/images/bed.svg" alt="" />
+                                 <p>Single</p>
+                             </div>
+                            )}
+                        {hostel.doublePrice&&(
+                            <div className="double" >
+                            <img src="/images/bed.svg" alt="" />
+                            <p>Double</p>
+                        </div>
+                        )}
+                {hostel.triplePrice&&(
+                            <div className="double" >
+                            <img src="/images/bed.svg" alt="" />
+                            <p>Triple</p>
+                        </div>
+                        )}
+                        </div>
+                           <a href={`/hostel/${hostel._id}`}>    <button  className='response flex items-center justify-center' style={{cursor:"pointer"}} >  View Details </button> </a>
                            </div>
-                           <div className="triple">
-                               <img src="/images/bed.svg" alt="" />
-                               <p>Triple</p>
-                           </div>
-                           <a href={`/hostel/${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
-                           </div>
-                     )}
+                    
                    </div>
                    </a>
                     ):null  

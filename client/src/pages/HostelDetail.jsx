@@ -92,8 +92,9 @@ const HostelDetail = () => {
           <div className='content3hosteldetail'>
 
          <div className="service">
-          {hostel&&hostel.single === true ?(
-              <div className="pricedetail">
+
+            <div className="pricedetail">
+{ hostel&&hostel.singlePrice && (
               <div className="occupancyandprice">
               <div className="occupancy">
                               <img src="/images/bed.svg" alt="" />
@@ -101,33 +102,31 @@ const HostelDetail = () => {
                           </div>
                           <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.singlePrice}/bed</p>
               </div>
-                    <div className="occupancyandprice">
-                    <div className="occupancy">
-                    <img src="/images/bed.svg" alt="" />
+)
+}
+{ hostel&&hostel.doublePrice && (
+              <div className="occupancyandprice">
+              <div className="occupancy">
+                              <img src="/images/bed.svg" alt="" />
                               <p>Double</p>
                           </div>
-                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/bed</p>
-                    </div>     
-               </div>
-          ):(
-            <div className="pricedetail">
-            <div className="occupancyandprice">
-            <div className="occupancy">
-                            <img src="/images/bed.svg" alt="" />
-                            <p>Double</p>
-                        </div>
-                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doubleprice}/bed</p>
-            </div>
-                  <div className="occupancyandprice">
-                  <div className="occupancy">
-                  <img src="/images/bed.svg" alt="" />
-                            <p>Triple</p>
-                        </div>
-                        <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.tripleprice}/bed</p>
-                  </div>     
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doublePrice}/bed</p>
+              </div>
+)
+}
+{ hostel&&hostel.triplePrice && (
+              <div className="occupancyandprice">
+              <div className="occupancy">
+                              <img src="/images/bed.svg" alt="" />
+                              <p>Triple</p>
+                          </div>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.triplePrice}/bed</p>
+              </div>
+)
+}    
              </div>
-          )}
-         <h1 className='serviceshosteldetail'>Services</h1>
+             
+                      <h1 className='serviceshosteldetail'>Services</h1>
       <div className="content3div">   
         <div className="servicesdetails">
               {/* <img src="/images/wifi-hostel.svg" alt="" /> */}
