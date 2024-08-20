@@ -32,6 +32,8 @@ import Layout from './context/LayoutContext';
 import RequestOtp from './pages/auth/RequestOTPForm';
 import ResetPassword from './pages/auth/ResetPassword';
 
+import MapComponent from './components/googleMapComponent/page';
+
 AOS.init();
 
 
@@ -61,6 +63,7 @@ function App() {
           <Route path='/refund-policy' exact element={<RefundPolicy/>}/>
           <Route path='/payment' exact element={<Payment/>}/>
           <Route path='/paymentstatus' exact element={<PaymentStatus/>}/> 
+          <Route path='/map' exact element={<MapComponent/>}/> 
           {/* <Route path='/dashboard' exact element={<Dashboard/>}/> */}
          </Routes>
   {/* </Router> */}

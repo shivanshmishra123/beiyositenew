@@ -15,6 +15,7 @@ import Form from '../components/Form';
 import { useParams } from 'react-router-dom';
 import HostelsComponent from '../components/HostelsComponent';
 import VirtualTour from '../components/VirtualTour';
+import MapComponent from '@/components/googleMapComponent/page';
 
 const HostelDetail = () => {
    const {id} = useParams();
@@ -85,7 +86,11 @@ const HostelDetail = () => {
              </div>
           <div className="priceandformdiv">
           <div className='form'>
-            <Form hostelID={hostel&&hostel._id} />
+           <div> <Form hostelID={hostel&&hostel._id} /></div>
+            {/* <MapComponent
+             mapLink={hostel&&hostel.mapLink
+}
+             /> */}
           </div> 
       </div>
           </div>
