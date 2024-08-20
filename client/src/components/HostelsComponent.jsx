@@ -20,7 +20,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
             try {
 
                 setLoading(true);
-                const response = await fetch(`http://beiyo-admin.vercel.app/api/hostels`);
+                const response = await fetch(`https://beiyo-admin.vercel.app/api/hostels`);
                 const data = await response.json();
                 if(noOfHostels===null){
                     setHostels(data);
