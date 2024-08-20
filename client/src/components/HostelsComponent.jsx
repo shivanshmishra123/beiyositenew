@@ -2,20 +2,15 @@ import React from 'react'
 import Form from './Form';
 
 import { Link } from 'react-router-dom';
-import  { useState, useEffect } from 'react';
+import  { useState, useEffect,useRef } from 'react';
 import axios from 'axios';
 import { CircularProgress } from '@mui/material';
 const HostelsComponent = ({notincludID, noOfHostels}) => {
     const [hostels, setHostels] = useState([]);
     const [loading, setLoading] = useState(false);
-//     const [showForm, setShowForm] = useState(false);
-//     const [hidebutton, setHidebutton] = useState(true);
 
+    const [page,setPage] = useState(1);
 
-//   const handleRequestCallback= () => {
-//     setShowForm(true);
-//     setHidebutton(false);
-//   }
     useEffect(() => {
         // hostel updating beds
         
@@ -25,7 +20,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
             try {
 
                 setLoading(true);
-                const response = await fetch(`https://beiyo-admin.vercel.app/api/hostels`);
+                const response = await fetch(`http://beiyo-admin.vercel.app/api/hostels`);
                 const data = await response.json();
                 if(noOfHostels===null){
                     setHostels(data);
@@ -44,6 +39,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
         // updateBeds();
         fetchHostels();
     }, []);
+
    
   return (
     <>
@@ -161,3 +157,4 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
 }
 
 export default HostelsComponent
+
