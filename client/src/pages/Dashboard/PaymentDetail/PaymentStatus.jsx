@@ -140,7 +140,7 @@ const PaymentStatus = () => {
       {/* Future Payments */}
       <div className=' flex flex-col gap-4 border-2 p-2 border-black rounded-lg'>
         <div className="flex items-center justify-between ">
-          <Typography variant="h6" gutterBottom>Future Month Payments</Typography>
+          <Typography variant="h6" gutterBottom>Future Payments</Typography>
           <IconButton onClick={() => setExpandFuturePayments(!expandFuturePayments)}>
             {expandFuturePayments ? <ChevronUpCircle  /> : <ChevronDownCircle />}
           </IconButton>
