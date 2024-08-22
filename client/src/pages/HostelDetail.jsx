@@ -44,7 +44,7 @@ const HostelDetail = () => {
             <div className="singlehosteldetail">
              <div className="hostelcontentdetails">
              <div className='hosteldetailsname'> 
-              <h1 className='text-3xl'>{hostel&&hostel.name}</h1> 
+              <h1 className='text-3xl'>Hostel  {hostel&&hostel.name}</h1> 
               <div className='flex items-center gap-[0.2rem]'> 
               <img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />
               <p>{hostel&&hostel.location}</p>
