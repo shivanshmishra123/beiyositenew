@@ -87,7 +87,7 @@ const HostelDetail = () => {
           <div className="priceandformdiv">
           <div className='form'>
            <div> <Form hostelID={hostel&&hostel._id} /></div>
-           <MapComponent/>
+           {/* <MapComponent/> */}
           </div> 
       </div>
           </div>
