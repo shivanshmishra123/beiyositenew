@@ -4,7 +4,7 @@ import Form from './Form';
 import { Link } from 'react-router-dom';
 import  { useState, useEffect,useRef } from 'react';
 import axios from 'axios';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Skeleton } from '@mui/material';
 const HostelsComponent = ({notincludID, noOfHostels}) => {
     const [hostels, setHostels] = useState([]);
     const [loading, setLoading] = useState(false);
