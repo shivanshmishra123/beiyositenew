@@ -188,7 +188,7 @@ const HostelDetail = () => {
      
 
     </div>
-           <h1 style={{marginTop:"3rem"}}>Other Hostels</h1>
+           <h1 class name='text-2xl' style={{marginTop:"3rem"}}>Other Hostels</h1>
            <HostelsComponent
            notincludID={hostel&&hostel._id}
            />
