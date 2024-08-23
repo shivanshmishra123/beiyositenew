@@ -29,7 +29,7 @@ const Form = ( {hostelId,hostelName}) => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/requestForm', formData);
+      const res = await axios.post('https://beiyo-admin.vercel.app/api/requestForm', formData);
       console.log(res.data);
       setSuccess(true);
       // Optionally, you can redirect the user here
