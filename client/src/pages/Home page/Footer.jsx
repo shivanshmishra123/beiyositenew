@@ -47,7 +47,7 @@ const Footer = () => {
   <ul>
      <div className="contactmaildiv">
      <li className='contact'>Connect with Us</li>
-      <p className='mail'>Mail:- beiyo.work@gmail.com</p>
+      <p className='mail'>Mail:- support@beiyo.in</p>
       <p className='phone'>Phone:- +91 83055 23140</p>
      </div>
      <div className="socialmediadiv">
