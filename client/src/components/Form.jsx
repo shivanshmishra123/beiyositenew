@@ -2,22 +2,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './componentsStyling/form.css'
 import Payment from './payment/Payment';
-const Form = ( {hostelName}) => {
-// {hostelID}
-const hostelname = hostelName
+const Form = ( {hostelId,hostelName}) => {
     const [formData, setFormData] = useState({
       name: '',
       mobileNumber: '',
-      hostel: '',
+      hosteId: '',
     });
     useEffect(() => {
-      if (hostelName) {
-        setFormData(prevState => ({
-          ...prevState,
-          hostel: hostelName // Set the hostel field with the value of hostelName prop
-        }));
+      if (hostelId) {
+          setFormData(prevState => ({
+              ...prevState,
+              hostelId: hostelId
+          }));
       }
-    }, [hostelName]); 
+  }, [hostelId]); 
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -31,7 +29,7 @@ const hostelname = hostelName
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await axios.post('https://beiyo-admin.vercel.app/api/requestForm', formData);
+      const res = await axios.post('http://localhost:5000/api/requestForm', formData);
       console.log(res.data);
       setSuccess(true);
       // Optionally, you can redirect the user here
@@ -57,8 +55,8 @@ const hostelname = hostelName
           </div>
           <button type="submit" className='submit' disabled={submitting}>Request a callBack</button>  
         </form>
-        <p style={{textAlign:"center"}}>OR</p>
-         <a target='blank' href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostelname}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`} style={{textAlign:"center"}}><button type="submit" id='whatsappsubmit' className='submit'><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a> 
+        <p style={{textAlign:"center"}}>OR</p>  
+         <a target='blank' href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostelName}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`} style={{textAlign:"center"}}><button type="submit" id='whatsappsubmit' className='submit'><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a> 
         </>
      
        

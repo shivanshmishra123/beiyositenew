@@ -86,7 +86,7 @@ const HostelDetail = () => {
              </div>
           <div className="priceandformdiv">
           <div className='form'>
-           <div> <Form hostelID={hostel&&hostel._id} /></div>
+           <div> <Form hostelId={hostel&&hostel._id} hostelName={hostel&&hostel.name}/></div>
            {/* <MapComponent/> */}
           </div> 
       </div>
@@ -157,8 +157,7 @@ const HostelDetail = () => {
           </div>
           <div className="mobileformParent">
             <div className='mobileform'>
-            <Form hostelName={hostel&&hostel.name} />
-            
+            <Form hostelId={hostel&&hostel._id} hostelName={hostel&&hostel.name} />
           </div> 
             </div>
           <div className='nearByPlacesblock'>
