@@ -7,9 +7,7 @@ const Form = ( {hostelName}) => {
 const hostelname = hostelName
     const [formData, setFormData] = useState({
       name: '',
-      mobile: '',
-      gender: '',
-      whatsappInfo: false,
+      mobileNumber: '',
       hostel: '',
     });
     useEffect(() => {
@@ -23,7 +21,7 @@ const hostelname = hostelName
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const { name, mobile, gender, whatsappInfo , hostel} = formData;
+  const { name, mobileNumber} = formData;
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -33,7 +31,7 @@ const hostelname = hostelName
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await axios.post('https://beiyositenew-api-alpha.vercel.app/api/users', formData);
+      const res = await axios.post('https://beiyo-admin.vercel.app/api/requestForm', formData);
       console.log(res.data);
       setSuccess(true);
       // Optionally, you can redirect the user here
@@ -55,7 +53,7 @@ const hostelname = hostelName
           <input className='namephoneinput' type="text" name="name" value={name} onChange={handleChange}  required /><br />
           </div>
            <div className="namephoneformdiv"> <p>Mobile</p>
-           <input className='namephoneinput' type="text" id="mobile" name="mobile" value={mobile} onChange={handleChange} placeholder="+91" required /><br />
+           <input className='namephoneinput' type="text" id="mobile" name="mobile" value={mobileNumber} onChange={handleChange} placeholder="+91" required /><br />
           </div>
           <button type="submit" className='submit' disabled={submitting}>Request a callBack</button>  
         </form>
