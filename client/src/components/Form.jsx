@@ -53,7 +53,7 @@ const hostelname = hostelName
           <input className='namephoneinput' type="text" name="name" value={name} onChange={handleChange}  required /><br />
           </div>
            <div className="namephoneformdiv"> <p>Mobile</p>
-           <input className='namephoneinput' type="text" id="mobile" name="mobile" value={mobileNumber} onChange={handleChange} placeholder="+91" required /><br />
+           <input className='namephoneinput' type="text" id="mobile" name="mobileNumber" value={mobileNumber} onChange={handleChange} placeholder="+91" required /><br />
           </div>
           <button type="submit" className='submit' disabled={submitting}>Request a callBack</button>  
         </form>
