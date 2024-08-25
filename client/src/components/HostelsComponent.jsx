@@ -16,7 +16,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
             const startTime = performance.now(); // Start timing
             setLoading(true);
             try {
-                const response = await axios.get(`http://13.233.120.199:5000/api/hostels`);
+                const response = await axios.get(`https://beiyo-admin.vercel.app/api/hostels`);
                 const endTime = performance.now(); // End timing
     
                 console.log(response);
