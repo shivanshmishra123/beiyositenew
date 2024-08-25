@@ -12,31 +12,26 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
     const [page,setPage] = useState(1);
 
     useEffect(() => {
-        // hostel updating beds
-        
-
-        // Fetch hostels from the database
-        const fetchHostels = async () => {
+        const fetchHostels = async()=>{
+            const startTime = performance.now(); // Start timing
+            setLoading(true);
             try {
-
-                setLoading(true);
-                const response = await fetch(`https://beiyo-admin.vercel.app/api/hostels`);
-                const data = await response.json();
+                const response = await axios.get(`http://13.233.120.199:5000/api/hostels`);
+                const endTime = performance.now(); // End timing
+    
+                console.log(response);
                 if(noOfHostels===null){
-                    setHostels(data);
+                    setHostels(response.data);
                 }else{
-                    const firstThreeHostels = data.slice(0, noOfHostels);
+                    const firstThreeHostels = response.data.slice(0, noOfHostels);
                     setHostels([...firstThreeHostels])
                 }
-                
-                console.log(data);
-            } catch (error) {
-                console.error('Error fetching hostels:', error.message);
-            } finally {
+                console.log(`Time taken: ${(endTime - startTime).toFixed(2)} ms`); // Log time taken
                 setLoading(false);
+            } catch (error) {
+                console.error("Error fetching data:", error);
             }
-        };
-        // updateBeds();
+        }
         fetchHostels();
     }, []);
 
