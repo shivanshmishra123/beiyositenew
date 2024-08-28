@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
 import "./Homestyles/nav.css"
 import AuthContext from '@/context/AuthContext';
+import { useLocation } from 'react-router-dom';
 
 
 function Navbar() {
   const {user}=useContext(AuthContext);
+  const location = useLocation();
   const toggleMobileMenu = () => {
     const x = document.querySelector('.nav');
     const y = document.querySelector('.page');
@@ -39,9 +41,11 @@ function Navbar() {
           <a href="/"> <img className='logo' src="/images/beiyo_logo2.svg" alt="" /></a>
           <div className="pclist">
             <ul className='pcnavlist'>
-              <a href="/hostel"><li><p>Hostels</p></li></a>
+            {location.pathname !== "/hostel" && !location.pathname.startsWith("/hostel/") && (
+                <a href="/hostel"><li><p>Hostels</p></li></a>
+              )}
               {/* <a href="https://forms.gle/GngUZDmv44AHae8i7" target='blank'><li><p>List Your Property</p></li></a> */}
-              <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a>
+              {/* <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a> */}
               {user?( <a href="/dashboard"><li><p>DashBoard</p></li></a>):( <a href="/login" ><li><p>Login</p></li></a>)}
               {/* <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a> */}
               {/* <a href="/about"><li><p>About us</p></li></a> */}
@@ -51,8 +55,10 @@ function Navbar() {
           </div>
         </div>
         <ul className='mobilenavlist'>
-          <a href="/hostel"><li><p>Hostels</p></li></a>
-          <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a>
+        {location.pathname !== "/hostel" && !location.pathname.startsWith("/hostel/") && (
+                <a href="/hostel"><li><p>Hostels</p></li></a>
+              )}
+          {/* <a href="/listyourproperty" target='blank'><li><p>List Your Property</p></li></a> */}
           {user?( <a href="/dashboard" ><li><p>DashBoard</p></li></a>):( <a href="/login"><li><p>Login</p></li></a>)}
          
 
