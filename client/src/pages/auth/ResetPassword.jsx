@@ -12,7 +12,7 @@ const ResetPassword = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://beiyo-admin.vercel.app/api/login/resetPassword', {
+      const response = await axios.post('https://beiyo-admin.in/api/login/resetPassword', {
         email,
         otp,
         newPassword,

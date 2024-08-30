@@ -16,13 +16,13 @@ const PaymentStatus = () => {
       console.log(studentData);
       if (transactionId) {
         try {
-          const response = await axios.get(`https://beiyo-admin.vercel.app/api/pay/status/${transactionId}`);
+          const response = await axios.get(`https://beiyo-admin.in/api/pay/status/${transactionId}`);
           if (response.data.success === true) {
             alert('Payment successful!');
 
             // Save payment info if transaction ID is present
               try {
-                const paymentSaveResponse = await axios.post(`https://beiyo-admin.vercel.app/api/dashboard/paymentSave`, {
+                const paymentSaveResponse = await axios.post(`https://beiyo-admin.in/api/dashboard/paymentSave`, {
                   userId: userId,
                   amount: amount,
                   month: month,

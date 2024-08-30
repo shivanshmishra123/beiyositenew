@@ -26,7 +26,7 @@ const Support = () => {
     setError('');
 
     try {
-      await axios.post('https://beiyo-admin.vercel.app/api/dashboard/raise-ticket', {
+      await axios.post('https://beiyo-admin.in/api/dashboard/raise-ticket', {
         userId : user._id,
         helpTopic:helpTopic,
         description:description,
@@ -47,7 +47,7 @@ const Support = () => {
    try {
     const id = user._id;
     setOldTicket(true);
-    const response = await axios.get(`https://beiyo-admin.vercel.app/api/dashboard/oldTickets/${id}`);
+    const response = await axios.get(`https://beiyo-admin.in/api/dashboard/oldTickets/${id}`);
    setTicketDetails(response.data);
       console.log(ticketDetails);
    } catch (error) {

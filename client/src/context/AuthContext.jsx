@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
         
          
           // const response = await axios.get(`http://localhost:5000/api/newResident`, 
-          const response = await axios.get(`https://beiyo-admin.vercel.app/api/newResident/${userId}`, 
+          const response = await axios.get(`https://beiyo-admin.in/api/newResident/${userId}`, 
           {
             headers: { Authorization: `Bearer ${token}` }
           });
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('https://beiyo-admin.vercel.app/api/login', { email, password });
+      const response = await axios.post('https://beiyo-admin.in/api/login', { email, password });
       localStorage.setItem('token', response.data.token);
       setUser(response.data.user);
       // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;

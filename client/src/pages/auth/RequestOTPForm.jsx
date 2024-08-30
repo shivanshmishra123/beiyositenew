@@ -20,7 +20,7 @@ const RequestOtp = () => {
   const handleRequestOtp = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://beiyo-admin.vercel.app/api/login/forgetPassword', { email });
+      const response = await axios.post('https://beiyo-admin.in/api/login/forgetPassword', { email });
        setMessage(response.data.message);
        setotpSend(true);
        setVerifyOtp(true);  
@@ -32,7 +32,7 @@ const RequestOtp = () => {
   const handleVerifyotp = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://beiyo-admin.vercel.app/api/login/resetPassword', {
+      const response = await axios.post('https://beiyo-admin.in/api/login/resetPassword', {
         email,
         otp,
       });
@@ -48,7 +48,7 @@ const RequestOtp = () => {
     e.preventDefault();
    if(newPassword===confirmPassword){
     try {
-      const response = await axios.post('https://beiyo-admin.vercel.app/api/login/updatePassword', {
+      const response = await axios.post('https://beiyo-admin.in/api/login/updatePassword', {
         email,
         newPassword
       });

@@ -23,7 +23,7 @@ const HostelDetail = () => {
    useEffect( ()=>{
     const fetchSingleHostel = async ()=>{
       try{
-        const URL = `https://beiyo-admin.vercel.app/api/hostels/${id}`
+        const URL = `https://beiyo-admin.in/api/hostels/${id}`
       const response = await fetch(URL);
       const data = await response.json();
       document.title=`Book your Bed in ${data.name}`
