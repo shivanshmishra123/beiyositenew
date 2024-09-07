@@ -76,12 +76,12 @@ const HostelDetail = () => {
                  <SwiperSlide >
                  <img src={hostel&&hostel.image} alt="" />
                  </SwiperSlide>
-                 <SwiperSlide>
+                {hostel&&hostel.image2 &&( <SwiperSlide>
                  <img src={hostel&&hostel.image2} alt="" />
-                 </SwiperSlide>
-                 <SwiperSlide>
+                 </SwiperSlide>)}
+                  {hostel&&hostel.image3  &&(<SwiperSlide>
                  <img src={hostel&&hostel.image3} alt="" />
-                 </SwiperSlide>
+                 </SwiperSlide>)}
               </Swiper>
              </div>
           <div className="priceandformdiv">
