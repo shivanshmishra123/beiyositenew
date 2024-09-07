@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
          
           // const response = await axios.get(`http://localhost:5000/api/newResident`, 
           const response = await axios.get(`https://beiyo-admin.in/api/newResident/${userId}`, 
-          {
+             {
             headers: { Authorization: `Bearer ${token}` }
           });
 
