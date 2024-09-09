@@ -58,7 +58,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
                                <h1>{hostel.name}</h1>
                                <div style={{ display: "flex",flexDirection:'column',gap:'1rem'}}> 
                                        <p style={{color:'grey',display:'flex',justifyContent:'center'}}><img style={{opacity:'30%'}} src="/images/location_Marker.svg" alt="" />{hostel.location}</p>
-                                      {hostel.totalRemainingBeds===0?( <p style={{fontSize:'1.2rem',display:'flex', gap:'2px', alignItems:'center'}} >Fully Occupied</p>):( <p style={{fontSize:'1.2rem',display:'flex', gap:'2px', alignItems:'center'}} >Beds Remaining:   <span style={{fontWeight:'700',paddingTop:'2px'}}>{hostel.totalRemainingBeds}</span></p>)}
+                                      {hostel.siteTotalRemainingBeds===0?( <p style={{fontSize:'1.2rem',display:'flex', gap:'2px', alignItems:'center'}} >Fully Occupied</p>):( <p style={{fontSize:'1.2rem',display:'flex', gap:'2px', alignItems:'center'}} >Beds Remaining:   <span style={{fontWeight:'700',paddingTop:'2px'}}>{hostel.siteTotalRemainingBeds}</span></p>)}
                                        <div className='featurehosteldiv' style={{display:'flex',alignItems:'center'}}>
                                            <img src="/images/Wifihostel.svg" alt="Wifi" />
                                            <img src="/images/Housekeeping.svg" alt="HouseKeeping" />
