@@ -127,7 +127,7 @@ const PaymentStatus = () => {
           <div key={payment._id}  className='h-fit p-2 flex justify-between items-center border-2 border-[#575756]'>
           <div className='flex flex-col gap-[0.2rem]'>
           <Typography variant="body1">Amount: {payment.amount}</Typography>
-          {additionalCharge!==0&&(<Typography>Additional charge: {additionalCharge}</Typography>)}
+         {payment.status==='due'&&( additionalCharge!==0&&(<Typography>Additional charge: {additionalCharge}</Typography>))}
             <Typography variant="body2">Date: {formatDate(payment.date)}</Typography>
             <Typography variant="body2">Status: {payment.status}</Typography>
             {payment.cash&&(<Typography variant="body2">Payment done by cash</Typography>)}
