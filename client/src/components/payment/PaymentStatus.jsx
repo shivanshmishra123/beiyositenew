@@ -23,12 +23,12 @@ const PaymentStatus = () => {
 
             // Save payment info if transaction ID is present
               try {
-                const paymentSaveResponse = await axios.post(`https://beiyo-admin.in/api/dashboard/paymentSave/${paymentId}`);
+                const paymentSaveResponse = await axios.put(`https://beiyo-admin.in/api/dashboard/onlinePaymentSave/${paymentId}`);
                 console.log('Payment Save Response:', paymentSaveResponse.data);
                 navigate('/dashboard');
               } catch (error) {
                 console.error('Error saving payment:', error);
-              }
+              } 
             
 
             // Save student data if present
