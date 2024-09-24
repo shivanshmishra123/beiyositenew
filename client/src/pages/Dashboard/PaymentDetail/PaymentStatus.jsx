@@ -61,6 +61,7 @@ const PaymentStatus = () => {
     localStorage.setItem('amount', amount);
     localStorage.setItem('month', response.data.month);
     localStorage.setItem('userId', response.data.userId);
+    localStorage.setItem('paymentid',id);
   }
 
   const handleFuturePayment = async (id) => {

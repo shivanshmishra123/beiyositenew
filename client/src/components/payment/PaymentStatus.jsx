@@ -13,6 +13,7 @@ const PaymentStatus = () => {
       const amount = localStorage.getItem('amount');
       const month = localStorage.getItem('month');
       const userId = localStorage.getItem('userId');
+      const paymentId = localStorage.getItem('paymentid');
       console.log(studentData);
       if (transactionId) {
         try {
@@ -22,11 +23,7 @@ const PaymentStatus = () => {
 
             // Save payment info if transaction ID is present
               try {
-                const paymentSaveResponse = await axios.post(`https://beiyo-admin.in/api/dashboard/paymentSave`, {
-                  userId: userId,
-                  amount: amount,
-                  month: month,
-                });
+                const paymentSaveResponse = await axios.post(`https://beiyo-admin.in/api/dashboard/paymentSave/${paymentId}`);
                 console.log('Payment Save Response:', paymentSaveResponse.data);
                 navigate('/dashboard');
               } catch (error) {
