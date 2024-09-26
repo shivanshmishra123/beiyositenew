@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "sync":"aws s3 sync ./dist \"s3://beiyo.in/\"",
-    "invalidate":"aws cloudfront create-invalidation --distribution-id E2CCU4UDHDUWX3 --paths \"/*\""
+    "invalidate":"aws cloudfront create-invalidation --distribution-id EM0DKY3KB3QHZ --paths \"/*\""
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
