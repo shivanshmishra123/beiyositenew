@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { useState } from 'react';
-import PaymentStatus from './PaymentDetail/PaymentStatus';
+import PaymentStatus from './PaymentDetail/PaymentDetail';
 import StayDetails from './StayDetails/StayDetail';
 import Support from './Support/Support';
 import AuthContext from '../../context/AuthContext';
