@@ -33,6 +33,7 @@ import RequestOtp from './pages/auth/RequestOTPForm';
 import ResetPassword from './pages/auth/ResetPassword';
 
 import MapComponent from './components/googleMapComponent/page';
+import BookingPage from './pages/BookingPage/Bookingpage';
 
 AOS.init();
 
@@ -65,6 +66,7 @@ function App() {
           <Route path='/paymentstatus' exact element={<PaymentStatus/>}/> 
           <Route path='/map' exact element={<MapComponent/>}/> 
           {/* <Route path='/dashboard' exact element={<Dashboard/>}/> */}
+          <Route path='/bookingpage/:hostelId' exact element={<BookingPage/>}/>
          </Routes>
   {/* </Router> */}
  

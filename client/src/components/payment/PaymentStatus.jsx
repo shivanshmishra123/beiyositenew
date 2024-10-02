@@ -9,12 +9,9 @@ const PaymentStatus = () => {
   useEffect(() => {
     const checkPaymentStatus = async () => {
       const transactionId = localStorage.getItem('transactionId');
-      const studentData = JSON.parse(localStorage.getItem('studentData'));
-      const amount = localStorage.getItem('amount');
-      const month = localStorage.getItem('month');
-      const userId = localStorage.getItem('userId');
-      const paymentId = localStorage.getItem('paymentid');
-      console.log(studentData);
+      const paymentId = localStorage.getItem('paymentId');
+      console.log(paymentId);
+     
       if (transactionId) {
         try {
           const response = await axios.get(`https://beiyo-admin.in/api/pay/status/${transactionId}`);

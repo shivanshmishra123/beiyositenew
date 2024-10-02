@@ -32,8 +32,8 @@ const PaymentStatus = () => {
     const fetchPayments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`https://beiyo-admin.in/api/dashboard/payments/${user._id}`, {
-          headers: { Authorization: `Bearer ${token}` }
+        const response = await axios.get(`https://beiyo-admin.in/api/dashboard/payment/userPayments/${user._id}`, {
+          headers: { Authorization: `Bearer ${token}` } 
         });
         setPayments(response.data);
       } catch (error) {
@@ -58,10 +58,7 @@ const PaymentStatus = () => {
     const transactionId = paymentResponse.data.data.merchantTransactionId;
     window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
     localStorage.setItem('transactionId', transactionId);
-    localStorage.setItem('amount', amount);
-    localStorage.setItem('month', response.data.month);
-    localStorage.setItem('userId', response.data.userId);
-    localStorage.setItem('paymentid',id);
+    localStorage.setItem('paymentId',id);
   }
 
   const handleFuturePayment = async (id) => {
@@ -76,9 +73,7 @@ const PaymentStatus = () => {
     const transactionId = paymentResponse.data.data.merchantTransactionId;
     window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
     localStorage.setItem('transactionId', transactionId);
-    localStorage.setItem('amount', amount);
-    localStorage.setItem('month', response.data.month);
-    localStorage.setItem('userId', response.data.userId);
+    localStorage.setItem('paymentId',id);
   };
 
   if (loading) return <CircularProgress />;
