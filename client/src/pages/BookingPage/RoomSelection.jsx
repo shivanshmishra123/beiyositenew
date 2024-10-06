@@ -1,5 +1,6 @@
 // StepSix.jsx
-import axios from 'axios';
+
+import api from '@/api/apiKey';
 import React, { useEffect, useState } from 'react';
 
 const StepSix = ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, prevStep }) => {
@@ -10,7 +11,7 @@ const StepSix = ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, 
   // Fetch the list of rooms from the API based on the selected room category
   const fetchRooms = async () => {
     try {
-      const response = await axios.get(`https://beiyo-admin.in/api/hostels/${hostelId}/remainingCapacityRooms`);
+      const response = await api.get(`https://beiyo-admin.in/api/hostels/${hostelId}/remainingCapacityRooms`);
       // Filter rooms based on the category selected in step 2
       const filteredRooms = response.data.filter((room) => room.type === selectedRoomCategory);
       setAvailableRooms(filteredRooms);

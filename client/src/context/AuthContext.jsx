@@ -1,7 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+// import api from 'api';
 import { redirect, useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
+import api from '@/api/apiKey';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -19,15 +20,15 @@ export const AuthProvider = ({ children }) => {
           const userId = decodedToken.userId; // Extract the user ID from the token
         
          
-          // const response = await axios.get(`http://localhost:5000/api/newResident`, 
-          const response = await axios.get(`https://beiyo-admin.in/api/newResident/${userId}`, 
+          // const response = await api.get(`http://localhost:5000/api/newResident`, 
+          const response = await api.get(`https://beiyo-admin.in/api/newResident/${userId}`, 
              {
             headers: { Authorization: `Bearer ${token}` }
           });
 
           setUser(response.data);  
           
-          // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+          // api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         } catch (error) {
           console.error('Error fetching user:', error);
           // localStorage.removeItem('token');
@@ -40,10 +41,10 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('https://beiyo-admin.in/api/login', { email, password });
+      const response = await api.post('https://beiyo-admin.in/api/login', { email, password });
       localStorage.setItem('token', response.data.token);
       setUser(response.data.user);
-      // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      // api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     } catch (error) {
       throw new Error('Login failed');
     }
@@ -53,7 +54,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
     setUser(null);
     redirect('/login');
-    delete axios.defaults.headers.common['Authorization'];
+    delete api.defaults.headers.common['Authorization'];
   };
 
   return (

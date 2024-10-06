@@ -3,8 +3,9 @@ import Form from './Form';
 
 import { Link } from 'react-router-dom';
 import  { useState, useEffect,useRef } from 'react';
-import axios from 'axios';
+
 import { CircularProgress, Skeleton } from '@mui/material';
+import api from '@/api/apiKey';
 const HostelsComponent = ({notincludID, noOfHostels}) => {
     const [hostels, setHostels] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -16,7 +17,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
             const startTime = performance.now(); // Start timing
             setLoading(true);
             try {
-                const response = await axios.get(`https://beiyo-admin.in/api/hostels`);
+                const response = await api.get(`https://beiyo-admin.in/api/hostels`);
                 const endTime = performance.now(); // End timing
     
                 console.log(response);

@@ -1,5 +1,6 @@
 // StepTwo.jsx
-import axios from 'axios';
+
+import api from '@/api/apiKey';
 import React, { useEffect, useState } from 'react';
 
 const StepTwo = ({ updateBookingData, nextStep, prevStep, hostelId }) => {
@@ -9,7 +10,7 @@ const StepTwo = ({ updateBookingData, nextStep, prevStep, hostelId }) => {
 
   const fetchHostelData = async () => {
     try {
-      const response = await axios.get(`https://beiyo-admin.in/api/hostels/${hostelId}/remainingCapacityRooms`);
+      const response = await api.get(`https://beiyo-admin.in/api/hostels/${hostelId}/remainingCapacityRooms`);
       const rooms = response.data;
 
       // Group rooms by type

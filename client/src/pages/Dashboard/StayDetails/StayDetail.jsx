@@ -35,9 +35,11 @@ const StayDetails = () => {
       <Typography variant="h4" gutterBottom>Stay Details</Typography>
       {details ? (
         <Box sx={{ mb: 2, p: 2, border: '1px solid #ccc' }}>
+
+          <Typography variant="body1">Name: {details.name}</Typography>
           <Typography variant="body1">Hostel: {details.hostel}</Typography>
           <Typography variant="body1">Room Number: {details.roomNumber}</Typography>
-          <Typography variant="body1">Contract Upto : {formatdate(details.contract)}</Typography>
+          {/* <Typography variant="body1">Contract Upto : {formatdate(details.contract)}</Typography> */}
           <Typography variant="body2">Date Joined: {formatdate(details.dateJoined)}
           </Typography>
         </Box>

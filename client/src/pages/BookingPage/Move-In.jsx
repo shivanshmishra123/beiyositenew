@@ -30,10 +30,10 @@ const StepThree = ({ updateBookingData, nextStep, prevStep }) => {
         className="border p-2 w-full"
       />
       <select className='"border p-2 w-full' value={contractTerm}  onChange={(e) => setContractTerm(e.target.value)}>
-      <option value="">Select Co  ntract Term</option>
+      <option value="">Select Contract Term</option>
         <option value="3">3 Months</option>
         <option value="6">6 Months</option>
-        <option value="11">3 Months</option> 
+        <option value="11">11 Months</option> 
       </select>
       <div className="flex justify-between mt-4">
         <button onClick={prevStep} className="bg-gray-300 py-2 px-4 rounded">

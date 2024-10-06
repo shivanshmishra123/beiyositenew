@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { CircularProgress } from '@mui/material';
+import api from '@/api/apiKey';
 
 
 const PaymentStatus = () => {
@@ -14,13 +15,13 @@ const PaymentStatus = () => {
      
       if (transactionId) {
         try {
-          const response = await axios.get(`https://beiyo-admin.in/api/pay/status/${transactionId}`);
+          const response = await api.get(`https://beiyo-admin.in/api/pay/status/${transactionId}`);
           if (response.data.success === true) {
-            alert('Payment successful!');
+            // alert('Payment successful!');
 
             // Save payment info if transaction ID is present
               try {
-                const paymentSaveResponse = await axios.put(`https://beiyo-admin.in/api/dashboard/onlinePaymentSave/${paymentId}`);
+                const paymentSaveResponse = await api.put(`https://beiyo-admin.in/api/dashboard/onlinePaymentSave/${paymentId}`);
                 console.log('Payment Save Response:', paymentSaveResponse.data);
                 navigate('/dashboard');
               } catch (error) {
@@ -31,7 +32,7 @@ const PaymentStatus = () => {
             // Save student data if present
             // if (studentData) {
             //   try {
-            //     const newResidentResponse = await axios.post('https://beiyo-admin.vercel.app/api/newResident', studentData);
+            //     const newResidentResponse = await api.post('https://beiyo-admin.vercel.app/api/newResident', studentData);
             //     console.log('New Resident Response:', newResidentResponse.data);
             //     navigate('/thank-you');
             //   } catch (error) {
@@ -51,8 +52,8 @@ const PaymentStatus = () => {
   }, [navigate]);
 
   return (
-    <div>
-      Checking payment status...
+    <div className='h-100 flex items-center justify-center'>
+      <CircularProgress/>
     </div>
   );
 };

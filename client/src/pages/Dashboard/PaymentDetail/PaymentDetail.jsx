@@ -1,6 +1,5 @@
 
 import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
 import { Box, Typography, CircularProgress, Button, Collapse, IconButton } from '@mui/material';
 // import { ExpandMore, ExpandLess } from '@mui/icons-material';
 import AuthContext from '../../../context/AuthContext';
@@ -8,6 +7,7 @@ import { add, format } from 'date-fns';
 import '../Dashboard.css';
 import { ChevronDownCircle, ChevronUpCircle } from 'lucide-react';
 import dayjs from 'dayjs';
+import api from '@/api/apiKey';
 
 const PaymentStatus = () => {
   const [payments, setPayments] = useState([]);
@@ -32,7 +32,7 @@ const PaymentStatus = () => {
     const fetchPayments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`https://beiyo-admin.in/api/dashboard/payment/userPayments/${user._id}`, {
+        const response = await api.get(`https://beiyo-admin.in/api/dashboard/payment/userPayments/${user._id}`, {
           headers: { Authorization: `Bearer ${token}` } 
         });
         setPayments(response.data);
@@ -48,11 +48,11 @@ const PaymentStatus = () => {
   const handleCurrentMonthPayment = async (id)=>{
      console.log(additionalCharge);
       const token = localStorage.getItem('token');
-     const response = await axios.get(`https://beiyo-admin.in/api/dashboard/payment/${id}`, {
+     const response = await api.get(`https://beiyo-admin.in/api/dashboard/payment/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     const amount = response.data.amount;
-    const paymentResponse = await axios.post('https://beiyo-admin.in/api/pay/initiate', {
+    const paymentResponse = await api.post('https://beiyo-admin.in/api/pay/initiate', {
       amount: amount+additionalCharge,
     });
     const transactionId = paymentResponse.data.data.merchantTransactionId;
@@ -63,11 +63,11 @@ const PaymentStatus = () => {
 
   const handleFuturePayment = async (id) => {
     const token = localStorage.getItem('token');
-    const response = await axios.get(`https://beiyo-admin.in/api/dashboard/payment/${id}`, {
+    const response = await api.get(`https://beiyo-admin.in/api/dashboard/payment/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     const amount = response.data.amount;
-    const paymentResponse = await axios.post('https://beiyo-admin.in/api/pay/initiate', {
+    const paymentResponse = await api.post('https://beiyo-admin.in/api/pay/initiate', {
       amount: amount,
     });
     const transactionId = paymentResponse.data.data.merchantTransactionId;

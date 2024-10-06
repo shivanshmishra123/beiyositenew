@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { Box, TextField, Button, Typography, CircularProgress, Icon, InputAdornment, IconButton } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
-import axios from 'axios';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
 const Login = () => {

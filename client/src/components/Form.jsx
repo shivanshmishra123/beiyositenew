@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+
 import './componentsStyling/form.css'
 import Payment from './payment/Payment';
+import api from '@/api/apiKey';
 const Form = ( {hostelId,hostelName}) => {
     const [formData, setFormData] = useState({
       name: '',
@@ -29,7 +30,7 @@ const Form = ( {hostelId,hostelName}) => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const res = await axios.post('https://beiyo-admin.in/api/requestForm', formData);
+      const res = await api.post('https://beiyo-admin.in/api/requestForm', formData);
       console.log(res.data);
       setSuccess(true);
       // Optionally, you can redirect the user here

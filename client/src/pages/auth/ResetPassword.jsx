@@ -1,7 +1,8 @@
 // ResetPassword.js
 import React, { useState } from 'react';
 import { Box, TextField, Button, Typography } from '@mui/material';
-import axios from 'axios';
+import api from '@/api/apiKey';
+
 
 const ResetPassword = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +13,7 @@ const ResetPassword = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://beiyo-admin.in/api/login/resetPassword', {
+      const response = await api.post('https://beiyo-admin.in/api/login/resetPassword', {
         email,
         otp,
         newPassword,

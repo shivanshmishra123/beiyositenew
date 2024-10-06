@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
-import axios from 'axios';
 import { Box, TextField, Button, Typography } from '@mui/material';
 import { History } from 'lucide-react';
 import AuthContext from '@/context/AuthContext';
 import {format} from 'date-fns'
+import api from '@/api/apiKey';
 const Support = () => {
   const [helpTopic, setHelpTopic] = useState('');
   const [description, setDescription] = useState('');
@@ -26,7 +26,7 @@ const Support = () => {
     setError('');
 
     try {
-      await axios.post('https://beiyo-admin.in/api/dashboard/raise-ticket', {
+      await api.post('https://beiyo-admin.in/api/dashboard/raise-ticket', {
         userId : user._id,
         helpTopic:helpTopic,
         description:description,
@@ -47,7 +47,7 @@ const Support = () => {
    try {
     const id = user._id;
     setOldTicket(true);
-    const response = await axios.get(`https://beiyo-admin.in/api/dashboard/oldTickets/${id}`);
+    const response = await api.get(`https://beiyo-admin.in/api/dashboard/oldTickets/${id}`);
    setTicketDetails(response.data);
       console.log(ticketDetails);
    } catch (error) {

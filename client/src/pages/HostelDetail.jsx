@@ -17,6 +17,8 @@ import HostelsComponent from '../components/HostelsComponent';
 import VirtualTour from '../components/VirtualTour';
 import MapComponent from '@/components/googleMapComponent/page';
 
+import api from '@/api/apiKey';
+
 const HostelDetail = () => {
    const {id} = useParams();
    const [hostel,setHostel]= useState(null);
@@ -24,11 +26,10 @@ const HostelDetail = () => {
     const fetchSingleHostel = async ()=>{
       try{
         const URL = `https://beiyo-admin.in/api/hostels/${id}`
-      const response = await fetch(URL);
-      const data = await response.json();
-      document.title=`Book your Bed in ${data.name}`
-      console.log(data);
-      setHostel(data);
+      const response = await api.get(URL);
+     
+      setHostel(response.data);
+      document.title=`Book your Bed in ${hostel.name}`
       }catch(error){
         console.log(error);
       }
