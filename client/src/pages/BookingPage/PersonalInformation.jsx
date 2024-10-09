@@ -5,7 +5,7 @@ const StepFour = ({ updateBookingData, nextStep, prevStep }) => {
   const [personalInfo, setPersonalInfo] = useState({
     firstName: '',
     lastName: '',
-    emailAddress: '',
+    mobileNumber: '',
     gender: '',
   });
 
@@ -15,13 +15,13 @@ const StepFour = ({ updateBookingData, nextStep, prevStep }) => {
   };
 
   const handleContinue = () => {
-    const { firstName, lastName, emailAddress, gender } = personalInfo;
-    if (!firstName || !lastName || !emailAddress || !gender) {
+    const { firstName, lastName, mobileNumber, gender } = personalInfo;
+    if (!firstName || !lastName || !mobileNumber || !gender) {
       alert('Please fill in all personal information fields.');
       return;
     }
     // Update booking data and proceed to next step
-    updateBookingData({ personalInfo });
+    updateBookingData({ firstName,lastName,mobileNumber,gender });
     nextStep();
   };
 
@@ -45,11 +45,11 @@ const StepFour = ({ updateBookingData, nextStep, prevStep }) => {
         className="border p-2 w-full mb-4"
       />
       <input
-        type="email"
-        name="emailAddress"
-        value={personalInfo.emailAddress}
+        type="text"
+        name="mobileNumber"
+        value={personalInfo.mobileNumber}
         onChange={handleChange}
-        placeholder="Email Address"
+        placeholder="Mobile Number"
         className="border p-2 w-full mb-4"
       />
       <select

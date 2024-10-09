@@ -77,6 +77,12 @@ const StepOne = ({ updateBookingData, nextStep }) => {
             placeholder="Enter your email"
             className="border p-2 w-full mb-4"
           />
+                    <button
+              onClick={nextStep}
+              className="text-blue-500 underline"
+            >
+              Skip
+            </button>
           <button onClick={sendOtp} className="bg-black text-white py-2 px-4 rounded w-full">
             Send OTP
           </button>
@@ -105,6 +111,7 @@ const StepOne = ({ updateBookingData, nextStep }) => {
             >
               Resend OTP
             </button>
+  
           </div>
         </div>
       )}

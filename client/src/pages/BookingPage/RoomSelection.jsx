@@ -3,11 +3,14 @@
 import api from '@/api/apiKey';
 import React, { useEffect, useState } from 'react';
 
-const StepSix = ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, prevStep }) => {
+const StepFive= ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, prevStep }) => {
   const [availableRooms, setAvailableRooms] = useState([]);
-  const [selectedRoom, setSelectedRoom] = useState(null);
   const [rentAmount, setRentAmount] = useState(0);
-
+  const [roomNumberId,setRoomNumberId]=useState('');
+  const [remainingDays,setRemainingDays]=useState(0);
+  const [securityDeposit,setSecurityDeposit] = useState(0);
+  const [selectedRoom,setSelectedRoom]=useState();
+  const [extraDayPaymentAmount,setExtraDayPaymentAmount]=useState(0);
   // Fetch the list of rooms from the API based on the selected room category
   const fetchRooms = async () => {
     try {
@@ -25,8 +28,18 @@ const StepSix = ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, 
   }, [hostelId, selectedRoomCategory]);
 
   const handleRoomSelect = (room) => {
+
+    const oneDayRent = Math.ceil(room.price/30);
+    const currentDate = new Date();
+    const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+    const remainingDays = Math.ceil((nextMonth - currentDate) / (1000 * 60 * 60 * 24));
+    setRemainingDays(remainingDays);
+    const remainingDaysRent = oneDayRent * remainingDays;
     setSelectedRoom(room.roomNumber);
     setRentAmount(room.price);
+    setRoomNumberId(room._id);
+    setSecurityDeposit(room.price);
+    setExtraDayPaymentAmount(remainingDaysRent)
   };
 
   const handleContinue = () => {
@@ -36,7 +49,7 @@ const StepSix = ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, 
     }
 
     // Update booking data and proceed to the next step
-    updateBookingData({ selectedRoom, rentAmount });
+    updateBookingData({ selectedRoom, rent:rentAmount,roomNumberId:roomNumberId, securityDeposit,extraDayPaymentAmount,remainingDays });
     nextStep();
   };
 
@@ -83,4 +96,4 @@ const StepSix = ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, 
   );
 };
 
-export default StepSix;
+export default StepFive;

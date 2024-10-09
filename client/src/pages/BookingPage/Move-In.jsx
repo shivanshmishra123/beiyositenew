@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 
 const StepThree = ({ updateBookingData, nextStep, prevStep }) => {
-  const [moveInDate, setMoveInDate] = useState('');
+  const [dateJoined, setdateJoined] = useState('');
   const [contractTerm,setContractTerm]=useState('');
   const handleContinue = () => {
-    if (!moveInDate) {
+    if (!dateJoined) {
       alert('Please select a move-in date.');
       return;
     }
@@ -14,7 +14,7 @@ const StepThree = ({ updateBookingData, nextStep, prevStep }) => {
       return;
     }
     // Update booking data and proceed to next step
-    updateBookingData({ moveInDate,contractTerm });
+    updateBookingData({ dateJoined,contractTerm });
 
 
     nextStep();
@@ -25,8 +25,8 @@ const StepThree = ({ updateBookingData, nextStep, prevStep }) => {
       <h3 className="text-xl font-bold mb-4 ">Select Move-In Date</h3>
       <input
         type="date"
-        value={moveInDate}
-        onChange={(e) => setMoveInDate(e.target.value)}
+        value={dateJoined}
+        onChange={(e) => setdateJoined(e.target.value)}
         className="border p-2 w-full"
       />
       <select className='"border p-2 w-full' value={contractTerm}  onChange={(e) => setContractTerm(e.target.value)}>

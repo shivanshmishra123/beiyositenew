@@ -1,37 +1,57 @@
 // BookingPage.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import StepOne from './Sign-Up';
 import StepTwo from './SelectCategory';
 import StepThree from './Move-In';
 import StepFour from './PersonalInformation';
-import StepFive from './Payment';
-import StepSix from './RoomSelection';
+import StepSix from './Payment';
+import StepFive from './RoomSelection';
 import Summary from './Summary';
 import { useParams } from 'react-router-dom';
+import api from '@/api/apiKey';
 
 const BookingPage = () => {
   const { hostelId } = useParams();
+  const [hostel,setHostel]=useState(null);
   const [currentStep, setCurrentStep] = useState(1);
   const [bookingData, setBookingData] = useState({
     email: '',
-    selectedHostel: '',
+    hostelId:hostelId,
     selectedRoomCategory: '',
-    moveInDate: '',
+    dateJoined: '',
     contractTerm: '',
-    personalInfo: {
-      firstName: '',
-      lastName: '',
-      emailAddress: '',
-      gender: '',
-    },
-    paymentDetails: {
-      tokenAmount: 1998,
-      moveInCharges: 0,
-      securityDeposit: 0,
-      rentAmount: 0,
-    },
+    firstName: '',
+    lastName: '',
+    mobileNumber: '',
+    gender: '',
+    roomNumberId:'',
+    selectedRoom:'',
+      formFee: 1,
+      formFeeStatus:true,
+      maintainaceCharge:1000, 
+      maintainaceChargeStatus:false,
+      securityDeposit:0,
+      securityDepositStatus:false,
+      rent:0,
+      rentStatus:false,
+      extraDayPaymentAmount:0,
+      extraDayPaymentAmountStatus:false,
+      remainingDays:0
   });
-
+  useEffect(()=>{
+    const fetchSingleHostel = async ()=>{
+      try{
+        const URL = `https://beiyo-admin.in/api/hostels/${hostelId}`
+      const response = await api.get(URL);
+     
+      setHostel(response.data);
+      document.title=`Book your Bed in ${hostel.name}`
+      }catch(error){
+        console.log(error);
+      }
+    }
+   fetchSingleHostel(); 
+  },[hostelId])
   // Proceed to the next step
   const nextStep = () => {
     setCurrentStep((prev) => Math.min(prev + 1, 6)); // Ensure it doesn't go beyond step 6
@@ -72,15 +92,18 @@ const BookingPage = () => {
 
         {/* Step Components */}
         <div>
-          {currentStep === 1 && <StepOne updateBookingData={updateBookingData} nextStep={nextStep} />}
+          {currentStep === 1 && 
+          <StepOne updateBookingData={updateBookingData} nextStep={nextStep} />
+          // <StepFive updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep} />
+          }
           {currentStep === 2 && (
             <StepTwo updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep} hostelId={hostelId} />
           )}
           {currentStep === 3 && <StepThree updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep} />}
           {currentStep === 4 && <StepFour updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep} />}
-          {currentStep === 5 && <StepFive updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep} />}
-          {currentStep === 6 && (
-            <StepSix
+        
+          {currentStep === 5 && (
+            <StepFive 
               hostelId={hostelId}
               selectedRoomCategory={bookingData.selectedRoomCategory}
               nextStep={nextStep}
@@ -88,32 +111,33 @@ const BookingPage = () => {
               updateBookingData={updateBookingData}
             />
           )}
+            {currentStep === 6 && <StepSix updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep} bookingDetails={bookingData} />}
         </div>
       </div>
 
       {/* Summary Column */}
       <div className="lg:w-1/3 w-full mt-8 lg:mt-0 bg-gray-50 p-6 shadow-md rounded-md sticky top-20">
         <h3 className="text-xl font-bold mb-4">Booking Summary</h3>
+        Hostel Name: {hostel&&hostel.name}
         {bookingData.email && <div className="mb-2">Email: {bookingData.email}</div>}
         {bookingData.selectedHostel && <div className="mb-2">Hostel: {bookingData.selectedHostel}</div>}
         {bookingData.selectedRoomCategory && <div className="mb-2">Room Category: {bookingData.selectedRoomCategory}</div>}
-        {bookingData.moveInDate && <div className="mb-2">Move-in Date: {bookingData.moveInDate}</div>}
+        {bookingData.dateJoined && <div className="mb-2">Move-in Date: {bookingData.dateJoined}</div>}
         {bookingData.contractTerm && (
           <div className="mb-2">Contract Term: {bookingData.contractTerm} month </div>
         )}
-        {bookingData.personalInfo.firstName && (
+        {bookingData.firstName && (
           <div className="mb-2">
-            Personal Info: {bookingData.personalInfo.firstName} {bookingData.personalInfo.lastName},{' '}
-            {bookingData.personalInfo.gender}
+            Personal Info: {bookingData.firstName} {bookingData.lastName},{' '}
+            {bookingData.gender}
+            <br />
+           Mobile no.: {bookingData.mobileNumber}
           </div>
         )}
-
-        {/* Payment details */}
-        {currentStep >= 5 && (
-          <div className="mt-4">
-            <h4 className="font-bold">Payment Details:</h4>
-            <div>Token Amount: ₹{bookingData.paymentDetails.tokenAmount}</div>
-          </div>
+        {bookingData.selectedRoom&&(
+          <div>
+            Room No.: {bookingData.selectedRoom}
+            </div>
         )}
       </div>
     </div>

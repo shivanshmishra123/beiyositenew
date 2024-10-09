@@ -1,130 +1,166 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import api from '@/api/apiKey';
 
-const Step5 = ({ bookingDetails, onPaymentComplete , prevStep ,nextStep }) => {
-    const [couponCode, setCouponCode] = useState('');
-    const [tokenAmount, setTokenAmount] = useState(1998);
+const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
+  const [formFee, setFormFee] = useState(1);
+  const [maintainaceCharge, setmaintainaceCharge] = useState(1000);
+  const [totalAmount, setTotalAmount] = useState(formFee);
+  const [selectedItems, setSelectedItems] = useState({
+    formFee: true,
+    maintainaceCharge: false,
+    securityDeposit: false,
+    advanceRent: false,
+    firstMonthRent:false,
+  });
 
+ 
 
+     
 
-    
-    const handlePayment = () => {
-        // API call to initiate the payment
-        axios.post('/api/initiate-payment', {
-            amount: tokenAmount,
-            bookingDetails,
-            selectedItems
-        })
-            .then(response => {
-                if (response.data.success) {
-                    // Handle successful payment
-                    onPaymentComplete();
-                }
-            });
+  
+
+  const handleCheckboxChange = (item) => {
+    const updatedSelection = {
+      ...selectedItems,
+      [item]: !selectedItems[item], // Toggle the checkbox state
     };
+    setSelectedItems(updatedSelection);
 
-    return (
-        <div className="bg-white p-5 shadow-md rounded-lg">
-            <h2 className="text-xl font-bold mb-4">5. Payment</h2>
-            <div className="bg-yellow-100 p-3 rounded mb-4">
-                <p className="text-orange-500">
-                    You have to pay the token amount before move-in. Rent will start from the selected move-in date.
-                </p>
-            </div>
-            {/* <div className="flex items-center mb-4">
-                <input 
-                    type="text" 
-                    placeholder="Enter Coupon" 
-                    className="border p-2 w-full mr-2" 
-                    value={couponCode}
-                    onChange={(e) => setCouponCode(e.target.value)}
-                />
-                <button 
-                    className="bg-black text-white px-4 py-2 rounded" 
-                    onClick={handleApplyCoupon}
-                >
-                    Apply
-                </button>
-            </div> */}
+    // Update booking data with the corresponding status
+    let updatedTotal = 0;
 
-            {/* <div className="mb-4">
-                <div>
-                    <label className="flex items-center mb-2">
-                        <input 
-                            type="checkbox" 
-                            checked={selectedItems.tokenAmount}
-                            onChange={() => handleCheckboxChange('tokenAmount')}
-                            className="mr-2"
-                        />
-                        Token Amount - ₹{tokenAmount}
-                    </label>
-                </div>
-                <div>
-                    <label className="flex items-center mb-2">
-                        <input 
-                            type="checkbox" 
-                            checked={selectedItems.moveInCharges}
-                            onChange={() => handleCheckboxChange('moveInCharges')}
-                            className="mr-2"
-                        />
-                        Move-In Charges - ₹{moveInCharges}
-                    </label>
-                </div>
-                <div>
-                    <label className="flex items-center mb-2">
-                        <input 
-                            type="checkbox" 
-                            checked={selectedItems.securityDeposit}
-                            onChange={() => handleCheckboxChange('securityDeposit')}
-                            className="mr-2"
-                        />
-                        Security Deposit Amount [1 Month Rent - Token Amount] - ₹{securityDeposit}
-                    </label>
-                </div>
-                <div>
-                    <label className="flex items-center mb-2">
-                        <input 
-                            type="checkbox" 
-                            checked={selectedItems.advanceRent}
-                            onChange={() => handleCheckboxChange('advanceRent')}
-                            className="mr-2"
-                        />
-                        Advance Rent Amount [For 1 Day] - ₹{advanceRent}
-                    </label>
-                </div>
-            </div> */}
 
-            <div className="mt-4">
-                <p className="text-lg font-bold">Total Token Amount: ₹{tokenAmount}</p>
-            </div>
-            
-            <p className="mt-4 text-sm text-gray-500">
-                By clicking on the payment button you agree to our Terms and conditions.
-            </p>
-            
-            <button 
-                className="mt-4 bg-green-500 text-white w-full py-2 rounded"
-                onClick={handlePayment}
-            >
-                Pay ₹{tokenAmount}
-            </button>
+    if (updatedSelection.formFee) {
+      updatedTotal += formFee;
+    }
+    if (updatedSelection.maintainaceCharge) {
+      updatedTotal += maintainaceCharge;
+      updateBookingData({maintainaceChargeStatus:true})
+    }
+    if (updatedSelection.securityDeposit) {
+      updatedTotal += Number(bookingDetails.securityDeposit);
+      updateBookingData({securityDepositStatus:true})
+    }
+    if (updatedSelection.extraDayPaymentAmount) {
+      updatedTotal += bookingDetails.extraDayPaymentAmount;
+      updateBookingData({extraDayPaymentAmountStatus:true})
+    }
 
-            <ul className="mt-4 text-xs text-gray-600">
-                <li>• A minimum token amount of Rs. 999 per bed is required to confirm your booking.</li>
-                <li>• Before moving in, you must pay the listed refundable security deposit and rent for the current month.</li>
-                <li>• Room and bed allocation is at the discretion of the management and representatives.</li>
-                <li>• Rent, including any additional charges, must be paid before the 5th of each month to avoid late fees.</li>
-            </ul>
-            <div className="flex justify-between mt-4">
-        <button onClick={prevStep} className="bg-gray-300 py-2 px-4 rounded">
-          Previous
-        </button>
-        <button onClick={nextStep} className="bg-black text-white py-2 px-4 mt-4 rounded">
-        Continue
-      </button>
+    if(updatedSelection.firstMonthRent){
+      updatedTotal +=  Number(bookingDetails.rent);
+      updateBookingData({rentStatus:true});
+    }
+
+
+    // Set total amount and update booking details
+    setTotalAmount(updatedTotal);
+    
+  };
+
+  const handlePayment = async () => {
+    // API call to initiate the payment
+    // const response = await api.post(`https://beiyo-admin.in/api/pay/initiate`,{
+    //   amount:totalAmount
+    // })
+    const response = await axios.post(`http://localhost:5000/api/pay/initiate?api=2ef020635c1f449d81217fb993bdf55c`,{
+      amount:totalAmount
+    })
+    const transactionId = response.data.data.merchantTransactionId;
+    window.location.href = response.data.data.instrumentResponse.redirectInfo.url;
+    localStorage.setItem('transactionId',transactionId);
+    localStorage.setItem('bookingData',bookingDetails);
+  };
+
+  return (
+    <div className="bg-white p-5 shadow-md rounded-lg">
+      <h2 className="text-xl font-bold mb-4">5. Payment</h2>
+      <div className="bg-yellow-100 p-3 rounded mb-4">
+        <p className="text-orange-500">
+          You have to pay the token amount before move-in and you can pay rent and security deposit in advance. Rent will start from the selected move-in date.
+        </p>
       </div>
+
+      <div className="mb-4">
+        <div>
+          <label className="flex items-center mb-2">
+            <input 
+              type="checkbox" 
+              checked={selectedItems.formFee}
+              onChange={() => handleCheckboxChange('formFee')}
+              className="mr-2"
+              disabled
+            />
+            Token Amount - ₹{formFee}
+          </label>
         </div>
-    );
+        <div>
+          <label className="flex items-center mb-2">
+            <input 
+              type="checkbox" 
+              checked={selectedItems.maintainaceCharge}
+              onChange={() => handleCheckboxChange('maintainaceCharge')}
+              className="mr-2"
+            />
+            Maintance Charges - ₹{maintainaceCharge}
+          </label>
+        </div>
+        <div>
+          <label className="flex items-center mb-2">
+            <input 
+              type="checkbox" 
+              checked={selectedItems.securityDeposit}
+              onChange={() => handleCheckboxChange('securityDeposit')}
+              className="mr-2"
+            />
+            Security Deposit Amount [1 Month Rent] - ₹{bookingDetails.securityDeposit}
+          </label>
+        </div>
+        <div>
+          <label className="flex items-center mb-2">
+            <input 
+              type="checkbox" 
+              checked={selectedItems.firstMonthRent}
+              onChange={() => handleCheckboxChange('firstMonthRent')}
+              className="mr-2"
+            />
+           First Month Rent : {bookingDetails.rent}
+          </label>
+          <label className="flex items-center mb-2">
+            <input 
+              type="checkbox" 
+              checked={selectedItems.extraDayPaymentAmount}
+              onChange={() => handleCheckboxChange('extraDayPaymentAmount')}
+              className="mr-2"
+            />
+            Advance Rent Amount [For {bookingDetails.remainingDays} Day] - ₹{bookingDetails.extraDayPaymentAmount}
+          </label>
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <p className="text-lg font-bold">Total Amount: ₹{totalAmount}</p>
+      </div>
+
+      <p className="mt-4 text-sm text-gray-500">
+        By clicking on the payment button you agree to our Terms and conditions.
+      </p>
+
+      <button 
+        className="mt-4 bg-green-500 text-white w-full py-2 rounded"
+        onClick={handlePayment}
+      >
+        Pay ₹{totalAmount}
+      </button>
+
+      <ul className="mt-4 text-xs text-gray-600">
+        <li>• A minimum token amount of Rs. 999 per bed is required to confirm your booking.</li>
+        <li>• Before moving in, you must pay the listed refundable security deposit and rent for the current month.</li>
+        <li>• Room and bed allocation is at the discretion of the management and representatives.</li>
+        <li>• Rent, including any additional charges, must be paid before the 5th of each month to avoid late fees.</li>
+      </ul>
+    </div>
+  );
 };
 
-export default Step5;
+export default StepSix;

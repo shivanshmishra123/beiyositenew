@@ -9,16 +9,16 @@ const api = axios.create({
 // Interceptor to add apiKey to each request as a query parameter
 api.interceptors.request.use(
   (config) => {
-    const apiKey = import.meta.env.VITE_SERVER_APP_API_KEY;  // Get the API key from environment variables
-    console.log("VITE_API_KEY from environment:", apiKey);  // Log the API key for debugging
+    const api = import.meta.env.VITE_SERVER_APP_API_KEY;  // Get the API key from environment variables
+    // Log the API key for debugging
 
     // Add the apiKey to query parameters
-    if (apiKey) {
+    if (api) {
       config.params = {
         ...config.params, // Preserve existing query parameters, if any
-        apiKey: apiKey,   // Add the apiKey as a query parameter
+        api: api,   // Add the apiKey as a query parameter
       };
-      console.log('API Key added to query params:', apiKey); // Log the API key in query params
+     // Log the API key in query params
     }
 
     return config; // Return the modified config

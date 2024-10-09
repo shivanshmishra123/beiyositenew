@@ -25,9 +25,7 @@ export const AuthProvider = ({ children }) => {
              {
             headers: { Authorization: `Bearer ${token}` }
           });
-
           setUser(response.data);  
-          
           // api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         } catch (error) {
           console.error('Error fetching user:', error);
