@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
 import api from '@/api/apiKey';
+import axios from 'axios';
 
 
 const PaymentStatus = () => {
@@ -11,16 +12,15 @@ const PaymentStatus = () => {
     const checkPaymentStatus = async () => {
       const transactionId = localStorage.getItem('transactionId');
       const paymentId = localStorage.getItem('paymentId');
-      const bookingData = localStorage.getItem('bookingData')
+      const bookingData = JSON.parse(localStorage.getItem('bookingData'));
+      const duePaymentStatus = JSON.parse(localStorage.getItem('duePaymentStatus'));
+      const duePaymentId = localStorage.getItem('duePaymentId');
       console.log(paymentId);
      
       if (transactionId) {
         try {
           const response = await api.get(`https://beiyo-admin.in/api/pay/status/${transactionId}`);
           if (response.data.success === true) {
-            // alert('Payment successful!');
-
-            // Save payment info if transaction ID is present
             if(paymentId){
               try {
                 const paymentSaveResponse = await api.put(`https://beiyo-admin.in/api/dashboard/onlinePaymentSave/${paymentId}`);
@@ -33,7 +33,7 @@ const PaymentStatus = () => {
             }
             if(bookingData){
               try {
-                const paymentSaveResponse = await api.post(`http://localhost:5000/api/newResident/websiteBooking`,{
+                const paymentSaveResponse = await api.post(`https://beiyo-admin.in/api/newResident/websiteBooking`,{
                   name:bookingData.firstName+' '+bookingData.lastName,
                    email:bookingData.email,
                     mobileNumber:bookingData.mobileNumber,
@@ -43,7 +43,6 @@ const PaymentStatus = () => {
                     rent:bookingData.rent,
                     deposit:bookingData.securityDeposit,
                     depositStatus:bookingData.securityDepositStatus,
-                    firstMonthRentStatus:bookingData.rentStatus,
                     maintainaceCharge:bookingData.maintainaceCharge,
                     maintainaceChargeStatus:bookingData.maintainaceChargeStatus,
                     formFee:bookingData.formFee,
@@ -54,15 +53,26 @@ const PaymentStatus = () => {
                     extraDays:bookingData.remainingDays,
                     gender:bookingData.gender
                 });
-                console.log('Booking Data', bookingData);
                 localStorage.removeItem('bookingData');
-                console.log(paymentSaveResponse.status);
                 navigate('/login');
               } catch (error) {
                 console.error('Error saving payment:', error);
               } 
             }
-            
+            if(duePaymentStatus&&duePaymentId){
+              try {
+                const duePaymentResponseSave = await api.put(`https://beiyo-admin.in/api/dashboard/payment/dueAmount/onlinePayed/${duePaymentId}`,{
+                  maintainaceChargeStatus: duePaymentStatus.maintainaceChargeStatus,
+                  depositStatus:duePaymentStatus.securityDepositStatus,
+                  extraDayPaymentStatus:duePaymentStatus.extraDayPaymentStatus
+                })
+                localStorage.removeItem(duePaymentStatus);
+                localStorage.removeItem(duePaymentId);
+                navigate('/dashboard');
+              } catch (error) {
+                console.log(error);
+              }
+            }    
           } else {
             alert('Payment failed or not completed.');
             navigate('/retry-payment');

@@ -10,8 +10,7 @@ const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
     formFee: true,
     maintainaceCharge: false,
     securityDeposit: false,
-    advanceRent: false,
-    firstMonthRent:false,
+    extraDayPaymentAmount: false,
   });
 
  
@@ -32,10 +31,10 @@ const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
 
 
     if (updatedSelection.formFee) {
-      updatedTotal += formFee;
+      updatedTotal += Number(formFee);
     }
     if (updatedSelection.maintainaceCharge) {
-      updatedTotal += maintainaceCharge;
+      updatedTotal += Number(maintainaceCharge);
       updateBookingData({maintainaceChargeStatus:true})
     }
     if (updatedSelection.securityDeposit) {
@@ -47,10 +46,6 @@ const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
       updateBookingData({extraDayPaymentAmountStatus:true})
     }
 
-    if(updatedSelection.firstMonthRent){
-      updatedTotal +=  Number(bookingDetails.rent);
-      updateBookingData({rentStatus:true});
-    }
 
 
     // Set total amount and update booking details
@@ -63,13 +58,13 @@ const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
     // const response = await api.post(`https://beiyo-admin.in/api/pay/initiate`,{
     //   amount:totalAmount
     // })
-    const response = await axios.post(`http://localhost:5000/api/pay/initiate?api=2ef020635c1f449d81217fb993bdf55c`,{
+    const response = await api.post(`https://beiyo-admin.in/api/pay/initiate`,{
       amount:totalAmount
     })
     const transactionId = response.data.data.merchantTransactionId;
     window.location.href = response.data.data.instrumentResponse.redirectInfo.url;
     localStorage.setItem('transactionId',transactionId);
-    localStorage.setItem('bookingData',bookingDetails);
+    localStorage.setItem('bookingData', JSON.stringify(bookingDetails));
   };
 
   return (
@@ -117,15 +112,6 @@ const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
           </label>
         </div>
         <div>
-          <label className="flex items-center mb-2">
-            <input 
-              type="checkbox" 
-              checked={selectedItems.firstMonthRent}
-              onChange={() => handleCheckboxChange('firstMonthRent')}
-              className="mr-2"
-            />
-           First Month Rent : {bookingDetails.rent}
-          </label>
           <label className="flex items-center mb-2">
             <input 
               type="checkbox" 

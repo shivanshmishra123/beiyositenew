@@ -39,7 +39,7 @@ const RefundPolicy = () => {
             Process for Requesting a Refund To request a refund, please follow
             these steps: <br />
             <br />
-            Contact Us: Email our support team at [beiyo.work@gmail.com] with
+            Contact Us: Email our support team at [support@beiyo.in] with
             your booking details and reason for cancellation. <br />
             Review: Our team will review your request and respond within 3
             business days. <br /> Approval: If your refund request is approved,

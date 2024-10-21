@@ -45,7 +45,7 @@ const HostelDetail = () => {
             <div className="singlehosteldetail">
              <div className="hostelcontentdetails">
              <div className='hosteldetailsname'> 
-              <h1 className='text-3xl'>Beiyo {hostel&&hostel.name}</h1> 
+              <h1 className='text-3xl'>Beiyo {hostel&&hostel.name}{hostel&&hostel.hostelType==='Boys'?(<span>(Boys)</span>):((<span>(Girls)</span>))} </h1> 
               <div className='flex items-center gap-[0.2rem]'> 
               <img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />
               <p>{hostel&&hostel.location}</p>

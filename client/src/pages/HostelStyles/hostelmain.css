@@ -211,6 +211,9 @@ font-weight: 500;
     margin-right: 2rem;
     outline: none;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     bottom: 3%;
     right: 0;
 }

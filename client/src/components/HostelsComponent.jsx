@@ -1,7 +1,7 @@
 import React from 'react'
 import Form from './Form';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import  { useState, useEffect,useRef } from 'react';
 
 import { CircularProgress, Skeleton } from '@mui/material';
@@ -9,9 +9,9 @@ import api from '@/api/apiKey';
 const HostelsComponent = ({notincludID, noOfHostels}) => {
     const [hostels, setHostels] = useState([]);
     const [loading, setLoading] = useState(false);
-
+    
     const [page,setPage] = useState(1);
-
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchHostels = async()=>{
             const startTime = performance.now(); // Start timing
@@ -49,15 +49,15 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
                 <div  key={hostel.id} >{
                     hostel._id !== notincludID ?(
                    
-                        <a href={`/hostel/${hostel._id}`}>
+                        // <a href={`/hostel/${hostel._id}`}>
                                        <div  className="single-hostel" >
                        
                        <img  src={hostel.image} alt="" className='hostelimage' />
                        <div className="hostelContentdiv">
                            <div className='nameprice'>
                            <div className="namediv">
-                               <h1>{hostel.name}</h1>
-                               <div style={{ display: "flex",flexDirection:'column',gap:'1rem'}}> 
+                               <h1 className='whitespace-nowrap'>{hostel.name}{hostel.hostelType==='Boys'?(<span>(Boys)</span>):((<span>(Girls)</span>))}</h1>
+                               <div style={{ display:"flex",flexDirection:'column',gap:'1rem'}}> 
                                        <p style={{color:'grey',display:'flex',justifyContent:'center'}}><img style={{opacity:'30%'}} src="/images/location_Marker.svg" alt="" />{hostel.location}</p>
                                       {hostel.siteTotalRemainingBeds===0?( <p style={{fontSize:'1.2rem',display:'flex', gap:'2px', alignItems:'center'}} >Fully Occupied</p>):( <p style={{fontSize:'1.2rem',display:'flex', gap:'2px', alignItems:'center'}} >Beds Remaining:   <span style={{fontWeight:'700',paddingTop:'2px'}}>{hostel.siteTotalRemainingBeds}</span></p>)}
                                        <div className='featurehosteldiv' style={{display:'flex',alignItems:'center'}}>
@@ -83,9 +83,7 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
                            </div>
                       
                            <div className='underlinepc'></div>
-                         
-
-                  
+             
                            <div className="doubletripledivpc">
                         <div className='bedcapacity'>
                             {hostel.singlePrice&&(
@@ -107,7 +105,8 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
                         </div>
                         )}
                         </div>
-                           <a href={`/hostel /${hostel._id}`}>    <button  className='response' style={{cursor:"pointer"}} >  View Details </button> </a>
+                        <a className='response' style={{cursor:"pointer"}} href={`/hostel/${hostel._id}`}>View Details </a>
+                           
                            </div>
                       
                        </div>
@@ -136,11 +135,15 @@ const HostelsComponent = ({notincludID, noOfHostels}) => {
                         </div>
                         )}
                         </div>
-                           <a href={`/hostel/${hostel._id}`}>    <button  className='response flex items-center justify-center' style={{cursor:"pointer"}} >  View Details </button> </a>
+                       <a className='response flex items-center justify-center' style={{cursor:"pointer"} }  href={`/hostel/${hostel._id}`} >
+                      
+                                  View Details
+                                
+                                   </a> 
                            </div>
                     
                    </div>
-                   </a>
+                //    </a>
                     ):null  
                 }
                 </div>

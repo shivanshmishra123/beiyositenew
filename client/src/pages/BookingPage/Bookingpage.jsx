@@ -32,8 +32,6 @@ const BookingPage = () => {
       maintainaceChargeStatus:false,
       securityDeposit:0,
       securityDepositStatus:false,
-      rent:0,
-      rentStatus:false,
       extraDayPaymentAmount:0,
       extraDayPaymentAmountStatus:false,
       remainingDays:0
