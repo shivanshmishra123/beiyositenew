@@ -1,7 +1,9 @@
 // StepFour.jsx
 import React, { useState } from 'react';
-
-const StepFour = ({ updateBookingData, nextStep, prevStep }) => {
+import { Toaster } from '@/components/ui/toaster';
+import { useToast } from '@/hooks/use-toast';
+const StepFour = ({ updateBookingData, nextStep, prevStep,hostelType }) => {
+  const { toast } = useToast();
   const [personalInfo, setPersonalInfo] = useState({
     firstName: '',
     lastName: '',
@@ -17,9 +19,25 @@ const StepFour = ({ updateBookingData, nextStep, prevStep }) => {
   const handleContinue = () => {
     const { firstName, lastName, mobileNumber, gender } = personalInfo;
     if (!firstName || !lastName || !mobileNumber || !gender) {
-      alert('Please fill in all personal information fields.');
+      toast({
+        title: "Please fill in all personal information fields.",
+      });
       return;
     }
+console.log(hostelType)
+    if(hostelType==="Boys"&&gender==="female"){
+      toast({
+        title: "No room available for girls",
+      });
+      return;
+    }
+    if(hostelType==="Girls"&&gender==="male"){
+      toast({
+        title: "No room available for boys",
+      });
+      return;
+    }
+
     // Update booking data and proceed to next step
     updateBookingData({ firstName,lastName,mobileNumber,gender });
     nextStep();
@@ -70,6 +88,7 @@ const StepFour = ({ updateBookingData, nextStep, prevStep }) => {
           Continue
         </button>
       </div>
+      <Toaster className="left-[0%]" />
     </div>
   );
 };

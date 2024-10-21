@@ -11,7 +11,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/pagination';
 import "swiper/css/effect-cube";
 import "swiper/css/navigation";
-import Form from '../components/Form';
+// import Form from '../components/Form';
 import { useParams } from 'react-router-dom';
 import HostelsComponent from '../components/HostelsComponent';
 import VirtualTour from '../components/VirtualTour';
@@ -87,16 +87,9 @@ const HostelDetail = () => {
              </div>
           <div className="priceandformdiv">
           <div className='form'>
-           <div> <Form hostelId={hostel&&hostel._id} hostelName={hostel&&hostel.name}/></div>
-           {/* <MapComponent/> */}
-          </div> 
-      </div>
-          </div>
-          <div className='content3hosteldetail'>
-
-         <div className="service">
-
-            <div className="pricedetail">
+           <div> 
+           <div className='flex flex-col gap-4'>
+           <div className="pricedetail">
 { hostel&&hostel.singlePrice && (
               <div className="occupancyandprice">
               <div className="occupancy">
@@ -128,8 +121,23 @@ const HostelDetail = () => {
 )
 }    
              </div>
+             <hr className='bg-black' />
+        <div className='flex flex-col justify-center items-center'>
+        <a href={`/bookingPage/${hostel&&hostel._id}`} className='submit flex justify-center items-center text-black'>Book Now</a> 
+        <p style={{textAlign:"center"}}>OR</p>  
+         <a target='blank' href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostel&&hostel.name}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`} style={{textAlign:"center"}}><button type="submit" id='whatsappsubmit' className='submit'><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a> 
+        </div>
+    </div>
+           </div>
+           {/* <MapComponent/> */}
+          </div> 
+      </div>
+          </div>
+          <div className='content3hosteldetail'>
+
+         <div className="service">
              
-                      <h1 className='serviceshosteldetail'>Services</h1>
+                      <h1 className='serviceshosteldetail text-2xl'>Services</h1>
       <div className="content3div">   
         <div className="servicesdetails">
               {/* <img src="/images/wifi-hostel.svg" alt="" /> */}
@@ -152,17 +160,58 @@ const HostelDetail = () => {
           </div>
       </div>
           <div className='newaddressblock'>
-            <h1>Address</h1>
+            <h1 className='text-2xl'>Address</h1>
             <p><a href={hostel&&hostel.locationLink}>
               <p className='flex items-center'><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.location}</p></a></p>
           </div>
           <div className="mobileformParent">
             <div className='mobileform'>
-            <Form hostelId={hostel&&hostel._id} hostelName={hostel&&hostel.name} />
+            <div> 
+           <div className='flex flex-col gap-4'>
+           <div className="pricedetail">
+{ hostel&&hostel.singlePrice && (
+              <div className="occupancyandprice">
+              <div className="occupancy">
+                              <img src="/images/bed.svg" alt="" />
+                              <p>Single</p>
+                          </div>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.singlePrice}/bed</p>
+              </div>
+)
+}
+{ hostel&&hostel.doublePrice && (
+              <div className="occupancyandprice">
+              <div className="occupancy">
+                              <img src="/images/bed.svg" alt="" />
+                              <p>Double</p>
+                          </div>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.doublePrice}/bed</p>
+              </div>
+)
+}
+{ hostel&&hostel.triplePrice && (
+              <div className="occupancyandprice">
+              <div className="occupancy">
+                              <img src="/images/bed.svg" alt="" />
+                              <p>Triple</p>
+                          </div>
+                          <p className='price'><img src="/images/rupee.svg" alt="" />{hostel&&hostel.triplePrice}/bed</p>
+              </div>
+)
+}    
+             </div>
+             <hr className='bg-black' />
+        <div className='flex flex-col justify-center items-center'>
+           <a href={`/bookingPage/${hostel&&hostel._Id}`} className='submit flex justify-center items-center text-black'>Book Now</a>  
+        <p style={{textAlign:"center"}}>OR</p>  
+         <a target='blank' href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostel&&hostel.name}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`} style={{textAlign:"center"}}><button type="submit" id='whatsappsubmit' className='submit'><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a> 
+        </div>
+    </div>
+           </div>
           </div> 
             </div>
           <div className='nearByPlacesblock'>
-           {hostel&&hostel.nearby1&&( <h1>Nearby Places</h1>)}
+           {hostel&&hostel.nearby1&&( <h1 className='text-2xl'>Nearby Places</h1>)}
            {hostel&&hostel.nearby1 && (<div style={{display:'flex', alignItems:'center', gap:'1rem'}}> <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby1}</p><p style={{height:'1rem'}}>- {hostel && hostel.nearby1distance}</p></div>)}
            {hostel&&hostel.nearby2 && (<div style={{display:'flex', alignItems:'center', gap:'1rem'}}> <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby2}</p><p style={{height:'1rem'}}>- {hostel && hostel.nearby2distance}</p></div>)}
             {hostel&&hostel.nearby3 && (<div style={{display:'flex', alignItems:'center', gap:'1rem'}}> <p><img src="/images/location_Marker.svg" alt="" style={{height:"1rem"}} />{hostel&&hostel.nearby3}</p><p style={{height:'1rem'}}>- {hostel && hostel.nearby3distance}</p></div>)}
@@ -183,7 +232,7 @@ const HostelDetail = () => {
      
 
     </div>
-           <h1 class name='text-2xl' style={{marginTop:"3rem"}}>Other Hostels</h1>
+           <h1 className='text-2xl underline mt-[3rem] '>Other Hostels</h1>
            <HostelsComponent
            notincludID={hostel&&hostel._id}
            />

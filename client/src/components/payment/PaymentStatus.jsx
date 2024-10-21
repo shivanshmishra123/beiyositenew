@@ -54,7 +54,9 @@ const PaymentStatus = () => {
                     gender:bookingData.gender
                 });
                 localStorage.removeItem('bookingData');
-                navigate('/login');
+                const token = paymentSaveResponse.data.token
+                localStorage.setItem('token',token);
+                navigate('/dashboard');
               } catch (error) {
                 console.error('Error saving payment:', error);
               } 

@@ -2,8 +2,10 @@
 
 import api from '@/api/apiKey';
 import React, { useEffect, useState } from 'react';
-
+import { Toaster } from '@/components/ui/toaster';
+import { useToast } from '@/hooks/use-toast';
 const StepFive= ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, prevStep }) => {
+  const { toast } = useToast();
   const [availableRooms, setAvailableRooms] = useState([]);
   const [rentAmount, setRentAmount] = useState(0);
   const [roomNumberId,setRoomNumberId]=useState('');
@@ -44,7 +46,9 @@ const StepFive= ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, 
 
   const handleContinue = () => {
     if (!selectedRoom) {
-      alert('Please select a room.');
+      toast({
+        title: "Please select a room.",
+      });
       return;
     }
 

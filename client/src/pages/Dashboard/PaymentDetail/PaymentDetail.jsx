@@ -50,7 +50,7 @@ const PaymentStatus = () => {
           headers: { Authorization: `Bearer ${token}` } 
         });
         setPayments(response.data);
-        
+       
       } catch (error) {
         console.error('Error fetching payments:', error);
       } finally {
@@ -197,7 +197,7 @@ const PaymentStatus = () => {
       <Typography variant="h4" gutterBottom>Payment Status</Typography>
 
     <div className='flex flex-col gap-4'>
-  {dueAmountPayment.status==='due'&&(
+  {dueAmountPayment&&dueAmountPayment.status==='due'&&(
       <div className=' flex flex-col gap-2 border-2 p-2 border-black rounded-lg'>
       <Typography variant="h6" gutterBottom>DueAmount</Typography>
       
@@ -242,7 +242,7 @@ const PaymentStatus = () => {
 </div>
 )
 }
-{user.extraDayPaymentAmountStatus&&(
+{!user.extraDayPaymentAmountStatus&&(
        <div>
        <label className="flex items-center mb-2">
          <input 
@@ -250,7 +250,6 @@ const PaymentStatus = () => {
            checked={selectedItems.extraDayPaymentAmount}
            onChange={() => handleCheckboxChange('extraDayPaymentAmount')}
            className="mr-2"
-           disabled={user.extraDayPaymentAmountStatus}
          />
          Advance Rent Amount [For {user.extraDays} Day] - ₹{user.extraDayPaymentAmount}
        </label>
@@ -260,7 +259,7 @@ const PaymentStatus = () => {
     </div>
   )}
             {/* Current Payments */}
-{currentPayments&&(
+{currentPayments!==null?(
               <div className=' flex flex-col gap-2 border-2 p-2 border-black rounded-lg'>
               <Typography variant="h6" gutterBottom>Current Month Payment</Typography>
               {currentPayments.map(payment => (
@@ -276,6 +275,8 @@ const PaymentStatus = () => {
                 </div>
               ))}
             </div>
+):(
+  <Typography variant="body1">No currentMonth Payments</Typography>
 )}
 
       {/* Future Payments */}
@@ -288,7 +289,7 @@ const PaymentStatus = () => {
         </div>
         <Collapse in={expandFuturePayments}>
          <div className='flex flex-col gap-2'>
-    {futurePayments===true?(
+    {futurePayments?(
       <div>
              {futurePayments.map(payment => (
               <div key={payment._id}  className='h-fit p-2  flex justify-between items-center border-2 border-[#575756] rounded-lg'>

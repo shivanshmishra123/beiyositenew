@@ -1,16 +1,23 @@
 // StepThree.jsx
 import React, { useState } from 'react';
+import { Toaster } from '@/components/ui/toaster';
+import { useToast } from '@/hooks/use-toast';
 
 const StepThree = ({ updateBookingData, nextStep, prevStep }) => {
   const [dateJoined, setdateJoined] = useState('');
   const [contractTerm,setContractTerm]=useState('');
+  const { toast } = useToast();
   const handleContinue = () => {
     if (!dateJoined) {
-      alert('Please select a move-in date.');
+      toast({
+        title: "Please select a move-in date.",
+      });
       return;
     }
     if(!contractTerm){
-      alert('Please select a contract term.');
+      toast({
+        title: "Please select a contract term.",
+      });
       return;
     }
     // Update booking data and proceed to next step
@@ -43,6 +50,7 @@ const StepThree = ({ updateBookingData, nextStep, prevStep }) => {
           Continue
         </button>
       </div>
+      <Toaster className="left-[0%]" />
     </div>
   );
 };

@@ -14,6 +14,7 @@ const BookingPage = () => {
   const { hostelId } = useParams();
   const [hostel,setHostel]=useState(null);
   const [currentStep, setCurrentStep] = useState(1);
+  const [hostelType,setHostelType]=useState("");
   const [bookingData, setBookingData] = useState({
     email: '',
     hostelId:hostelId,
@@ -34,7 +35,7 @@ const BookingPage = () => {
       securityDepositStatus:false,
       extraDayPaymentAmount:0,
       extraDayPaymentAmountStatus:false,
-      remainingDays:0
+      remainingDays:0,
   });
   useEffect(()=>{
     const fetchSingleHostel = async ()=>{
@@ -43,6 +44,8 @@ const BookingPage = () => {
       const response = await api.get(URL);
      
       setHostel(response.data);
+      setHostelType(response.data.hostelType)
+      
       document.title=`Book your Bed in ${hostel.name}`
       }catch(error){
         console.log(error);
@@ -74,7 +77,7 @@ const BookingPage = () => {
 
         {/* Step Navigation */}
         <div className="flex justify-between mb-6 overflow-x-auto gap-8">
-          {['Sign-Up', 'Select Room', 'Move-In Date', 'Personal Info', 'Payment', 'Room Selection'].map(
+          {['Sign-Up', 'Select Room', 'Move-In Date', 'Personal Info', 'Room Selection', 'Payment'].map(
             (label, index) => (
               <div
                 key={index}
@@ -98,7 +101,7 @@ const BookingPage = () => {
             <StepTwo updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep} hostelId={hostelId} />
           )}
           {currentStep === 3 && <StepThree updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep} />}
-          {currentStep === 4 && <StepFour updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep} />}
+          {currentStep === 4 && <StepFour updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep}  hostelType={hostel.hostelType} />}
         
           {currentStep === 5 && (
             <StepFive 
@@ -107,6 +110,7 @@ const BookingPage = () => {
               nextStep={nextStep}
               prevStep={prevStep}
               updateBookingData={updateBookingData}
+             
             />
           )}
             {currentStep === 6 && <StepSix updateBookingData={updateBookingData} nextStep={nextStep} prevStep={prevStep} bookingDetails={bookingData} />}

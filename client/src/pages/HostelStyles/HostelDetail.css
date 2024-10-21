@@ -18,7 +18,28 @@
         flex-wrap: wrap;
         position: relative;  
 }
-
+#whatsappsubmit{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    gap: 1rem;
+    /* margin-left: 2rem; */
+    background-color: #58be54;
+}
+.submit{
+    width: 15rem;
+    height: 3rem;
+    flex-shrink: 0;
+    align-self: center;
+    border-radius: 0.6875rem;
+    background: #ffc72c;
+    cursor: pointer;
+    color: #FFF;
+font-size: 1rem;
+font-style: normal;
+border: none;
+outline: none;
+}
 .hostelcontentdetails{
     display: flex;
     justify-content: space-between;
@@ -169,12 +190,12 @@ align-items: center;
         font-size: 1.3rem;
     }
     .mobileform{
-        height: 21rem;
+        /* height: 21rem; */
     width: 21rem;
     border-radius: 1.625rem;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center;
     background: #FFF;
     box-shadow: 0px -1px 4.2px 1px rgba(0, 0, 0, 0.25);
         

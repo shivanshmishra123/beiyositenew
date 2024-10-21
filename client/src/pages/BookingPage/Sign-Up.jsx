@@ -4,6 +4,7 @@ import { useToast } from '@/hooks/use-toast';
 import api from '@/api/apiKey';
 
 
+
 const StepOne = ({ updateBookingData, nextStep }) => {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
@@ -28,27 +29,36 @@ const StepOne = ({ updateBookingData, nextStep }) => {
       const response = await api.post(`https://beiyo-admin.in/api/otp/send`, {
         email: email,
       });
-      
-    setCorrectOtp(response.data); // Correctly store the OTP from the response
-      console.log(correctOtp); // Log the OTP directly from the response
-      setIsOtpSent(true);
-      
-      toast({
-        title: "OTP Sent",
-        description: `OTP has been sent to ${email}.`,
-      });
+  
+      // Check if response status is 400 for "Email already exists"
+      if (response.status === 200 && response.data.otp) {
+        setCorrectOtp(response.data.otp); // Store OTP
+        setIsOtpSent(true);
+  
+        toast({
+          title: "OTP Sent",
+          description: `OTP has been sent to ${email}.`,
+        });
+      }
+  
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to send OTP. Please try again.",
-      });
+      if (error.response && error.response.status === 400) {
+        // Handle case where email already exists
+        toast({
+          title: "Email Already Exists",
+          description: "Try another email.",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send OTP. Please try again.",
+        });
+      }
     }
   };
 
   // Handle OTP Verification
   const verifyOtp = () => {
-    console.log("Entered OTP:", otp.trim());
-    console.log("Correct OTP:", correctOtp);
     if (otp.trim().toString() !== correctOtp.toString()) {
     
      toast({
@@ -77,12 +87,6 @@ const StepOne = ({ updateBookingData, nextStep }) => {
             placeholder="Enter your email"
             className="border p-2 w-full mb-4"
           />
-                    <button
-              onClick={nextStep}
-              className="text-blue-500 underline"
-            >
-              Skip
-            </button>
           <button onClick={sendOtp} className="bg-black text-white py-2 px-4 rounded w-full">
             Send OTP
           </button>

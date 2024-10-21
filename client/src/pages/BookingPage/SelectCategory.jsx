@@ -2,12 +2,15 @@
 
 import api from '@/api/apiKey';
 import React, { useEffect, useState } from 'react';
+import { Toaster } from '@/components/ui/toaster';
+import { useToast } from '@/hooks/use-toast';
+
 
 const StepTwo = ({ updateBookingData, nextStep, prevStep, hostelId }) => {
   // const [selectedRooms, setSelectedRooms] = useState([]);
   const [selectedRoomCategory, setSelectedRoomCategory] = useState('');
   const [groupedRooms, setGroupedRooms] = useState({});
-
+  const { toast } = useToast();
   const fetchHostelData = async () => {
     try {
       const response = await api.get(`https://beiyo-admin.in/api/hostels/${hostelId}/remainingCapacityRooms`);
@@ -47,7 +50,9 @@ const StepTwo = ({ updateBookingData, nextStep, prevStep, hostelId }) => {
 
   const handleContinue = () => {
     if (!selectedRoomCategory) {
-      alert('Please select a room category.');
+      toast({
+        title: "Please select a room category.",
+      });
       return;
     }
     // Update booking data and proceed to next step
@@ -94,6 +99,7 @@ const StepTwo = ({ updateBookingData, nextStep, prevStep, hostelId }) => {
           Continue
         </button>
       </div>
+      <Toaster className="left-[0%]" />
     </div>
   );
 };
