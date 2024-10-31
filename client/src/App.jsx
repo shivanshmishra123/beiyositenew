@@ -34,14 +34,23 @@ import ResetPassword from './pages/auth/ResetPassword';
 
 import MapComponent from './components/googleMapComponent/page';
 import BookingPage from './pages/BookingPage/Bookingpage';
+import DiwaliLoader from './components/festiveSeason/DiwaliLoader';
 
 AOS.init();
 
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  const handleLoaderComplete = () => {
+    setLoading(false);
+  };
   return (
     <div id='main'>    
-
+  {loading ? (
+        <DiwaliLoader onComplete={handleLoaderComplete} />
+      ) : (
+        <>
     <a  href="https://wa.me/918305523140" target="_blank">
    <div className="whatsapp">
       <img src="/images/whatsapp.svg" alt="" />
@@ -87,8 +96,10 @@ function App() {
              </Layout>
              </Router>
           </AuthProvider>
-    
+          </>
+      )}
     </div>
+          
   )
 }
 

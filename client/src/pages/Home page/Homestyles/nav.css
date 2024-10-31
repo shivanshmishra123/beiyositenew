@@ -9,8 +9,7 @@
     position: relative;
   }
   .scrollnav{
-    background-color: white;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(80px);
   }
   .header-hidden { 
     transform: translateY(-100%); 
@@ -19,7 +18,7 @@
    
   /* Visible state */ 
   .header-visible { 
-    transform: translateY(0); 
+    transform: translateY(0%); 
     transition: transform 0.5s ease; 
   } 
   .nav{
