@@ -119,7 +119,7 @@ const PaymentStatus = () => {
     const paymentDate = new Date(payment.date);
     return paymentDate.getMonth() === currentMonth && paymentDate.getFullYear() === currentYear;  
   });
-
+  
   const futurePayments = payments.filter(payment => {
     const paymentDate = new Date(payment.date);
     if(paymentDate.getFullYear()>currentYear){
@@ -142,6 +142,7 @@ const PaymentStatus = () => {
       }
     }
   });
+  console.log(pastPayments)
 
   const updateDuePaymentStatus =  (stepData) => {
     setDuePaymentStatus((prev) => ({ ...prev, ...stepData }));
@@ -197,7 +198,7 @@ const PaymentStatus = () => {
       <Typography variant="h4" gutterBottom>Payment Status</Typography>
 
     <div className='flex flex-col gap-4'>
-  {dueAmountPayment&&dueAmountPayment.status==='due'&&(
+  {dueAmountPayment&&dueAmountPayment.status==='due'&&dueAmountPayment.amount!==0&&(
       <div className=' flex flex-col gap-2 border-2 p-2 border-black rounded-lg'>
       <Typography variant="h6" gutterBottom>DueAmount</Typography>
       
@@ -319,7 +320,7 @@ const PaymentStatus = () => {
           </IconButton>
         </div>
         <Collapse in={expandPastPayments}>
-{pastPayments===true?(<div>
+{pastPayments!==null?(<div>
             {pastPayments.map(payment => (
               <div key={payment._id} sx={{ p: 2, border: '1px solid #ccc' }} className='h-fit p-2 flex justify-between items-center border-2 border-[#575756]'>
               <div className='flex flex-col gap-[0.2rem]'>

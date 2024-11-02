@@ -44,7 +44,6 @@ const DiwaliLoader = ({ onComplete }) => {
   return (
     <div className="diwali-loader">
       <h1 className="diwali-text">✨ Happy Diwali! Wishing You Light, Prosperity, and Joy ✨</h1>
-      <p className="diwali-message">May this festival of lights bring joy and prosperity to you and your family!</p>
     </div>
   );
 };

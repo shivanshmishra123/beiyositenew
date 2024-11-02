@@ -40,16 +40,16 @@ AOS.init();
 
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  const handleLoaderComplete = () => {
-    setLoading(false);
-  };
+  // const handleLoaderComplete = () => {
+  //   setLoading(false);
+  // };
   return (
     <div id='main'>    
-  {loading ? (
+  {/* {loading ? (
         <DiwaliLoader onComplete={handleLoaderComplete} />
-      ) : (
+      ) : ( */}
         <>
     <a  href="https://wa.me/918305523140" target="_blank">
    <div className="whatsapp">
@@ -97,7 +97,7 @@ function App() {
              </Router>
           </AuthProvider>
           </>
-      )}
+      {/* )} */}
     </div>
           
   )

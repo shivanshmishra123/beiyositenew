@@ -32,11 +32,15 @@ const StepFive= ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, 
   const handleRoomSelect = (room) => {
 
     const oneDayRent = Math.ceil(room.price/30);
+    console.log(oneDayRent);
     const currentDate = new Date();
+    console.log(currentDate);
     const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+    console.log(nextMonth)
     const remainingDays = Math.ceil((nextMonth - currentDate) / (1000 * 60 * 60 * 24));
     setRemainingDays(remainingDays);
     const remainingDaysRent = oneDayRent * remainingDays;
+    console.log(remainingDaysRent);
     setSelectedRoom(room.roomNumber);
     setRentAmount(room.price);
     setRoomNumberId(room._id);

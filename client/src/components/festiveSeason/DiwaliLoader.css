@@ -25,7 +25,7 @@
   /* Responsive styles */
   @media (max-width: 768px) {
     .diwali-text {
-      font-size: 2.5rem; /* Slightly smaller for mobile */
+      font-size: 0.4rem; /* Slightly smaller for mobile */
     }
   
     .diwali-message {
@@ -40,7 +40,7 @@
   
   @media (max-width: 480px) {
     .diwali-text {
-      font-size: 2rem; /* Further reduce for small screens */
+      font-size: 0.8rem; /* Further reduce for small screens */
     }
   
     .diwali-message {
