@@ -32,6 +32,7 @@
     "dotenv": "^16.4.1",
     "framer-motion": "^10.18.0",
     "gsap": "^3.12.5",
+    "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "locomotive-scroll": "^4.1.4",

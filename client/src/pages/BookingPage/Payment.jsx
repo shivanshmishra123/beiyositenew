@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import api from '@/api/apiKey';
+import Cookies from 'js-cookie';
 
 const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
   const [formFee, setFormFee] = useState(1);
@@ -63,8 +64,8 @@ const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
     })
     const transactionId = response.data.data.merchantTransactionId;
     window.location.href = response.data.data.instrumentResponse.redirectInfo.url;
-    localStorage.setItem('transactionId',transactionId);
-    localStorage.setItem('bookingData', JSON.stringify(bookingDetails));
+    Cookies.set('transactionId',transactionId);
+    Cookies.set('bookingData', JSON.stringify(bookingDetails));
   };
 
   return (

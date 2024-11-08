@@ -3,7 +3,9 @@ import React, { createContext, useState, useEffect } from 'react';
 import { redirect, useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import api from '@/api/apiKey';
+import Cookies from 'js-cookie';
 const AuthContext = createContext();
+
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -13,13 +15,12 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const token = localStorage.getItem('token');
+      const token = Cookies.get('token');
+      // const token = localStorage.getItem('token');
       if (token) {
         try {
           const decodedToken = jwtDecode(token); // Decode the token
-          const userId = decodedToken.userId; // Extract the user ID from the token
-        
-         
+          const userId = decodedToken.userId; // Extract the user ID from the token 
           // const response = await api.get(`http://localhost:5000/api/newResident`, 
           const response = await api.get(`https://beiyo-admin.in/api/newResident/${userId}`, 
              {
@@ -40,7 +41,9 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const response = await api.post('https://beiyo-admin.in/api/login', { email, password });
-      localStorage.setItem('token', response.data.token);
+      const token = response.data.token
+      Cookies.set('token', token);
+      // localStorage.setItem('token', response.data.token);
       setUser(response.data.user);
       // api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     } catch (error) {
@@ -49,7 +52,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
+    Cookies.remove('token');
     setUser(null);
     redirect('/login');
     delete api.defaults.headers.common['Authorization'];

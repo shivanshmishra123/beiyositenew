@@ -8,6 +8,8 @@ import '../Dashboard.css';
 import { ChevronDownCircle, ChevronUpCircle } from 'lucide-react';
 import dayjs from 'dayjs';
 import api from '@/api/apiKey';
+import Cookies from 'js-cookie';
+
 
 
 const PaymentStatus = () => {
@@ -45,7 +47,7 @@ const PaymentStatus = () => {
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = Cookies.get('token');
         const response = await api.get(`https://beiyo-admin.in/api/dashboard/payment/userPayments/${user._id}`, {
           headers: { Authorization: `Bearer ${token}` } 
         });
@@ -63,7 +65,7 @@ const PaymentStatus = () => {
   useEffect( () =>{
     const fetchDueAmountPayment = async()=>{
       try {
-        const token = localStorage.getItem('token');
+        const token = Cookies.get('token');
         const response = await api.get(`https://beiyo-admin.in/api/dashboard/payment/dueAmount/${user._id}`, {
           headers: { Authorization: `Bearer ${token}` } 
         });
@@ -79,7 +81,7 @@ const PaymentStatus = () => {
   },[user._id])
 
   const handleCurrentMonthPayment = async (id)=>{
-      const token = localStorage.getItem('token');
+      const token = Cookies.get('token');
      const response = await api.get(`https://beiyo-admin.in/api/dashboard/payment/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
@@ -89,12 +91,14 @@ const PaymentStatus = () => {
     });
     const transactionId = paymentResponse.data.data.merchantTransactionId;
     window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
-    localStorage.setItem('transactionId', transactionId);
-    localStorage.setItem('paymentId',id);
+    Cookies.set('transactionId', transactionId);
+    // sessionStorage.setItem('transactionId', transactionId);
+    // sessionStorage.setItem('paymentId',id);
+    Cookies.set('paymentId', id);
   }
 
   const handleFuturePayment = async (id) => {
-    const token = localStorage.getItem('token');
+    const token = Cookies.get('token');
     const response = await api.get(`https://beiyo-admin.in/api/dashboard/payment/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
@@ -104,8 +108,10 @@ const PaymentStatus = () => {
     });
     const transactionId = paymentResponse.data.data.merchantTransactionId;
     window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
-    localStorage.setItem('transactionId', transactionId);
-    localStorage.setItem('paymentId',id);
+    Cookies.set('transactionId', transactionId);
+    // sessionStorage.setItem('transactionId', transactionId);
+    // sessionStorage.setItem('paymentId',id);
+    Cookies.set('paymentId', id);
   };
 
   if (loading) return <CircularProgress />;
@@ -185,9 +191,11 @@ const PaymentStatus = () => {
       });
       const transactionId = paymentResponse.data.data.merchantTransactionId;
       window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
-      localStorage.setItem('transactionId', transactionId);
-      localStorage.setItem('duePaymentId',id);
-      localStorage.setItem('duePaymentStatus', JSON.stringify(duePaymentStatus));
+      Cookies.set('transactionId', transactionId);
+      // sessionStorage.setItem('transactionId', transactionId);
+      // sessionStorage.setItem('duePaymentId',id);
+      Cookies.set('duePaymentId',id)
+      sessionStorage.setItem('duePaymentStatus', JSON.stringify(duePaymentStatus));
     } catch (error) {
       console.log(error);
     }
