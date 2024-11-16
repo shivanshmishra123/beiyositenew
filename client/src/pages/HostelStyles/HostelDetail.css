@@ -179,6 +179,9 @@ align-items: center;
 }
 
 @media (max-width: 1000px){ 
+    .mapdiv{
+        display: none;
+    }
     .nearByPlacesblock{
         margin-bottom: 1rem;
     }

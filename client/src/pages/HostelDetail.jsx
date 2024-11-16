@@ -19,6 +19,7 @@ import MapComponent from '@/components/googleMapComponent/page';
 
 import api from '@/api/apiKey';
 
+
 const HostelDetail = () => {
    const {id} = useParams();
    const [hostel,setHostel]= useState(null);
@@ -29,7 +30,10 @@ const HostelDetail = () => {
       const response = await api.get(URL);
      
       setHostel(response.data);
-      document.title=`Book your Bed in ${hostel.name}`
+      if (hostel) {
+        document.title = `Book your Bed in ${hostel.name}`;
+      }
+     
       }catch(error){
         console.log(error);
       }
@@ -85,7 +89,7 @@ const HostelDetail = () => {
                  </SwiperSlide>)}
               </Swiper>
              </div>
-          <div className="priceandformdiv">
+          <div className="priceandformdiv relative">
           <div className='form'>
            <div> 
            <div className='flex flex-col gap-4'>
@@ -129,9 +133,12 @@ const HostelDetail = () => {
         </div>
     </div>
            </div>
-           {/* <MapComponent/> */}
           </div> 
+          <div className="absolute top-[20rem]  left-[0.3rem] mapdiv">
+            <MapComponent/>
+          </div>
       </div>
+     
           </div>
           <div className='content3hosteldetail'>
 
@@ -159,6 +166,7 @@ const HostelDetail = () => {
           Professional Housekeeping
           </div>
       </div>
+     
           <div className='newaddressblock'>
             <h1 className='text-2xl'>Address</h1>
             <p><a href={hostel&&hostel.locationLink}>
@@ -202,11 +210,12 @@ const HostelDetail = () => {
              </div>
              <hr className='bg-black' />
         <div className='flex flex-col justify-center items-center'>
-           <a href={`/bookingPage/${hostel&&hostel._Id}`} className='submit flex justify-center items-center text-black'>Book Now</a>  
+           <a href={`/bookingPage/${hostel&&hostel._id}`} className='submit flex justify-center items-center text-black'>Book Now</a>  
         <p style={{textAlign:"center"}}>OR</p>  
          <a target='blank' href={`https://api.whatsapp.com/send/?phone=918305523140&text=I%27d%20like%20to%20book%20a%20room%20in%20${hostel&&hostel.name}%20Can%20you%20help%20me%20with%20availability%20my%20name%20is%20:&`} style={{textAlign:"center"}}><button type="submit" id='whatsappsubmit' className='submit'><img src="/images/whatsapp1.svg" alt="" />Connect on WhatsApp</button></a> 
         </div>
     </div>
+    <MapComponent   />
            </div>
           </div> 
             </div>
