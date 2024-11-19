@@ -27,7 +27,7 @@ const RequestOtp = () => {
        setotpSend(true);
        setVerifyOtp(true);  
     } catch (error) {
-      setMessage('Error sending OTP');
+      setMessage('User not Found');
       console.error('Error:', error);
     }
   };

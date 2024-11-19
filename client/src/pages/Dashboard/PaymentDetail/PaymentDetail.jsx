@@ -89,12 +89,13 @@ const PaymentStatus = () => {
     const paymentResponse = await api.post('https://beiyo-admin.in/api/pay/initiate', {
       amount: amount+additionalCharge,
     });
-    const transactionId = paymentResponse.data.data.merchantTransactionId;
-    window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
     Cookies.set('transactionId', transactionId);
     // sessionStorage.setItem('transactionId', transactionId);
     // sessionStorage.setItem('paymentId',id);
     Cookies.set('paymentId', id);
+    const transactionId = paymentResponse.data.data.merchantTransactionId;
+    window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
+
   }
 
   const handleFuturePayment = async (id) => {

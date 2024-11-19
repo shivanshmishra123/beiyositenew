@@ -4,6 +4,7 @@ import { Box, TextField, Button, Typography } from '@mui/material';
 import api from '@/api/apiKey';
 
 
+
 const ResetPassword = () => {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
@@ -20,7 +21,8 @@ const ResetPassword = () => {
       });
       setMessage(response.data.message);
     } catch (error) {
-      setMessage('Error resetting password');
+
+      setMessage(response.data.message);
       console.error('Error:', error);
     }
   };

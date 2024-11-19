@@ -14,6 +14,7 @@ const Hostel = () => {
                 Explore Our PG/Hostels in Indore
             </h1>
            <HostelsComponent
+           searchBoolean={true}
            />
         </div>
     )
