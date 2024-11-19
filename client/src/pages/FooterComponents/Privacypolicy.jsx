@@ -5,7 +5,7 @@ const Privacypolicy = () => {
   return (
     <div className='mb-4 privacywrapper'>
       
-        <h1 className='privacyhead'>Privacy Policy</h1>
+        <h1 className='privacyhead text-4xl'>Privacy Policy</h1>
         <div className='privacyMain'>
         <p>
         Beiyo.in ("Beiyo", "we", "us", or "our") is committed to protecting the privacy of our users. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our website.

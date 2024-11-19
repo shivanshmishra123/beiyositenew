@@ -3,7 +3,7 @@ import React from 'react'
 const RefundPolicy = () => {
   return (
     <div className='privacywrapper mb-4'>
-                <h1 className="privacyhead" id="refundPolicy">Refund Policy</h1> 
+                <h1 className="privacyhead text-4xl" id="refundPolicy">Refund Policy</h1> 
         <div className="privacyMain">
           <p style={{ marginBottom: "1rem" }}>
             At Beiyo, we strive to provide the best accommodation experience for

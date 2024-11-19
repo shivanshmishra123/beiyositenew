@@ -3,7 +3,7 @@ import { Home, Target, Compass, Heart } from 'lucide-react';
 
 const AboutPage = () => {
   return (
-    <div className="bg-yellow-50 min-h-screen p-8">
+    <div className="min-h-screen p-8">
       <div className="grid grid-cols-4 grid-rows-3 gap-6 max-w-6xl mx-auto">
         {/* Header Tile */}
         <div className="col-span-4 mt-16 bg-black  p-6 rounded-xl flex flex-col justify-center items-center">
@@ -20,11 +20,11 @@ const AboutPage = () => {
         </div>
 
         {/* Image Tile */}
-        <div className="col-span-2 row-span-2 bg-transparent rounded-xl overflow-hidden">
+        <div className="col-span-2 row-span-2  rounded-xl overflow-hidden">
           <img 
             src="/images/aboutuspng.png" 
             alt="Team" 
-            className="w-full h-full object-cover opacity-70"
+            className="w-full h-full object-cover opacity-95"
           />
         </div>
 

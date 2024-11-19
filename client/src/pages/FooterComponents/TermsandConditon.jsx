@@ -6,8 +6,8 @@ const TermsandConditon = () => {
     <div>
 
       {" "}
-      <div className="privacywrapper">
-        <h1 className="privacyhead">Terms & Conditions</h1>
+      <div className="privacywrapper mb-4">
+        <h1 className="privacyhead text-4xl">Terms & Conditions</h1>
         <div className="privacyMain">
           <p style={{ marginBottom: "1rem" }}>
             {" "}
