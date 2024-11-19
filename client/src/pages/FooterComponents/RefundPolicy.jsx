@@ -2,7 +2,7 @@ import React from 'react'
 
 const RefundPolicy = () => {
   return (
-    <div className='privacywrapper'>
+    <div className='privacywrapper mb-4'>
                 <h1 className="privacyhead" id="refundPolicy">Refund Policy</h1> 
         <div className="privacyMain">
           <p style={{ marginBottom: "1rem" }}>

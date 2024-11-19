@@ -3,7 +3,7 @@ import './PrivacyPolicy.css'
 const Privacypolicy = () => {
   document.title='Privacy Policy'
   return (
-    <div className='privacywrapper'>
+    <div className='mb-4 privacywrapper'>
       
         <h1 className='privacyhead'>Privacy Policy</h1>
         <div className='privacyMain'>
