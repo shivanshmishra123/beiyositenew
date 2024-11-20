@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import api from '@/api/apiKey';
 import Cookies from 'js-cookie';
-
-const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
-  const [formFee, setFormFee] = useState(1);
+import loadRazorpayScript from "@/loadPaymentfunction/loadRazorpayScript";
+import { useNavigate } from 'react-router-dom';
+const StepSix = ({ updatebookingDetails, onPaymentComplete, bookingDetails }) => {
+  const [formFee, setFormFee] = useState(999);
   const [maintainaceCharge, setmaintainaceCharge] = useState(1000);
   const [totalAmount, setTotalAmount] = useState(formFee);
   const [selectedItems, setSelectedItems] = useState({
@@ -14,7 +15,7 @@ const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
     extraDayPaymentAmount: false,
   });
 
- 
+ const navigate = useNavigate();
 
      
 
@@ -36,15 +37,15 @@ const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
     }
     if (updatedSelection.maintainaceCharge) {
       updatedTotal += Number(maintainaceCharge);
-      updateBookingData({maintainaceChargeStatus:true})
+      updatebookingDetails({maintainaceChargeStatus:true})
     }
     if (updatedSelection.securityDeposit) {
       updatedTotal += Number(bookingDetails.securityDeposit);
-      updateBookingData({securityDepositStatus:true})
+      updatebookingDetails({securityDepositStatus:true})
     }
     if (updatedSelection.extraDayPaymentAmount) {
       updatedTotal += bookingDetails.extraDayPaymentAmount;
-      updateBookingData({extraDayPaymentAmountStatus:true})
+      updatebookingDetails({extraDayPaymentAmountStatus:true})
     }
 
 
@@ -55,17 +56,84 @@ const StepSix = ({ updateBookingData, onPaymentComplete, bookingDetails }) => {
   };
 
   const handlePayment = async () => {
-    // API call to initiate the payment
-    // const response = await api.post(`https://beiyo-admin.in/api/pay/initiate`,{
-    //   amount:totalAmount
-    // })
-    const response = await api.post(`https://beiyo-admin.in/api/pay/initiate`,{
-      amount:totalAmount
-    })
-    const transactionId = response.data.data.merchantTransactionId;
-    window.location.href = response.data.data.instrumentResponse.redirectInfo.url;
-    Cookies.set('transactionId',transactionId);
-    Cookies.set('bookingData', JSON.stringify(bookingDetails));
+    const scriptLoaded = await loadRazorpayScript();
+
+    if (!scriptLoaded) {
+      alert("Razorpay SDK failed to load. Please check your connection.");
+      return;
+    }
+
+    try {
+      // Create an order by calling the backend
+      const { data: order } = await api.post("https://beiyo-admin.in/api/pay/razor/intiate", {
+        amount:totalAmount,
+      });
+
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Replace with your Razorpay Key ID
+        amount: order.amount,
+        currency: order.currency,
+        name: "BEIYO TECHNVEN PRIVATE LIMITED",
+        description: "Booking Bed",
+        // image: "/", // Optional
+        order_id: order.id, // Pass order ID returned by backend
+        handler: async (response) => {
+          // Verify payment on backend
+          try {
+            const verification = await api.post("https://beiyo-admin.in/api/pay/razor/verify", response);
+            if(verification.data.status="Payment verified"){
+              try {
+                const paymentSaveResponse = await api.post(`https://beiyo-admin.in/api/newResident/websiteBooking`, {
+                  name: bookingDetails.firstName + ' ' + bookingDetails.lastName,
+                  email: bookingDetails.email,
+                  mobileNumber: bookingDetails.mobileNumber,
+                  hostelId: bookingDetails.hostelId,
+                  roomNumberId: bookingDetails.roomNumberId,
+                  dateJoined: bookingDetails.dateJoined,
+                  rent: bookingDetails.rent,
+                  deposit: bookingDetails.securityDeposit,
+                  depositStatus: bookingDetails.securityDepositStatus,
+                  maintainaceCharge: bookingDetails.maintainaceCharge,
+                  maintainaceChargeStatus: bookingDetails.maintainaceChargeStatus,
+                  formFee: bookingDetails.formFee,
+                  formFeeStatus: bookingDetails.formFeeStatus,
+                  contractTerm: bookingDetails.contractTerm,
+                  extraDayPaymentAmount: bookingDetails.extraDayPaymentAmount,
+                  extraDayPaymentAmountStatus: bookingDetails.extraDayPaymentAmountStatus,
+                  extraDays: bookingDetails.remainingDays,
+                  gender: bookingDetails.gender
+                });
+                const token = paymentSaveResponse.data.token;
+                Cookies.set('token', token);
+                navigate('/dashboard');
+              } catch (error) {
+                console.error('Error saving payment:', error);
+              }
+            }
+            // alert("Payment successful! " + verification.data.status);
+          } catch (error) {
+            alert("Payment verification failed! " + error.response.data.error);
+          }
+        },
+        prefill: {
+          name: bookingDetails.firstName+" "+bookingDetails.lastName, // Replace with actual data if available
+          email: bookingDetails.email,
+          contact: bookingDetails.mobileNumber,
+        },
+        theme: {
+          color: "#f7d441",
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      alert("Failed to create Razorpay order. Please try again.");
+      console.error(error);
+    }
+
+
+
   };
 
   return (

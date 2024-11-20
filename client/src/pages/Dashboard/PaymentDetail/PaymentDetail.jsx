@@ -9,6 +9,8 @@ import { ChevronDownCircle, ChevronUpCircle } from 'lucide-react';
 import dayjs from 'dayjs';
 import api from '@/api/apiKey';
 import Cookies from 'js-cookie';
+import loadRazorpayScript from '@/loadPaymentfunction/loadRazorpayScript';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -30,6 +32,7 @@ const PaymentStatus = () => {
       securityDepositStatus:true,
       extraDayPaymentAmountStatus:true,
   });
+  const navigate = useNavigate();
 
 
   const formatDate = (date) => {
@@ -49,7 +52,7 @@ const PaymentStatus = () => {
       try {
         const token = Cookies.get('token');
         const response = await api.get(`https://beiyo-admin.in/api/dashboard/payment/userPayments/${user._id}`, {
-          headers: { Authorization: `Bearer ${token}` } 
+          headers: { Authorization: `Bearer ${token}`} 
         });
         setPayments(response.data);
        
@@ -86,16 +89,65 @@ const PaymentStatus = () => {
       headers: { Authorization: `Bearer ${token}` }
     });
     const amount = response.data.amount;
-    const paymentResponse = await api.post('https://beiyo-admin.in/api/pay/initiate', {
-      amount: amount+additionalCharge,
-    });
-    Cookies.set('transactionId', transactionId);
-    // sessionStorage.setItem('transactionId', transactionId);
-    // sessionStorage.setItem('paymentId',id);
-    Cookies.set('paymentId', id);
-    const transactionId = paymentResponse.data.data.merchantTransactionId;
-    window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
 
+    const scriptLoaded = await loadRazorpayScript();
+
+    if (!scriptLoaded) {
+      alert("Razorpay SDK failed to load. Please check your connection.");
+      return;
+    }
+
+    try {
+      // Create an order by calling the backend
+      const { data: order } = await api.post("https://beiyo-admin.in/api/pay/razor/intiate", {
+        amount,
+      });
+
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Replace with your Razorpay Key ID
+        amount: order.amount,
+        currency: order.currency,
+        name: "Beiyo TECHNVEN PRIVATE LIMITED",
+        description: "Rent Payment",
+        // image: "/", // Optional
+        order_id: order.id, // Pass order ID returned by backend
+        handler: async (response) => {
+          // Verify payment on backend
+          try {
+            const verification = await api.post("https://beiyo-admin.in/api/pay/razor/verify", response);
+            alert("Payment successful! " + verification.data.status);
+            if(verification.data.status==="Payment verified"){
+              try {
+                 await api.put(`https://beiyo-admin.in/api/dashboard/onlinePaymentSave/${id}`);
+                // refetch payments
+                const updatedPayments = await api.get(`https://beiyo-admin.in/api/dashboard/payment/userPayments/${user._id}`, {
+                  headers: { Authorization: `Bearer ${token}` },
+                    });
+                    setPayments(updatedPayments)
+              } catch (error) {
+                console.error('Error saving payment:', error);
+              }
+            }
+          } catch (error) {
+            alert("Payment verification failed! " + error.response.data.error);
+          }
+        },
+        prefill: {
+          name: user.name, // Replace with actual data if available
+          email: user.email,
+          contact: user.mobileNumber,
+        },
+        theme: {
+          color: "#f7d441",
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      alert("Failed to create Razorpay order. Please try again.");
+      console.error(error);
+    }
   }
 
   const handleFuturePayment = async (id) => {
@@ -104,15 +156,66 @@ const PaymentStatus = () => {
       headers: { Authorization: `Bearer ${token}` }
     });
     const amount = response.data.amount;
-    const paymentResponse = await api.post('https://beiyo-admin.in/api/pay/initiate', {
-      amount: amount,
-    });
-    const transactionId = paymentResponse.data.data.merchantTransactionId;
-    window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
-    Cookies.set('transactionId', transactionId);
-    // sessionStorage.setItem('transactionId', transactionId);
-    // sessionStorage.setItem('paymentId',id);
-    Cookies.set('paymentId', id);
+
+    
+    const scriptLoaded = await loadRazorpayScript();
+
+    if (!scriptLoaded) {
+      alert("Razorpay SDK failed to load. Please check your connection.");
+      return;
+    }
+
+    try {
+      // Create an order by calling the backend
+      const { data: order } = await api.post("https://beiyo-admin.in/api/pay/razor/intiate", {
+        amount,
+      });
+
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Replace with your Razorpay Key ID
+        amount: order.amount,
+        currency: order.currency,
+        name: "Beiyo TECHNVEN PRIVATE LIMITED",
+        description: "Future Month Rent Payment",
+        // image: "/", // Optional
+        order_id: order.id, // Pass order ID returned by backend
+        handler: async (response) => {
+          // Verify payment on backend
+          try {
+            const verification = await api.post("https://beiyo-admin.in/api/pay/razor/verify", response);
+           
+            if(verification.data.status==="Payment verified"){
+              try {
+               await api.put(`https://beiyo-admin.in/api/dashboard/onlinePaymentSave/${id}`);
+                    // Re-fetch the payments
+          const updatedPayments = await api.get(`https://beiyo-admin.in/api/dashboard/payment/userPayments/${user._id}`, {
+            headers: { Authorization: `Bearer ${token}` },
+              });
+    setPayments(updatedPayments.data);
+              } catch (error) {
+                console.error('Error saving payment:', error);
+              }
+            }
+          } catch (error) {
+            alert("Payment verification failed! " + error.response.data.error);
+          }
+        },
+        prefill: {
+          name: user.name, // Replace with actual data if available
+          email: user.email,
+          contact: user.mobileNumber,
+        },
+        theme: {
+          color: "#f7d441",
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      alert("Failed to create Razorpay order. Please try again.");
+      console.error(error);
+    }
   };
 
   if (loading) return <CircularProgress />;
@@ -149,7 +252,6 @@ const PaymentStatus = () => {
       }
     }
   });
-  console.log(pastPayments)
 
   const updateDuePaymentStatus =  (stepData) => {
     setDuePaymentStatus((prev) => ({ ...prev, ...stepData }));
@@ -187,16 +289,70 @@ const PaymentStatus = () => {
   const handleDuePayment=async(id)=>{
     try {
       const amount = dueAmountToBePayed
-      const paymentResponse = await api.post('https://beiyo-admin.in/api/pay/initiate', {
-        amount
-      });
-      const transactionId = paymentResponse.data.data.merchantTransactionId;
-      window.location.href = paymentResponse.data.data.instrumentResponse.redirectInfo.url;
-      Cookies.set('transactionId', transactionId);
-      // sessionStorage.setItem('transactionId', transactionId);
-      // sessionStorage.setItem('duePaymentId',id);
-      Cookies.set('duePaymentId',id)
-      sessionStorage.setItem('duePaymentStatus', JSON.stringify(duePaymentStatus));
+     
+    const scriptLoaded = await loadRazorpayScript();
+
+    if (!scriptLoaded) {
+      alert("Razorpay SDK failed to load. Please check your connection.");
+      return;
+    }
+
+    try {
+      // Create an order by calling the backend
+      const { data: order } = await api.post("https://beiyo-admin.in/api/pay/razor/intiate", {
+        amount,
+      },{headers:{apiKey:"2ef020635c1f449d81217fb993bdf55c"}});
+
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Replace with your Razorpay Key ID
+        amount: order.amount,
+        currency: order.currency,
+        name: "Beiyo TECHNVEN PRIVATE LIMITED",
+        description: "Due Payment",
+        // image: "/", // Optional
+        order_id: order.id, // Pass order ID returned by backend
+        handler: async (response) => {
+          // Verify payment on backend
+          try {
+            const verification = await api.post("https://beiyo-admin.in/api/pay/razor/verify", response);
+            // alert("Payment successful! " + verification.data.status);
+            if(verification.data.status==="Payment verified"){
+              try {
+                const duePaymentResponseSave = await api.put(`https://beiyo-admin.in/api/dashboard/payment/dueAmount/onlinePayed/${id}`, {
+                  maintainaceChargeStatus: duePaymentStatus.maintainaceChargeStatus,
+                  depositStatus: duePaymentStatus.securityDepositStatus,
+                  extraDayPaymentAmountStatus: duePaymentStatus.extraDayPaymentAmountStatus
+                });
+                console.log(duePaymentStatus.extraDayPaymentAmountStatus)
+                const token = Cookies.get('token')
+                const response = await api.get(`https://beiyo-admin.in/api/dashboard/payment/dueAmount/${user._id}`, {
+                  headers: { Authorization: `Bearer ${token}` } 
+                });
+                setDueAmountPayment(response.data);
+              } catch (error) {
+                console.log(error);
+              }
+            }
+          } catch (error) {
+            alert("Payment verification failed! " + error.response.data.error);
+          }
+        },
+        prefill: {
+          name: user.name, // Replace with actual data if available
+          email: user.email,
+          contact: user.mobileNumber,
+        },
+        theme: {
+          color: "#f7d441",
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      alert("Failed to create Razorpay order. Please try again.");
+      console.error(error);
+    }
     } catch (error) {
       console.log(error);
     }
@@ -246,6 +402,7 @@ const PaymentStatus = () => {
       checked={selectedItems.securityDeposit}
       onChange={() => handleCheckboxChange('securityDeposit')}
       className="mr-2"
+      disabled= {user.maintainaceCharge&&user.extraDayPaymentAmountStatus}
     />
     Security Deposit Amount [1 Month Rent] - ₹{user.deposit}
   </label>
@@ -260,6 +417,7 @@ const PaymentStatus = () => {
            checked={selectedItems.extraDayPaymentAmount}
            onChange={() => handleCheckboxChange('extraDayPaymentAmount')}
            className="mr-2"
+           disabled={user.depositStatus&&user.maintainaceCharge}
          />
          Advance Rent Amount [For {user.extraDays} Day] - ₹{user.extraDayPaymentAmount}
        </label>

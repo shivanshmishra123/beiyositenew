@@ -20,7 +20,7 @@ import ListYourProperty from './pages/ListYourProperty';
 import TermsandConditon from './pages/FooterComponents/TermsandConditon';
 import RefundPolicy from './pages/FooterComponents/RefundPolicy';
 import Payment from './components/payment/Payment';
-import PaymentStatus from './components/payment/PaymentStatus';
+// import PaymentStatus from './components/payment/PaymentStatus';
 import Dashboard from './pages/Dashboard/Dashboard';
 import { AuthProvider } from './context/AuthContext';
 import Login from './pages/auth/login';
@@ -35,6 +35,7 @@ import ResetPassword from './pages/auth/ResetPassword';
 import MapComponent from './components/googleMapComponent/page';
 import BookingPage from './pages/BookingPage/Bookingpage';
 import DiwaliLoader from './components/festiveSeason/DiwaliLoader';
+// import PaymentRazor from './testing/Payment';
 
 AOS.init();
 
@@ -72,7 +73,7 @@ function App() {
           <Route path='/termsandcondition' exact element={<TermsandConditon/>}/>
           <Route path='/refund-policy' exact element={<RefundPolicy/>}/>
           <Route path='/payment' exact element={<Payment/>}/>
-          <Route path='/paymentstatus' exact element={<PaymentStatus/>}/> 
+          {/* <Route path='/paymentstatus' exact element={<PaymentStatus/>}/>  */}
           <Route path='/map' exact element={<MapComponent/>}/> 
           {/* <Route path='/dashboard' exact element={<Dashboard/>}/> */}
           <Route path='/bookingpage/:hostelId' exact element={<BookingPage/>}/>
