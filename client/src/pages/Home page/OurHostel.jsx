@@ -9,7 +9,11 @@ const OurHostel = () => {
         <HostelsComponent
         noOfHostels = "3"
         />
-       <div className='explorediv'> <a href="/hostel" className='exploremore' style={{textAlign:'center',marginTop:'5px'}}>Explore more</a></div>
+       <div className='flex items-center justify-center mt-4 sm:mt-0 '><a href="/hostel" 
+   className="text-xl px-6 py-4 bg-[#ffc72c] rounded-full border-black border-2 drop-shadow-md transition-all 
+          hover:bg-black hover:text-white hover:drop-shadow-lg transform hover:translate-y-[-2px]">
+   Explore more
+</a></div>
     </div>
 
   )
