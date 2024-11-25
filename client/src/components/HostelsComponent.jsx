@@ -1,23 +1,20 @@
-import React, { useCallback } from 'react'
-// import Form from './Form';
-
+import React, { useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import  { useState, useEffect,useRef } from 'react';
-
-import { CircularProgress, Skeleton } from '@mui/material';
+import { useState, useEffect, useRef } from 'react';
+import { CircularProgress } from '@mui/material';
 import api from '@/api/apiKey';
-const HostelsComponent = ({notincludID, noOfHostels,searchBoolean}) => {
-    const [hostels, setHostels] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [filteredHostels, setFilteredHostels] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
-    const [page,setPage] = useState(1);
-    const navigate = useNavigate();
-    
-    const [filterGender, setFilterGender] = useState(null); // Boys, Girls, or null
-    const [filterArea, setFilterArea] = useState(null); // Area name or null
-    const [priceRange, setPriceRange] = useState(10000); // Max price
-    const searchTimeoutRef = useRef(null); // Ref for debouncing
+
+const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
+  const [hostels, setHostels] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [filteredHostels, setFilteredHostels] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [page, setPage] = useState(1);
+  const navigate = useNavigate();
+  const [filterGender, setFilterGender] = useState(null);
+  const [filterArea, setFilterArea] = useState(null);
+  const [priceRange, setPriceRange] = useState(10000);
+  const searchTimeoutRef = useRef(null);
     useEffect(() => {
         const fetchHostels = async()=>{
             const startTime = performance.now(); // Start timing
@@ -95,203 +92,174 @@ const HostelsComponent = ({notincludID, noOfHostels,searchBoolean}) => {
    
   return (
     <>
-        {loading ? (
-        <div className="laodingscreen">
-                <CircularProgress />
+      {loading ? (
+        <div className="flex items-center justify-center min-h-screen">
+          <CircularProgress />
         </div>
-    ) : (
-        <div className="hostels" id='hostel' >
-                      {/* Search Input and Button */}
-          {searchBoolean?(
-<div className="search-container mb-2 flex items-center gap-2 flex-wrap">
-<div className='flex items-center gap-2'>
-<input
-  type="text"
-  placeholder="Search hostels..."
-  value={searchTerm}
-  onChange={(e) => setSearchTerm(e.target.value)}
-  className="w-10/12 p-3 text-base border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-[#FFD700]"
-/>
-<button
-    onClick={handleSearchButton}
-    className="px-6 py-3 text-black text-base font-medium bg-[#FFD700]  rounded-md shadow-md hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1"
-  >
-    Search
-  </button>
-</div>
-                     {/* Gender Filter */}
-                     <div className="gender-filter flex gap-2 justify-between md:justify-start">
+      ) : (
+        <div className="p-4 space-y-6" id="hostel">
+          {/* Breadcrumb */}
+          <nav className="flex mb-4" aria-label="Breadcrumb">
+            <ol className="inline-flex items-center space-x-1 md:space-x-3">
+              <li className="inline-flex items-center">
+                <Link to="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-[#FFD700]">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <div className="flex items-center">
+                  <svg className="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
+                  </svg>
+                  <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2">Hostels</span>
+                </div>
+              </li>
+            </ol>
+          </nav>
+
+          {searchBoolean && (
+            <div className="backdrop-blur-sm bg-white/30 p-6 rounded-xl shadow-lg border border-white/20 space-y-4">
+              <div className="flex flex-wrap items-center gap-4">
+                <div className="flex-1 min-w-[300px]">
+                  <input
+                    type="text"
+                    placeholder="Search hostels..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full p-3 text-base rounded-lg bg-white/50 border border-white/30 focus:ring-2 focus:ring-[#FFD700] focus:border-transparent transition duration-200"
+                  />
+                </div>
                 <button
-                  onClick={() => setFilterGender("Boys")}
-                  className={`px-4 py-2 text-sm font-medium rounded-md shadow-md ${
-                    filterGender === "Boys"
-                      ? "bg-[#FFD700] text-black"
-                      : "bg-gray-100 hover:bg-[#FFD700] hover:text-black"
-                  }`}
+                  onClick={handleSearchButton}
+                  className="px-6 py-3 text-black font-medium bg-[#FFD700] rounded-lg shadow-md hover:bg-black hover:text-white transition duration-200"
                 >
-                  Boys
-                </button>
-                <button
-                  onClick={() => setFilterGender("Girls")}
-                  className={`px-4 py-2 text-sm font-medium rounded-md shadow-md ${
-                    filterGender === "Girls"
-                      ? "bg-[#FFD700] text-black"
-                      : "bg-gray-100 hover:bg-[#FFD700] hover:text-black"
-                  }`}
-                >
-                  Girls
-                </button>
-                <button
-                  onClick={() => setFilterGender(null)}
-                  className={`px-4 py-2 text-sm font-medium rounded-md shadow-md ${
-                    filterGender === null
-                      ? "bg-[#FFD700] text-black"
-                      : "bg-gray-100 hover:bg-[#FFD700] hover:text-black"
-                  }`}
-                >
-                  All
+                  Search
                 </button>
               </div>
 
-              {/* Area Filter */}
-              <div className="area-filter">
-            <select
-                value={filterArea} // Keeps the selected area in sync with the dropdown
-                 onChange={(e) => setFilterArea(e.target.value)} // Set selected area directly
-                 className="w-10/12 md:w-10/12 p-3 text-base border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FFD700] focus:border-[#FFD700]"
-                     >
-                      <option value="">All Areas</option>
-                      <option value="vallabh">Vallabh Nagar</option>
-                      <option value="sapna">Sapna Sangeeta</option>
-                      <option value="dhenu market">Dhenu Market</option> {/* Ensure the option value is consistent */}
+              <div className="flex flex-wrap gap-2 justify-between">
+  <div className="flex gap-8">
+    {['Boys', 'Girls', 'All'].map((type) => (
+      <button
+        key={type}
+        onClick={() => setFilterGender(type === 'All' ? null : type)}
+        className={`px-4  py-2 rounded-md text-sm font-medium transition duration-200 ${
+          (filterGender === type || (type === 'All' && filterGender === null))
+            ? 'bg-[#FFD700] text-black'
+            : 'bg-white/50 hover:bg-[#FFD700] hover:text-black'
+        }`}
+      >
+        {type}
+      </button>
+    ))}
+  </div>
+
+
+                <select
+                  value={filterArea}
+                  onChange={(e) => setFilterArea(e.target.value)}
+                  className="p-3  rounded-lg bg-white/50 border  border-white/30 focus:ring-2 focus:ring-[#FFD700] focus:border-transparent"
+                >
+                  <option value="">All Areas</option>
+                  <option value="vallabh">Vallabh Nagar</option>
+                  <option value="sapna">Sapna Sangeeta</option>
+                  <option value="dhenu market">Dhenu Market</option>
                 </select>
-            </div>
 
-              {/* Price Range Filter */}
-              <div className="price-range-filter flex flex-col items-center md:items-start gap-2  border border-gray-300 rounded-md p-1 bg-white">
-  <label className="font-medium text-sm text-black">Max Price: ₹{priceRange}</label>
-  <input
-    type="range"
-    min={3000}
-    max={10000}
-    step={500}
-    value={priceRange}
-    onChange={(e) => setPriceRange(Number(e.target.value))}
-    className="w-full  md:w-full rounded-lg border-2 border-[#FFD700] focus:outline-none focus:ring-1 focus:ring-black"
-  />
-</div>
+                <div className="w-full md:w-auto p-2 rounded-lg bg-white/50 border flex flex-col border-white/30">
+                  <label className="block mb-2 font-medium">Max Price: ₹{priceRange}</label>
+                  <input
+                    type="range"
+                    min={3000}
+                    max={10000}
+                    step={500}
+                    value={priceRange}
+                    onChange={(e) => setPriceRange(Number(e.target.value))}
+                    className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-gray-200"
+                  />
+                </div>
+              </div>
             </div>
-):(null)}
+          )}
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredHostels.map((hostel) => (
-                <div  key={hostel._id} >{
-                    hostel._id !== notincludID ?(
-                   
-                        // <a href={`/hostel/${hostel._id}`}>
-                                       <div  className="single-hostel" >
-                       
-                       <img  src={hostel.image} alt="" className='hostelimage' />
-                       <div className="hostelContentdiv">
-                           <div className='nameprice'>
-                           <div className="namediv">
-                               <h1 className='whitespace-nowrap'>{hostel.name}{hostel.hostelType==='Boys'?(<span>(Boys)</span>):((<span>(Girls)</span>))}</h1>
-                               <div style={{ display:"flex",flexDirection:'column',gap:'1rem'}}> 
-                                       <p style={{color:'grey',display:'flex',justifyContent:'center'}}><img style={{opacity:'30%'}} src="/images/location_Marker.svg" alt="" />{hostel.location}</p>
-                                      {hostel.siteTotalRemainingBeds===0?( <p style={{fontSize:'1.2rem',display:'flex', gap:'2px', alignItems:'center'}} >Fully Occupied</p>):( <p style={{fontSize:'1.2rem',display:'flex', gap:'2px', alignItems:'center'}} >Beds Remaining:   <span style={{fontWeight:'700',paddingTop:'2px'}}>{hostel.siteTotalRemainingBeds}</span></p>)}
-                                       <div className='featurehosteldiv' style={{display:'flex',alignItems:'center'}}>
+              hostel._id !== notincludID && (
+                <div key={hostel._id} className="group backdrop-blur-md bg-white/40 rounded-xl shadow-lg border border-white/20 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+                  <div className="relative">
+                    <img src={hostel.image} alt="" className="w-full h-48 object-cover" />
+                    <div className="absolute top-4 right-4 flex gap-2">
+                      <span className="px-3 py-1 rounded-full text-sm font-medium bg-[#FFD700]/90 text-black">
+                        {hostel.hostelType}
+                      </span>
+                      {hostel.siteTotalRemainingBeds === 0 ? (
+                        <span className="px-3 py-1 rounded-full text-sm font-medium bg-red-500/90 text-white">
+                          Full
+                        </span>
+                      ) : (
+                        <span className="px-3 py-1 rounded-full text-sm font-medium bg-green-500/90 text-white">
+                          {hostel.siteTotalRemainingBeds} Beds
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="p-6 space-y-4">
+                    <div className="flex justify-between items-start">
+                      <h2 className="text-xl font-bold">{hostel.name}</h2>
+                      <div className="text-right">
+                        <span className="text-green-600 font-medium">25% off</span>
+                        <p className="text-gray-500 line-through text-sm">₹{Math.floor(hostel.price/0.75)}</p>
+                        <p className="text-2xl font-bold">₹{hostel.price}<span className="text-sm text-gray-500">/Bed</span></p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-gray-600">
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+  </svg>
+  <span className="text-sm text-ellipsis overflow-hidden whitespace-nowrap">{hostel.location}</span>
+</div>
+
+
+                    <div className='featurehosteldiv' style={{display:'flex',alignItems:'center'}}>
                                            <img src="/images/Wifihostel.svg" alt="Wifi" />
                                            <img src="/images/Housekeeping.svg" alt="HouseKeeping" />
                                            <img src="/images/Cctv.svg" alt="CCTV" />
                                            <img src="/images/Parking.svg" alt="Parking" />
                                            <p style={{color:'grey',display:'flex',justifyContent:'center',fontSize:'1.3rem'}}>+4</p>
                                        </div>
-                                       </div>             
-                               </div>
-                              
-                           <div className="pricediv">
-                                   <p className='price'><span style={{color:"#65ae00"}}>25%off</span><span style={{color:'grey',textDecoration:'line-through'}}>{Math.floor(hostel.price/0.75)}</span>
-                                  
-                                   </p>
-                                  <p><span style={{fontWeight:'700',fontSize:'1.8rem',display:'flex',alignItems:'center'}}><img src="/images/rupee.svg" alt="" />{hostel.price} <span style={{color:'grey',fontSize:'1.3rem'}}>/Bed</span> </span></p>
-                                  
-                           </div>
-                           </div>
-                           <div className="ammentiesbeddiv">
-   
-                           </div>
-                      
-                           <div className='underlinepc'></div>
-             
-                           <div className="doubletripledivpc">
-                        <div className='bedcapacity'>
-                            {hostel.singlePrice&&(
-                                 <div className="double" >
-                                 <img src="/images/bed.svg" alt="" />
-                                 <p>Single</p>
-                             </div>
-                            )}
-                        {hostel.doublePrice&&(
-                            <div className="double" >
-                            <img src="/images/bed.svg" alt="" />
-                            <p>Double</p>
-                        </div>
-                        )}
-                {hostel.triplePrice&&(
-                            <div className="double" >
-                            <img src="/images/bed.svg" alt="" />
-                            <p>Triple</p>
-                        </div>
-                        )}
-                        </div>
-                        <a className='response' style={{cursor:"pointer"}} href={`/hostel/${hostel._id}`}>View Details </a>
-                           
-                           </div>
-                      
-                       </div>
-                       {/* <div className='underlinem'></div> */}
-                    
+                                   
 
-                       
-                           <div className="doubletriplediv items-center ">
-                        <div className='flex gap-1 '>
-                        {hostel.singlePrice&&(
-                                 <div className="double" >
-                                 <img src="/images/bed.svg" alt="" />
-                                 <p>Single</p>
-                             </div>
-                            )}
-                        {hostel.doublePrice&&(
-                            <div className="double" >
-                            <img src="/images/bed.svg" alt="" />
-                            <p>Double</p>
-                        </div>
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                      <div className="flex gap-3">
+                        {hostel.singlePrice && (
+                          <span className="px-3 py-1 rounded-full text-sm bg-white/50">Single</span>
                         )}
-                {hostel.triplePrice&&(
-                            <div className="double" >
-                            <img src="/images/bed.svg" alt="" />
-                            <p>Triple</p>
-                        </div>
+                        {hostel.doublePrice && (
+                          <span className="px-3 py-1 rounded-full text-sm bg-white/50">Double</span>
                         )}
-                        </div>
-                       <a className='response flex items-center justify-center' style={{cursor:"pointer"} }  href={`/hostel/${hostel._id}`} >
-                      
-                                  View Details
-                                
-                                   </a> 
-                           </div>
-                    
-                   </div>
-                //    </a>
-                    ):null  
-                }
+                        {hostel.triplePrice && (
+                          <span className="px-3 py-1 rounded-full text-sm bg-white/50">Triple</span>
+                        )}
+                      </div>
+                      <Link
+                        to={`/hostel/${hostel._id}`}
+                        className="px-4 py-2 text-sm font-medium text-black bg-[#FFD700] rounded-lg hover:bg-black hover:text-white transition duration-200"
+                      >
+                        View Details
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-                 
+              )
             ))}
+          </div>
         </div>
-    )}
+      )}
     </>
-  )
-}
+  );
+};
 
-export default HostelsComponent
-
+export default HostelsComponent;
