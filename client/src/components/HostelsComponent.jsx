@@ -244,12 +244,10 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
                           <span className="px-3 py-1 rounded-full text-sm bg-white/50">Triple</span>
                         )}
                       </div>
-                      <Link
-                        to={`/hostel/${hostel._id}`}
-                        className="px-4 py-2 text-sm font-medium text-black bg-[#FFD700] rounded-lg hover:bg-black hover:text-white transition duration-200"
-                      >
-                        View Details
-                      </Link>
+                      <a
+                        href={`/hostel/${hostel._id}`}
+                        className="h-10 w-25 whitespace-nowrap px-2 flex items-center justify-center  text-sm font-medium text-black bg-[#FFD700] rounded-lg hover:bg-black hover:text-white transition duration-200"
+                      >View Details</a>
                     </div>
                   </div>
                 </div>
