@@ -16,10 +16,10 @@
     text-align: center;
     font-size: 2.3rem;
 }
-.racesMobile .componetsMobile{
-    width: auto;
-}
-.racesMobile .componetsMobile .componentMobilefirst{
+/* .racesMobile .componentsMobile{
+    width:
+} */
+.racesMobile .componentsMobile .componentMobilefirst{
     min-height: 20rem;
     border-radius: 3.5625rem;
     background: rgba(255, 131, 52, 0.11);    
@@ -40,7 +40,7 @@
     height: 20rem;
 }
 
-.racesMobile .componetsMobile .componentMobilesecond{
+.racesMobile .componentsMobile .componentMobilesecond{
     min-height: 20rem;
     border-radius: 3.5625rem;
     background: rgba(217, 165, 174, 0.16);
@@ -51,7 +51,7 @@
     gap: 2rem;
     padding: 2rem 0rem;
 }
-.racesMobile .componetsMobile .componentMobilethird{
+.racesMobile .componentsMobile .componentMobilethird{
     border-radius: 3.5625rem;
     border-radius: 3.5625rem;
     background: rgba(0, 191, 255, 0.11);
@@ -64,18 +64,18 @@
     min-height: 20rem;
 }
 
-.racesMobile .componetsMobile .componentMobilethird p{
+.racesMobile .componentsMobile .componentMobilethird p{
     text-align: center;
     margin: 0 3rem;
     font-size: 1.2rem;
 }
-.racesMobile .componetsMobile .componentMobilefirst p{
+.racesMobile .componentsMobile .componentMobilefirst p{
     text-align: center;
     margin: 0 3rem;
     font-size: 1.2rem;
 }
 
-.racesMobile .componetsMobile .componentMobilesecond p{
+.racesMobile .componentsMobile .componentMobilesecond p{
     text-align: center;
     margin: 0 3rem;
     font-size: 1.2rem;
