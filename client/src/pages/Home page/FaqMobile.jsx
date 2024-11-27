@@ -2,8 +2,8 @@ import React from "react";
 import "./Homestyles/FaqMobile.css";
 const FaqMobile = () => {
   return (
-    <div className="faqMobile">
-      <h1>FAQ</h1>
+    <div className="faqMobile bg-gray-100 mt-0">
+      <h1 className="text-4xl">FAQ</h1>
       <div className="questionsAnswers">
         <button className="questionMobile" onClick={click1}>
         What is Beiyo and why it's different from others?
