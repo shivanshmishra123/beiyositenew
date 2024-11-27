@@ -95,11 +95,11 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
   return (
     <>
       {loading ? (
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-center  justify-center min-h-screen">
           <CircularProgress />
         </div>
       ) : (
-        <div className="p-4 space-y-6" id="hostel">
+        <div className="p-0  space-y-6 md:p-4 " id="hostel">
           {/* Breadcrumb */}
           <nav className="flex mb-4" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-3">
@@ -135,7 +135,7 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
 
           {searchBoolean && (
             <div className="backdrop-blur-sm bg-white/30 p-6 rounded-xl shadow-lg border border-white/20 space-y-4">
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4 justify-center">
                 <div className="flex-1 min-w-[300px]">
                   <input
                     type="text"

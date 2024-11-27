@@ -162,8 +162,8 @@ function Navbar() {
                 <a href="/login"><li><p>Login</p></li></a>
               )}
             </ul>
-            <img className='menubtn' id='open' src="/images/menuicon.svg" alt="" onClick={toggleMobileMenu} />
-            <img className='menubtn' id='close' src="/images/close.png" alt="" onClick={toggleMobileMenu} style={{ display: "none" }} />
+            <img className='h-10 w-10  md:hidden' id='open' src="/images/menu.svg" alt="" onClick={toggleMobileMenu} />
+            <img className='h-10 w-10  md:hidden' id='close' src="/images/closenav.png" alt="" onClick={toggleMobileMenu} style={{ display: "none" }} />
           </div>
         </div>
         <ul className='mobilenavlist'>

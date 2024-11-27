@@ -5,7 +5,7 @@ import HostelsComponent from '../components/HostelsComponent';
 const Hostel = () => {
     document.title = 'Explore our Hostels in Indore';
     return (
-        <div className="hostelMainpage page min-h-screen bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300">
+        <div className="hostelMainpage flex flex-col  page min-h-screen bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300">
             {/* Breadcrumb */}
             <p className="text-gray-600 text-sm flex items-center mb-4">
                 <a href="/" className="text-blue-500 hover:underline">

@@ -50,8 +50,8 @@ const Dashboard = () => {
        <div className="nav dashboardnav" id='header'>
         <div className="mainlist">
           <a href="/"> <img className='logo' id='dashboardlogo' src="/images/beiyo_logo2.svg" alt="" /></a>
-          <img className='menubtn' id='dashboardOpen' src="/images\menuicon.svg" alt="" onClick={toggleMobileMenu} />
-          <img className='menubtn' id='dashboardClose' src="/images\close.png" alt="" onClick={toggleMobileMenu} style={{display:"none"}} />
+          <img className='h-10 w-10 md:hidden' id='dashboardOpen' src="/images\menu.svg" alt="" onClick={toggleMobileMenu} />
+          <img className='h-10 w-10 md:hidden' id='dashboardClose' src="/images\closenav.png" alt="" onClick={toggleMobileMenu} style={{display:"none"}} />
         </div>
 
         <ul className='mobilenavlist flex flex-col gap-4'>

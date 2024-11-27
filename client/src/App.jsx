@@ -47,7 +47,7 @@ function App() {
   //   setLoading(false);
   // };
   return (
-    <div id='main'>    
+    <div id='main' className='bg-gray-100'>    
   {/* {loading ? (
         <DiwaliLoader onComplete={handleLoaderComplete} />
       ) : ( */}

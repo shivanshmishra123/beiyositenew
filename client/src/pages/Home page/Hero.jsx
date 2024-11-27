@@ -38,11 +38,7 @@ const Hero = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-8 lg:items-center gap-2">
         {/* Right Content (Image) */}
         <div className="lg:order-none order-1 relative">
-          <img
-            src="/images/nexus+1-min.jpg"
-            alt="Cozy Room"
-            className="rounded-lg shadow-lg"
-          />
+        <img src="/images/hero.png" alt="" className="rounded-lg shadow-lg w-full h-full" />
           {/* Optional Decoration */}
           <div className="absolute top-0 left-0 bg-yellow-500 w-16 h-16 rounded-full transform -translate-y-6 -translate-x-6"></div>
         </div>
@@ -58,7 +54,7 @@ const Hero = () => {
           <div className="mt-6 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
             <a
               href="/hostel"
-              className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg shadow-md text-lg font-medium"
+              className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg shadow-md text-lg font-medium"
             >
               Explore Hostels
             </a>
