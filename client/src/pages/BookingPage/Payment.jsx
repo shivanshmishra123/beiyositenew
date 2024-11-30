@@ -209,10 +209,14 @@ const StepSix = ({ updatebookingDetails, onPaymentComplete, bookingDetails }) =>
       </button>
 
       <ul className="mt-4 text-xs text-gray-600">
-        <li>• A minimum token amount of Rs. 999 per bed is required to confirm your booking.</li>
-        <li>• Before moving in, you must pay the listed refundable security deposit and rent for the current month.</li>
-        <li>• Room and bed allocation is at the discretion of the management and representatives.</li>
+        <li>• A minimum token amount of Rs. 999 per bed is required to confirm your booking. The token will be adjusted with your security deposit and is non-refundable in case of cancellation.        </li>
+        <li>• Before moving in, you must pay the listed refundable security deposit and the rent for the current month.</li>
+        <li>• Room and bed allocation is solely at the discretion of Beiyo and its representatives.</li>
         <li>• Rent, including any additional charges, must be paid before the 5th of each month to avoid late fees.</li>
+        <li>• Residents must inform Beiyo at least 30 days in advance if they plan to move out.</li>
+        <li>• To qualify for a full refund of the security deposit, a minimum stay of 6 month(s) is mandatory.</li>
+        <li>• At the end of your stay, a move-out charge of INR 2000 per tenant will be deducted to cover the upkeep of bed and room inventory.</li>
+        <li>• Beiyo reserves the right to establish community guidelines, which may include rules regarding the usage of common areas.</li>
       </ul>
     </div>
   );
