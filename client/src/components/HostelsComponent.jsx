@@ -14,6 +14,7 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
   const [filterGender, setFilterGender] = useState(null);
   const [filterArea, setFilterArea] = useState(null);
   const [priceRange, setPriceRange] = useState(10000);
+  const [discountPercentage,setDiscountPercentage]=useState(0);
   const searchTimeoutRef = useRef(null);
   const location = useLocation();
 
@@ -225,8 +226,8 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
                         <div className="flex justify-between items-start">
                           <h2 className="text-xl font-bold">{hostel.name}</h2>
                           <div className="text-right">
-                            <span className="text-green-600 font-medium">25% off</span>
-                            <p className="text-gray-500 line-through text-sm">₹{Math.floor(hostel.price/0.75)}</p>
+                            <span className="text-green-600 font-medium">{Math.floor(100-(hostel.price*100/hostel.maxPrice))}%</span>
+                            <p className="text-gray-500 line-through text-sm">₹{hostel.maxPrice}</p>
                             <p className="text-2xl font-bold">₹{hostel.price}<span className="text-sm text-gray-500">/Bed</span></p>
                           </div>
                         </div>

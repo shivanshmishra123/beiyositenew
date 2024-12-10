@@ -88,7 +88,7 @@ const PaymentStatus = () => {
      const response = await api.get(`https://beiyo-admin.in/api/dashboard/payment/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
-    const amount = response.data.amount;
+    const amount = response.data.amount+additionalCharge;
 
     const scriptLoaded = await loadRazorpayScript();
 
