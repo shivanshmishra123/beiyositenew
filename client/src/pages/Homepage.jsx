@@ -11,6 +11,7 @@ import FaqMobile from './Home page/FaqMobile';
 import Mainfeature from './Home page/Mainfeature';
 import CommuneMobile from './Home page/CommuneMobile';
 import OurHostel from './Home page/OurHostel';
+import Chatbot from '@/components/Chatbot';
 
 
 
@@ -23,11 +24,12 @@ function Homepage() {
       {/* <Scrolltext/> */}
       <Feature/>
       <OurHostel/>
-      <Mainfeature/>
-     <CommuneMobile/>
+      {/* <Mainfeature/> */}
+     {/* <CommuneMobile/> */}
       <Testimonial/> 
       <Faq/>
       <FaqMobile/>
+      {/* <Chatbot/> */}
      </div>
     </>
   )

@@ -301,7 +301,7 @@ const PaymentStatus = () => {
       // Create an order by calling the backend
       const { data: order } = await api.post("https://beiyo-admin.in/api/pay/razor/intiate", {
         amount,
-      },{headers:{apiKey:"2ef020635c1f449d81217fb993bdf55c"}});
+      },);
 
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID, // Replace with your Razorpay Key ID

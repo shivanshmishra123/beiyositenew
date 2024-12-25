@@ -27,6 +27,23 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
     }
   }, [location.search]);
 
+    // Update URL query string when searchTerm changes
+    const updateQueryString = (term) => {
+      const queryParams = new URLSearchParams(location.search);
+      if (term) {
+        queryParams.set("search", term);
+      } else {
+        queryParams.delete("search");
+      }
+      navigate({ search: queryParams.toString() }, { replace: true });
+    };
+  
+    const handleSearchInputChange = (e) => {
+      const term = e.target.value;
+      setSearchTerm(term);
+      updateQueryString(term); // Update the query string in the URL
+    };
+
   // Fetch hostels on mount
   useEffect(() => {
     const fetchHostels = async () => {
@@ -142,7 +159,7 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
                     type="text"
                     placeholder="Search hostels..."
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={handleSearchInputChange} // Update on change
                     className="w-full p-3 text-base rounded-lg bg-white/50 border border-white/30 focus:ring-2 focus:ring-[#FFD700] focus:border-transparent transition duration-200"
                   />
                 </div>
@@ -203,7 +220,10 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
               filteredHostels.map(
                 (hostel) =>
                   hostel._id !== notincludID && (
-                    <div key={hostel._id} className="group backdrop-blur-md bg-white/40 rounded-xl shadow-lg border border-white/20 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+                    <a href={`/hostel/${hostel._id}`}>
+                    <div key={hostel._id} className="group
+                   
+                     bg-white/40 rounded-xl shadow-lg border border-white/20 overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
                       <div className="relative">
                         <img src={hostel.image} alt="" className="w-full h-48 object-cover" />
                         <div className="absolute top-4 right-4 flex gap-2">
@@ -226,7 +246,7 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
                         <div className="flex justify-between items-start">
                           <h2 className="text-xl font-bold">{hostel.name}</h2>
                           <div className="text-right">
-                            <span className="text-green-600 font-medium">{Math.floor(100-(hostel.price*100/hostel.maxPrice))}%</span>
+                            <span className="text-green-600 font-medium">{Math.floor(100-(hostel.price*100/hostel.maxPrice))}%off</span>
                             <p className="text-gray-500 line-through text-sm">₹{hostel.maxPrice}</p>
                             <p className="text-2xl font-bold">₹{hostel.price}<span className="text-sm text-gray-500">/Bed</span></p>
                           </div>
@@ -269,6 +289,7 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
                         </div>
                       </div>
                     </div>
+                    </a>
                   )
               )
             ) : (

@@ -10,24 +10,38 @@ const TestimonialData = [
   {
     name: "Harsh Jain",
     image: "/images/fourthprofile.png",
-    quote: "Living here in beiyo is a game-changer! Great community, awesome facilities, and the staff rocks.",
+    quote: "Beiyo is close to my college and essential stores. It’s so convenient, and I never worry about long commutes anymore.",
     rating: 5,
-    highlights: ["Community", "Facilities", "Staff Support"]
+    highlights: ["Location", "Convenient"]
   },
   {
     name: "Deepak Sharma", 
     image: "/images/firstprofile1.png",
-    quote: "This type of living is a gem! From the welcoming community to the fantastic facilities.",
+    quote: "Beiyo’s community events are the best part of my week. I’ve learned so much and made amazing friends through these fun activities.",
     rating: 4,
-    highlights: ["Welcoming Environment", "Top Facilities"]
+    highlights: ["Community", "Learnings"]
   },
   {
     name: "Mukul Gupta",
     image: "/images/secondprofile.png", 
-    quote: "Couldn't have asked for a better experience! Living here has genuinely enriched my student life.",
+    quote: "I always feel safe at Beiyo. With 24/7 security and strict entry rules for outsiders, it’s a worry-free place to focus on my studies.",
     rating: 5,
-    highlights: ["Student Life", "Personal Growth"]
-  }
+    highlights: ["Safe and Secure"]
+  },
+  {
+    name: "Mukul Gupta",
+    image: "/images/secondprofile.png", 
+    quote: "Beiyo truly feels like home for me. The friendly culture and supportive people make it easy to make friends and feel comfortable every day.",
+    rating: 5,
+    highlights: ["Culture", "Vibes"]
+  },
+  {
+    name: "Mukul Gupta",
+    image: "/images/secondprofile.png", 
+    quote: "Beiyo has everything I need. The Wi-Fi is reliable, the rooms are always clean, and having washing facilities here saves me so much time..",
+    rating: 5,
+    highlights: ["Reliable", "Comfy"]
+  },
 ];
 
 const Testimonial = () => {

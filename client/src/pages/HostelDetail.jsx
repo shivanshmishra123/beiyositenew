@@ -7,11 +7,11 @@ import api from '@/api/apiKey';
 import 'swiper/css';
 import HostelsComponent from '../components/HostelsComponent';
 import 'swiper/css/navigation';
-
+import { useNavigate } from 'react-router-dom';
 const HostelDetail = () => {
   const { id } = useParams();
   const [hostel, setHostel] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchSingleHostel = async () => {
       try {
@@ -19,13 +19,25 @@ const HostelDetail = () => {
         setHostel(response.data);
         if (response.data) {
           document.title = `Book your Bed in ${response.data.name}`;
-        }
+       // Update URL query string when locationLink changes
+       const queryParams = new URLSearchParams(location.search);
+       if (response.data.locationLink) {
+         queryParams.set("location", response.data.location);
+       } else {
+         queryParams.delete("location");
+       }
+
+       // Update the URL with the new query string
+       navigate(`${location.pathname}?${queryParams.toString()}`, { replace: true });
+     }
+
       } catch (error) {
         console.log(error);
       }
     }
     fetchSingleHostel();
   }, [id]);
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white/5 to-gray-50/10 p-4 md:p-8">
@@ -188,7 +200,7 @@ const HostelDetail = () => {
                 </a>
               </div>
               <div>
-                <MapComponent/>
+                <MapComponent />
               </div>
             </div>
           </div>

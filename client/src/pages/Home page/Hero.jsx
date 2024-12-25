@@ -29,6 +29,11 @@ const Hero = () => {
       // Navigate to the hostel page with the search term as a query parameter
       navigate(`/hostel?search=${encodeURIComponent(searchTerm)}`);
     };
+    const handleKeyDown = (e) => {
+      if (e.key === "Enter") {
+        handleSearch();
+      }
+    };
   
 
   return (
@@ -74,6 +79,7 @@ const Hero = () => {
           type="text"
           placeholder="Enter location or preferences..."
           value={searchTerm}
+          onKeyDown={handleKeyDown}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="flex-1 border border-gray-300 w-full rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
         />

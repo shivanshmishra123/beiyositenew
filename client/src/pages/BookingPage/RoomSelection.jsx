@@ -4,6 +4,7 @@ import api from '@/api/apiKey';
 import React, { useEffect, useState } from 'react';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/hooks/use-toast';
+import moment from 'moment';
 const StepFive= ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, prevStep }) => {
   const { toast } = useToast();
   const [availableRooms, setAvailableRooms] = useState([]);
@@ -30,22 +31,32 @@ const StepFive= ({ hostelId, selectedRoomCategory, updateBookingData, nextStep, 
   }, [hostelId, selectedRoomCategory]);
 
   const handleRoomSelect = (room) => {
-
+    let remainingDays=0
     const oneDayRent = Math.ceil(room.price/30);
-    console.log(oneDayRent);
     const currentDate = new Date();
-    console.log(currentDate);
-    const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
-    console.log(nextMonth)
-    const remainingDays = Math.ceil((nextMonth - currentDate) / (1000 * 60 * 60 * 24));
-    setRemainingDays(remainingDays);
+    // Calculate the first day of the current month
+  const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+
+  // Calculate the first day of the next month
+  const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+    
+   
+   
+    if (currentDate.getTime() === firstDayOfMonth.getTime()) {
+       remainingDays = 0
+    } else {
+       remainingDays = Math.ceil((nextMonth - currentDate) / (1000 * 60 * 60 * 24));
+    }
     const remainingDaysRent = oneDayRent * remainingDays;
-    console.log(remainingDaysRent);
+   
+   
+   
     setSelectedRoom(room.roomNumber);
     setRentAmount(room.price);
     setRoomNumberId(room._id);
     setSecurityDeposit(room.price);
-    setExtraDayPaymentAmount(remainingDaysRent)
+    setRemainingDays(remainingDays);
+    setExtraDayPaymentAmount(remainingDaysRent);
   };
 
   const handleContinue = () => {

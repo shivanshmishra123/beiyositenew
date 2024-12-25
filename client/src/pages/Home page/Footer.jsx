@@ -53,7 +53,7 @@ const Footer = () => {
      <div className="socialmediadiv">
      <a href="https://in.linkedin.com/company/beiyo" target="_blank"><p className='socilamediaMobile' ><img src="/images/Linkedin.svg" alt="" /></p></a>
      <a href="https://www.instagram.com/beiyo.in/" target="_blank"><p className='socilamediaMobile' ><img src="/images/Instagram.svg" alt="" /></p></a>
-     <a href="https://www.threads.net/@beiyo.in/" target="_blank"><p className='socilamediaMobile' ><img src="/images/Twitter.svg" alt="" /></p></a>
+     <a href="https://x.com/beiyo_" target="_blank"><p className='socilamediaMobile' ><img src="/images/Twitter.svg" alt="" /></p></a>
      </div>
    
    
