@@ -50,7 +50,11 @@ const HostelsComponent = ({ notincludID, noOfHostels, searchBoolean }) => {
       const startTime = performance.now(); // Start timing
       setLoading(true);
       try {
-        const response = await api.get(`https://beiyo-admin.in/api/hostels`);
+        const response = await api.get(`https://beiyo-admin.in/api/hostels`, {
+          headers: {
+            'apikey': 'apikey'  
+          }
+        });
         const endTime = performance.now(); // End timing
         if (noOfHostels === null) {
           setHostels(response.data);

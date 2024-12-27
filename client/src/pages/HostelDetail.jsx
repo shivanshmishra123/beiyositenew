@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { useParams } from 'react-router-dom';
@@ -8,10 +8,49 @@ import 'swiper/css';
 import HostelsComponent from '../components/HostelsComponent';
 import 'swiper/css/navigation';
 import { useNavigate } from 'react-router-dom';
+import { Modal, Box } from '@mui/material';
+import { Close, ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material';
 const HostelDetail = () => {
   const { id } = useParams();
   const [hostel, setHostel] = useState(null);
   const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const swiperRef = useRef(null);
+
+  // Define the list of hostel images
+  const hostelImages = [
+    hostel?.image,
+    hostel?.image2,
+    hostel?.image3,
+  ].filter(Boolean); // Filters out undefined or null values
+
+  // Handle image click to open modal
+  const handleImageClick = useCallback((index) => {
+    setCurrentImageIndex(index);
+    setModalOpen(true);
+  }, []);
+
+  // Handle modal close
+  const handleCloseModal = useCallback(() => {
+    setModalOpen(false);
+    setCurrentImageIndex(0);
+  }, []);
+
+  // Navigate to the previous image
+  const handlePrevious = useCallback(() => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? hostelImages.length - 1 : prevIndex - 1
+    );
+  }, [hostelImages]);
+
+  // Navigate to the next image
+  const handleNext = useCallback(() => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === hostelImages.length - 1 ? 0 : prevIndex + 1
+    );
+  }, [hostelImages]);
+
   useEffect(() => {
     const fetchSingleHostel = async () => {
       try {
@@ -20,7 +59,7 @@ const HostelDetail = () => {
         if (response.data) {
           document.title = `Book your Bed in ${response.data.name}`;
        // Update URL query string when locationLink changes
-       const queryParams = new URLSearchParams(location.search);
+       const queryParams = new URLSearchParams(window.location.search);
        if (response.data.locationLink) {
          queryParams.set("location", response.data.location);
        } else {
@@ -36,7 +75,7 @@ const HostelDetail = () => {
       }
     }
     fetchSingleHostel();
-  }, [id]);
+  }, [id, navigate]);
 
 
   return (
@@ -107,7 +146,9 @@ const HostelDetail = () => {
           {/* Image Slider */}
           <div className="lg:col-span-2">
             <div className="rounded-xl overflow-hidden shadow-lg">
+              {hostelImages.length > 0 && (
               <Swiper
+                ref={swiperRef}
                 modules={[Navigation, Autoplay]}
                 slidesPerView={1}
                 loop={true}
@@ -118,20 +159,18 @@ const HostelDetail = () => {
                 }}
                 className="aspect-video"
               >
-                <SwiperSlide>
-                  <img src={hostel?.image} alt="" className="w-full h-full object-cover" />
-                </SwiperSlide>
-                {hostel?.image2 && (
-                  <SwiperSlide>
-                    <img src={hostel?.image2} alt="" className="w-full h-full object-cover" />
+                {hostelImages.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <img 
+                      src={image} 
+                      alt={`Hostel Image ${index + 1}`} 
+                      className="w-full h-full object-cover cursor-pointer"
+                      onClick={() => handleImageClick(index)} 
+                    />
                   </SwiperSlide>
-                )}
-                {hostel?.image3 && (
-                  <SwiperSlide>
-                    <img src={hostel?.image3} alt="" className="w-full h-full object-cover" />
-                  </SwiperSlide>
-                )}
+                ))}
               </Swiper>
+              )}
             </div>
           </div>
 
@@ -264,6 +303,53 @@ const HostelDetail = () => {
         <h2 className="text-2xl font-bold mb-6">Other Hostels</h2>
         <HostelsComponent notincludID={hostel?._id} />
       </div>
+
+      {/* Image Modal */}
+      <Modal
+          open={modalOpen}
+          onClose={handleCloseModal}
+          aria-labelledby="modal-title"
+          aria-describedby="modal-description"
+        >
+          <div className="fixed top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm flex items-center justify-center rounded-none shadow-lg p-4 overflow-auto transition-opacity duration-700">
+
+          {hostelImages[currentImageIndex ] ? (
+            <img
+              src={hostelImages[currentImageIndex ]}
+              alt="Selected Hostel"
+              className="max-w-full max-h-[90vh] rounded-2xl border-2 border-[#ffc72c] object-contain transition-opacity duration-700"
+              loading="lazy"
+            />
+          ) : (
+            <p className="text-white">Image could not be loaded.</p>
+          )}
+
+            {/* Close Button */}
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-6 bg-[#ef4444] text-white p-2 rounded-full hover:bg-[#ef4444]/80 transition-colors"
+            >
+              <Close/>
+            </button>
+
+            {/* Previous Button */}
+          <button
+            onClick={handlePrevious}
+            className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-[#ffc72c] text-white p-3 rounded-s-xl hover:bg-[#ffc72c]/80"
+          >
+            <ArrowBackIosNew/>
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={handleNext}
+            className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-[#ffc72c] text-white p-3 rounded-e-xl hover:bg-[#ffc72c]/80"
+          >
+            <ArrowForwardIos/>
+          </button>
+        </div>
+      </Modal>
+
     </div>
   );
 };
