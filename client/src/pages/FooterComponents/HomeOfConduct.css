@@ -4,6 +4,10 @@
     flex-direction:column;
     display: flex;
 }
+.highlightrule{
+    font-weight: 600;
+    font-size: 24px;
+}
 .paraHomeofconduct{
     gap: 1rem;
     font-size: 1.2rem;
@@ -12,7 +16,9 @@
     margin-top: 1rem;
    background-color: white;
    padding: 1rem;
-   border-radius: 30px;
+   border-radius: 20px;
+    border-color:black;
+    border-width:3px;
 }
 .paraHomeofconduct p{
     font-weight: 400;   

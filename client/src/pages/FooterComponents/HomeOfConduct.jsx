@@ -4,8 +4,8 @@ const HomeOfConduct = () => {
   return (
     <div className='rulepage' >
        <div style={{display:'flex',flexDirection:'column',alignItems:'center', textAlign:'center' }} className='headingrule'>
-       <h1 style={{fontWeight:'500' ,display:'inline',outline:'none',border:'0px'}}>Home Code Of Conduct</h1>
-        <hr className='underLineheading' style={{backgroundColor:'#FFC72C',width:'22.5rem',height:'0.5rem'}} />
+       <h1 style={{fontWeight: '500',fontSize: '36px',marginBottom: '0.5rem',textDecoration: 'underline',
+textDecorationColor: 'rgb(279, 179, 8)', textDecorationThickness: '0.5rem',textDecorationSkipInk: 'none',}}>Home Code Of Conduct</h1>
        </div>
        <div className='paraHomeofconduct' >
        <p style={{fontWeight:'500'}}> <span className='highlightrule'>Welcome to Beiyo</span>, where we prioritize a harmonious living environment for all our residents. To ensure a pleasant and safe experience for everyone, we have established the following house rules:</p>
