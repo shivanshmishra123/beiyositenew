@@ -44,8 +44,8 @@ const PaymentStatus = () => {
   const dayofMonth = today.date();
   let additionalCharge = 0;
 
-  if (dayofMonth > 7) {
-    additionalCharge = (dayofMonth - 7) * 100;
+  if (dayofMonth > 5) {
+    additionalCharge = (dayofMonth - 5) * 100;
   }
   useEffect(() => {
     const fetchPayments = async () => {
