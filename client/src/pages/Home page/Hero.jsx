@@ -40,7 +40,7 @@ const Hero = () => {
     <div className="bg-gray-100 min-h-screen flex items-center justify-center pt-[8rem] md:pt-20">
     <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
       {/* Responsive grid layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-8 lg:items-center gap-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-32 lg:items-center gap-2">
         {/* Right Content (Image) */}
         <div className="lg:order-none order-1 relative">
         <img src="/images/hero.png" alt="" className="rounded-lg shadow-lg w-full h-full" />
