@@ -1,5 +1,5 @@
 .listyourPropertyDiv {
-  height: 180vh;
+  height: 100rem;
   margin-top: 0;
   margin-bottom: 18rem;
   padding: 0 2rem;
@@ -38,24 +38,6 @@
           font-size: 2.5rem;
         }
 
-        /* .stats-container-div {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-width: fit-content;
-            .stats {
-              text-align: center;
-              div {
-                font-size: 16px;
-                font-weight: bold;
-                color: red;
-              }
-              p {
-                font-size: 12px;
-              }
-            }
-          } */
-
         .listFeatureDiv {
           align-items: center;
           display: flex;
@@ -74,9 +56,16 @@
           border-color: rgba(0, 0, 0, 0.4);
         }
       }
+      .stats-container-div {
+        .stats {
+          div {
+            font-size: 4rem;
+          }
+        }
+      }
       .rightlist {
-        margin-left: 30%;
-        margin-right: 30%;
+        padding-left: 30%;
+        padding-right: 30%;
       }
     }
   }
@@ -87,14 +76,228 @@
     font-weight: 600;
   }
 }
-@media (max-width: 750px) {
+
+@media (max-width: 480px) {
+  .listyourPropertyDiv {
+    height: 105rem;
+    margin-top: 0;
+    padding-top: 7rem;
+    margin-bottom: 50rem;
+    img {
+      height: 2rem;
+      border-radius: 100px;
+      padding: 2px;
+      border: 2px solid black;
+    }
+    .mainList {
+      margin-left: 0rem;
+      margin-right: 0rem;
+
+      .sublist {
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        padding-top: 2rem;
+        flex-wrap: wrap;
+        h1 {
+          font-size: 28px;
+        }
+        h3 {
+          font-size: 24px;
+        }
+        .fastest {
+          font-size: 1.5rem;
+          margin-bottom: 30px;
+        }
+        .stats-container-div {
+          .stats {
+            div {
+              font-size: 2rem;
+            }
+          }
+        }
+        .rightlist {
+          padding-left: 2%;
+          padding-right: 2%;
+        }
+        .leftlist {
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+          h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+          }
+          .rightlist {
+            display: flex;
+            align-items: center;
+          }
+          .listFeatureDiv {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            h2 {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #000000;
+    }
+  }
+
   .stats-container-div {
     flex-direction: column;
   }
 }
-@media (max-width: 1000px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .listyourPropertyDiv {
-    height: 120vh;
+    height: 85rem;
+    margin-top: 0;
+    padding-top: 7rem;
+    margin-bottom: 50rem;
+    img {
+      height: 2rem;
+      border-radius: 100px;
+      padding: 2px;
+      border: 2px solid black;
+    }
+    .mainList {
+      margin-left: 0rem;
+      margin-right: 0rem;
+
+      .sublist {
+        /* display: flex; */
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        padding-top: 2rem;
+        flex-wrap: wrap;
+        h1 {
+          font-size: 28px;
+        }
+        h3 {
+          font-size: 24px;
+        }
+        .fastest {
+          font-size: 1.5rem;
+          margin-bottom: 30px;
+        }
+        .stats-container-div {
+          .stats {
+            div {
+              font-size: 2rem;
+            }
+          }
+        }
+        .rightlist {
+          padding-left: 2%;
+          padding-right: 2%;
+        }
+        .leftlist {
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+          h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+          }
+          .rightlist {
+            display: flex;
+            align-items: center;
+          }
+          .listFeatureDiv {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            h2 {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #000000;
+    }
+  }
+
+  .stats-container-div {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1000px) {
+  .listyourPropertyDiv {
+    height: 74rem;
+    margin-top: 0;
+    padding-top: 7rem;
+    margin-bottom: 50rem;
+    img {
+      height: 2rem;
+      border-radius: 100px;
+      padding: 2px;
+      border: 2px solid black;
+    }
+    .mainList {
+      margin-left: 0rem;
+      margin-right: 0rem;
+
+      .sublist {
+        /* display: flex; */
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        padding-top: 2rem;
+        flex-wrap: wrap;
+        .rightlist {
+          padding-left: 15%;
+          padding-right: 15%;
+        }
+        h3 {
+          font-size: 2rem;
+        }
+        .leftlist {
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+          h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+          }
+          .rightlist {
+            display: flex;
+            align-items: center;
+          }
+          .listFeatureDiv {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            h2 {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #000000;
+      /* text-decoration: underline; */
+    }
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1250px) {
+  .listyourPropertyDiv {
+    height: 80rem;
     margin-top: 0;
     padding-top: 7rem;
     margin-bottom: 50rem;
@@ -140,9 +343,8 @@
     }
     h1 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: #000000;
-      text-decoration: underline;
     }
   }
 }

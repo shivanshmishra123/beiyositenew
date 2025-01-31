@@ -73,7 +73,7 @@ const ListYourProperty = () => {
             </div>
           </div>
 
-          <h3 style={{ textAlign: "center", fontSize: "3rem" }}>
+          <h3 className="fastest" style={{ textAlign: "center" }}>
             We are the <span style={{ color: "#ffc72c" }}>Fastest Growing</span>{" "}
             Hostel Business
           </h3>
@@ -87,29 +87,17 @@ const ListYourProperty = () => {
             }}
           >
             <div className="stats" style={{ textAlign: "center" }}>
-              <div
-                style={{ color: "#ffc72c", fontWeight: 600, fontSize: "4rem" }}
-              >
-                500+
-              </div>
+              <div style={{ color: "#ffc72c", fontWeight: 600 }}>500+</div>
               <p style={{ textAlign: "center", fontSize: "1.5rem" }}>
                 Happy Customers
               </p>
             </div>
             <div className="stats" style={{ textAlign: "center" }}>
-              <div
-                style={{ color: "#ffc72c", fontWeight: 600, fontSize: "4rem" }}
-              >
-                10+
-              </div>
+              <div style={{ color: "#ffc72c", fontWeight: 600 }}>10+</div>
               <p style={{ textAlign: "center", fontSize: "1.5rem" }}>Hostels</p>
             </div>
             <div className="stats" style={{ textAlign: "center" }}>
-              <div
-                style={{ color: "#ffc72c", fontWeight: 600, fontSize: "4rem" }}
-              >
-                3+
-              </div>
+              <div style={{ color: "#ffc72c", fontWeight: 600 }}>3+</div>
               <p style={{ textAlign: "center", fontSize: "1.5rem" }}>
                 Community Events
               </p>
