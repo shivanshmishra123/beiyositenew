@@ -1,10 +1,10 @@
 import React from 'react';
-import { Home, Target, Compass, Heart, Users, Sparkles, Layout, ShieldCheck } from 'lucide-react';
+import { Home, Users, Sparkles, Layout, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-yellow-50 relative overflow-hidden">
+    <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute w-[400px] h-[400px] bg-yellow-100 blur-3xl opacity-20 -top-32 -left-32 rounded-full" />
 
@@ -27,15 +27,25 @@ const AboutPage = () => {
         <section className="grid lg:grid-cols-2 gap-8 mb-28">
           <motion.div 
             whileHover={{ scale: 1.02 }}
-            className="relative h-96 rounded-3xl overflow-hidden shadow-lg border-2 border-yellow-100"
+            className="relative h-full rounded-3xl shadow-lg border-2 border-yellow-200"
           >
-            <motion.img 
-              whileHover={{ scale: 1.1 }}
-              src="/images/aboutuspng.png" 
-              alt="Founders discussing" 
-              className="w-full h-full object-cover transform transition-all duration-500 scale-[1.03] translate-y-1 hover:scale-[1.01] will-change-transform"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            <div className="grid grid-cols-2 grid-rows-2 gap-4 p-6 h-full">
+              {[
+                { icon: Users, text: 'Vibrant Community', bg: 'bg-yellow-50' },
+                { icon: Home, text: 'Comfortable Spaces', bg: 'bg-yellow-100' },
+                { icon: Sparkles, text: 'Modern Amenities', bg: 'bg-yellow-200' },
+                { icon: Layout, text: 'Supportive Environment', bg: 'bg-yellow-300' },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  className={`${item.bg} p-6 rounded-2xl flex flex-col items-center justify-center text-center shadow-sm border-2 border-yellow-200`}
+                >
+                  <item.icon className="w-10 h-10 text-yellow-600 mb-4" />
+                  <p className="text-lg font-semibold text-black">{item.text}</p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
           
           <motion.div 
@@ -66,6 +76,7 @@ const AboutPage = () => {
           </motion.div>
         </section>
 
+        {/* Rest of the sections remain unchanged */}
         {/* VIBE Section */}
         <section className="mb-28">
           <motion.div 
@@ -189,6 +200,15 @@ const AboutPage = () => {
             Join our community where every detail is crafted for your comfort and success. 
             Your perfect student living experience awaits!
           </p>
+          {/* WhatsApp Community Button */}
+          <a
+            // href=""
+            target="_blank"
+            className="mt-6 px-4 py-3 bg-green-500 rounded-lg hover:bg-green-600 transition-all cursor-pointer flex w-[270px] justify-self-center items-center relative z-10"
+          > 
+            <span className=' text-white font-semibold z-20'>Join WhatsApp Community</span>
+            <img src="/images/whatsapp.svg" className='absolute w-20 left-[76%] z-10' alt="" />
+          </a>
         </motion.div>
       </div>
     </div>
