@@ -71,7 +71,7 @@ const Testimonial = () => {
               spaceBetween: 30,
             }
           }}
-          className="testimonial-swiper"
+          className="testimonial-swiper overflow-visible"
         >
           {TestimonialData.map((testimonial, index) => (
             <SwiperSlide key={index}>
