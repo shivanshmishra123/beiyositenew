@@ -1,9 +1,18 @@
 import React from "react";
 import "./ListyourProperty.css";
 import OwnerForm from "../components/OwnerForm";
+import {
+  Brain,
+  MapPinned,
+  Wrench,
+  CircleDollarSign,
+  ShieldCheck,
+  Handshake,
+} from "lucide-react";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/pagination";
+import { DollarSign } from "lucide-react";
 
 const ListYourProperty = () => {
   return (
@@ -18,54 +27,43 @@ const ListYourProperty = () => {
 
           <div className="leftlist">
             <div className="listFeatureDiv">
-              <img
-                src="/images/location_Marker.svg"
-                alt=""
-                style={{ height: "4rem" }}
-              />
+              <Wrench className="icon" />
               <div className="contentListdiv">
                 <h2>House Maintainance</h2>
                 <p>-We do frequent house repairs</p>
               </div>
             </div>
             <div className="listFeatureDiv">
-              <img
-                src="/images/location_Marker.svg"
-                alt=""
-                style={{ height: "4rem" }}
-              />
+              <MapPinned className="icon" />
               <div className="contentListdiv">
                 <h2>Goodbye to Unnoticed Rooms</h2>
                 <p>-We're Showcasing them Online</p>
               </div>
             </div>
             <div className="listFeatureDiv">
-              <img src="./images/brain.png" alt="" style={{ height: "4rem" }} />
+              <Brain className="icon" />
+              {/* <img src="./images/brain.png" alt="" style={{ height: "4rem" }} /> */}
               <div className="contentListdiv">
                 <h2>Unburdened Mind</h2>
                 <p>-Simplified hostel/PG management with Beiyo</p>
               </div>
             </div>
             <div className="listFeatureDiv">
-              <img
-                src="/images/responsible.png"
-                alt=""
-                style={{ height: "4rem" }}
-              />
+              <Handshake className="icon" />
               <div className="contentListdiv">
                 <h2>Comprehensive Services</h2>
                 <p>- From Maintenance to Design, Leave it All to Us!</p>
               </div>
             </div>
             <div className="listFeatureDiv">
-              <img src="/images/house.png" alt="" style={{ height: "4rem" }} />
+              <CircleDollarSign className="icon" />
               <div className="contentListdiv">
                 <h2>Effortless Rent Collection</h2>
                 <p>- Guaranteed Payment Every First Week</p>
               </div>
             </div>
             <div className="listFeatureDiv">
-              <img src="/images/secure.png" alt="" style={{ height: "4rem" }} />
+              <ShieldCheck className="icon" />
               <div className="contentListdiv">
                 <h2>Fully Secured</h2>
                 <p> -Complete Tenant Details Access on Our Platform</p>
@@ -73,39 +71,37 @@ const ListYourProperty = () => {
             </div>
           </div>
 
-          <h3 className="fastest" style={{ textAlign: "center" }}>
-            We are the <span style={{ color: "#ffc72c" }}>Fastest Growing</span>{" "}
-            Hostel Business
-          </h3>
+          <div className="stats-outer-div">
+            <h3 className="fastest" style={{ textAlign: "center" }}>
+              We are the{" "}
+              <span style={{ color: "#dcab25" }}>Fastest Growing</span> Hostel
+              Business
+            </h3>
 
-          <div
-            className="stats-container-div"
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "30px",
-            }}
-          >
-            <div className="stats" style={{ textAlign: "center" }}>
-              <div style={{ color: "#ffc72c", fontWeight: 600 }}>500+</div>
-              <p style={{ textAlign: "center", fontSize: "1.5rem" }}>
-                Happy Customers
-              </p>
+            <div className="stats-container-div">
+              <div className="stats" style={{ textAlign: "center" }}>
+                <div style={{ color: "#ffc72c", fontWeight: 600 }}>500+</div>
+                <p style={{ textAlign: "center", fontSize: "1.5rem" }}>
+                  Happy Customers
+                </p>
+              </div>
+              <div className="stats" style={{ textAlign: "center" }}>
+                <div style={{ color: "#ffc72c", fontWeight: 600 }}>10+</div>
+                <p style={{ textAlign: "center", fontSize: "1.5rem" }}>
+                  Hostels
+                </p>
+              </div>
+              <div className="stats" style={{ textAlign: "center" }}>
+                <div style={{ color: "#ffc72c", fontWeight: 600 }}>3+</div>
+                <p style={{ textAlign: "center", fontSize: "1.5rem" }}>
+                  Community Events
+                </p>
+              </div>
             </div>
-            <div className="stats" style={{ textAlign: "center" }}>
-              <div style={{ color: "#ffc72c", fontWeight: 600 }}>10+</div>
-              <p style={{ textAlign: "center", fontSize: "1.5rem" }}>Hostels</p>
-            </div>
-            <div className="stats" style={{ textAlign: "center" }}>
-              <div style={{ color: "#ffc72c", fontWeight: 600 }}>3+</div>
-              <p style={{ textAlign: "center", fontSize: "1.5rem" }}>
-                Community Events
-              </p>
-            </div>
+            <h2 style={{ textAlign: "center", fontSize: "1.5rem" }}>
+              Fill the form - And turn your Property into Profit with Ease❤️
+            </h2>
           </div>
-          {/* <h3 style={{ textAlign: "center", fontSize: "1.5rem" }}>
-            Join Us Today - And turn your property in profit with Ease❤️
-          </h3> */}
 
           <br />
 
